@@ -1,0 +1,19 @@
+{
+  "name": "@bookbliss/sdk",
+  "version": "0.0.0",
+  "description": "The sdk methods shared by backend and frontend applications",
+  "license": "UNLICENSED",
+  "private": true,
+  "repository": {
+    "directory": "packages/api",
+    "type": "git",
+    "url": "ssh://git@github.com/vramework/workspace-starter.git"
+  },
+  "author": "yasser.fadl@gmail.com",
+  "scripts": {
+    "tsc": "tsc"
+  },
+  "devDependencies": {
+    "typescript": "^5.5"
+  }
+}

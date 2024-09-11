@@ -1,0 +1,21 @@
+FROM --platform=linux/amd64 node:20-alpine
+
+WORKDIR /app
+
+ENV NODE_ENV=production
+
+COPY .yarnrc.yml .yarnrc.yml
+COPY .yarn/install-state.gz .yarn/install-state.gz
+
+COPY package.json package.json
+COPY yarn.lock yarn.lock
+
+COPY backends/express/ backends/express/
+COPY packages/functions/ packages/functions/
+
+RUN corepack enable
+RUN cd backends/api && yarn workspaces focus --production
+
+WORKDIR backends/express
+
+CMD ["yarn", "start"]
