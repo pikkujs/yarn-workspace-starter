@@ -1,9 +1,6 @@
-import { ConsoleLogger } from '@vramework/core/services/logger'
 import { VrameworkSessionService } from '@vramework/core/services/vramework-session-service'
 import { VrameworkJWTService } from '@vramework/core/services/vramework-jwt-service'
 import { Config, SingletonServices, UserSession } from './api'
-import { BookService } from './books/book.service'
-import { CreateExpressHTTPSessionServices, ExpressHTTPRequestService, ExpressHTTPResponseService } from '@vramework/deploy-express'
 import { getDatabaseConfig, KyselyDB } from './kysely.service'
 import { LocalSecretService } from '@vramework/core/services/local-secrets'
 import { PinoLogger } from './pino.service'
@@ -40,14 +37,5 @@ export const createSingletonServices = async (config: Config): Promise<Singleton
     jwt,
     sessionService,
     kysely,
-    books: new BookService(),
-  }
-}
-
-export const createSessionServices: CreateExpressHTTPSessionServices = async (singletonServices, _session, { req, res }) => {
-  return {
-    ...singletonServices,
-    httpRequest: new ExpressHTTPRequestService(req as any),
-    responseService: new ExpressHTTPResponseService(res as any)
   }
 }

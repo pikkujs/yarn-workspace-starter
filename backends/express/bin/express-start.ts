@@ -1,21 +1,17 @@
 import { Command } from 'commander'
 
 import { 
-  ExpressServer, 
-  ExpressHTTPRequestService, 
-  ExpressHTTPResponseService,
-  CreateExpressHTTPSessionServices,
+  VrameworkExpressServer, 
   getVrameworkConfig
 } from '@vramework/deploy-express'
 
-import { config } from '@bookbliss/functions/src/config'
-import { createSingletonServices } from '@bookbliss/functions/src/services'
+import { config } from '@todos/functions/src/config'
+import { createSingletonServices } from '@todos/functions/src/services'
+import { CreateSessionServices } from '@vramework/core/types'
 
-export const createSessionServices: CreateExpressHTTPSessionServices = async (singletonServices, _session, { req, res }) => {
+export const createSessionServices: CreateSessionServices = async (singletonServices, _session) => {
   return {
     ...singletonServices,
-    httpRequest: new ExpressHTTPRequestService(req as any),
-    httpResponse: new ExpressHTTPResponseService(res as any)
   }
 }
 
@@ -23,7 +19,7 @@ async function action({ configFile }: { configFile?: string }): Promise<void> {
   try {
     const vrameworkConfig = await getVrameworkConfig(configFile)
     const singletonServices = await createSingletonServices(config)
-    const appServer = new ExpressServer(
+    const appServer = new VrameworkExpressServer(
       vrameworkConfig,
       config, 
       singletonServices,

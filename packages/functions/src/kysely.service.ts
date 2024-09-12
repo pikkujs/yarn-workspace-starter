@@ -45,7 +45,7 @@ export const getDatabaseConfig = async (
             port: 5432,
             user: 'postgres',
             password: 'password',
-            database: 'bookbliss'
+            database: 'todos'
         }
     }
 }

@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "jsx": "react",
     "module": "commonjs",
     "noImplicitAny": false,
     "noUnusedLocals": false,
@@ -16,11 +17,11 @@
     "outDir": "dist",
     "baseUrl": ".",
     "paths": {
-      "@bookbliss/functions": ["./packages/functions"],
-      "@bookbliss/functions/*": ["./packages/functions/*"],
+      "@todos/functions": ["./packages/functions"],
+      "@todos/functions/*": ["./packages/functions/*"],
 
-      "@bookbliss/sdk": ["./packages/sdk"],
-      "@bookbliss/sdk/*": ["./packages/sdk/*"]
+      "@todos/sdk": ["./packages/sdk"],
+      "@todos/sdk/*": ["./packages/sdk/*"]
     }
   },
   "include": ["packages/**/*"],

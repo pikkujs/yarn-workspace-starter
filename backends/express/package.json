@@ -1,5 +1,5 @@
 {
-  "name": "@bookbliss/api",
+  "name": "@todos/api",
   "version": "0.0.0",
   "description": "",
   "license": "MIT",
@@ -12,11 +12,11 @@
     "dev": "tsnd --respawn bin/express.ts start | pino-pretty -i time,hostname,pid"
   },
   "dependencies": {
-    "@bookbliss/functions": "workspace:0.0.0",
-    "@bookbliss/sdk": "workspace:0.0.0",
-    "@vramework/aws": "^0.1.13",
-    "@vramework/core": "^0.1.13",
-    "@vramework/deploy-express": "^0.1.13",
+    "@todos/functions": "workspace:0.0.0",
+    "@todos/sdk": "workspace:0.0.0",
+    "@vramework/aws": "^0.1.15",
+    "@vramework/core": "^0.1.15",
+    "@vramework/deploy-express": "^0.1.15",
     "commander": "^12",
     "pino-http": "^10.2.0",
     "pino-pretty": "^7.6.1",

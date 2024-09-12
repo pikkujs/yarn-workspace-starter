@@ -2,7 +2,7 @@
 import { Command } from 'commander'
 import { start } from './express-start'
 
-const program = new Command('bookbliss')
+const program = new Command('todos')
 program.usage('[command]')
 
 start(program)

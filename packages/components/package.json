@@ -1,19 +1,22 @@
 {
-  "name": "@todos/sdk",
+  "name": "@todos/components",
   "version": "0.0.0",
-  "description": "The sdk methods shared by backend and frontend applications",
-  "license": "UNLICENSED",
+  "description": "The functions",
+  "license": "MIT",
   "private": true,
   "repository": {
-    "directory": "packages/api",
+    "directory": "packages/components",
     "type": "git",
     "url": "ssh://git@github.com/vramework/workspace-starter.git"
   },
   "author": "yasser.fadl@gmail.com",
+  "exports": {
+    "./*": "./src/*.tsx"
+  },
   "scripts": {
     "tsc": "tsc"
   },
-  "devDependencies": {
-    "typescript": "^5.5"
+  "peerDependencies": {
+    "react": "^18.0.0"
   }
 }
