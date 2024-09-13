@@ -1,10 +1,9 @@
-'server-only'
-import '@todos/functions/generated/schemas'
-
 import { VrameworkNextJS } from '@vramework/deploy-next'
 
 import { config } from '@todos/functions/src/config'
 import { getRoutes } from '@todos/functions/generated/routes'
+import '@todos/functions/generated/schemas'
+
 import { createSingletonServices } from '@todos/functions/src/services'
 import { CreateSessionServices } from '@vramework/core/types'
 import { APIRoutes } from '@todos/functions/src/vramework-types'

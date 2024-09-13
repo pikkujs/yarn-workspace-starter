@@ -1,12 +1,11 @@
-import { getVramework } from "../../vramework"
+import { vramework } from "../../vramework"
 import { GetServerSideProps } from "next"
 import { TodosCard } from "@todos/components/TodosCard"
 import { useCallback, useState } from "react"
 import { Todo as TTodo } from "@todos/sdk/types/todo.types"
 
 export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
-  const vramework = await getVramework()
-  const todos: TTodo[] = await vramework.ssrRequest(req, res, {
+  const todos: TTodo[] = await vramework().ssrRequest(req, res, {
     type: 'get',
     route: '/todos',
   }, {})

@@ -1,3 +1,5 @@
+'use client'
+
 import React, { FormEventHandler, PropsWithChildren, useCallback } from 'react';
 import { Todos } from '@todos/sdk/types/todo.types'
 
@@ -13,7 +15,7 @@ const TodoHeader = () => {
 export const TodosCard: React.FunctionComponent<PropsWithChildren<{
     todos: Todos,
     addTodo: (text: string) => Promise<void>,
-    toggleTodo: (text: string) => Promise<void>,
+    toggleTodo: (text: string, completedAt: Date | null) => Promise<void>,
 }>> = ({ todos, addTodo, toggleTodo }) => {
     const [newTodo, setNewTodo] = React.useState('')
 
@@ -29,7 +31,7 @@ export const TodosCard: React.FunctionComponent<PropsWithChildren<{
                 <TodoHeader />
 
                 {todos.map((todo) => <div key={todo.todoId}>
-                    <input className="hidden" type="checkbox" id={todo.todoId} checked={!!todo.completedAt} onChange={() => toggleTodo(todo.todoId)} />
+                    <input className="hidden" type="checkbox" id={todo.todoId} checked={!!todo.completedAt} onChange={() => toggleTodo(todo.todoId, todo.completedAt ? null : new Date())} />
                     <label className="flex items-center h-10 px-2 rounded cursor-pointer hover:bg-gray-100" htmlFor={todo.todoId}>
                         <span className="flex items-center justify-center w-5 h-5 text-transparent border-2 border-gray-300 rounded-full">
                             <svg className="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">

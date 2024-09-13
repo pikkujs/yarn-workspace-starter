@@ -1,5 +1,5 @@
 import { type Todo, type Todos, type CreateTodo, type JustTodoId, type UpdateTodo } from "@todos/sdk/types/todo.types";
-import { APIFunction, APIFunctionSessionless } from "../vramework-types";
+import { APIFunctionSessionless } from "../vramework-types";
 
 export const getTodos: APIFunctionSessionless<unknown, Todos> = async (services) => {
     return await services.kysely
