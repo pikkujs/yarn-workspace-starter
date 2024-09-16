@@ -24,12 +24,9 @@ export const createSingletonServices = async (config: Config): Promise<Singleton
     {
       cookieNames: ['session'],
       getSessionForCookieValue: async (cookieValue: string) => {
-        const session = await jwt.decodeSession(cookieValue)
-        console.log({session})
-        return session
+        return await jwt.decodeSession(cookieValue)
       },
       getSessionForAPIKey: async (apiKey: string) => {
-        console.log(apiKey)
         throw new Error('Not implemented')
       }
     }

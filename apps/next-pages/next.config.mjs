@@ -5,6 +5,11 @@ const nextConfig = {
   experimental: {
     swcPlugins: [["next-superjson-plugin", {}]],
   },
+  redirects: async () => [{
+    source: '/',
+    destination: '/todos',
+    permanent: true
+  }]
 };
 
 export default nextConfig;
