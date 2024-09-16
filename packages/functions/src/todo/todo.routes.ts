@@ -1,3 +1,4 @@
+import { isTodoCreator } from "../permissions";
 import { type APIRoutes } from "../vramework-types";
 import { getTodos, getTodo, deleteTodo, updateTodo, createTodo } from "./todo.functions";
 
@@ -14,7 +15,6 @@ export const routes: APIRoutes = [
         route: '/todo',
         schema: 'CreateTodo',
         func: createTodo,
-        requiresSession: false,
     },
     {
         type: 'get',
@@ -28,13 +28,17 @@ export const routes: APIRoutes = [
         route: '/todo/:todoId',
         schema: 'UpdateTodo',
         func: updateTodo,
-        requiresSession: false,
+        permissions: {
+            isTodoCreator
+        }
     },
     {
         type: 'delete',
         route: '/todo/:todoId',
         schema: 'JustTodoId',
         func: deleteTodo,
-        requiresSession: false,
+        permissions: {
+            isTodoCreator
+        }
     }
 ]

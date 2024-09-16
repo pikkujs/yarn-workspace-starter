@@ -4,7 +4,7 @@ import { migrate } from 'postgres-migrations'
 import { config } from '@todos/functions/src/config'
 import { LocalSecretService } from '@vramework/core/services/local-secrets'
 import { ConsoleLogger } from '@vramework/core/services/logger'
-import { getDatabaseConfig } from '@todos/functions/src/kysely.service'
+import { getDatabaseConfig } from '@todos/functions/src/services/kysely.service'
 
 export const migrateDB = async () => {
   const logger = new ConsoleLogger()
