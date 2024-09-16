@@ -1,0 +1,8 @@
+{
+    "rootDir": "../../packages/functions",
+    "vrameworkTypesModule": "@todos/functions/src/vramework-types",
+    "routeDirectories": ["./src"],
+    "routesOutputFile": "./generated/routes.ts",
+    "schemaOutputDirectory": "./generated",
+    "tsconfig": "./tsconfig.json"
+}

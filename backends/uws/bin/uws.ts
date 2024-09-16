@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 import { Command } from 'commander'
-import { start } from './express-start'
+import { start } from './uws-start'
 
-const program = new Command('express')
+const program = new Command('uws')
 program.usage('[command]')
 
 start(program)

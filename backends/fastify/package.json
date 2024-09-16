@@ -1,21 +1,21 @@
 {
-  "name": "@todos/api",
+  "name": "@todos/fastify",
   "version": "0.0.0",
   "description": "",
   "license": "MIT",
   "private": true,
   "author": "yasser.fadl@gmail.com",
-  "main": "bin/express.ts",
+  "main": "bin/fastify.ts",
   "scripts": {
     "tsc": "tsc",
-    "start": "ts-node --transpile-only bin/express.ts start",
-    "dev": "tsnd --respawn bin/express.ts start | pino-pretty -i time,hostname,pid"
+    "start": "ts-node --transpile-only bin/fastify.ts start",
+    "dev": "tsnd --respawn bin/fastify.ts start | pino-pretty -i time,hostname,pid"
   },
   "dependencies": {
     "@todos/functions": "workspace:0.0.0",
     "@todos/sdk": "workspace:0.0.0",
     "@vramework/core": "^0.1.15",
-    "@vramework/deploy-express": "^0.1.15",
+    "@vramework/deploy-fastify": "^0.1.15",
     "commander": "^12",
     "pino-pretty": "^7.6.1",
     "ts-node": "^10.9.2",
