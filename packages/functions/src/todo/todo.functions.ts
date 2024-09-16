@@ -4,7 +4,7 @@ import { APIFunction, APIFunctionSessionless } from "../vramework-types";
 export const getTodos: APIFunctionSessionless<unknown, Todos> = async (services) => {
     return await services.kysely
         .selectFrom('app.todo')
-        .leftJoin('app.user', 'app.todo.createdBy', 'app.user.userId')
+        .innerJoin('app.user', 'app.todo.createdBy', 'app.user.userId')
         .selectAll('app.todo')
         .select('app.user.name')
         .orderBy('createdAt', 'asc')
