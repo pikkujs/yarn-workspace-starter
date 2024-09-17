@@ -15,7 +15,7 @@ export const createSingletonServices = async (
     logger.setLevel(config.logLevel)
   }
 
-  const secrets = new LocalSecretService(logger)
+  const secrets = new LocalSecretService()
 
   const jwt = new JoseJWTService<UserSession>(
     async () => [

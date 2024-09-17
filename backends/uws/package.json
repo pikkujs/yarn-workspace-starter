@@ -14,8 +14,8 @@
   "dependencies": {
     "@todos/functions": "workspace:0.0.0",
     "@todos/sdk": "workspace:0.0.0",
-    "@vramework/core": "^0.1.15",
-    "@vramework/deploy-uws": "^0.1.15",
+    "@vramework/core": "^0.1.16",
+    "@vramework/deploy-uws": "^0.1.16",
     "commander": "^12",
     "pino-pretty": "^7.6.1",
     "ts-node": "^10.9.2",

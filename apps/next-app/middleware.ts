@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { JoseJWTService } from '@vramework/core/services/jose-jwt-service'
-import { VrameworkSessionService } from '@vramework/core/services/vramework-session-service'
+import { JoseJWTService } from '@vramework/services-local/jose-jwt-service'
+import { VrameworkSessionService } from '@vramework/services-local/vramework-session-service'
 import { UserSession } from '@todos/functions/src/api'
 import { VrameworkNextRequest } from '@vramework/deploy-next/vramework-next-request'
 
