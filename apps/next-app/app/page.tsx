@@ -1,6 +1,5 @@
-import { redirect } from "next/navigation";
+import { redirect } from 'next/navigation'
 
-export default async function Page () {
-    redirect(`/todos`)
+export default async function Page() {
+  redirect(`/todos`)
 }
-  

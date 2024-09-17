@@ -5,9 +5,9 @@ export const config: Config = {
   port: 4002,
   logLevel: LogLevel.info,
   secrets: {
-    postgresCredentials: 'POSTGRES_CREDENTIALS'
+    postgresCredentials: 'POSTGRES_CREDENTIALS',
   },
   sql: {
-    directory: `${__dirname}/../../../sql`
-  }
+    directory: `${__dirname}/../../../sql`,
+  },
 }

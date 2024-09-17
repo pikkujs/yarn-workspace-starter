@@ -1,10 +1,8 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-      "types": [
-          "node"
-      ],
-      "resolveJsonModule": true
+    "types": ["node"],
+    "resolveJsonModule": true
   },
   "files": [],
   "include": []

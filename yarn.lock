@@ -3407,6 +3407,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"prettier@npm:^3.3.3":
+  version: 3.3.3
+  resolution: "prettier@npm:3.3.3"
+  bin:
+    prettier: bin/prettier.cjs
+  checksum: 10/5beac1f30b5b40162532b8e2f7c3a4eb650910a2695e9c8512a62ffdc09dae93190c29db9107fa7f26d1b6c71aad3628ecb9b5de1ecb0911191099be109434d7
+  languageName: node
+  linkType: hard
+
 "proc-log@npm:^4.1.0, proc-log@npm:^4.2.0":
   version: 4.2.0
   resolution: "proc-log@npm:4.2.0"
@@ -4254,6 +4263,7 @@ __metadata:
     kysely-codegen: "npm:^0.16.6"
     pino: "npm:^9.3.2"
     postgres-migrations: "npm:^5.3.0"
+    prettier: "npm:^3.3.3"
     ts-node: "npm:^10.9.2"
     typescript: "npm:^5.5"
   languageName: unknown

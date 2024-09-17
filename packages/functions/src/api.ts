@@ -1,4 +1,8 @@
-import { CoreConfig, CoreSingletonServices, CoreUserSession } from '@vramework/core/types'
+import {
+  CoreConfig,
+  CoreSingletonServices,
+  CoreUserSession,
+} from '@vramework/core/types'
 import { SQLConfig } from './services/kysely.service'
 import { Kysely } from 'kysely'
 import { DB } from 'kysely-codegen'
@@ -7,19 +11,19 @@ import { VrameworkResponse } from '@vramework/core/vramework-response'
 import { JoseJWTService } from '@vramework/services-local'
 
 export interface Config extends CoreConfig {
-  sql: SQLConfig,
+  sql: SQLConfig
   secrets: {
     postgresCredentials: string
   }
 }
 
 export type SingletonServices = CoreSingletonServices & {
-  jwt: JoseJWTService<UserSession>,
+  jwt: JoseJWTService<UserSession>
   kysely: Kysely<DB>
 }
 
 export interface Services extends SingletonServices {
-  request: VrameworkRequest,
+  request: VrameworkRequest
   response: VrameworkResponse
 }
 

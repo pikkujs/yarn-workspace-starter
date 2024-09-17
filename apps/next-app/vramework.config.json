@@ -1,6 +1,6 @@
 {
-    "rootDir": "../..packages/functions",
-    "routeDirectories": ["./src"],
-    "schemaOutputDirectory": "./generated",
-    "tsconfig": "./tsconfig.json"
+  "rootDir": "../..packages/functions",
+  "routeDirectories": ["./src"],
+  "schemaOutputDirectory": "./generated",
+  "tsconfig": "./tsconfig.json"
 }

@@ -1,9 +1,9 @@
-import type { NextApiRequest, NextApiResponse } from "next";
-import { vramework } from "../../../vramework";
+import type { NextApiRequest, NextApiResponse } from 'next'
+import { vramework } from '../../../vramework'
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse,
+  res: NextApiResponse
 ) {
   const routeParts = req.query.params as string[]
   await vramework().apiRequest(req, res, {
@@ -11,4 +11,3 @@ export default async function handler(
     route: `/${routeParts.join('/')}`,
   })
 }
-

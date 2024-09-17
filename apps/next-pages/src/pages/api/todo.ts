@@ -1,9 +1,9 @@
-import type { NextApiRequest, NextApiResponse } from "next";
-import { vramework } from "../../../vramework";
+import type { NextApiRequest, NextApiResponse } from 'next'
+import { vramework } from '../../../vramework'
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse,
+  res: NextApiResponse
 ) {
   const method = req.method?.toLowerCase()
   let route = method == 'post' ? '/todo' : '/todo/:todoId'

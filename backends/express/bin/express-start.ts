@@ -1,15 +1,18 @@
 import { Command } from 'commander'
 
-import { 
-  VrameworkExpressServer, 
-  getVrameworkConfig
+import {
+  VrameworkExpressServer,
+  getVrameworkConfig,
 } from '@vramework/deploy-express'
 
 import { config } from '@todos/functions/src/config'
 import { createSingletonServices } from '@todos/functions/src/services'
 import { CreateSessionServices } from '@vramework/core/types'
 
-export const createSessionServices: CreateSessionServices = async (singletonServices, _session) => {
+export const createSessionServices: CreateSessionServices = async (
+  singletonServices,
+  _session
+) => {
   return {
     ...singletonServices,
   }
@@ -21,9 +24,9 @@ async function action({ configFile }: { configFile?: string }): Promise<void> {
     const singletonServices = await createSingletonServices(config)
     const appServer = new VrameworkExpressServer(
       vrameworkConfig,
-      config, 
+      config,
       singletonServices,
-      createSessionServices,
+      createSessionServices
     )
     appServer.enableExitOnSigInt()
     await appServer.init()

@@ -6,7 +6,9 @@ import { Config, SingletonServices, UserSession } from './api'
 import { getDatabaseConfig, KyselyDB } from './services/kysely.service'
 import { PinoLogger } from './services/pino.service'
 
-export const createSingletonServices = async (config: Config): Promise<SingletonServices> => {
+export const createSingletonServices = async (
+  config: Config
+): Promise<SingletonServices> => {
   const logger = new PinoLogger()
 
   if (config.logLevel) {
@@ -15,23 +17,25 @@ export const createSingletonServices = async (config: Config): Promise<Singleton
 
   const secrets = new LocalSecretService(logger)
 
-  const jwt = new JoseJWTService<UserSession>(async () => [{
-    id: 'my-key',
-    value: 'the-yellow-puppet'
-  }], logger)
-  
-  const sessionService = new VrameworkSessionService(
-    jwt,
-    {
-      cookieNames: ['session'],
-      getSessionForCookieValue: async (cookieValue: string) => {
-        return await jwt.decodeSession(cookieValue)
+  const jwt = new JoseJWTService<UserSession>(
+    async () => [
+      {
+        id: 'my-key',
+        value: 'the-yellow-puppet',
       },
-      getSessionForAPIKey: async (_apiKey: string) => {
-        throw new Error('Not implemented')
-      }
-    }
+    ],
+    logger
   )
+
+  const sessionService = new VrameworkSessionService(jwt, {
+    cookieNames: ['session'],
+    getSessionForCookieValue: async (cookieValue: string) => {
+      return await jwt.decodeSession(cookieValue)
+    },
+    getSessionForAPIKey: async (_apiKey: string) => {
+      throw new Error('Not implemented')
+    },
+  })
 
   const postgresConfig = await getDatabaseConfig(
     secrets,

@@ -1,23 +1,28 @@
-import { vramework } from "../../vramework"
-import { GetServerSideProps } from "next"
-import { TodosCard } from "@todos/components/TodosCard"
-import { useCallback, useState } from "react"
-import { Todos } from "@todos/sdk/types/todo.types"
+import { vramework } from '../../vramework'
+import { GetServerSideProps } from 'next'
+import { TodosCard } from '@todos/components/TodosCard'
+import { useCallback, useState } from 'react'
+import { Todos } from '@todos/sdk/types/todo.types'
 
 export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
-  const todos: Todos = await vramework().ssrRequest(req, res, {
-    type: 'get',
-    route: '/todos',
-  }, {})
+  const todos: Todos = await vramework().ssrRequest(
+    req,
+    res,
+    {
+      type: 'get',
+      route: '/todos',
+    },
+    {}
+  )
 
   return {
-    props: { 
-      todos
+    props: {
+      todos,
     },
   }
 }
 
-export default function TodoPage (props: { todos: Todos }) {
+export default function TodoPage(props: { todos: Todos }) {
   const [todos, setTodos] = useState(props.todos)
 
   const refreshTodos = useCallback(async () => {
@@ -34,19 +39,20 @@ export default function TodoPage (props: { todos: Todos }) {
     refreshTodos()
   }, [])
 
-  const toggleTodo = useCallback(async (todoId: string) => {
-    const todo = todos.find(todo => todo.todoId === todoId)
-    await fetch('/api/todo', {
-      method: 'PATCH',
-      body: JSON.stringify({ 
-        todoId,
-        completedAt: todo?.completedAt? null : new Date()
+  const toggleTodo = useCallback(
+    async (todoId: string) => {
+      const todo = todos.find((todo) => todo.todoId === todoId)
+      await fetch('/api/todo', {
+        method: 'PATCH',
+        body: JSON.stringify({
+          todoId,
+          completedAt: todo?.completedAt ? null : new Date(),
+        }),
       })
-    })
-    refreshTodos()
-  }, [todos])
+      refreshTodos()
+    },
+    [todos]
+  )
 
-  return (
-    <TodosCard todos={todos} addTodo={addTodo} toggleTodo={toggleTodo} />
-  );
+  return <TodosCard todos={todos} addTodo={addTodo} toggleTodo={toggleTodo} />
 }

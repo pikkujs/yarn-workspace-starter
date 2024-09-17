@@ -8,21 +8,20 @@ import { VrameworkNextRequest } from '@vramework/deploy-next/vramework-next-requ
 const protectedRoutes = ['/todos']
 const publicRoutes = ['/login', '/']
 
-const jwtService = new JoseJWTService<UserSession>(async () => [{
-  id: 'my-key',
-  value: 'the-yellow-puppet'
-}])
-
-const sessionService = new VrameworkSessionService<UserSession>(
-  jwtService,
+const jwtService = new JoseJWTService<UserSession>(async () => [
   {
-    cookieNames: ['session'],
-    getSessionForCookieValue: async (cookieValue) => {
-      const session: any = await jwtService.decode(cookieValue)
-      return session.payload
-    }
-  }
-)
+    id: 'my-key',
+    value: 'the-yellow-puppet',
+  },
+])
+
+const sessionService = new VrameworkSessionService<UserSession>(jwtService, {
+  cookieNames: ['session'],
+  getSessionForCookieValue: async (cookieValue) => {
+    const session: any = await jwtService.decode(cookieValue)
+    return session.payload
+  },
+})
 
 export default async function middleware(req: NextRequest) {
   // 1. Check if the current route is protected or public
@@ -33,7 +32,7 @@ export default async function middleware(req: NextRequest) {
   // 3. Decrypt the session from the cookie
   const userSession = await sessionService.getUserSession(
     false,
-    new VrameworkNextRequest(req as any),
+    new VrameworkNextRequest(req as any)
   )
 
   // 3. Redirect to /login if the user is not authenticated
