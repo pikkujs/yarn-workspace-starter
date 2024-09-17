@@ -8,7 +8,7 @@ import { createSingletonServices } from '@todos/functions/src/services'
 import { CreateSessionServices } from '@vramework/core/types'
 import { APIRoutes } from '@todos/functions/src/vramework-types'
 
-const createSessionServices: CreateSessionServices = async (singletonServices, session) => {
+const createSessionServices: CreateSessionServices = async (singletonServices, _session) => {
     return {
         ...singletonServices,
     }

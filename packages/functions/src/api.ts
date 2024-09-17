@@ -4,7 +4,7 @@ import { Kysely } from 'kysely'
 import { DB } from 'kysely-codegen'
 import { VrameworkRequest } from '@vramework/core/vramework-request'
 import { VrameworkResponse } from '@vramework/core/vramework-response'
-import { JoseJWTService } from '@vramework/core/services/jose-jwt-service'
+import { JoseJWTService } from '@vramework/services-local'
 
 export interface Config extends CoreConfig {
   sql: SQLConfig,

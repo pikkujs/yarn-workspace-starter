@@ -2,8 +2,9 @@ import { Client } from 'pg'
 import { migrate } from 'postgres-migrations'
 
 import { config } from '@todos/functions/src/config'
-import { LocalSecretService } from '@vramework/core/services/local-secrets'
-import { ConsoleLogger } from '@vramework/core/services/logger'
+
+import { ConsoleLogger } from '@vramework/core/services'
+import { LocalSecretService } from '@vramework/services-local'
 import { getDatabaseConfig } from '@todos/functions/src/services/kysely.service'
 
 export const migrateDB = async () => {
@@ -22,7 +23,7 @@ export const migrateDB = async () => {
     try {
       await client.connect()
       await client.query(`CREATE DATABASE ${databaseConfig.database}`)
-    } catch (e) {
+    } catch {
       console.log('Database already exists')
     } finally {
       await client.end()

@@ -10,7 +10,7 @@ export const loginUser: APIFunctionSessionless<JustUserName, UserSession> = asyn
             .select('userId')
             .where('name', '=', name.toLowerCase())
             .executeTakeFirstOrThrow()
-    } catch (e) {
+    } catch {
         session = await services.kysely
             .insertInto('app.user')
             .values({ name: name.toLowerCase() })
@@ -27,7 +27,7 @@ export const loginUser: APIFunctionSessionless<JustUserName, UserSession> = asyn
     return session
 }
 
-export const logoutUser: APIFunctionSessionless<void, void> = async (services, _data, session) => {
+export const logoutUser: APIFunctionSessionless<void, void> = async (services, _data, _session) => {
     services.response.clearCookie('session')
 }
 

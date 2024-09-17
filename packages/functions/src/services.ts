@@ -1,8 +1,9 @@
-import { VrameworkSessionService } from '@vramework/core/services/vramework-session-service'
-import { JoseJWTService } from '@vramework/core/services/jose-jwt-service'
+import { LocalSecretService } from '@vramework/services-local/local-secrets'
+import { VrameworkSessionService } from '@vramework/services-local/vramework-session-service'
+import { JoseJWTService } from '@vramework/services-local/jose-jwt-service'
+
 import { Config, SingletonServices, UserSession } from './api'
 import { getDatabaseConfig, KyselyDB } from './services/kysely.service'
-import { LocalSecretService } from '@vramework/core/services/local-secrets'
 import { PinoLogger } from './services/pino.service'
 
 export const createSingletonServices = async (config: Config): Promise<SingletonServices> => {
@@ -26,7 +27,7 @@ export const createSingletonServices = async (config: Config): Promise<Singleton
       getSessionForCookieValue: async (cookieValue: string) => {
         return await jwt.decodeSession(cookieValue)
       },
-      getSessionForAPIKey: async (apiKey: string) => {
+      getSessionForAPIKey: async (_apiKey: string) => {
         throw new Error('Not implemented')
       }
     }

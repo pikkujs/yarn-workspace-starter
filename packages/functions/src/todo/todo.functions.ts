@@ -46,7 +46,7 @@ export const deleteTodo: APIFunction<JustTodoId, boolean> = async (services, { t
             .where('todoId', '=', todoId)
             .executeTakeFirstOrThrow()
         return true
-    } catch (e) {
+    } catch {
         return false
     }
 }
