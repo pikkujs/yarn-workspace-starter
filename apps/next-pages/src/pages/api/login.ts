@@ -6,7 +6,7 @@ export default async function handler(
   res: NextApiResponse
 ) {
   await vramework().apiRequest(req, res, {
-    type: 'post',
+    method: 'post',
     route: '/login',
   })
 }

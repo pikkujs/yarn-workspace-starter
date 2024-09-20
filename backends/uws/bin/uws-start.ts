@@ -1,9 +1,9 @@
 import { Command } from 'commander'
 
 import {
-  VrameworkExpressServer,
+  VrameworkUWSServer,
   getVrameworkConfig,
-} from '@vramework/deploy-express'
+} from '@vramework/deploy-uws'
 
 import { config } from '@todos/functions/src/config'
 import { createSingletonServices } from '@todos/functions/src/services'
@@ -22,7 +22,7 @@ async function action({ configFile }: { configFile?: string }): Promise<void> {
   try {
     const vrameworkConfig = await getVrameworkConfig(configFile)
     const singletonServices = await createSingletonServices(config)
-    const appServer = new VrameworkExpressServer(
+    const appServer = new VrameworkUWSServer(
       vrameworkConfig,
       config,
       singletonServices,

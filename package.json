@@ -42,5 +42,16 @@
     "eventemitter3": "^5.0.1",
     "pino": "^9.3.2"
   },
-  "packageManager": "yarn@4.4.0"
+  "packageManager": "yarn@4.4.0",
+  "resolutions": {
+    "@vramework/cli": "portal:/Users/yasser/git/vramework/packages/cli",
+    "@vramework/core": "portal:/Users/yasser/git/vramework/packages/core",
+    "@vramework/deploy-express": "portal:/Users/yasser/git/vramework/packages/deploy-express",
+    "@vramework/deploy-fastify": "portal:/Users/yasser/git/vramework/packages/deploy-fastify",
+    "@vramework/deploy-lambda": "portal:/Users/yasser/git/vramework/packages/deploy-lambda",
+    "@vramework/deploy-next": "portal:/Users/yasser/git/vramework/packages/deploy-next",
+    "@vramework/deploy-uws": "portal:/Users/yasser/git/vramework/packages/deploy-uws",
+    "@vramework/services-aws": "portal:/Users/yasser/git/vramework/packages/services-aws",
+    "@vramework/services-local": "portal:/Users/yasser/git/vramework/packages/services-local"
+  }
 }

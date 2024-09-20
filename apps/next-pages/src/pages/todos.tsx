@@ -9,7 +9,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
     req,
     res,
     {
-      type: 'get',
+      method: 'get',
       route: '/todos',
     },
     {}

@@ -6,7 +6,7 @@ async function addTodo(text: string) {
   'use server'
   await vramework().actionRequest(
     {
-      type: 'post',
+      method: 'post',
       route: '/todo',
     },
     { text }
@@ -17,7 +17,7 @@ async function toggleTodo(todoId: string, completedAt: Date | null) {
   'use server'
   await vramework().actionRequest(
     {
-      type: 'patch',
+      method: 'patch',
       route: '/todo/:todoId',
     },
     {
@@ -30,7 +30,7 @@ async function toggleTodo(todoId: string, completedAt: Date | null) {
 export default async function TodoPage() {
   const todos: Todos = await vramework().actionRequest(
     {
-      type: 'get',
+      method: 'get',
       route: '/todos',
     },
     {}

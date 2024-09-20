@@ -4,20 +4,19 @@ import { loginUser, logoutUser, updateUser } from './user.functions'
 
 export const routes: APIRoutes = [
   {
-    type: 'post',
+    method: 'post',
     route: '/login',
     schema: 'JustUserName',
     func: loginUser,
     requiresSession: false,
   },
   {
-    type: 'post',
+    method: 'post',
     route: '/logout',
-    schema: null,
     func: logoutUser,
   },
   {
-    type: 'patch',
+    method: 'patch',
     route: '/user/:userId',
     schema: 'UpdateUser',
     func: updateUser,

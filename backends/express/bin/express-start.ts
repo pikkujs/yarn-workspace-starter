@@ -6,17 +6,7 @@ import {
 } from '@vramework/deploy-express'
 
 import { config } from '@todos/functions/src/config'
-import { createSingletonServices } from '@todos/functions/src/services'
-import { CreateSessionServices } from '@vramework/core/types'
-
-export const createSessionServices: CreateSessionServices = async (
-  singletonServices,
-  _session
-) => {
-  return {
-    ...singletonServices,
-  }
-}
+import { createSingletonServices, createSessionServices } from '@todos/functions/src/services'
 
 async function action({ configFile }: { configFile?: string }): Promise<void> {
   try {

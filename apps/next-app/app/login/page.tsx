@@ -5,7 +5,7 @@ async function login(name: string) {
   'use server'
   await vramework().actionRequest(
     {
-      type: 'post',
+      method: 'post',
       route: '/login',
     },
     { name }

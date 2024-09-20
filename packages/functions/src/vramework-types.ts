@@ -1,46 +1,10 @@
 import { Services, UserSession } from './api'
+import { CoreAPIFunction, CoreAPIPermission, CoreAPIRoute } from '@vramework/core/routes'
 
-export type APIFunction<In, Out, RequiredServices = Services> = (
-  services: RequiredServices,
-  data: In,
-  session: UserSession
-) => Promise<Out>
-export type APIFunctionSessionless<In, Out, RequiredServices = Services> = (
-  services: RequiredServices,
-  data: In,
-  session?: UserSession | undefined
-) => Promise<Out>
-export type APIPermission<In, RequiredServices = Services> = (
-  services: RequiredServices,
-  data: In,
-  session: UserSession
-) => Promise<boolean>
+export type APIFunctionSessionless<In, Out, RequiredServices = Services> = CoreAPIFunction<In, Out, RequiredServices, UserSession>
+export type APIFunction<In, Out, RequiredServices = Services> = CoreAPIFunction<In, Out, RequiredServices, UserSession>
+export type APIPermission<In, RequiredServices = Services> = CoreAPIPermission<In, RequiredServices, UserSession>
+export type APIRoute<In, Out> = CoreAPIRoute<In, Out, APIFunction<In, Out>, APIFunctionSessionless<In, Out>, APIPermission<In>>
+export type APIRoutes = Array<APIRoute<any, any>>;
 
-export type APIRoute<In, Out> =
-  | {
-      type: 'post' | 'get' | 'delete' | 'patch' | 'head'
-      route: string
-      schema: string | null
-      requiresSession?: undefined | true
-      func: APIFunction<In, Out>
-      permissions?: Record<string, APIPermission<In>[] | APIPermission<In>>
-      isStream?: undefined | false
-    }
-  | {
-      type: 'post' | 'get' | 'delete' | 'patch' | 'head'
-      route: string
-      schema: string | null
-      requiresSession: false
-      func: APIFunctionSessionless<In, Out>
-      isStream?: undefined | false
-    }
-  | {
-      type: 'get'
-      route: string
-      schema: string | null
-      requiresSession?: undefined | true
-      func: APIFunctionSessionless<In, Out>
-      isStream: true
-    }
-
-export type APIRoutes = Array<APIRoute<any, any>>
+export const route = <In, Out>(route: APIRoute<In, Out>): APIRoute<In, Out> => route

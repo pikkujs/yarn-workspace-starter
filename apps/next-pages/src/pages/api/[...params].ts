@@ -7,7 +7,7 @@ export default async function handler(
 ) {
   const routeParts = req.query.params as string[]
   await vramework().apiRequest(req, res, {
-    type: req.method!.toLowerCase() as any,
+    method: req.method!.toLowerCase() as any,
     route: `/${routeParts.join('/')}`,
   })
 }

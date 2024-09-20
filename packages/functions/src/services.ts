@@ -3,8 +3,9 @@ import { VrameworkSessionService } from '@vramework/services-local/vramework-ses
 import { JoseJWTService } from '@vramework/services-local/jose-jwt-service'
 
 import { Config, SingletonServices, UserSession } from './api'
-import { getDatabaseConfig, KyselyDB } from './services/kysely.service'
-import { PinoLogger } from './services/pino.service'
+import { getDatabaseConfig, KyselyDB } from '@todos/services/src/kysely'
+import { PinoLogger } from '@todos/services/src/pino'
+import { CreateSessionServices } from '@vramework/core/types'
 
 export const createSingletonServices = async (
   config: Config
@@ -50,5 +51,14 @@ export const createSingletonServices = async (
     jwt,
     sessionService,
     kysely,
+  }
+}
+
+export const createSessionServices: CreateSessionServices = async (
+  singletonServices,
+  _session
+) => {
+  return {
+    ...singletonServices,
   }
 }
