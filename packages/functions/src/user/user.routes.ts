@@ -12,6 +12,7 @@ export const routes: APIRoutes = [
   },
   {
     method: 'post',
+    schema: null,
     route: '/logout',
     func: logoutUser,
   },

@@ -28,9 +28,9 @@
   },
   "devDependencies": {
     "@todos/functions": "workspace:0.0.0",
-    "@vramework/cli": "^0.1.16",
-    "@vramework/core": "^0.1.16",
-    "@vramework/services-local": "^0.1.16",
+    "@vramework/cli": "^0.1.17",
+    "@vramework/core": "^0.1.17",
+    "@vramework/services-local": "^0.1.17",
     "kysely-codegen": "^0.16.6",
     "postgres-migrations": "^5.3.0",
     "prettier": "^3.3.3",
@@ -42,16 +42,5 @@
     "eventemitter3": "^5.0.1",
     "pino": "^9.3.2"
   },
-  "packageManager": "yarn@4.4.0",
-  "resolutions": {
-    "@vramework/cli": "portal:/Users/yasser/git/vramework/packages/cli",
-    "@vramework/core": "portal:/Users/yasser/git/vramework/packages/core",
-    "@vramework/deploy-express": "portal:/Users/yasser/git/vramework/packages/deploy-express",
-    "@vramework/deploy-fastify": "portal:/Users/yasser/git/vramework/packages/deploy-fastify",
-    "@vramework/deploy-lambda": "portal:/Users/yasser/git/vramework/packages/deploy-lambda",
-    "@vramework/deploy-next": "portal:/Users/yasser/git/vramework/packages/deploy-next",
-    "@vramework/deploy-uws": "portal:/Users/yasser/git/vramework/packages/deploy-uws",
-    "@vramework/services-aws": "portal:/Users/yasser/git/vramework/packages/services-aws",
-    "@vramework/services-local": "portal:/Users/yasser/git/vramework/packages/services-local"
-  }
+  "packageManager": "yarn@4.4.0"
 }

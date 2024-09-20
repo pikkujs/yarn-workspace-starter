@@ -15,8 +15,8 @@
   },
   "dependencies": {
     "@todos/sdk": "^0.0.0",
-    "@vramework/core": "^0.1.16",
-    "@vramework/services-local": "^0.1.16",
+    "@vramework/core": "^0.1.17",
+    "@vramework/services-local": "^0.1.17",
     "kysely": "^0.27.4",
     "kysely-codegen": "^0.16.6",
     "pg": "^8.12.0",

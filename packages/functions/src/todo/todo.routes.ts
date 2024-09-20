@@ -12,6 +12,7 @@ export const routes: APIRoutes = [
   route({
     method: 'get',
     route: '/todos',
+    schema: null,
     func: getTodos,
     requiresSession: false,
   }),
