@@ -18,7 +18,7 @@ export const routes: APIRoutes = [
   route({
     method: 'post',
     route: '/todo',
-    schema: 'text',
+    schema: 'CreateTodo',
     func: createTodo,
   }),
   {
