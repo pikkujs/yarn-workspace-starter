@@ -1,5 +1,5 @@
 import { isTodoCreator } from '../permissions'
-import { route, type APIRoutes } from '../vramework-types'
+import { addRoute } from '../vramework-types'
 import {
   getTodos,
   getTodo,
@@ -8,43 +8,40 @@ import {
   createTodo,
 } from './todo.functions'
 
-export const routes: APIRoutes = [
-  route({
-    method: 'get',
-    route: '/todos',
-    schema: null,
-    func: getTodos,
-    requiresSession: false,
-  }),
-  route({
-    method: 'post',
-    route: '/todo',
-    schema: 'CreateTodo',
-    func: createTodo,
-  }),
-  {
-    method: 'get',
-    route: '/todo/:todoId',
-    schema: 'JustTodoId',
-    func: getTodo,
-    requiresSession: false,
+addRoute({
+  method: 'get',
+  route: '/todos',
+  func: getTodos,
+  auth: false,
+})
+
+addRoute({
+  method: 'post',
+  route: '/todo',
+  func: createTodo,
+})
+
+addRoute({
+  method: 'get',
+  route: '/todo/:todoId',
+  func: getTodo,
+  auth: false,
+})
+
+addRoute({
+  method: 'patch',
+  route: '/todo/:todoId',
+  func: updateTodo,
+  permissions: {
+    isTodoCreator,
   },
-  {
-    method: 'patch',
-    route: '/todo/:todoId',
-    schema: 'UpdateTodo',
-    func: updateTodo,
-    permissions: {
-      isTodoCreator,
-    },
+})
+
+addRoute({
+  method: 'delete',
+  route: '/todo/:todoId',
+  func: deleteTodo,
+  permissions: {
+    isTodoCreator,
   },
-  {
-    method: 'delete',
-    route: '/todo/:todoId',
-    schema: 'JustTodoId',
-    func: deleteTodo,
-    permissions: {
-      isTodoCreator,
-    },
-  },
-]
+})

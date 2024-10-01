@@ -14,7 +14,7 @@
     "tsc": "tsc"
   },
   "dependencies": {
-    "@vramework/core": "^0.1.17",
+    "@vramework/core": "^0.3.6",
     "pg": "^8.12.0",
     "pino": "^9.3.2",
     "uuid": "^10"

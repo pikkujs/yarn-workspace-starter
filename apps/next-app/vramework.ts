@@ -1,12 +1,11 @@
 import { VrameworkNextJS } from '@vramework/deploy-next'
 
-import { config } from '@todos/functions/src/config'
-import { getRoutes } from '@todos/functions/generated/routes'
+import '@todos/functions/generated/routes'
 import '@todos/functions/generated/schemas'
 
+import { config } from '@todos/functions/src/config'
 import { createSingletonServices } from '@todos/functions/src/services'
-import { CreateSessionServices } from '@vramework/core/types'
-import { APIRoutes } from '@todos/functions/src/vramework-types'
+import { CreateSessionServices } from '@vramework/core'
 
 const createSessionServices: CreateSessionServices = async (
   singletonServices,
@@ -17,18 +16,22 @@ const createSessionServices: CreateSessionServices = async (
   }
 }
 
-let _vramework: VrameworkNextJS<APIRoutes> | undefined
+let _vramework: VrameworkNextJS | undefined
 
 export const vramework = () => {
   if (_vramework) {
     return _vramework
   }
-  const routes = getRoutes()
   _vramework = new VrameworkNextJS(
     config,
-    routes,
     createSingletonServices as any,
     createSessionServices
   )
   return _vramework
 }
+
+vramework().actionRequest({
+  method: 'get',
+  route: '/api/bob',
+  hello: 2
+}, { bob: 1})

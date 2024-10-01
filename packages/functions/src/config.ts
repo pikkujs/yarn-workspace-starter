@@ -1,4 +1,4 @@
-import { LogLevel } from '@vramework/core/services/logger'
+import { LogLevel } from '@vramework/core'
 import { Config } from './api'
 
 export const config: Config = {

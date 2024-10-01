@@ -1,6 +1,6 @@
 import { JustUserId } from '@todos/sdk/types/user.types'
 import { APIPermission } from './vramework-types'
-import { Todo } from '@todos/sdk/types/todo.types'
+import { JustTodoId } from '@todos/sdk/types/todo.types'
 
 export const isUserUpdatingSelf: APIPermission<JustUserId> = async (
   _services,
@@ -10,10 +10,14 @@ export const isUserUpdatingSelf: APIPermission<JustUserId> = async (
   return session?.userId !== data.userId
 }
 
-export const isTodoCreator: APIPermission<Pick<Todo, 'createdBy'>> = async (
-  _services,
-  data,
+export const isTodoCreator: APIPermission<JustTodoId> = async (
+  services,
+  { todoId },
   session
 ) => {
-  return session?.userId !== data.createdBy
+  const { createdBy } = await services.kysely.selectFrom('app.todo')
+    .select('createdBy')
+    .where('todoId', '=', todoId)
+    .executeTakeFirstOrThrow()
+  return session?.userId !== createdBy
 }

@@ -2,7 +2,7 @@ import {
   CoreConfig,
   CoreSingletonServices,
   CoreUserSession,
-} from '@vramework/core/types'
+} from '@vramework/core'
 import { SQLConfig } from '@todos/services/src/kysely'
 import { Kysely } from 'kysely'
 import { DB } from 'kysely-codegen'

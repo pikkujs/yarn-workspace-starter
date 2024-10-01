@@ -1,11 +1,10 @@
-import { LocalSecretService } from '@vramework/services-local/local-secrets'
-import { VrameworkSessionService } from '@vramework/services-local/vramework-session-service'
-import { JoseJWTService } from '@vramework/services-local/jose-jwt-service'
+
+import { CreateSessionServices } from '@vramework/core'
+import { LocalSecretService, VrameworkSessionService, JoseJWTService } from '@vramework/services-local'
 
 import { Config, SingletonServices, UserSession } from './api'
 import { getDatabaseConfig, KyselyDB } from '@todos/services/src/kysely'
 import { PinoLogger } from '@todos/services/src/pino'
-import { CreateSessionServices } from '@vramework/core/types'
 
 export const createSingletonServices = async (
   config: Config

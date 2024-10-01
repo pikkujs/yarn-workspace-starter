@@ -1,28 +1,25 @@
 import { isUserUpdatingSelf } from '../permissions'
-import { type APIRoutes } from '../vramework-types'
+import { addRoute } from '../vramework-types'
 import { loginUser, logoutUser, updateUser } from './user.functions'
 
-export const routes: APIRoutes = [
-  {
-    method: 'post',
-    route: '/login',
-    schema: 'JustUserName',
-    func: loginUser,
-    requiresSession: false,
+addRoute({
+  method: 'post',
+  route: '/login',
+  func: loginUser,
+  auth: false,
+})
+
+addRoute({
+  method: 'post',
+  route: '/logout',
+  func: logoutUser,
+})
+
+addRoute({
+  method: 'patch',
+  route: '/user/:userId',
+  func: updateUser,
+  permissions: {
+    isUserUpdatingSelf,
   },
-  {
-    method: 'post',
-    schema: null,
-    route: '/logout',
-    func: logoutUser,
-  },
-  {
-    method: 'patch',
-    route: '/user/:userId',
-    schema: 'UpdateUser',
-    func: updateUser,
-    permissions: {
-      isUserUpdatingSelf,
-    },
-  },
-]
+})

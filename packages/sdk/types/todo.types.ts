@@ -1,7 +1,7 @@
 import * as DB from 'kysely-codegen/dist/db-pure'
 import { User } from './user.types'
 
-export type Todo = DB.AppTodo
+export type Todo = Omit<DB.AppTodo, '_ignore_'>
 
 export type Todos = Array<Todo & Pick<User, 'name'>>
 export type JustTodoId = Pick<DB.AppTodo, 'todoId'>

@@ -13,11 +13,13 @@ const main = async () => {
     )
     .replace(/Generated<(.*)>/g, '$1')
     .replace(/export type Timestamp =.*;/, 'export type Timestamp = Date')
-  console.log('Writing kysely-pure.d.ts')
+  console.log('Writing kysely-pure.d.ts', kysely)
   await writeFile(
     `${__dirname}/../node_modules/kysely-codegen/dist/db-pure.d.ts`,
-    kysely
+    kysely,
+    'utf-8'
   )
+  console.log(`${__dirname}/../node_modules/kysely-codegen/dist/db-pure.d.ts`)
 }
 
 main()

@@ -32,7 +32,7 @@ export default async function middleware(req: NextRequest) {
   // 3. Decrypt the session from the cookie
   const userSession = await sessionService.getUserSession(
     false,
-    new VrameworkNextRequest(req as any)
+    new VrameworkNextRequest(req) as any
   )
 
   // 3. Redirect to /login if the user is not authenticated

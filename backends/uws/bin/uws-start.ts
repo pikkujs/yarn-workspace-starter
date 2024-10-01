@@ -1,5 +1,7 @@
 import { Command } from 'commander'
 
+import { CreateSessionServices } from '@vramework/core'
+
 import {
   VrameworkUWSServer,
   getVrameworkConfig,
@@ -7,7 +9,6 @@ import {
 
 import { config } from '@todos/functions/src/config'
 import { createSingletonServices } from '@todos/functions/src/services'
-import { CreateSessionServices } from '@vramework/core/types'
 
 export const createSessionServices: CreateSessionServices = async (
   singletonServices,

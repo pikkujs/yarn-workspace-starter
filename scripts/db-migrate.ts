@@ -3,14 +3,11 @@ import { migrate } from 'postgres-migrations'
 
 import { config } from '@todos/functions/src/config'
 
-import { ConsoleLogger } from '@vramework/core/services'
 import { LocalSecretService } from '@vramework/services-local'
-import { getDatabaseConfig } from '@todos/functions/src/services/kysely.service'
+import { getDatabaseConfig } from '@todos/services/src/kysely'
 
 export const migrateDB = async () => {
-  const logger = new ConsoleLogger()
-
-  const secrets = new LocalSecretService(logger)
+  const secrets = new LocalSecretService()
   const databaseConfig = await getDatabaseConfig(
     secrets,
     config.secrets.postgresCredentials,
