@@ -1,4 +1,4 @@
-import * as DB from 'kysely-codegen/dist/db-pure'
+import * as DB from '@todos/sdk/generated/db-pure'
 
 export type User = DB.AppUser
 

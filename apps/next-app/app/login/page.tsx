@@ -3,11 +3,9 @@ import { vramework } from '../../vramework'
 
 async function login(name: string) {
   'use server'
-  await vramework().actionRequest(
-    {
-      method: 'post',
-      route: '/login',
-    },
+  const bob = await vramework().actionRequest(
+    '/login',
+    'post',
     { name }
   )
 }

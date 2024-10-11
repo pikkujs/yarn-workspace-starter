@@ -6,8 +6,10 @@ export default async function handler(
   res: NextApiResponse
 ) {
   const routeParts = req.query.params as string[]
-  await vramework().apiRequest(req, res, {
-    method: req.method!.toLowerCase() as any,
-    route: `/${routeParts.join('/')}`,
-  })
+  await vramework().apiRequest(
+    req, 
+    res, 
+    `/${routeParts.join('/')}` as any, 
+    req.method!.toLowerCase()
+  )
 }

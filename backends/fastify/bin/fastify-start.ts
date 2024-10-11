@@ -1,12 +1,10 @@
 import { Command } from 'commander'
 
-import {
-  VrameworkFastifyServer,
-  getVrameworkConfig,
-} from '@vramework/deploy-fastify'
+import { VrameworkFastifyServer } from '@vramework/deploy-fastify'
 
 import { config } from '@todos/functions/src/config'
 import { createSingletonServices, createSessionServices } from '@todos/functions/src/services'
+import { getVrameworkConfig } from '@vramework/core/vramework-config'
 
 async function action({ configFile }: { configFile?: string }): Promise<void> {
   try {

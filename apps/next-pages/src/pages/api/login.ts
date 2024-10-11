@@ -5,8 +5,5 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  await vramework().apiRequest(req, res, {
-    method: 'post',
-    route: '/login',
-  })
+  await vramework().apiRequest(req, res, '/login', 'post')
 }

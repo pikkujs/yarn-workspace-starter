@@ -5,14 +5,12 @@ import { useCallback, useState } from 'react'
 import { Todos } from '@todos/sdk/types/todo.types'
 
 export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
-  const todos: Todos = await vramework().ssrRequest(
+  const todos = await vramework().ssrRequest(
     req,
     res,
-    {
-      method: 'get',
-      route: '/todos',
-    },
-    {}
+    '/todos',
+    'get',
+    null
   )
 
   return {

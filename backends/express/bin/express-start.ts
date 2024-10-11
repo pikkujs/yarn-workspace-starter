@@ -1,12 +1,10 @@
 import { Command } from 'commander'
 
-import {
-  VrameworkExpressServer,
-  getVrameworkConfig,
-} from '@vramework/deploy-express'
+import { VrameworkExpressServer } from '@vramework/deploy-express'
 
 import { config } from '@todos/functions/src/config'
 import { createSingletonServices, createSessionServices } from '@todos/functions/src/services'
+import { getVrameworkConfig } from '@vramework/core/vramework-config'
 
 async function action({ configFile }: { configFile?: string }): Promise<void> {
   try {

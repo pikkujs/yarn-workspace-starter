@@ -4,6 +4,8 @@
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
     "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
@@ -24,7 +26,6 @@
   },
   "include": [
     "next-env.d.ts",
-    "types/vramework-augmentation.d.ts",
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"

@@ -1,0 +1,14 @@
+name: "Setup Environment"
+runs:
+  using: "composite"
+  steps:
+    - run: corepack enable
+      shell: bash
+    - uses: actions/setup-node@v4
+      with:
+        node-version: 18
+        cache: yarn
+    - run: yarn --immutable
+      shell: bash
+    - run: yarn prebuild
+      shell: bash

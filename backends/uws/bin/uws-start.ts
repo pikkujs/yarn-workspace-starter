@@ -1,11 +1,8 @@
 import { Command } from 'commander'
 
 import { CreateSessionServices } from '@vramework/core'
-
-import {
-  VrameworkUWSServer,
-  getVrameworkConfig,
-} from '@vramework/deploy-uws'
+import { getVrameworkConfig } from '@vramework/core/vramework-config'
+import { VrameworkUWSServer } from '@vramework/deploy-uws'
 
 import { config } from '@todos/functions/src/config'
 import { createSingletonServices } from '@todos/functions/src/services'

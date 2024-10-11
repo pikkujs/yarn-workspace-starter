@@ -1,25 +1,20 @@
 import { vramework } from '../../vramework'
 import { TodosCard } from '@todos/components/TodosCard'
-import { Todos } from '@todos/sdk/types/todo.types'
 
-async function addTodo(text: string) {
+async function addTodo(name: string) {
   'use server'
   await vramework().actionRequest(
-    {
-      method: 'post',
-      route: '/todo',
-    },
-    { text }
+    '/login',
+    'post',
+    { name }
   )
 }
 
 async function toggleTodo(todoId: string, completedAt: Date | null) {
   'use server'
   await vramework().actionRequest(
-    {
-      method: 'patch',
-      route: '/todo/:todoId',
-    },
+    '/todo/:todoId',
+    'patch',
     {
       todoId,
       completedAt,
@@ -28,12 +23,10 @@ async function toggleTodo(todoId: string, completedAt: Date | null) {
 }
 
 export default async function TodoPage() {
-  const todos: Todos = await vramework().actionRequest(
-    {
-      method: 'get',
-      route: '/todos',
-    },
-    {}
+  const todos = await vramework().actionRequest(
+    '/todos',
+    'get',
+    null
   )
   return <TodosCard todos={todos} addTodo={addTodo} toggleTodo={toggleTodo} />
 }

@@ -14,12 +14,12 @@
   "dependencies": {
     "@todos/functions": "workspace:0.0.0",
     "@todos/sdk": "workspace:0.0.0",
-    "@vramework/core": "^0.3.6",
-    "@vramework/deploy-express": "^0.3.6",
+    "@vramework/core": "^0.3.15",
+    "@vramework/deploy-express": "^0.3.15",
     "commander": "^12",
     "pino-pretty": "^7.6.1",
     "ts-node": "^10.9.2",
-    "typescript": "^5.5"
+    "typescript": "^5.6"
   },
   "devDependencies": {
     "@types/node": "^22",
