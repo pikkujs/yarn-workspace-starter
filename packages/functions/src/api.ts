@@ -10,7 +10,7 @@ import { VrameworkRequest } from '@vramework/core/vramework-request'
 import { VrameworkResponse } from '@vramework/core/vramework-response'
 import { JoseJWTService } from '@vramework/services-local'
 
-export interface Config extends CoreConfig {
+export interface VrameworkConfig extends CoreConfig {
   sql: SQLConfig
   secrets: {
     postgresCredentials: string

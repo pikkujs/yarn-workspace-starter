@@ -1,7 +1,7 @@
 import { LogLevel } from '@vramework/core'
-import { Config } from './api'
+import { VrameworkConfig } from './api'
 
-export const config: Config = {
+export const config: VrameworkConfig = {
   port: 4002,
   logLevel: LogLevel.info,
   secrets: {

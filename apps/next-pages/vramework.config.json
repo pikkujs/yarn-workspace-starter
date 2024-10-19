@@ -2,5 +2,10 @@
   "rootDir": "../../packages/functions",
   "routeDirectories": ["./src"],
   "schemaOutputDirectory": "./generated",
-  "tsconfig": "./tsconfig.json"
+  "routesOutputFile": "./generated/routes.ts",
+  "tsconfig": "./tsconfig.json",
+  "vrameworkNextFile": "./src/generated/vramework-nextjs.ts",
+  "packageMappings": {
+    "packages/functions": "@todos/functions" 
+  }
 }

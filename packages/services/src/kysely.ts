@@ -15,8 +15,8 @@ export class KyselyDB {
   public kysely: Kysely<DB>
   public pool: Pool
 
-  constructor(config: PoolConfig) {
-    this.pool = new Pool(config)
+  constructor(poolConfig: PoolConfig) {
+    this.pool = new Pool(poolConfig)
     this.kysely = new Kysely<DB>({
       dialect: new PostgresDialect({
         pool: this.pool,
@@ -32,9 +32,9 @@ export const getDatabaseConfig = async (
   sqlConfig: SQLConfig
 ) => {
   if (process.env.NODE_ENV === 'production') {
-    const config = await secrets.getSecret(postgresSecret)
+    const config = await secrets.getSecretJSON(postgresSecret)
     return {
-      config,
+      ...config,
       ssl: sqlConfig.ssl,
     }
   } else {

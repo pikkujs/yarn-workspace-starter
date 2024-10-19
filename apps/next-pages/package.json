@@ -6,13 +6,14 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prebuild": "npx @vramework/cli nextjs @todos/functions/src/config @todos/functions/src/services"
   },
   "dependencies": {
     "@todos/components": "*",
     "@todos/functions": "*",
-    "@vramework/deploy-next": "^0.3.15",
-    "@vramework/services-local": "^0.3.15",
+    "@vramework/deploy-next": "^0.4.0",
+    "@vramework/services-local": "^0.4.0",
     "next": "14.2.9",
     "next-superjson-plugin": "^0.6.3",
     "react": "^18",

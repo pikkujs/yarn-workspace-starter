@@ -20,7 +20,7 @@
     "routes": "npx @vramework/cli routes",
     "kysely": "DATABASE_URL=postgres://postgres:password@localhost/todos kysely-codegen --camel-case --schema public",
     "kysely-pure": "ts-node scripts/kysely-pure.ts",
-    "prebuild": "yarn run dbmigrate && yarn run kysely && yarn run kysely-pure && yarn run routes && yarn run schema",
+    "prebuild": "yarn run dbmigrate && yarn run kysely && yarn run kysely-pure && yarn run routes && yarn run schema && yarn workspaces foreach -A run prebuild",
     "tsc": "yarn workspaces foreach -A run tsc",
     "verify": "yarn run tsc",
     "lint": "npx oxlint@latest",
@@ -28,7 +28,7 @@
   },
   "devDependencies": {
     "@todos/functions": "workspace:0.0.0",
-    "@vramework/cli": "^0.3.15",
+    "@vramework/cli": "^0.4.0",
     "kysely-codegen": "^0.16.6",
     "postgres-migrations": "^5.3.0",
     "prettier": "^3.3.3",
@@ -40,5 +40,16 @@
     "eventemitter3": "^5.0.1",
     "pino": "^9.3.2"
   },
-  "packageManager": "yarn@4.5.0"
+  "packageManager": "yarn@4.5.0",
+  "resolutions": {
+    "@vramework/cli": "portal:/Users/yasser/git/vramework/vramework/packages/cli",
+    "@vramework/core": "portal:/Users/yasser/git/vramework/vramework/packages/core",
+    "@vramework/deploy-express": "portal:/Users/yasser/git/vramework/vramework/packages/deploy-express",
+    "@vramework/deploy-fastify": "portal:/Users/yasser/git/vramework/vramework/packages/deploy-fastify",
+    "@vramework/deploy-lambda": "portal:/Users/yasser/git/vramework/vramework/packages/deploy-lambda",
+    "@vramework/deploy-next": "portal:/Users/yasser/git/vramework/vramework/packages/deploy-next",
+    "@vramework/deploy-uws": "portal:/Users/yasser/git/vramework/vramework/packages/deploy-uws",
+    "@vramework/services-aws": "portal:/Users/yasser/git/vramework/vramework/packages/services-aws",
+    "@vramework/services-local": "portal:/Users/yasser/git/vramework/vramework/packages/services-local"
+  }
 }

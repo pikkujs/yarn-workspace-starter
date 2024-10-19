@@ -1,5 +1,5 @@
+import { vramework } from '@/generated/vramework-nextjs'
 import { Login } from '@todos/components/Login'
-import { vramework } from '../../vramework'
 
 async function login(name: string) {
   'use server'

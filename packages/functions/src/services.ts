@@ -1,14 +1,12 @@
 
-import { CreateSessionServices } from '@vramework/core'
+import { CreateSingletonServices, CreateSessionServices } from '@vramework/core'
 import { LocalSecretService, VrameworkSessionService, JoseJWTService } from '@vramework/services-local'
 
-import { Config, SingletonServices, UserSession } from './api'
+import { VrameworkConfig, Services, SingletonServices, UserSession } from './api'
 import { getDatabaseConfig, KyselyDB } from '@todos/services/src/kysely'
 import { PinoLogger } from '@todos/services/src/pino'
 
-export const createSingletonServices = async (
-  config: Config
-): Promise<SingletonServices> => {
+export const createSingletonServices: CreateSingletonServices<VrameworkConfig, SingletonServices> = async (config) => {
   const logger = new PinoLogger()
 
   if (config.logLevel) {
@@ -53,7 +51,7 @@ export const createSingletonServices = async (
   }
 }
 
-export const createSessionServices: CreateSessionServices = async (
+export const createSessionServices: CreateSessionServices<SingletonServices, UserSession, Services> = async (
   singletonServices,
   _session
 ) => {

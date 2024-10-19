@@ -1,6 +1,11 @@
 FROM --platform=linux/amd64 node:20-alpine
+
 ENV NODE_ENV=production
+
 EXPOSE 3000
+
 COPY /apps/next-pages /apps/next-pages
+
 WORKDIR /apps/next-pages/.next/standalone/apps/next-pages
+
 CMD ["node", "server.js"]
