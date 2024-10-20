@@ -11,10 +11,11 @@
   },
   "author": "yasser.fadl@gmail.com",
   "scripts": {
-    "tsc": "tsc"
+    "tsc": "tsc",
+    "ncu": "ncu"
   },
   "dependencies": {
-    "@vramework/core": "^0.4.0",
+    "@vramework/core": "^0.4.1",
     "pg": "^8.12.0",
     "pino": "^9.3.2",
     "uuid": "^10"

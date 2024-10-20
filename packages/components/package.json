@@ -14,7 +14,8 @@
     "./*": "./src/*.tsx"
   },
   "scripts": {
-    "tsc": "tsc"
+    "tsc": "tsc",
+    "ncu": "ncu"
   },
   "peerDependencies": {
     "react": "^18.0.0"

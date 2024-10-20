@@ -9,13 +9,14 @@
   "scripts": {
     "tsc": "tsc",
     "start": "ts-node --transpile-only bin/express.ts start",
-    "dev": "tsnd --respawn bin/express.ts start | pino-pretty -i time,hostname,pid"
+    "dev": "tsnd --respawn bin/express.ts start | pino-pretty -i time,hostname,pid",
+    "ncu": "ncu"
   },
   "dependencies": {
     "@todos/functions": "workspace:0.0.0",
     "@todos/sdk": "workspace:0.0.0",
-    "@vramework/core": "^0.4.0",
-    "@vramework/deploy-express": "^0.4.0",
+    "@vramework/core": "^0.4.1",
+    "@vramework/deploy-express": "^0.4.2",
     "commander": "^12",
     "pino-pretty": "^7.6.1",
     "ts-node": "^10.9.2",

@@ -11,7 +11,8 @@
   },
   "author": "yasser.fadl@gmail.com",
   "scripts": {
-    "tsc": "tsc"
+    "tsc": "tsc",
+    "ncu": "ncu"
   },
   "devDependencies": {
     "typescript": "^5.6"
