@@ -3,7 +3,8 @@
   "compilerOptions": {
     "types": ["node"],
     "noEmit": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "esModuleInterop": true
   },
   "files": [],
   "include": ["src/**/*.ts"]

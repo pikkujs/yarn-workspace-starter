@@ -1,4 +1,4 @@
-import { SecretService } from '@vramework/core/services'
+import type { SecretService } from '@vramework/core'
 import { CamelCasePlugin, Kysely, PostgresDialect } from 'kysely'
 import { DB } from 'kysely-codegen'
 import { Pool, PoolConfig } from 'pg'

@@ -1,14 +1,14 @@
-import {
+import type {
   CoreConfig,
   CoreSingletonServices,
   CoreUserSession,
+  VrameworkRequest, 
+  VrameworkResponse 
 } from '@vramework/core'
-import { SQLConfig } from '@todos/services/src/kysely'
-import { Kysely } from 'kysely'
-import { DB } from 'kysely-codegen'
-import { VrameworkRequest } from '@vramework/core/vramework-request'
-import { VrameworkResponse } from '@vramework/core/vramework-response'
-import { JoseJWTService } from '@vramework/services-local'
+import type { SQLConfig } from '@todos/services/src/kysely'
+import type { DB } from 'kysely-codegen'
+import type { Kysely } from 'kysely'
+import type { JoseJWTService } from '@vramework/services-local'
 
 export interface VrameworkConfig extends CoreConfig {
   sql: SQLConfig

@@ -1,12 +1,12 @@
 import { vramework } from '@/generated/vramework-nextjs'
 import { TodosCard } from '@todos/components/TodosCard'
 
-async function addTodo(name: string) {
+async function addTodo(text: string) {
   'use server'
   await vramework().actionRequest(
-    '/login',
+    '/todo',
     'post',
-    { name }
+    { text }
   )
 }
 

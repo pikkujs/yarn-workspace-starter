@@ -19,5 +19,6 @@ export const isTodoCreator: APIPermission<JustTodoId> = async (
     .select('createdBy')
     .where('todoId', '=', todoId)
     .executeTakeFirstOrThrow()
-  return session?.userId !== createdBy
+
+  return session?.userId === createdBy
 }

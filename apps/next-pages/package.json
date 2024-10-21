@@ -13,8 +13,8 @@
   "dependencies": {
     "@todos/components": "*",
     "@todos/functions": "*",
-    "@vramework/deploy-next": "^0.4.1",
-    "@vramework/services-local": "^0.4.1",
+    "@vramework/deploy-next": "^0.4.3",
+    "@vramework/services-local": "^0.4.3",
     "next": "14.2.9",
     "next-superjson-plugin": "^0.6.3",
     "react": "^18",
