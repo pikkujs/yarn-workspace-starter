@@ -302,7 +302,7 @@ __metadata:
     "@todos/services": "workspace:0.0.0"
     "@types/node": "npm:^22"
     "@vramework/core": "npm:^0.4.6"
-    "@vramework/deploy-fastify": "npm:^0.4.9"
+    "@vramework/deploy-fastify": "npm:^0.4.10"
     commander: "npm:^12"
     ts-node: "npm:^10.9.2"
     ts-node-dev: "npm:^2.0.0"
@@ -692,9 +692,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vramework/deploy-fastify@npm:^0.4.9":
-  version: 0.4.9
-  resolution: "@vramework/deploy-fastify@npm:0.4.9"
+"@vramework/deploy-fastify@npm:^0.4.10":
+  version: 0.4.10
+  resolution: "@vramework/deploy-fastify@npm:0.4.10"
   dependencies:
     "@types/qs": "npm:^6"
     "@vramework/core": "npm:^0.4.6"
@@ -702,7 +702,7 @@ __metadata:
     qs: "npm:^6.13.0"
     query-string: "npm:^9.1.1"
     uWebSockets.js: "github:uNetworking/uWebSockets.js#v20.49.0"
-  checksum: 10/865f91c1f1ce3ddf39521f25c48219752e1d7243f35d19859c13621c482ace1e0a70ad22b0796f193213432f1bddeef91bdc7c5f97b7eecba61e0cc9569a4c96
+  checksum: 10/26a6e84898f22a8c42cdeb84b839222d588f8cfe7b3e47ff46aa6b488ca94c4ea59526afbb6eb657a1a605c65e53567ca6eeadba42cbfd04dcb378f1f8aa05cd
   languageName: node
   linkType: hard
 

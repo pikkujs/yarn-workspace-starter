@@ -6,7 +6,7 @@ export default function LoginPage() {
   const router = useRouter()
 
   const login = useCallback(async (name: string) => {
-    await fetch('/api/login', {
+    await fetch('/login', {
       method: 'POST',
       body: JSON.stringify({ name }),
     })

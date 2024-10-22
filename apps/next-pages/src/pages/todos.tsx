@@ -24,13 +24,13 @@ export default function TodoPage(props: { todos: Todos }) {
   const [todos, setTodos] = useState(props.todos)
 
   const refreshTodos = useCallback(async () => {
-    const result = await fetch('/api/todos')
+    const result = await fetch('/todos')
     const todos = await result.json()
     setTodos(todos)
   }, [])
 
   const addTodo = useCallback(async (text: string) => {
-    await fetch('/api/todo', {
+    await fetch('/todo', {
       method: 'POST',
       body: JSON.stringify({ text }),
     })
@@ -40,7 +40,7 @@ export default function TodoPage(props: { todos: Todos }) {
   const toggleTodo = useCallback(
     async (todoId: string) => {
       const todo = todos.find((todo) => todo.todoId === todoId)
-      await fetch('/api/todo', {
+      await fetch('/todo', {
         method: 'PATCH',
         body: JSON.stringify({
           todoId,

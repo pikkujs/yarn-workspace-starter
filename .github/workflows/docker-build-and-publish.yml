@@ -21,7 +21,20 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
-
+    services:
+      postgres:
+        image: postgres:alpine
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: password
+          POSTGRES_DB: todos
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -43,10 +56,12 @@ jobs:
       - name: Test Docker Image
         run: |
           IMAGE_NAME=ghcr.io/${{ github.repository_owner }}/${{ inputs.image-name }}
-          docker run --rm -d --name container -p 4002:4002 $IMAGE_NAME:${{ inputs.image-tag }}
+          docker run -d --name container -p 4002:4002 $IMAGE_NAME:${{ inputs.image-tag }}
           sleep 10s
+          docker ps -a
           docker logs container
-          curl -v localhost:4002/health-check
+          curl -v 0.0.0.0:4002/health-check
+          curl -v 0.0.0.0:4002/todos
 
       - name: Push Docker Image
         run: |

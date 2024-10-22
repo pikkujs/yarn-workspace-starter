@@ -40,14 +40,15 @@ export const createSingletonServices: CreateSingletonServices<Config, SingletonS
     config.secrets.postgresCredentials,
     config.sql
   )
-  const { kysely } = new KyselyDB(postgresConfig)
+  const kyselyDB = new KyselyDB(postgresConfig, logger)
+  // await kyselyDB.init()
 
   return {
     config,
     logger,
     jwt,
     sessionService,
-    kysely,
+    kysely: kyselyDB.kysely,
   }
 }
 

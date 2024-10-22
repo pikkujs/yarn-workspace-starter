@@ -1,4 +1,4 @@
-import type { SecretService } from '@vramework/core'
+import type { Logger, SecretService } from '@vramework/core'
 import { CamelCasePlugin, Kysely, PostgresDialect } from 'kysely'
 import { DB } from 'kysely-codegen'
 import { Pool, PoolConfig } from 'pg'
@@ -15,7 +15,7 @@ export class KyselyDB {
   public kysely: Kysely<DB>
   public pool: Pool
 
-  constructor(poolConfig: PoolConfig) {
+  constructor(poolConfig: PoolConfig, private logger: Logger) {
     this.pool = new Pool(poolConfig)
     this.kysely = new Kysely<DB>({
       dialect: new PostgresDialect({
@@ -23,6 +23,11 @@ export class KyselyDB {
       }),
       plugins: [new CamelCasePlugin()],
     })
+  }
+
+  public async init () {
+    const response = await this.pool.query('SELECT version();')
+    this.logger.info(response.rows[0].version)
   }
 }
 

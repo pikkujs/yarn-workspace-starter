@@ -13,6 +13,7 @@ async function action({ configFile }: { configFile?: string }): Promise<void> {
   try {
     const vrameworkConfig = await getVrameworkConfig(configFile)
     const singletonServices = await createSingletonServices(config)
+
     const appServer = new VrameworkExpressServer(
       vrameworkConfig,
       config,
