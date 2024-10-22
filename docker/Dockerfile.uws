@@ -1,4 +1,4 @@
-FROM node:18
+FROM node:20
 
 WORKDIR /app
 
@@ -14,6 +14,8 @@ COPY yarn.lock yarn.lock
 COPY tsconfig.json tsconfig.json
 COPY backends/uws/ backends/uws/
 COPY packages/functions/ packages/functions/
+# This verifies generated functions are copied to the Docker image
+COPY packages/functions/generated/ packages/functions/generated/
 COPY packages/services/ packages/services/
 COPY packages/sdk/ packages/sdk/
 

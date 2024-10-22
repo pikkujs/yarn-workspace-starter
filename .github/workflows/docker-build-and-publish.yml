@@ -46,7 +46,10 @@ jobs:
       - name: Test Docker Image
         run: |
           IMAGE_NAME=ghcr.io/${{ github.repository_owner }}/${{ inputs.image-name }}
-          docker run --rm $IMAGE_NAME:${{ inputs.image-tag }}    
+          docker run --rm -d --name container -p 4002:4002 $IMAGE_NAME:${{ inputs.image-tag }}
+          sleep 5s
+          docker logs container
+          curl localhost:4002/health-check
 
       - name: Push Docker Image
         run: |

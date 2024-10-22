@@ -1,16 +1,16 @@
 import type {
-  CoreConfig,
+  CoreServerConfig,
   CoreSingletonServices,
   CoreUserSession,
   VrameworkRequest, 
   VrameworkResponse 
 } from '@vramework/core'
+import type { JoseJWTService } from '@vramework/services-local'
 import type { SQLConfig } from '@todos/services/src/kysely'
 import type { DB } from 'kysely-codegen'
 import type { Kysely } from 'kysely'
-import type { JoseJWTService } from '@vramework/services-local'
 
-export interface VrameworkConfig extends CoreConfig {
+export interface Config extends CoreServerConfig {
   sql: SQLConfig
   secrets: {
     postgresCredentials: string

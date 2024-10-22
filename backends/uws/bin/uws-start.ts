@@ -1,6 +1,6 @@
 import { Command } from 'commander'
 
-import { getVrameworkCLIConfig } from '@vramework/core/vramework-cli-config'
+import { getVrameworkConfig } from '@vramework/core/vramework-config'
 import { VrameworkUWSServer } from '@vramework/deploy-uws'
 
 import { config } from '@todos/functions/src/config'
@@ -11,7 +11,7 @@ import '@todos/functions/generated/schemas'
 
 async function action({ configFile }: { configFile?: string }): Promise<void> {
   try {
-    const vrameworkConfig = await getVrameworkCLIConfig(configFile)
+    const vrameworkConfig = await getVrameworkConfig(configFile)
     const singletonServices = await createSingletonServices(config)
     const appServer = new VrameworkUWSServer(
       vrameworkConfig,

@@ -1,4 +1,4 @@
-FROM node:18-alpine
+FROM node:20-alpine
 
 WORKDIR /app
 
@@ -17,11 +17,15 @@ COPY packages/services/ packages/services/
 COPY packages/sdk/ packages/sdk/
 
 COPY packages/functions/ packages/functions/
+# This verifies generated functions are copied to the Docker image
 COPY packages/functions/generated/ packages/functions/generated/
 
 RUN corepack enable
 RUN cd backends/express && yarn workspaces focus --production
 
 WORKDIR backends/express
+
+HEALTHCHECK --interval=5m --timeout=3s \
+  CMD curl -f http://localhost:4002/health-check2 || exit 1
 
 CMD ["yarn", "start"]

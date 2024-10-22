@@ -2,11 +2,11 @@
 import { CreateSingletonServices, CreateSessionServices } from '@vramework/core'
 import { LocalSecretService, VrameworkSessionService, JoseJWTService } from '@vramework/services-local'
 
-import { VrameworkConfig, Services, SingletonServices, UserSession } from './api'
+import { Config, Services, SingletonServices, UserSession } from './api'
 import { getDatabaseConfig, KyselyDB } from '@todos/services/src/kysely'
 import { PinoLogger } from '@todos/services/src/pino'
 
-export const createSingletonServices: CreateSingletonServices<VrameworkConfig, SingletonServices> = async (config) => {
+export const createSingletonServices: CreateSingletonServices<Config, SingletonServices> = async (config) => {
   const logger = new PinoLogger()
 
   if (config.logLevel) {
