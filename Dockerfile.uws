@@ -12,6 +12,7 @@ COPY yarn.lock yarn.lock
 
 COPY backends/express/ backends/express/
 COPY packages/functions/ packages/functions/
+COPY packages/sdk/ packages/sdk/
 
 RUN corepack enable
 RUN cd backends/express && yarn workspaces focus --production
