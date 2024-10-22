@@ -1,4 +1,4 @@
-name: "Setup Environment"
+name: "Restore Environment"
 runs:
   using: "composite"
   steps:
@@ -10,10 +10,5 @@ runs:
         cache: yarn
     - run: yarn --immutable
       shell: bash
-    - run: yarn prebuild
-      shell: bash
-    - name: Archive artifacts
-      uses: actions/upload-artifact@v4
-      with:
-        name: generated
-        path: "**/generated"
+    - name: Download generated artifacts
+      uses: actions/download-artifact@v4
