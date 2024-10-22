@@ -17,7 +17,7 @@
     "@todos/sdk": "workspace:0.0.0",
     "@todos/services": "workspace:0.0.0",
     "@vramework/core": "^0.4.6",
-    "@vramework/deploy-fastify": "^0.4.6",
+    "@vramework/deploy-fastify": "^0.4.9",
     "commander": "^12",
     "ts-node": "^10.9.2",
     "tslib": "^2.8.0",

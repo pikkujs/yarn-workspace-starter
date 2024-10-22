@@ -19,7 +19,7 @@
     "@vramework/core": "^0.4.6",
     "@vramework/deploy-express": "^0.4.6",
     "commander": "^12",
-    "pino-pretty": "^7.6.1",
+    "pino-pretty": "^11.3.0",
     "ts-node": "^10.9.2",
     "tslib": "^2.8.0",
     "typescript": "^5.6"

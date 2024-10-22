@@ -1,10 +1,10 @@
 import { Command } from 'commander'
 
+import { getVrameworkConfig } from '@vramework/core'
 import { VrameworkFastifyServer } from '@vramework/deploy-fastify'
 
 import { config } from '@todos/functions/src/config'
 import { createSingletonServices, createSessionServices } from '@todos/functions/src/services'
-import { getVrameworkConfig } from '@vramework/core/vramework-config'
 
 import '@todos/functions/generated/routes'
 import '@todos/functions/generated/schemas'

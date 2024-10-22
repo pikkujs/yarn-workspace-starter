@@ -1,6 +1,6 @@
 import { Command } from 'commander'
 
-import { getVrameworkConfig } from '@vramework/core/vramework-config'
+import { getVrameworkConfig } from '@vramework/core'
 import { VrameworkUWSServer } from '@vramework/deploy-uws'
 
 import { config } from '@todos/functions/src/config'
