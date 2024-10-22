@@ -1,0 +1,39 @@
+# .github/workflows/docker-publish.yml
+name: Publish Docker Image to GHCR
+
+on:
+  workflow_call:
+    inputs:
+      dockerfile-path:
+        description: 'Path to the Dockerfile'
+        required: true
+        type: string
+      image-name:
+        description: 'Name of the Docker image (repository path)'
+        required: true
+        type: string
+      image-tag:
+        description: 'Tag of the Docker image'
+        required: false
+        default: 'latest'
+        type: string
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to GitHub Container Registry
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+
+      - name: Build and push Docker image to GHCR
+        run: |
+          IMAGE_NAME=ghcr.io/${{ github.repository_owner }}/${{ inputs.image-name }}
+          docker build -t $IMAGE_NAME:${{ inputs.image-tag }} -f ${{ inputs.dockerfile-path }} .
+          docker push $IMAGE_NAME:${{ inputs.image-tag }}
