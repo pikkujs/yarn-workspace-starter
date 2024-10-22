@@ -1,8 +1,9 @@
-FROM --platform=linux/amd64 node:20-alpine
+FROM --platform=linux/amd64 node:18-alpine
 
 WORKDIR /app
 
 ENV NODE_ENV=production
+ENV POSTGRES_CREDENTIALS='{"host":"localhost","port":5432,"user":"postgres","password":"password","database":"todos"}'
 
 COPY .yarnrc.yml .yarnrc.yml
 COPY .yarn/install-state.gz .yarn/install-state.gz
@@ -10,13 +11,15 @@ COPY .yarn/install-state.gz .yarn/install-state.gz
 COPY package.json package.json
 COPY yarn.lock yarn.lock
 
-COPY backends/express/ backends/express/
+COPY tsconfig.json tsconfig.json
+COPY backends/uws/ backends/uws/
 COPY packages/functions/ packages/functions/
+COPY packages/services/ packages/services/
 COPY packages/sdk/ packages/sdk/
 
 RUN corepack enable
-RUN cd backends/express && yarn workspaces focus --production
+RUN cd backends/uws && yarn workspaces focus --production
 
-WORKDIR backends/express
+WORKDIR backends/uws
 
 CMD ["yarn", "start"]

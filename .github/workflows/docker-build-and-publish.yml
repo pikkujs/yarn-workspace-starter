@@ -38,8 +38,17 @@ jobs:
       - name: Log in to GitHub Container Registry
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
-      - name: Build and push Docker image to GHCR
+      - name: Build Docker Image
         run: |
           IMAGE_NAME=ghcr.io/${{ github.repository_owner }}/${{ inputs.image-name }}
           docker build -t $IMAGE_NAME:${{ inputs.image-tag }} -f ${{ inputs.dockerfile-path }} .
+
+      - name: Test Docker Image
+        run: |
+          IMAGE_NAME=ghcr.io/${{ github.repository_owner }}/${{ inputs.image-name }}
+          docker run --rm $IMAGE_NAME:${{ inputs.image-tag }}    
+
+      - name: Push Docker Image
+        run: |
+          IMAGE_NAME=ghcr.io/${{ github.repository_owner }}/${{ inputs.image-name }}
           docker push $IMAGE_NAME:${{ inputs.image-tag }}
