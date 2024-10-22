@@ -30,7 +30,7 @@ jobs:
       uses: ./.github/workflows/docker-build-and-publish.yml
       needs: setup
       with:
-        dockerfile-path: 'Dockerfile.express'
+        dockerfile-path: 'docker/Dockerfile.express'
         image-name: 'workspace-starter-express'
         image-tag: 'latest'
   

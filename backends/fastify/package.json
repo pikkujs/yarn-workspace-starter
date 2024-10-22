@@ -15,7 +15,8 @@
   "dependencies": {
     "@todos/functions": "workspace:0.0.0",
     "@todos/sdk": "workspace:0.0.0",
-    "@vramework/core": "^0.4.3",
+    "@todos/services": "workspace:0.0.0",
+    "@vramework/core": "^0.4.4",
     "@vramework/deploy-fastify": "^0.4.4",
     "commander": "^12",
     "ts-node": "^10.9.2",

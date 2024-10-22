@@ -25,13 +25,13 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
-      - name: Check out repository code
-        uses: actions/checkout@v4
       
       - name: Restore environment
         uses: ./.github/actions/restore-environment
       
+      - name: Inspect generated files
+        run: cd packages/functions/generated && ls -a
+        
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 

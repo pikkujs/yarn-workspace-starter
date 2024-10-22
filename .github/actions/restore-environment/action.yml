@@ -12,3 +12,5 @@ runs:
       shell: bash
     - name: Download generated artifacts
       uses: actions/download-artifact@v4
+      with:
+        name: generated

@@ -21,13 +21,13 @@
     "routes": "npx @vramework/cli routes",
     "kysely": "DATABASE_URL=postgres://postgres:password@localhost/todos kysely-codegen --camel-case --schema public",
     "kysely-pure": "ts-node scripts/kysely-pure.ts",
-    "prebuild": "yarn run dbmigrate && yarn run kysely && yarn run kysely-pure && yarn run routes && yarn run schema && yarn workspaces foreach -A run prebuild",
+    "prebuild": "yarn run dbmigrate && yarn run kysely && yarn run kysely-pure && yarn run routes && yarn run schema && yarn workspaces foreach -p -A run prebuild",
     "verify": "yarn run tsc",
     "lint": "npx oxlint@latest",
     "prettier": "npx prettier . --write",
     "tsc": "yarn workspaces foreach -p -A run tsc",
     "test": "yarn workspaces foreach -p -A run test",
-    "ncu": "yarn workspaces foreach -p -A run ncu -x '/.*chai.*/'",
+    "ncu": "yarn workspaces foreach -p -A run ncu -x '/.*chai.*/' -u",
     "ncu:vramework": "ncu -f '/@vramework/.*/' -u && yarn ncu -f '/@vramework/.*/' && yarn"
   },
   "devDependencies": {

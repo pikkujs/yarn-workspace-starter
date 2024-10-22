@@ -6,6 +6,9 @@ import { config } from '@todos/functions/src/config'
 import { createSingletonServices, createSessionServices } from '@todos/functions/src/services'
 import { getVrameworkCLIConfig } from '@vramework/core/vramework-cli-config'
 
+import '@todos/functions/generated/routes'
+import '@todos/functions/generated/schemas'
+
 async function action({ configFile }: { configFile?: string }): Promise<void> {
   try {
     const vrameworkConfig = await getVrameworkCLIConfig(configFile)

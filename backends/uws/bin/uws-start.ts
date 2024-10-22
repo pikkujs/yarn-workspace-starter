@@ -6,6 +6,9 @@ import { VrameworkUWSServer } from '@vramework/deploy-uws'
 import { config } from '@todos/functions/src/config'
 import { createSessionServices, createSingletonServices } from '@todos/functions/src/services'
 
+import '@todos/functions/generated/routes'
+import '@todos/functions/generated/schemas'
+
 async function action({ configFile }: { configFile?: string }): Promise<void> {
   try {
     const vrameworkConfig = await getVrameworkCLIConfig(configFile)
