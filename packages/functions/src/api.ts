@@ -5,10 +5,10 @@ import type {
   VrameworkRequest, 
   VrameworkResponse 
 } from '@vramework/core'
-import type { JoseJWTService } from '@vramework/services-local'
 import type { SQLConfig } from '@todos/services/src/kysely'
 import type { DB } from 'kysely-codegen'
 import type { Kysely } from 'kysely'
+import { JoseJWTService } from '@vramework/jose'
 
 export interface Config extends CoreServerConfig {
   sql: SQLConfig

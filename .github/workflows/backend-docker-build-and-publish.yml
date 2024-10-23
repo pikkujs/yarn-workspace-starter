@@ -61,8 +61,8 @@ jobs:
           sleep 10s
           docker ps -a
           docker logs container
-          # curl -v 0.0.0.0:4002/health-check
-          curl -v 0.0.0.0:4002/todos
+          curl -v localhost:4002/health-check
+          # curl -v localhost:4002/todos
 
       - name: Push Docker Image
         run: |

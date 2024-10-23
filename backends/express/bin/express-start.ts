@@ -1,6 +1,6 @@
 import { Command } from 'commander'
 
-import { VrameworkExpressServer } from '@vramework/deploy-express'
+import { VrameworkExpressServer } from '@vramework/express'
 import { getVrameworkConfig } from '@vramework/core'
 
 import { config } from '@todos/functions/src/config'

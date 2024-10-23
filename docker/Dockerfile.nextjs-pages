@@ -1,10 +1,12 @@
 FROM node:20-alpine
 
 ENV NODE_ENV=production
+ENV POSTGRES_CREDENTIALS='{"host":"localhost","port":5432,"user":"postgres","password":"password","database":"todos"}'
 
 EXPOSE 3000
 
-COPY /apps/next-pages /apps/next-pages
+COPY /apps/next-pages/.next/standalone /apps/next-pages/.next/standalone
+COPY /apps/next-pages/.next/static /apps/next-pages/.next/static
 
 WORKDIR /apps/next-pages/.next/standalone/apps/next-pages
 

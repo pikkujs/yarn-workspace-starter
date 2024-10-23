@@ -1,7 +1,7 @@
 import { Command } from 'commander'
 
 import { getVrameworkConfig } from '@vramework/core'
-import { VrameworkFastifyServer } from '@vramework/deploy-fastify'
+import { VrameworkFastifyServer } from '@vramework/fastify'
 
 import { config } from '@todos/functions/src/config'
 import { createSingletonServices, createSessionServices } from '@todos/functions/src/services'

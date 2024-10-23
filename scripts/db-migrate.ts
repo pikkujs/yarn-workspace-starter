@@ -1,9 +1,8 @@
 import { Client } from 'pg'
 import { migrate } from 'postgres-migrations'
+import { LocalSecretService } from '@vramework/core'
 
 import { config } from '@todos/functions/src/config'
-
-import { LocalSecretService } from '@vramework/services-local'
 import { getDatabaseConfig } from '@todos/services/src/kysely'
 
 export const migrateDB = async () => {

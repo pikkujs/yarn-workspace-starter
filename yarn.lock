@@ -274,8 +274,8 @@ __metadata:
     "@todos/sdk": "workspace:0.0.0"
     "@todos/services": "workspace:0.0.0"
     "@types/node": "npm:^22"
-    "@vramework/core": "npm:^0.4.6"
-    "@vramework/deploy-express": "npm:^0.4.6"
+    "@vramework/core": "npm:^0.5.1"
+    "@vramework/express": "npm:^0.5.1"
     commander: "npm:^12"
     pino-pretty: "npm:^11.3.0"
     ts-node: "npm:^10.9.2"
@@ -301,8 +301,8 @@ __metadata:
     "@todos/sdk": "workspace:0.0.0"
     "@todos/services": "workspace:0.0.0"
     "@types/node": "npm:^22"
-    "@vramework/core": "npm:^0.4.6"
-    "@vramework/deploy-fastify": "npm:^0.4.10"
+    "@vramework/core": "npm:^0.5.1"
+    "@vramework/fastify": "npm:^0.5.1"
     commander: "npm:^12"
     ts-node: "npm:^10.9.2"
     ts-node-dev: "npm:^2.0.0"
@@ -319,8 +319,8 @@ __metadata:
     "@types/content-type": "npm:^1.1.8"
     "@types/pg": "npm:^8.11.6"
     "@types/uuid": "npm:^10"
-    "@vramework/core": "npm:^0.4.6"
-    "@vramework/services-local": "npm:^0.4.3"
+    "@vramework/core": "npm:^0.5"
+    "@vramework/jose": "npm:^0.5"
     kysely: "npm:^0.27.4"
     kysely-codegen: "npm:^0.16.6"
     pg: "npm:^8.12.0"
@@ -339,9 +339,10 @@ __metadata:
     "@types/node": "npm:^22"
     "@types/react": "npm:^18"
     "@types/react-dom": "npm:^18"
-    "@vramework/deploy-next": "npm:^0.4.5"
-    "@vramework/services-local": "npm:^0.4.3"
+    "@vramework/core": "npm:^0.5"
+    "@vramework/next": "npm:^0.5"
     next: "npm:14.2.11"
+    next-superjson-plugin: "npm:^0.6.3"
     postcss: "npm:^8"
     react: "npm:^18"
     react-dom: "npm:^18"
@@ -359,8 +360,8 @@ __metadata:
     "@types/node": "npm:^22"
     "@types/react": "npm:^18"
     "@types/react-dom": "npm:^18"
-    "@vramework/deploy-next": "npm:^0.4.5"
-    "@vramework/services-local": "npm:^0.4.3"
+    "@vramework/core": "npm:^0.5"
+    "@vramework/next": "npm:^0.5"
     next: "npm:14.2.11"
     next-superjson-plugin: "npm:^0.6.3"
     postcss: "npm:^8"
@@ -385,7 +386,7 @@ __metadata:
   resolution: "@todos/services@workspace:packages/services"
   dependencies:
     "@types/pg": "npm:^8.11.6"
-    "@vramework/core": "npm:^0.4.6"
+    "@vramework/core": "npm:^0.5.1"
     pg: "npm:^8.12.0"
     pino: "npm:^9.3.2"
     typescript: "npm:^5.6"
@@ -401,8 +402,8 @@ __metadata:
     "@todos/sdk": "workspace:0.0.0"
     "@todos/services": "workspace:0.0.0"
     "@types/node": "npm:^22"
-    "@vramework/core": "npm:^0.4.6"
-    "@vramework/deploy-uws": "npm:^0.4.7"
+    "@vramework/core": "npm:^0.5.1"
+    "@vramework/uws": "npm:^0.5.1"
     commander: "npm:^12"
     ts-node: "npm:^10.9.2"
     ts-node-dev: "npm:^2.0.0"
@@ -637,9 +638,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vramework/cli@npm:^0.4.7":
-  version: 0.4.7
-  resolution: "@vramework/cli@npm:0.4.7"
+"@vramework/cli@npm:^0.5.1":
+  version: 0.5.1
+  resolution: "@vramework/cli@npm:0.5.1"
   dependencies:
     "@types/cookie": "npm:^0.6.0"
     "@types/uuid": "npm:^10.0.0"
@@ -649,16 +650,16 @@ __metadata:
     ts-json-schema-generator: "npm:^2.3.0"
     typescript: "npm:^5.6"
   peerDependencies:
-    "@vramework/core": ^0.4.6
+    "@vramework/core": ^0.5.1
   bin:
     vramework: dist/cjs/bin/vramework.js
-  checksum: 10/e187c67c79530eb1bd0d7ed6ec671cbb499cd40a231d9e143088d095237d997a3b6335a884b349e710750ec9a11623c342a654622b451c2b93ddebf0f00850d5
+  checksum: 10/60978da2f28472c81e85a080e38632c8f23d8abb56b5eec7f04ce3cf4831f57298288d922b2becf38677f4bfcb4363d6cd66ebb5090e9200d3cea68e00a776d6
   languageName: node
   linkType: hard
 
-"@vramework/core@npm:^0.4.6":
-  version: 0.4.6
-  resolution: "@vramework/core@npm:0.4.6"
+"@vramework/core@npm:^0.5, @vramework/core@npm:^0.5.1":
+  version: 0.5.1
+  resolution: "@vramework/core@npm:0.5.1"
   dependencies:
     "@types/cookie": "npm:^0.6.0"
     "@types/uuid": "npm:^10.0.0"
@@ -668,81 +669,103 @@ __metadata:
     eventemitter3: "npm:^5.0.1"
     path-to-regexp: "npm:^8.2.0"
     uuid: "npm:^10.0.0"
-  checksum: 10/e9a028a618ae83d649c5f5720f84e2823a88371b6e93eb99f0b2ddc85f8cd8b5d8093a0cc4d57684bd09357baeefa627fff2c884606b3ed3d164fe194eaa3996
+  checksum: 10/ada71771e89a5b2063bd8735fe0a81f4e93da2c8761c0471d8831a09c7967ae4c93d3ed608957d8f5f82eccc01deb5fc43a8290e26a989b59e67b3269e94c60a
   languageName: node
   linkType: hard
 
-"@vramework/deploy-express@npm:^0.4.6":
-  version: 0.4.6
-  resolution: "@vramework/deploy-express@npm:0.4.6"
+"@vramework/express-middleware@npm:^0.5.1":
+  version: 0.5.1
+  resolution: "@vramework/express-middleware@npm:0.5.1"
+  peerDependencies:
+    "@types/express": ^5
+    "@types/express-serve-static-core": ^5.0.0
+    "@vramework/core": ^0.5.1
+    express: ^5
+  checksum: 10/04330d76c2033aa2b082b4158412d79f8bd6c6220cc777664bcbd91d3a2bd51fcf1f0297b83537e9d6674871baec00f7d9650aa956808cb2f292284721c8548b
+  languageName: node
+  linkType: hard
+
+"@vramework/express@npm:^0.5.1":
+  version: 0.5.1
+  resolution: "@vramework/express@npm:0.5.1"
   dependencies:
     "@types/content-type": "npm:^1.1.8"
     "@types/cookie-parser": "npm:^1.4.7"
     "@types/cors": "npm:^2.8.17"
     "@types/express": "npm:^5"
     "@types/express-serve-static-core": "npm:^5.0.0"
+    "@vramework/express-middleware": "npm:^0.5.1"
     body-parser: "npm:^1.20.3"
     cookie: "npm:^1.0.1"
     cookie-parser: "npm:^1.4.7"
     cors: "npm:^2.8.5"
     express: "npm:^5"
   peerDependencies:
-    "@vramework/core": ^0.4.6
-  checksum: 10/1cab0207a91c9b6d5283d81b4036797af2ca56a9e93c2d83a8a2d4d40b0a4c42caf8de25a4ebdbeee75ebfc13ec4259e87ef3bf51f85502f37b522e3e0572b41
+    "@vramework/core": ^0.5.1
+  checksum: 10/cc5306643929a0ba078995934a8beb04a69205384ac33cbfe6c10a6870be479563f975aab735053475b341a7251b6922192e93e8e43f2a6d504f9ec628a6c21f
   languageName: node
   linkType: hard
 
-"@vramework/deploy-fastify@npm:^0.4.10":
-  version: 0.4.10
-  resolution: "@vramework/deploy-fastify@npm:0.4.10"
+"@vramework/fastify-plugin@npm:^0.5.1":
+  version: 0.5.1
+  resolution: "@vramework/fastify-plugin@npm:0.5.1"
   dependencies:
-    "@types/qs": "npm:^6"
-    "@vramework/core": "npm:^0.4.6"
     fastify: "npm:^5.0.0"
-    qs: "npm:^6.13.0"
-    query-string: "npm:^9.1.1"
-    uWebSockets.js: "github:uNetworking/uWebSockets.js#v20.49.0"
-  checksum: 10/26a6e84898f22a8c42cdeb84b839222d588f8cfe7b3e47ff46aa6b488ca94c4ea59526afbb6eb657a1a605c65e53567ca6eeadba42cbfd04dcb378f1f8aa05cd
+    fastify-plugin: "npm:^5.0.1"
+  peerDependencies:
+    "@vramework/core": ^0.5.1
+  checksum: 10/42aca710c08ea904a2e8bc56f75caf177e0add2409dcb8231f8d9041a59299ef92e33cc52858fa672f17dc76e2e29e6df178f5e09e2e86f0456a82c0694af064
   languageName: node
   linkType: hard
 
-"@vramework/deploy-next@npm:^0.4.5":
-  version: 0.4.5
-  resolution: "@vramework/deploy-next@npm:0.4.5"
+"@vramework/fastify@npm:^0.5.1":
+  version: 0.5.1
+  resolution: "@vramework/fastify@npm:0.5.1"
+  dependencies:
+    "@vramework/fastify-plugin": "npm:^0.5.1"
+    fastify: "npm:^5.0.0"
+  peerDependencies:
+    "@vramework/core": ^0.5.1
+  checksum: 10/a669c2b95e65b6ebc35afee5d4d61daf86e3eef6d2ac7c6a7dd83b344247ad21da79416a82c3163d7eda8bbc5fa0bc3869d3f8ed6ff331f74f068d0be523a10e
+  languageName: node
+  linkType: hard
+
+"@vramework/jose@npm:^0.5":
+  version: 0.5.1
+  resolution: "@vramework/jose@npm:0.5.1"
+  dependencies:
+    jose: "npm:^5.9.6"
+  peerDependencies:
+    "@vramework/core": ^0.5.1
+  checksum: 10/1efeb6e41dcf7c1f49ece192efe5083454772cc1451b12917b6be19fe8832a0a492d207cb2a23da6f31399e5157a6c224cc812aa042c604e79a2634e96dd49cd
+  languageName: node
+  linkType: hard
+
+"@vramework/next@npm:^0.5":
+  version: 0.5.1
+  resolution: "@vramework/next@npm:0.5.1"
   dependencies:
     "@types/cookie": "npm:^0.6.0"
-    "@vramework/core": "npm:^0.4.6"
+    "@vramework/core": "npm:^0.5.1"
     cookie: "npm:^1.0.1"
     eventemitter3: "npm:^5.0.1"
   peerDependencies:
     next: ^14.2.9
-  checksum: 10/51a28724662565426255000c7d39bc4dbf8b06dc6b9ea8fff37b671b07c283f32ce15bb6d4863a67bff17f277a944c77448ddcf47ecf18ec27ac415d7bb6a95e
+  checksum: 10/2cdb62db1f14302b667ae8339e2404c095a6842546ba7a0d2c28d4975027aa8078bfb874e1f43177c5914842602d07d5831cb84dfea02a9628e349d284565054
   languageName: node
   linkType: hard
 
-"@vramework/deploy-uws@npm:^0.4.7":
-  version: 0.4.7
-  resolution: "@vramework/deploy-uws@npm:0.4.7"
+"@vramework/uws@npm:^0.5.1":
+  version: 0.5.1
+  resolution: "@vramework/uws@npm:0.5.1"
   dependencies:
     "@types/qs": "npm:^6"
     qs: "npm:^6.13.0"
     query-string: "npm:^9.1.1"
     uWebSockets.js: "github:uNetworking/uWebSockets.js#v20.49.0"
   peerDependencies:
-    "@vramework/core": ^0.4.6
-  checksum: 10/7cec1032cfa309673e0dab7e73b7f43082d14bed9bcc0cedff034c9fe40139ee1da7867db4586a49ca686842cf4b1559959eb121fdb3699ec9391a2cbbf0898e
-  languageName: node
-  linkType: hard
-
-"@vramework/services-local@npm:^0.4.3":
-  version: 0.4.3
-  resolution: "@vramework/services-local@npm:0.4.3"
-  dependencies:
-    eventemitter3: "npm:^5.0.1"
-    jose: "npm:^5.9.6"
-  peerDependencies:
-    "@vramework/core": ^0.4.3
-  checksum: 10/26b0c8125f61cd591c23f9a1637b59abaf5820ff14a71b3bd905b2e42905cf4b0ee63cf196d849d4852ed18934ff67ecbb03b257f5e020a067131051b762fd63
+    "@vramework/core": ^0.5.1
+  checksum: 10/dedb14c571b3dc86cf45801e9f1bc2e95e515c0c006641f1c5c9fbcea312f465a416b42bd9dd42183cd1e1dd2a9f60ae93511019dc11b8e865e6cd90e0237663
   languageName: node
   linkType: hard
 
@@ -1742,6 +1765,13 @@ __metadata:
   version: 3.0.1
   resolution: "fast-uri@npm:3.0.1"
   checksum: 10/e8ee4712270de0d29eb0fbf41ffad0ac80952e8797be760e8bb62c4707f08f50a86fe2d7829681ca133c07d6eb4b4a75389a5fc36674c5b254a3ac0891a68fc7
+  languageName: node
+  linkType: hard
+
+"fastify-plugin@npm:^5.0.1":
+  version: 5.0.1
+  resolution: "fastify-plugin@npm:5.0.1"
+  checksum: 10/76f6960558239d1ead520ecfb9dbb9b0435a63376d9d48bed0861609a909bf1958cb097745bb1a5485592f2c6d1438941e7481203c86b0e74d2bc34f09e8ed3e
   languageName: node
   linkType: hard
 
@@ -4143,7 +4173,7 @@ __metadata:
   resolution: "todos@workspace:."
   dependencies:
     "@todos/functions": "workspace:0.0.0"
-    "@vramework/cli": "npm:^0.4.7"
+    "@vramework/cli": "npm:^0.5.1"
     eventemitter3: "npm:^5.0.1"
     kysely-codegen: "npm:^0.16.6"
     pino: "npm:^9.3.2"
