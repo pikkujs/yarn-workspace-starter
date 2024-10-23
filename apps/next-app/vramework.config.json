@@ -4,7 +4,7 @@
   "schemaOutputDirectory": "./generated",
   "routesOutputFile": "./generated/routes.ts",
   "tsconfig": "./tsconfig.json",
-  "vrameworkNextFile": "./generated/vramework-nextjs.ts",
+  "vrameworkNextFile": "./vramework-nextjs.ts",
   "packageMappings": {
     "packages/functions": "@todos/functions" 
   }

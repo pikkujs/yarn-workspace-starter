@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { vramework } from '@/generated/vramework-nextjs'
+import { vramework } from '@/vramework-nextjs'
 
 export default async function handler(
   req: NextApiRequest,

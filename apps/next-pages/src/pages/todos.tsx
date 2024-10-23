@@ -1,4 +1,4 @@
-import { vramework } from '@/generated/vramework-nextjs'
+import { vramework } from '@/vramework-nextjs'
 import { GetServerSideProps } from 'next'
 import { TodosCard } from '@todos/components/TodosCard'
 import { useCallback, useState } from 'react'

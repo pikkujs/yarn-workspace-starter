@@ -1,4 +1,4 @@
-import { vramework } from '@/generated/vramework-nextjs'
+import { vramework } from '@/vramework-nextjs'
 import { TodosCard } from '@todos/components/TodosCard'
 
 async function addTodo(text: string) {

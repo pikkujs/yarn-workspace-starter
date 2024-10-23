@@ -1,4 +1,4 @@
-import { vramework } from '@/generated/vramework-nextjs'
+import { vramework } from '@/vramework-nextjs'
 import { Login } from '@todos/components/Login'
 
 async function login(name: string) {
