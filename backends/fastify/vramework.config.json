@@ -1,7 +1,0 @@
-{
-  "rootDir": "../../packages/functions",
-  "routeDirectories": ["./src"],
-  "routesOutputFile": "./generated/routes.ts",
-  "schemaOutputDirectory": "./generated",
-  "tsconfig": "./tsconfig.json"
-}

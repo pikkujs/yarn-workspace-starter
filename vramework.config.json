@@ -1,11 +1,13 @@
 {
+  "tsconfig": "./tsconfig.json",
   "rootDir": "packages/functions",
   "routeDirectories": ["./src"],
-  "routesOutputFile": "./generated/routes.ts",
-  "routesMapOutputFile": "../sdk/generated/routes-mapping.ts",
-  "schemaOutputDirectory": "./generated",
-  "tsconfig": "./tsconfig.json",
   "packageMappings": {
-    "sdk/types": "@todos/sdk/types"
-  }
+    "sdk/types": "@todos/sdk/types",
+    "packages/functions": "@todos/functions"
+  },
+  "routesFile": "./.vramework/routes.ts",
+  "schemaDirectory": "./.vramework",
+  "routesMapDeclarationFile": "./.vramework/vramework-routes.d.ts",
+  "typesDeclarationFile": "./.vramework/vramework-types.d.ts"
 }

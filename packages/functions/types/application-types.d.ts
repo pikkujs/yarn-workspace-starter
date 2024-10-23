@@ -1,14 +1,13 @@
 import type {
+  CoreServices,
   CoreServerConfig,
   CoreSingletonServices,
   CoreUserSession,
-  VrameworkRequest, 
-  VrameworkResponse 
 } from '@vramework/core'
 import type { SQLConfig } from '@todos/services/src/kysely'
 import type { DB } from 'kysely-codegen'
 import type { Kysely } from 'kysely'
-import { JoseJWTService } from '@vramework/jose'
+import type { JoseJWTService } from '@vramework/jose'
 
 export interface Config extends CoreServerConfig {
   sql: SQLConfig
@@ -22,13 +21,9 @@ export type SingletonServices = CoreSingletonServices & {
   kysely: Kysely<DB>
 }
 
-export interface Services extends SingletonServices {
-  request: VrameworkRequest
-  response: VrameworkResponse
+export interface Services extends CoreServices<SingletonServices> {
 }
 
 export interface UserSession extends CoreUserSession {
   userId: string
 }
-
-export const EMPTY = ''

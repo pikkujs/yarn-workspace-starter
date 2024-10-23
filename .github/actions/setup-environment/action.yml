@@ -15,6 +15,6 @@ runs:
     # - name: Archive artifacts
     #   uses: actions/upload-artifact@v4
     #   with:
-    #     name: generated
-    #     path: "**/generated"
+    #     name: vramework
+    #     path: "**/.vramework"
     #     if-no-files-found: error

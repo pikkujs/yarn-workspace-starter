@@ -1,11 +1,4 @@
 {
-  "rootDir": "../../packages/functions",
-  "routeDirectories": ["./src"],
-  "schemaOutputDirectory": "./generated",
-  "routesOutputFile": "./generated/routes.ts",
-  "tsconfig": "./tsconfig.json",
-  "vrameworkNextFile": "./vramework-nextjs.ts",
-  "packageMappings": {
-    "packages/functions": "@todos/functions" 
-  }
+    "extends": "../../vramework.config.json",
+    "nextDeclarationFile": "./vramework-nextjs.ts"
 }

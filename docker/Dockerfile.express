@@ -18,7 +18,7 @@ COPY packages/sdk/ packages/sdk/
 
 COPY packages/functions/ packages/functions/
 # This verifies generated functions are copied to the Docker image
-COPY packages/functions/generated/ packages/functions/generated/
+COPY packages/functions/.vramework/ packages/functions/.vramework/
 
 RUN corepack enable
 RUN cd backends/express && yarn workspaces focus --production

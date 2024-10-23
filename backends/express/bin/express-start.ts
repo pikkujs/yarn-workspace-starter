@@ -1,21 +1,18 @@
 import { Command } from 'commander'
 
 import { VrameworkExpressServer } from '@vramework/express'
-import { getVrameworkConfig } from '@vramework/core'
 
 import { config } from '@todos/functions/src/config'
 import { createSingletonServices, createSessionServices } from '@todos/functions/src/services'
 
-import '@todos/functions/generated/routes'
-import '@todos/functions/generated/schemas'
+import '@todos/functions/.vramework/routes'
+import '@todos/functions/.vramework/schemas'
 
-async function action({ configFile }: { configFile?: string }): Promise<void> {
+async function action(): Promise<void> {
   try {
-    const vrameworkConfig = await getVrameworkConfig(configFile)
     const singletonServices = await createSingletonServices(config)
 
     const appServer = new VrameworkExpressServer(
-      vrameworkConfig,
       config,
       singletonServices,
       createSessionServices
@@ -33,6 +30,5 @@ export const start = (program: Command): void => {
   program
     .command('start')
     .description('start the express server')
-    .option('-c | --config <string>', 'The path to vramework cli config file')
     .action(action)
 }

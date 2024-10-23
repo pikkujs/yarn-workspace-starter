@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { UserSession } from '@todos/functions/src/api'
 import { VrameworkNextRequest } from '@vramework/next/vramework-next-request'
 import { JoseJWTService } from '@vramework/jose'
 import { VrameworkSessionService } from '@vramework/core/services/vramework-session-service'
+import { UserSession } from '@todos/functions/types/application-types'
 
 // 1. Specify protected and public routes
 const protectedRoutes = ['/todos']

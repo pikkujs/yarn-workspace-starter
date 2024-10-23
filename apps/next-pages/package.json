@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prebuild": "npx @vramework/cli nextjs @todos/functions/src/config @todos/functions/src/services"
+    "prebuild": "npx @vramework/cli nextjs"
   },
   "dependencies": {
     "@todos/components": "*",

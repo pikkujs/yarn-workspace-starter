@@ -15,7 +15,7 @@ COPY tsconfig.json tsconfig.json
 COPY backends/fastify/ backends/fastify/
 COPY packages/functions/ packages/functions/
 # This verifies generated functions are copied to the Docker image
-COPY packages/functions/generated/ packages/functions/generated/
+COPY packages/functions/.vramework/ packages/functions/.vramework/
 COPY packages/services/ packages/services/
 COPY packages/sdk/ packages/sdk/
 

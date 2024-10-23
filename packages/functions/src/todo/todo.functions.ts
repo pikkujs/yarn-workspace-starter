@@ -1,11 +1,11 @@
-import {
-  type Todo,
-  type Todos,
-  type CreateTodo,
-  type JustTodoId,
-  type UpdateTodo,
+import type {
+  Todo,
+  Todos,
+  CreateTodo,
+  JustTodoId,
+  UpdateTodo,
 } from '@todos/sdk/types/todo.types'
-import { APIFunction, APIFunctionSessionless } from '../vramework-types'
+import { APIFunction, APIFunctionSessionless } from '../../.vramework/vramework-types'
 
 export const getTodos: APIFunctionSessionless<unknown, Todos> = async (
   services

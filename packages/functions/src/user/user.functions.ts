@@ -1,6 +1,6 @@
-import { type JustUserName, type UpdateUser, type Session } from '@todos/sdk/types/user.types'
-import { APIFunctionSessionless } from '../vramework-types'
-import { UserSession } from '../api'
+import type { JustUserName, UpdateUser, Session } from '@todos/sdk/types/user.types'
+import type { APIFunctionSessionless } from '../../.vramework/vramework-types'
+import type { UserSession } from '../../types/application-types'
 
 export const loginUser: APIFunctionSessionless<
   JustUserName,

@@ -1,5 +1,5 @@
+import { addRoute } from '@vramework/core'
 import { isTodoCreator } from '../permissions'
-import { addRoute } from '../vramework-types'
 import {
   getTodos,
   getTodo,
