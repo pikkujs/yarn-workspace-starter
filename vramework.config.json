@@ -2,6 +2,10 @@
   "rootDir": "packages/functions",
   "routeDirectories": ["./src"],
   "routesOutputFile": "./generated/routes.ts",
+  "routesMapOutputFile": "../sdk/generated/routes-mapping.ts",
   "schemaOutputDirectory": "./generated",
-  "tsconfig": "./tsconfig.json"
+  "tsconfig": "./tsconfig.json",
+  "packageMappings": {
+    "sdk/types": "@todos/sdk/types"
+  }
 }

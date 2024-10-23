@@ -1,10 +1,10 @@
-import { type JustUserName, type UpdateUser } from '@todos/sdk/types/user.types'
+import { type JustUserName, type UpdateUser, type Session } from '@todos/sdk/types/user.types'
 import { APIFunctionSessionless } from '../vramework-types'
 import { UserSession } from '../api'
 
 export const loginUser: APIFunctionSessionless<
   JustUserName,
-  UserSession
+  Session
 > = async (services, { name }) => {
   let session: UserSession | undefined
   try {

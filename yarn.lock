@@ -674,14 +674,14 @@ __metadata:
   linkType: hard
 
 "@vramework/express-middleware@npm:^0.5.1":
-  version: 0.5.1
-  resolution: "@vramework/express-middleware@npm:0.5.1"
+  version: 0.5.2
+  resolution: "@vramework/express-middleware@npm:0.5.2"
   peerDependencies:
     "@types/express": ^5
     "@types/express-serve-static-core": ^5.0.0
     "@vramework/core": ^0.5.1
     express: ^5
-  checksum: 10/04330d76c2033aa2b082b4158412d79f8bd6c6220cc777664bcbd91d3a2bd51fcf1f0297b83537e9d6674871baec00f7d9650aa956808cb2f292284721c8548b
+  checksum: 10/8e08d2d4a7c22dfb2492bf1cf944eec4f71ccdfbec46e8eef38b44c0c5bd943ee3a14c7a1e11f257ce7758c8b673e82ef0980d1624147686fa5d270a80aee23e
   languageName: node
   linkType: hard
 
@@ -707,14 +707,14 @@ __metadata:
   linkType: hard
 
 "@vramework/fastify-plugin@npm:^0.5.1":
-  version: 0.5.1
-  resolution: "@vramework/fastify-plugin@npm:0.5.1"
+  version: 0.5.2
+  resolution: "@vramework/fastify-plugin@npm:0.5.2"
   dependencies:
     fastify: "npm:^5.0.0"
     fastify-plugin: "npm:^5.0.1"
   peerDependencies:
     "@vramework/core": ^0.5.1
-  checksum: 10/42aca710c08ea904a2e8bc56f75caf177e0add2409dcb8231f8d9041a59299ef92e33cc52858fa672f17dc76e2e29e6df178f5e09e2e86f0456a82c0694af064
+  checksum: 10/d442b30666e41abb7c0aebdedda5e1b4f091901b757a65ad66d7f41fb5e4f73597aece10f51927015048b9ca7ebf84e916c46eadfb718087e42b205125fa97ee
   languageName: node
   linkType: hard
 
@@ -742,16 +742,16 @@ __metadata:
   linkType: hard
 
 "@vramework/next@npm:^0.5":
-  version: 0.5.1
-  resolution: "@vramework/next@npm:0.5.1"
+  version: 0.5.2
+  resolution: "@vramework/next@npm:0.5.2"
   dependencies:
     "@types/cookie": "npm:^0.6.0"
-    "@vramework/core": "npm:^0.5.1"
     cookie: "npm:^1.0.1"
     eventemitter3: "npm:^5.0.1"
   peerDependencies:
+    "@vramework/core": ^0.5.0
     next: ^14.2.9
-  checksum: 10/2cdb62db1f14302b667ae8339e2404c095a6842546ba7a0d2c28d4975027aa8078bfb874e1f43177c5914842602d07d5831cb84dfea02a9628e349d284565054
+  checksum: 10/875b05fff49fa38328edf9e03601334737a12d91924053dfe034c5a4b937b1694be06ce92ee2b2e19a81a22d71854d57f30b04af6ac46f24de0ced750de16a16
   languageName: node
   linkType: hard
 
