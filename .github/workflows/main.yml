@@ -1,6 +1,8 @@
 name: Master
 run-name: The master and release workflow
 on: [push]
+env:
+  POSTGRES_CREDENTIALS: '{"host":"localhost","port":5432,"user":"postgres","password":"password","database":"todos"}'
 jobs:
   setup:
     runs-on: ubuntu-latest
@@ -27,7 +29,7 @@ jobs:
 
   express:
       name: Express Docker
-      uses: ./.github/workflows/docker-build-and-publish.yml
+      uses: ./.github/workflows/backend-docker-build-and-publish.yml
       needs: setup
       with:
         dockerfile-path: 'docker/Dockerfile.express'
@@ -36,7 +38,7 @@ jobs:
   
   fastify:
     name: Fastify Docker
-    uses: ./.github/workflows/docker-build-and-publish.yml
+    uses: ./.github/workflows/backend-docker-build-and-publish.yml
     needs: setup
     with:
       dockerfile-path: 'docker/Dockerfile.fastify'
@@ -45,10 +47,30 @@ jobs:
   
   uws:
     name: UWS Docker
-    uses: ./.github/workflows/docker-build-and-publish.yml
+    uses: ./.github/workflows/backend-docker-build-and-publish.yml
     needs: setup
     with:
       dockerfile-path: 'docker/Dockerfile.uws'
       image-name: 'workspace-starter-uws'
       image-tag: 'latest'
+
+  next-app:
+    name: Next App
+    needs: setup
+    uses: ./.github/workflows/next-docker-build-and-publish.yml
+    with:
+      app-path: 'apps/next-app'
+      dockerfile-path: 'docker/Dockerfile.nextjs-app'
+      image-name: 'workspace-starter-nextjs-app'
+      image-tag: 'latest'
+
+  next-pages:
+      name: Next Pages
+      needs: setup
+      uses: ./.github/workflows/next-docker-build-and-publish.yml
+      with:
+        app-path: 'apps/next-pages'
+        dockerfile-path: 'docker/Dockerfile.nextjs-pages'
+        image-name: 'workspace-starter-nextjs-pages'
+        image-tag: 'latest'
 

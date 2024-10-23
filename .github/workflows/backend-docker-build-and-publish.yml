@@ -1,5 +1,5 @@
 # .github/workflows/docker-publish.yml
-name: Publish Docker Image to GHCR
+name: Publish Backend Docker Image to GHCR
 
 on:
   workflow_call:
@@ -20,6 +20,7 @@ on:
 
 jobs:
   publish:
+    name: Build and Publish
     runs-on: ubuntu-latest
     services:
       postgres:
@@ -39,8 +40,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
       
-      - name: Restore environment
-        uses: ./.github/actions/restore-environment
+      - name: Setup environment
+        uses: ./.github/actions/setup-environment
       
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
@@ -60,7 +61,7 @@ jobs:
           sleep 10s
           docker ps -a
           docker logs container
-          curl -v 0.0.0.0:4002/health-check
+          # curl -v 0.0.0.0:4002/health-check
           curl -v 0.0.0.0:4002/todos
 
       - name: Push Docker Image

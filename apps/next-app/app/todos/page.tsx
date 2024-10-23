@@ -23,7 +23,7 @@ async function toggleTodo(todoId: string, completedAt: Date | null) {
 }
 
 export default async function TodoPage() {
-  const todos = await vramework().actionRequest(
+  const todos = await vramework().staticActionRequest(
     '/todos',
     'get',
     null

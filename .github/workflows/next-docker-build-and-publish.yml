@@ -1,0 +1,76 @@
+# .github/workflows/docker-publish.yml
+name: Publish Next Docker Image to GHCR
+
+on:
+  workflow_call:
+    inputs:
+      app-path:
+        description: 'Path to the nextjs app'
+        required: true
+        type: string
+      dockerfile-path:
+        description: 'Path to the Dockerfile'
+        required: true
+        type: string
+      image-name:
+        description: 'Name of the Docker image (repository path)'
+        required: true
+        type: string
+      image-tag:
+        description: 'Tag of the Docker image'
+        required: false
+        default: 'latest'
+        type: string
+
+jobs:
+  build-and-publish:
+    name: Build and Publish
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:alpine
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: password
+          POSTGRES_DB: todos
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Setup environment
+        uses: ./.github/actions/setup-environment
+      
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to GitHub Container Registry
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+
+      - name: Build next server
+        run: cd ${{ inputs.app-path }} && yarn build
+
+      - name: Build Docker Image
+        run: |
+          IMAGE_NAME=ghcr.io/${{ github.repository_owner }}/${{ inputs.image-name }}
+          docker build -t $IMAGE_NAME:${{ inputs.image-tag }} -f ${{ inputs.dockerfile-path }} .
+
+      - name: Test Docker Image
+        run: |
+          IMAGE_NAME=ghcr.io/${{ github.repository_owner }}/${{ inputs.image-name }}
+          docker run -d --name container -p 3000:3000 $IMAGE_NAME:${{ inputs.image-tag }}
+          sleep 10s
+          docker ps -a
+          docker logs container
+          curl -v 127.0.0.1:3000
+
+      - name: Push Docker Image
+        run: |
+          IMAGE_NAME=ghcr.io/${{ github.repository_owner }}/${{ inputs.image-name }}
+          docker push $IMAGE_NAME:${{ inputs.image-tag }}
