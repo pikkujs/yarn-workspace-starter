@@ -53,10 +53,9 @@ export const createSingletonServices: CreateSingletonServices<Config, SingletonS
 }
 
 export const createSessionServices: CreateSessionServices<SingletonServices, UserSession, Services> = async (
-  singletonServices,
+  _singletonServices,
   _session
 ) => {
   return {
-    ...singletonServices,
   }
 }

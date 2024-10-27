@@ -1,6 +1,4 @@
-import { Command } from 'commander'
-
-import { VrameworkFastifyServer } from '@vramework/fastify'
+import { VrameworkExpressServer } from '@vramework/express'
 
 import { config } from '@todos/functions/src/config'
 import { createSingletonServices, createSessionServices } from '@todos/functions/src/services'
@@ -8,10 +6,11 @@ import { createSingletonServices, createSessionServices } from '@todos/functions
 import '@todos/functions/.vramework/routes'
 import '@todos/functions/.vramework/schemas'
 
-async function action(): Promise<void> {
+async function main(): Promise<void> {
   try {
     const singletonServices = await createSingletonServices(config)
-    const appServer = new VrameworkFastifyServer(
+
+    const appServer = new VrameworkExpressServer(
       config,
       singletonServices,
       createSessionServices
@@ -25,9 +24,4 @@ async function action(): Promise<void> {
   }
 }
 
-export const start = (program: Command): void => {
-  program
-    .command('start')
-    .description('start the express server')
-    .action(action)
-}
+main()

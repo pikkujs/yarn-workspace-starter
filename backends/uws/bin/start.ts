@@ -1,18 +1,15 @@
-import { Command } from 'commander'
-
-import { VrameworkExpressServer } from '@vramework/express'
+import { VrameworkUWSServer } from '@vramework/uws'
 
 import { config } from '@todos/functions/src/config'
-import { createSingletonServices, createSessionServices } from '@todos/functions/src/services'
+import { createSessionServices, createSingletonServices } from '@todos/functions/src/services'
 
 import '@todos/functions/.vramework/routes'
 import '@todos/functions/.vramework/schemas'
 
-async function action(): Promise<void> {
+async function main(): Promise<void> {
   try {
     const singletonServices = await createSingletonServices(config)
-
-    const appServer = new VrameworkExpressServer(
+    const appServer = new VrameworkUWSServer(
       config,
       singletonServices,
       createSessionServices
@@ -26,9 +23,4 @@ async function action(): Promise<void> {
   }
 }
 
-export const start = (program: Command): void => {
-  program
-    .command('start')
-    .description('start the express server')
-    .action(action)
-}
+main()
