@@ -274,7 +274,7 @@ __metadata:
     "@todos/services": "workspace:0.0.0"
     "@types/node": "npm:^22"
     "@vramework/core": "npm:^0.5.5"
-    "@vramework/express": "npm:^0.5.2"
+    "@vramework/express": "npm:^0.5.3"
     pino-pretty: "npm:^11.3.0"
     ts-node: "npm:^10.9.2"
     ts-node-dev: "npm:^2.0.0"
@@ -299,7 +299,7 @@ __metadata:
     "@todos/services": "workspace:0.0.0"
     "@types/node": "npm:^22"
     "@vramework/core": "npm:^0.5.5"
-    "@vramework/fastify": "npm:^0.5.2"
+    "@vramework/fastify": "npm:^0.5.3"
     ts-node: "npm:^10.9.2"
     ts-node-dev: "npm:^2.0.0"
     tslib: "npm:^2.8.0"
@@ -668,28 +668,28 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vramework/express-middleware@npm:^0.5.1":
-  version: 0.5.2
-  resolution: "@vramework/express-middleware@npm:0.5.2"
+"@vramework/express-middleware@npm:^0.5.3":
+  version: 0.5.3
+  resolution: "@vramework/express-middleware@npm:0.5.3"
   peerDependencies:
     "@types/express": ^5
     "@types/express-serve-static-core": ^5.0.0
     "@vramework/core": ^0.5.1
     express: ^5
-  checksum: 10/8e08d2d4a7c22dfb2492bf1cf944eec4f71ccdfbec46e8eef38b44c0c5bd943ee3a14c7a1e11f257ce7758c8b673e82ef0980d1624147686fa5d270a80aee23e
+  checksum: 10/d382f3e57acf0394bafec33b27243f98cfdf073a6d090014822f0ac0eda3657c8f97dbb469707db81714f6741f07f3271bdc82e673b3761307fed4b1cda2809a
   languageName: node
   linkType: hard
 
-"@vramework/express@npm:^0.5.2":
-  version: 0.5.2
-  resolution: "@vramework/express@npm:0.5.2"
+"@vramework/express@npm:^0.5.3":
+  version: 0.5.3
+  resolution: "@vramework/express@npm:0.5.3"
   dependencies:
     "@types/content-type": "npm:^1.1.8"
     "@types/cookie-parser": "npm:^1.4.7"
     "@types/cors": "npm:^2.8.17"
     "@types/express": "npm:^5"
     "@types/express-serve-static-core": "npm:^5.0.0"
-    "@vramework/express-middleware": "npm:^0.5.1"
+    "@vramework/express-middleware": "npm:^0.5.3"
     body-parser: "npm:^1.20.3"
     cookie: "npm:^1.0.1"
     cookie-parser: "npm:^1.4.7"
@@ -697,31 +697,31 @@ __metadata:
     express: "npm:^5"
   peerDependencies:
     "@vramework/core": ^0.5.1
-  checksum: 10/985175dd353114e25ac0ec7e63d891c042e3cbfa71dd90e558b0d1617548538ee418d6214e190db0575f9a67d224b130d95e62623d9d1de9640d7d705166a7dd
+  checksum: 10/521cb448892930caf813f3a228e91c877a93896bf4c61d0d90ede30413e1e31021baa80e0c0a15e0277682aead46d4b12e626f92ecddc2724649d71247a45da5
   languageName: node
   linkType: hard
 
-"@vramework/fastify-plugin@npm:^0.5.1":
-  version: 0.5.2
-  resolution: "@vramework/fastify-plugin@npm:0.5.2"
+"@vramework/fastify-plugin@npm:^0.5.3":
+  version: 0.5.3
+  resolution: "@vramework/fastify-plugin@npm:0.5.3"
   dependencies:
     fastify: "npm:^5.0.0"
     fastify-plugin: "npm:^5.0.1"
   peerDependencies:
     "@vramework/core": ^0.5.1
-  checksum: 10/d442b30666e41abb7c0aebdedda5e1b4f091901b757a65ad66d7f41fb5e4f73597aece10f51927015048b9ca7ebf84e916c46eadfb718087e42b205125fa97ee
+  checksum: 10/b020e8c33299a707c94a1340dc49107f90ad0e282597bd661e675e8b11242fbf524b93a7abe9fd2b620b633af2c4025789e66555312b9fddf2b68d329fb8038d
   languageName: node
   linkType: hard
 
-"@vramework/fastify@npm:^0.5.2":
-  version: 0.5.2
-  resolution: "@vramework/fastify@npm:0.5.2"
+"@vramework/fastify@npm:^0.5.3":
+  version: 0.5.3
+  resolution: "@vramework/fastify@npm:0.5.3"
   dependencies:
-    "@vramework/fastify-plugin": "npm:^0.5.1"
+    "@vramework/fastify-plugin": "npm:^0.5.3"
     fastify: "npm:^5.0.0"
   peerDependencies:
     "@vramework/core": ^0.5.1
-  checksum: 10/14772b7df06ba42074259fb9dcbfdca74b9b2d9d46205388fa407f6452cc612b8428f9cf5343412373e36f727fd94ccc4efc2982e7fd77501fbae12fbb951e9e
+  checksum: 10/43c272bf293d073dc227f660a7c6f11a8793dcbaca2a20492b9da3d5a0224e46563914830cc3b22de5db65dfe032b390a4623431435c2148a96c9df8c99f3217
   languageName: node
   linkType: hard
 
