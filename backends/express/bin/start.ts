@@ -3,8 +3,7 @@ import { VrameworkExpressServer } from '@vramework/express'
 import { config } from '@todos/functions/src/config'
 import { createSingletonServices, createSessionServices } from '@todos/functions/src/services'
 
-import '@todos/functions/.vramework/routes'
-import '@todos/functions/.vramework/schemas'
+import '@todos/functions/.vramework/vramework-bootstrap'
 
 async function main(): Promise<void> {
   try {

@@ -3,8 +3,7 @@ import { VrameworkUWSServer } from '@vramework/uws'
 import { config } from '@todos/functions/src/config'
 import { createSessionServices, createSingletonServices } from '@todos/functions/src/services'
 
-import '@todos/functions/.vramework/routes'
-import '@todos/functions/.vramework/schemas'
+import '@todos/functions/.vramework/vramework-bootstrap'
 
 async function main(): Promise<void> {
   try {

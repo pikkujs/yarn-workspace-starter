@@ -633,9 +633,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vramework/cli@npm:^0.5.10":
-  version: 0.5.10
-  resolution: "@vramework/cli@npm:0.5.10"
+"@vramework/cli@npm:^0.5.12":
+  version: 0.5.12
+  resolution: "@vramework/cli@npm:0.5.12"
   dependencies:
     "@types/cookie": "npm:^0.6.0"
     "@types/uuid": "npm:^10.0.0"
@@ -648,7 +648,7 @@ __metadata:
     "@vramework/core": ^0.5.4
   bin:
     vramework: dist/cjs/bin/vramework.js
-  checksum: 10/77fe683d68b0906606608af6b6f5a4276c2b5a1665b968c026d9951464f5cffabbd0d26a3fa980780540afe179da8e19d3565d1a3404b9d1ad1ffca943db073f
+  checksum: 10/ed265b3f0a08f2bb0a7f5308748e8a45010e381eac4981114662e5c91de82c7f81d76b984e8307f268523230dde59dc8cc5e92defa829a700ebf7a59175f3447
   languageName: node
   linkType: hard
 
@@ -4132,7 +4132,7 @@ __metadata:
   resolution: "todos@workspace:."
   dependencies:
     "@todos/functions": "workspace:0.0.0"
-    "@vramework/cli": "npm:^0.5.10"
+    "@vramework/cli": "npm:^0.5.12"
     eventemitter3: "npm:^5.0.1"
     kysely-codegen: "npm:^0.16.6"
     pino: "npm:^9.3.2"
