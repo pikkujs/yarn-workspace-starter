@@ -1,11 +1,14 @@
 {
+  "$schema": "https://raw.githubusercontent.com/vramework/vramework/refs/heads/master/packages/cli/cli.schema.json",
   "tsconfig": "./tsconfig.json",
   "routeDirectories": [
     "packages/functions/src"
   ],
   "outDir": "packages/functions/.vramework",
+  "routesMapDeclarationFile": "packages/sdk/.vramework/routes-map.d.ts",
+  "fetchFile": "packages/sdk/.vramework/vramework-fetch.ts",
   "packageMappings": {
-    "sdk/types": "@todos/sdk/types",
+    "packages/sdk": "@todos/sdk",
     "packages/functions": "@todos/functions"
   },
   "openAPI": {

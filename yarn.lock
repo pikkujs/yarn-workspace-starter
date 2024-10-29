@@ -305,7 +305,7 @@ __metadata:
     "@todos/functions": "workspace:0.0.0"
     "@todos/services": "workspace:0.0.0"
     "@types/node": "npm:^22"
-    "@vramework/core": "npm:^0.5.6"
+    "@vramework/core": "npm:^0.5.7"
     "@vramework/express": "npm:^0.5.3"
     pino-pretty: "npm:^11.3.0"
     ts-node: "npm:^10.9.2"
@@ -330,7 +330,7 @@ __metadata:
     "@todos/functions": "workspace:0.0.0"
     "@todos/services": "workspace:0.0.0"
     "@types/node": "npm:^22"
-    "@vramework/core": "npm:^0.5.6"
+    "@vramework/core": "npm:^0.5.7"
     "@vramework/fastify": "npm:^0.5.3"
     ts-node: "npm:^10.9.2"
     ts-node-dev: "npm:^2.0.0"
@@ -406,6 +406,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@todos/sdk@workspace:packages/sdk"
   dependencies:
+    "@vramework/fetch": "npm:^0.5.0"
     typescript: "npm:^5.6"
   languageName: unknown
   linkType: soft
@@ -415,7 +416,7 @@ __metadata:
   resolution: "@todos/services@workspace:packages/services"
   dependencies:
     "@types/pg": "npm:^8.11.6"
-    "@vramework/core": "npm:^0.5.6"
+    "@vramework/core": "npm:^0.5.7"
     pg: "npm:^8.12.0"
     pino: "npm:^9.3.2"
     typescript: "npm:^5.6"
@@ -430,7 +431,7 @@ __metadata:
     "@todos/functions": "workspace:0.0.0"
     "@todos/services": "workspace:0.0.0"
     "@types/node": "npm:^22"
-    "@vramework/core": "npm:^0.5.6"
+    "@vramework/core": "npm:^0.5.7"
     "@vramework/uws": "npm:^0.5.3"
     ts-node: "npm:^10.9.2"
     ts-node-dev: "npm:^2.0.0"
@@ -665,9 +666,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vramework/cli@npm:^0.5.14":
-  version: 0.5.14
-  resolution: "@vramework/cli@npm:0.5.14"
+"@vramework/cli@npm:^0.5.15":
+  version: 0.5.15
+  resolution: "@vramework/cli@npm:0.5.15"
   dependencies:
     "@openapi-contrib/json-schema-to-openapi-schema": "npm:^3.0.2"
     "@types/cookie": "npm:^0.6.0"
@@ -677,17 +678,18 @@ __metadata:
     path-to-regexp: "npm:^8.2.0"
     ts-json-schema-generator: "npm:^2.3.0"
     typescript: "npm:^5.6"
+    yaml: "npm:^2.6.0"
   peerDependencies:
     "@vramework/core": ^0.5.6
   bin:
     vramework: dist/cjs/bin/vramework.js
-  checksum: 10/c7179128c467d77a14b7f567727085472c5edc2ba74db4a8a4ef63d4d69199074da0b60986ca218e24a19ed2bb1d6c9c3172b7e81383ab868558722bd68e4b4d
+  checksum: 10/05fc4da81bfabf88abe00b1553c807f4eeef02ccdc949d58b39960e05470e7d71d0776b821d7f7adbb60537546230e1a7f95605e9e715d2f00b3c4dcac0a18c8
   languageName: node
   linkType: hard
 
-"@vramework/core@npm:^0.5, @vramework/core@npm:^0.5.6":
-  version: 0.5.6
-  resolution: "@vramework/core@npm:0.5.6"
+"@vramework/core@npm:^0.5, @vramework/core@npm:^0.5.7":
+  version: 0.5.7
+  resolution: "@vramework/core@npm:0.5.7"
   dependencies:
     "@types/cookie": "npm:^0.6.0"
     "@types/uuid": "npm:^10.0.0"
@@ -697,7 +699,7 @@ __metadata:
     eventemitter3: "npm:^5.0.1"
     path-to-regexp: "npm:^8.2.0"
     uuid: "npm:^10.0.0"
-  checksum: 10/025d29bd6dafb6e1ccb9575b16202af34495b07f0032bc09afcb019f45fb690dd0a1a969f473c928c9a5cac302ef1c6ccae207daaa2eca71541079d937f7a09f
+  checksum: 10/2eddabbb2775832184225a04587bc51e8d621eeab4d953a511f099e470076f27dc0de5c83316f9ccb9a9ad6ba196230f11b66d57c2de6c16313e661c653b55eb
   languageName: node
   linkType: hard
 
@@ -755,6 +757,13 @@ __metadata:
   peerDependencies:
     "@vramework/core": ^0.5.1
   checksum: 10/43c272bf293d073dc227f660a7c6f11a8793dcbaca2a20492b9da3d5a0224e46563914830cc3b22de5db65dfe032b390a4623431435c2148a96c9df8c99f3217
+  languageName: node
+  linkType: hard
+
+"@vramework/fetch@npm:^0.5.0":
+  version: 0.5.0
+  resolution: "@vramework/fetch@npm:0.5.0"
+  checksum: 10/5be58f506f2dbf82cf6380a1df496bc537adb89506421c6dbd2e0563660ec68d37a1d61ca79c77ff9c3cd0ff31132ff4eb1898f8f9f44257274abfacb98f2f58
   languageName: node
   linkType: hard
 
@@ -4239,7 +4248,7 @@ __metadata:
   resolution: "todos@workspace:."
   dependencies:
     "@todos/functions": "workspace:0.0.0"
-    "@vramework/cli": "npm:^0.5.14"
+    "@vramework/cli": "npm:^0.5.15"
     eventemitter3: "npm:^5.0.1"
     kysely-codegen: "npm:^0.16.6"
     pino: "npm:^9.3.2"
@@ -4564,7 +4573,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"yaml@npm:^2.3.4":
+"yaml@npm:^2.3.4, yaml@npm:^2.6.0":
   version: 2.6.0
   resolution: "yaml@npm:2.6.0"
   bin:
