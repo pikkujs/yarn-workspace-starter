@@ -5,17 +5,17 @@
   "license": "MIT",
   "private": true,
   "author": "yasser.fadl@gmail.com",
-  "main": "bin/fastify.ts",
+  "main": "bin/start.ts",
   "scripts": {
     "tsc": "tsc",
-    "start": "ts-node --transpile-only bin/fastify.ts",
-    "dev": "tsnd --respawn bin/fastify.ts",
+    "start": "ts-node --transpile-only bin/start.ts",
+    "dev": "tsnd --respawn bin/start.ts",
     "ncu": "ncu"
   },
   "dependencies": {
     "@todos/functions": "workspace:0.0.0",
     "@todos/services": "workspace:0.0.0",
-    "@vramework/core": "^0.5.5",
+    "@vramework/core": "^0.5.6",
     "@vramework/fastify": "^0.5.3",
     "ts-node": "^10.9.2",
     "tslib": "^2.8.0",

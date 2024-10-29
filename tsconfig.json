@@ -24,6 +24,5 @@
       "@todos/sdk/*": ["./packages/sdk/*"]
     }
   },
-  "include": ["packages/**/*"],
   "exclude": ["node_modules", "**/*.spec.ts"]
 }
