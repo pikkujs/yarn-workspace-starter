@@ -305,13 +305,23 @@ __metadata:
     "@todos/functions": "workspace:0.0.0"
     "@todos/services": "workspace:0.0.0"
     "@types/node": "npm:^22"
-    "@vramework/core": "npm:^0.5.7"
-    "@vramework/express": "npm:^0.5.3"
+    "@vramework/core": "npm:^0.5.8"
+    "@vramework/express": "npm:^0.5.4"
     pino-pretty: "npm:^11.3.0"
     ts-node: "npm:^10.9.2"
     ts-node-dev: "npm:^2.0.0"
     tslib: "npm:^2.8.0"
     typescript: "npm:^5.6"
+  languageName: unknown
+  linkType: soft
+
+"@todos/cli@workspace:apps/cli":
+  version: 0.0.0-use.local
+  resolution: "@todos/cli@workspace:apps/cli"
+  dependencies:
+    "@todos/sdk": "npm:*"
+    "@types/node": "npm:^22"
+    ts-node: "npm:^10.9.2"
   languageName: unknown
   linkType: soft
 
@@ -330,8 +340,8 @@ __metadata:
     "@todos/functions": "workspace:0.0.0"
     "@todos/services": "workspace:0.0.0"
     "@types/node": "npm:^22"
-    "@vramework/core": "npm:^0.5.7"
-    "@vramework/fastify": "npm:^0.5.3"
+    "@vramework/core": "npm:^0.5.8"
+    "@vramework/fastify": "npm:^0.5.4"
     ts-node: "npm:^10.9.2"
     ts-node-dev: "npm:^2.0.0"
     tslib: "npm:^2.8.0"
@@ -347,8 +357,8 @@ __metadata:
     "@types/content-type": "npm:^1.1.8"
     "@types/pg": "npm:^8.11.6"
     "@types/uuid": "npm:^10"
-    "@vramework/core": "npm:^0.5"
-    "@vramework/jose": "npm:^0.5"
+    "@vramework/core": "npm:^0.5.8"
+    "@vramework/jose": "npm:^0.5.1"
     kysely: "npm:^0.27.4"
     kysely-codegen: "npm:^0.16.6"
     pg: "npm:^8.12.0"
@@ -367,9 +377,9 @@ __metadata:
     "@types/node": "npm:^22"
     "@types/react": "npm:^18"
     "@types/react-dom": "npm:^18"
-    "@vramework/core": "npm:^0.5"
-    "@vramework/jose": "npm:^0.5"
-    "@vramework/next": "npm:^0.5"
+    "@vramework/core": "npm:^0.5.8"
+    "@vramework/jose": "npm:^0.5.1"
+    "@vramework/next": "npm:^0.5.2"
     next: "npm:14.2.11"
     next-superjson-plugin: "npm:^0.6.3"
     postcss: "npm:^8"
@@ -389,8 +399,8 @@ __metadata:
     "@types/node": "npm:^22"
     "@types/react": "npm:^18"
     "@types/react-dom": "npm:^18"
-    "@vramework/core": "npm:^0.5"
-    "@vramework/next": "npm:^0.5"
+    "@vramework/core": "npm:^0.5.8"
+    "@vramework/next": "npm:^0.5.2"
     next: "npm:14.2.11"
     next-superjson-plugin: "npm:^0.6.3"
     postcss: "npm:^8"
@@ -402,11 +412,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@todos/sdk@npm:^0.0.0, @todos/sdk@workspace:packages/sdk":
+"@todos/sdk@npm:*, @todos/sdk@npm:^0.0.0, @todos/sdk@workspace:packages/sdk":
   version: 0.0.0-use.local
   resolution: "@todos/sdk@workspace:packages/sdk"
   dependencies:
-    "@vramework/fetch": "npm:^0.5.0"
+    "@vramework/fetch": "npm:^0.5.1"
     typescript: "npm:^5.6"
   languageName: unknown
   linkType: soft
@@ -416,7 +426,7 @@ __metadata:
   resolution: "@todos/services@workspace:packages/services"
   dependencies:
     "@types/pg": "npm:^8.11.6"
-    "@vramework/core": "npm:^0.5.7"
+    "@vramework/core": "npm:^0.5.8"
     pg: "npm:^8.12.0"
     pino: "npm:^9.3.2"
     typescript: "npm:^5.6"
@@ -431,7 +441,7 @@ __metadata:
     "@todos/functions": "workspace:0.0.0"
     "@todos/services": "workspace:0.0.0"
     "@types/node": "npm:^22"
-    "@vramework/core": "npm:^0.5.7"
+    "@vramework/core": "npm:^0.5.8"
     "@vramework/uws": "npm:^0.5.3"
     ts-node: "npm:^10.9.2"
     ts-node-dev: "npm:^2.0.0"
@@ -666,30 +676,28 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vramework/cli@npm:^0.5.15":
-  version: 0.5.15
-  resolution: "@vramework/cli@npm:0.5.15"
+"@vramework/cli@portal:/Users/yasser/git/vramework/vramework/packages/cli::locator=todos%40workspace%3A.":
+  version: 0.0.0-use.local
+  resolution: "@vramework/cli@portal:/Users/yasser/git/vramework/vramework/packages/cli::locator=todos%40workspace%3A."
   dependencies:
     "@openapi-contrib/json-schema-to-openapi-schema": "npm:^3.0.2"
     "@types/cookie": "npm:^0.6.0"
     "@types/uuid": "npm:^10.0.0"
+    "@vramework/core": "npm:^0.5.8"
     commander: "npm:^12"
     glob: "npm:^10"
     path-to-regexp: "npm:^8.2.0"
     ts-json-schema-generator: "npm:^2.3.0"
     typescript: "npm:^5.6"
     yaml: "npm:^2.6.0"
-  peerDependencies:
-    "@vramework/core": ^0.5.6
   bin:
     vramework: dist/cjs/bin/vramework.js
-  checksum: 10/05fc4da81bfabf88abe00b1553c807f4eeef02ccdc949d58b39960e05470e7d71d0776b821d7f7adbb60537546230e1a7f95605e9e715d2f00b3c4dcac0a18c8
   languageName: node
-  linkType: hard
+  linkType: soft
 
-"@vramework/core@npm:^0.5, @vramework/core@npm:^0.5.7":
-  version: 0.5.7
-  resolution: "@vramework/core@npm:0.5.7"
+"@vramework/core@portal:/Users/yasser/git/vramework/vramework/packages/core::locator=todos%40workspace%3A.":
+  version: 0.0.0-use.local
+  resolution: "@vramework/core@portal:/Users/yasser/git/vramework/vramework/packages/core::locator=todos%40workspace%3A."
   dependencies:
     "@types/cookie": "npm:^0.6.0"
     "@types/uuid": "npm:^10.0.0"
@@ -699,88 +707,81 @@ __metadata:
     eventemitter3: "npm:^5.0.1"
     path-to-regexp: "npm:^8.2.0"
     uuid: "npm:^10.0.0"
-  checksum: 10/2eddabbb2775832184225a04587bc51e8d621eeab4d953a511f099e470076f27dc0de5c83316f9ccb9a9ad6ba196230f11b66d57c2de6c16313e661c653b55eb
   languageName: node
-  linkType: hard
+  linkType: soft
 
-"@vramework/express-middleware@npm:^0.5.3":
-  version: 0.5.3
-  resolution: "@vramework/express-middleware@npm:0.5.3"
+"@vramework/express-middleware@portal:/Users/yasser/git/vramework/vramework/packages/servers/express/express-middleware::locator=todos%40workspace%3A.":
+  version: 0.0.0-use.local
+  resolution: "@vramework/express-middleware@portal:/Users/yasser/git/vramework/vramework/packages/servers/express/express-middleware::locator=todos%40workspace%3A."
   peerDependencies:
     "@types/express": ^5
     "@types/express-serve-static-core": ^5.0.0
-    "@vramework/core": ^0.5.1
+    "@vramework/core": ^0.5.8
     express: ^5
-  checksum: 10/d382f3e57acf0394bafec33b27243f98cfdf073a6d090014822f0ac0eda3657c8f97dbb469707db81714f6741f07f3271bdc82e673b3761307fed4b1cda2809a
   languageName: node
-  linkType: hard
+  linkType: soft
 
-"@vramework/express@npm:^0.5.3":
-  version: 0.5.3
-  resolution: "@vramework/express@npm:0.5.3"
+"@vramework/express@portal:/Users/yasser/git/vramework/vramework/packages/servers/express/express-server::locator=todos%40workspace%3A.":
+  version: 0.0.0-use.local
+  resolution: "@vramework/express@portal:/Users/yasser/git/vramework/vramework/packages/servers/express/express-server::locator=todos%40workspace%3A."
   dependencies:
     "@types/content-type": "npm:^1.1.8"
     "@types/cookie-parser": "npm:^1.4.7"
     "@types/cors": "npm:^2.8.17"
     "@types/express": "npm:^5"
     "@types/express-serve-static-core": "npm:^5.0.0"
-    "@vramework/express-middleware": "npm:^0.5.3"
+    "@vramework/express-middleware": "npm:^0.5.4"
     body-parser: "npm:^1.20.3"
     cookie: "npm:^1.0.1"
     cookie-parser: "npm:^1.4.7"
     cors: "npm:^2.8.5"
     express: "npm:^5"
   peerDependencies:
-    "@vramework/core": ^0.5.1
-  checksum: 10/521cb448892930caf813f3a228e91c877a93896bf4c61d0d90ede30413e1e31021baa80e0c0a15e0277682aead46d4b12e626f92ecddc2724649d71247a45da5
+    "@vramework/core": ^0.5.8
   languageName: node
-  linkType: hard
+  linkType: soft
 
-"@vramework/fastify-plugin@npm:^0.5.3":
-  version: 0.5.3
-  resolution: "@vramework/fastify-plugin@npm:0.5.3"
+"@vramework/fastify-plugin@portal:/Users/yasser/git/vramework/vramework/packages/servers/fastify/fastify-plugin::locator=todos%40workspace%3A.":
+  version: 0.0.0-use.local
+  resolution: "@vramework/fastify-plugin@portal:/Users/yasser/git/vramework/vramework/packages/servers/fastify/fastify-plugin::locator=todos%40workspace%3A."
   dependencies:
     fastify: "npm:^5.0.0"
     fastify-plugin: "npm:^5.0.1"
   peerDependencies:
-    "@vramework/core": ^0.5.1
-  checksum: 10/b020e8c33299a707c94a1340dc49107f90ad0e282597bd661e675e8b11242fbf524b93a7abe9fd2b620b633af2c4025789e66555312b9fddf2b68d329fb8038d
+    "@vramework/core": ^0.5.8
   languageName: node
-  linkType: hard
+  linkType: soft
 
-"@vramework/fastify@npm:^0.5.3":
-  version: 0.5.3
-  resolution: "@vramework/fastify@npm:0.5.3"
+"@vramework/fastify@portal:/Users/yasser/git/vramework/vramework/packages/servers/fastify/fastify-server::locator=todos%40workspace%3A.":
+  version: 0.0.0-use.local
+  resolution: "@vramework/fastify@portal:/Users/yasser/git/vramework/vramework/packages/servers/fastify/fastify-server::locator=todos%40workspace%3A."
   dependencies:
-    "@vramework/fastify-plugin": "npm:^0.5.3"
+    "@vramework/fastify-plugin": "npm:^0.5.4"
     fastify: "npm:^5.0.0"
   peerDependencies:
-    "@vramework/core": ^0.5.1
-  checksum: 10/43c272bf293d073dc227f660a7c6f11a8793dcbaca2a20492b9da3d5a0224e46563914830cc3b22de5db65dfe032b390a4623431435c2148a96c9df8c99f3217
+    "@vramework/core": ^0.5.8
   languageName: node
-  linkType: hard
+  linkType: soft
 
-"@vramework/fetch@npm:^0.5.0":
-  version: 0.5.0
-  resolution: "@vramework/fetch@npm:0.5.0"
-  checksum: 10/5be58f506f2dbf82cf6380a1df496bc537adb89506421c6dbd2e0563660ec68d37a1d61ca79c77ff9c3cd0ff31132ff4eb1898f8f9f44257274abfacb98f2f58
+"@vramework/fetch@portal:/Users/yasser/git/vramework/vramework/packages/fetch::locator=todos%40workspace%3A.":
+  version: 0.0.0-use.local
+  resolution: "@vramework/fetch@portal:/Users/yasser/git/vramework/vramework/packages/fetch::locator=todos%40workspace%3A."
   languageName: node
-  linkType: hard
+  linkType: soft
 
-"@vramework/jose@npm:^0.5":
-  version: 0.5.1
-  resolution: "@vramework/jose@npm:0.5.1"
+"@vramework/jose@portal:/Users/yasser/git/vramework/vramework/packages/services/jose::locator=todos%40workspace%3A.":
+  version: 0.0.0-use.local
+  resolution: "@vramework/jose@portal:/Users/yasser/git/vramework/vramework/packages/services/jose::locator=todos%40workspace%3A."
   dependencies:
     jose: "npm:^5.9.6"
   peerDependencies:
     "@vramework/core": ^0.5.1
-  checksum: 10/1efeb6e41dcf7c1f49ece192efe5083454772cc1451b12917b6be19fe8832a0a492d207cb2a23da6f31399e5157a6c224cc812aa042c604e79a2634e96dd49cd
   languageName: node
-  linkType: hard
+  linkType: soft
 
-"@vramework/next@npm:^0.5":
-  version: 0.5.2
-  resolution: "@vramework/next@npm:0.5.2"
+"@vramework/next@portal:/Users/yasser/git/vramework/vramework/packages/servers/next::locator=todos%40workspace%3A.":
+  version: 0.0.0-use.local
+  resolution: "@vramework/next@portal:/Users/yasser/git/vramework/vramework/packages/servers/next::locator=todos%40workspace%3A."
   dependencies:
     "@types/cookie": "npm:^0.6.0"
     cookie: "npm:^1.0.1"
@@ -788,36 +789,33 @@ __metadata:
   peerDependencies:
     "@vramework/core": ^0.5.0
     next: ^14.2.9
-  checksum: 10/875b05fff49fa38328edf9e03601334737a12d91924053dfe034c5a4b937b1694be06ce92ee2b2e19a81a22d71854d57f30b04af6ac46f24de0ced750de16a16
   languageName: node
-  linkType: hard
+  linkType: soft
 
-"@vramework/uws-handler@npm:^0.5.2":
-  version: 0.5.2
-  resolution: "@vramework/uws-handler@npm:0.5.2"
+"@vramework/uws-handler@portal:/Users/yasser/git/vramework/vramework/packages/servers/uws/uws-handler::locator=todos%40workspace%3A.":
+  version: 0.0.0-use.local
+  resolution: "@vramework/uws-handler@portal:/Users/yasser/git/vramework/vramework/packages/servers/uws/uws-handler::locator=todos%40workspace%3A."
   dependencies:
     "@types/qs": "npm:^6"
     qs: "npm:^6.13.0"
   peerDependencies:
-    "@vramework/core": ^0.5.1
+    "@vramework/core": ^0.5.8
     uWebSockets.js: "*"
-  checksum: 10/289f90d959e3c350a982f690354f3c5ee77d5f98b467218dd877acf7c94e0f52139f0a60416db7580e8192ce4a5c06e9ccf076769a0474a8f270db6e78d93527
   languageName: node
-  linkType: hard
+  linkType: soft
 
-"@vramework/uws@npm:^0.5.3":
-  version: 0.5.3
-  resolution: "@vramework/uws@npm:0.5.3"
+"@vramework/uws@portal:/Users/yasser/git/vramework/vramework/packages/servers/uws/uws-server::locator=todos%40workspace%3A.":
+  version: 0.0.0-use.local
+  resolution: "@vramework/uws@portal:/Users/yasser/git/vramework/vramework/packages/servers/uws/uws-server::locator=todos%40workspace%3A."
   dependencies:
     "@types/qs": "npm:^6"
     "@vramework/uws-handler": "npm:^0.5.2"
     qs: "npm:^6.13.0"
-    uWebSockets.js: "github:uNetworking/uWebSockets.js#v20.49.0"
+    uWebSockets.js: "uNetworking/uWebSockets.js#v20.49.0"
   peerDependencies:
     "@vramework/core": ^0.5.1
-  checksum: 10/0caee3dd087e684616fce47ea64009f142a9ece8ae2de62b95696f1001f503f7d79191bb8a88871fc559909970d967283dd2a187182fe56ef68804493b8f716d
   languageName: node
-  linkType: hard
+  linkType: soft
 
 "abbrev@npm:^2.0.0":
   version: 2.0.0
@@ -4248,7 +4246,7 @@ __metadata:
   resolution: "todos@workspace:."
   dependencies:
     "@todos/functions": "workspace:0.0.0"
-    "@vramework/cli": "npm:^0.5.15"
+    "@vramework/cli": "npm:^0.5.18"
     eventemitter3: "npm:^5.0.1"
     kysely-codegen: "npm:^0.16.6"
     pino: "npm:^9.3.2"
@@ -4425,7 +4423,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"uWebSockets.js@github:uNetworking/uWebSockets.js#v20.49.0":
+"uWebSockets.js@uNetworking/uWebSockets.js#v20.49.0":
   version: 20.49.0
   resolution: "uWebSockets.js@https://github.com/uNetworking/uWebSockets.js.git#commit=442087c0a01bf146acb7386910739ec81df06700"
   checksum: 10/6af483b05f6638274f3698737fba7e13b50713ff6b5f0fb0dbbf3dd72d26ff2539338c310c24a6032072178345e85b4a39654a0fa2d9e95d03e0262c5e31a307

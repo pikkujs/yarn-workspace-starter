@@ -1,4 +1,4 @@
-import { addRoute } from '@vramework/core'
+import { addRoute, ConflictError } from '@vramework/core'
 import { isTodoCreator } from '../permissions'
 import {
   getTodos,
@@ -13,12 +13,10 @@ addRoute({
   route: '/todos',
   func: getTodos,
   auth: false,
-})
-
-addRoute({
-  method: 'post',
-  route: '/todo',
-  func: createTodo,
+  docs: {
+    description: 'Get all todos',
+    tags: ['todos'],
+  }
 })
 
 addRoute({
@@ -26,6 +24,22 @@ addRoute({
   route: '/todo/:todoId',
   func: getTodo,
   auth: false,
+})
+
+addRoute({
+  method: 'get',
+  route: '/todo',
+  func: getTodo,
+  auth: false,
+})
+
+addRoute({
+  method: 'post',
+  route: '/todo',
+  func: createTodo,
+  docs: {
+    errors: [ConflictError]
+  }
 })
 
 addRoute({

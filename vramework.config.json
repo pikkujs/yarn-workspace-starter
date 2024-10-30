@@ -12,7 +12,7 @@
     "packages/functions": "@todos/functions"
   },
   "openAPI": {
-    "outputFile": "openapi.json",
+    "outputFile": "openapi.yml",
     "additionalInfo": {
       "info": {
         "title": "Todos API",

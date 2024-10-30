@@ -1,0 +1,4 @@
+{
+    "extends": "../../vramework.config.json",
+    "fetchFile": "./vramework-fetch.ts"
+}
