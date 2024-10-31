@@ -31,7 +31,7 @@
   },
   "devDependencies": {
     "@todos/functions": "workspace:0.0.0",
-    "@vramework/cli": "^0.5.18",
+    "@vramework/cli": "^0.5.19",
     "kysely-codegen": "^0.16.6",
     "postgres-migrations": "^5.3.0",
     "prettier": "^3.3.3",
@@ -46,20 +46,5 @@
   "packageManager": "yarn@4.5.0",
   "engines": {
     "node": ">=18"
-  },
-  "resolutions": {
-    "@vramework/cli": "portal:/Users/yasser/git/vramework/vramework/packages/cli",
-    "@vramework/aws-services": "portal:/Users/yasser/git/vramework/vramework/packages/cloud/aws/aws-services",
-    "@vramework/lambda": "portal:/Users/yasser/git/vramework/vramework/packages/cloud/aws/lambda",
-    "@vramework/core": "portal:/Users/yasser/git/vramework/vramework/packages/core",
-    "@vramework/fetch": "portal:/Users/yasser/git/vramework/vramework/packages/fetch",
-    "@vramework/express-middleware": "portal:/Users/yasser/git/vramework/vramework/packages/servers/express/express-middleware",
-    "@vramework/express": "portal:/Users/yasser/git/vramework/vramework/packages/servers/express/express-server",
-    "@vramework/fastify-plugin": "portal:/Users/yasser/git/vramework/vramework/packages/servers/fastify/fastify-plugin",
-    "@vramework/fastify": "portal:/Users/yasser/git/vramework/vramework/packages/servers/fastify/fastify-server",
-    "@vramework/next": "portal:/Users/yasser/git/vramework/vramework/packages/servers/next",
-    "@vramework/uws-handler": "portal:/Users/yasser/git/vramework/vramework/packages/servers/uws/uws-handler",
-    "@vramework/uws": "portal:/Users/yasser/git/vramework/vramework/packages/servers/uws/uws-server",
-    "@vramework/jose": "portal:/Users/yasser/git/vramework/vramework/packages/services/jose"
   }
 }

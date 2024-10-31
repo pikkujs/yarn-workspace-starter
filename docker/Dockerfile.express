@@ -13,7 +13,6 @@ COPY yarn.lock yarn.lock
 
 COPY tsconfig.json tsconfig.json
 COPY backends/express/ backends/express/
-COPY packages/services/ packages/services/
 COPY packages/sdk/ packages/sdk/
 
 COPY packages/functions/ packages/functions/

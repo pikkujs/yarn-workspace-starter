@@ -4,7 +4,7 @@ import type {
   CoreSingletonServices,
   CoreUserSession,
 } from '@vramework/core'
-import type { SQLConfig } from '@todos/services/src/kysely'
+import type { SQLConfig } from '@todos/functions/src/services/kysely'
 import type { DB } from 'kysely-codegen'
 import type { Kysely } from 'kysely'
 import type { JoseJWTService } from '@vramework/jose'

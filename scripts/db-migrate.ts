@@ -3,7 +3,7 @@ import { migrate } from 'postgres-migrations'
 import { LocalSecretService } from '@vramework/core'
 
 import { config } from '@todos/functions/src/config'
-import { getDatabaseConfig } from '@todos/services/src/kysely'
+import { getDatabaseConfig } from '@todos/functions/src/services/kysely'
 
 export const migrateDB = async () => {
   const secrets = new LocalSecretService()
