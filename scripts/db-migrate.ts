@@ -2,10 +2,11 @@ import { Client } from 'pg'
 import { migrate } from 'postgres-migrations'
 import { LocalSecretService } from '@vramework/core'
 
-import { config } from '@todos/functions/src/config'
+import { createConfig } from '@todos/functions/src/config'
 import { getDatabaseConfig } from '@todos/functions/src/services/kysely'
 
 export const migrateDB = async () => {
+  const config = await createConfig()
   const secrets = new LocalSecretService()
   const databaseConfig = await getDatabaseConfig(
     secrets,

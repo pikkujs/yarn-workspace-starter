@@ -1,7 +1,7 @@
-import { LogLevel } from '@vramework/core'
+import { CreateConfig, LogLevel } from '@vramework/core'
 import { Config } from '../types/application-types'
 
-export const config: Config = {
+export const createConfig: CreateConfig<Config> = async () => ({
   port: 4002,
   hostname: '0.0.0.0',
   logLevel: LogLevel.info,
@@ -11,4 +11,4 @@ export const config: Config = {
   sql: {
     directory: `${__dirname}/../../../sql`,
   },
-}
+})
