@@ -339,7 +339,7 @@ __metadata:
     "@todos/functions": "workspace:0.0.0"
     "@types/node": "npm:^22"
     "@vramework/core": "npm:^0.5.16"
-    "@vramework/fastify": "npm:^0.5.6"
+    "@vramework/fastify": "npm:^0.5.7"
     ts-node: "npm:^10.9.2"
     ts-node-dev: "npm:^2.0.0"
     tslib: "npm:^2.8.0"
@@ -737,15 +737,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vramework/fastify@npm:^0.5.6":
-  version: 0.5.6
-  resolution: "@vramework/fastify@npm:0.5.6"
+"@vramework/fastify@npm:^0.5.7":
+  version: 0.5.7
+  resolution: "@vramework/fastify@npm:0.5.7"
   dependencies:
     "@vramework/fastify-plugin": "npm:^0.5.6"
     fastify: "npm:^5.0.0"
   peerDependencies:
     "@vramework/core": ^0.5.10
-  checksum: 10/1e97e974740266254e54de2b97bf6ca21f7d28bf574c1c4cf0015b50c8d740e4650770e9bc8fcd5bc240c3089378f20585711a196382f97012b846f90f395003
+  checksum: 10/25507e0d75485d08d43f0de866e17655ead6683033f320321daf12193a495e3093c8b2845522512e7cc84daee5a934662cd5e90d1e2aa28720bd87e2157514b9
   languageName: node
   linkType: hard
 

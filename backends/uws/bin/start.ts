@@ -7,7 +7,7 @@ import '@todos/functions/.vramework/vramework-bootstrap'
 
 async function main(): Promise<void> {
   try {
-    const config = createConfig()
+    const config = await createConfig()
     const singletonServices = await createSingletonServices(config)
     const appServer = new VrameworkUWSServer(
       config,
