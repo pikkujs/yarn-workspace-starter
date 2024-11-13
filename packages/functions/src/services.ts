@@ -1,7 +1,7 @@
 
 import { CreateSingletonServices, CreateSessionServices, LocalSecretService, VrameworkSessionService } from '@vramework/core'
 
-import { Config, Services, SingletonServices, UserSession } from '../../types/application-types'
+import { Config, Services, SingletonServices, UserSession } from '../types/application-types'
 import { getDatabaseConfig, KyselyDB } from '@todos/functions/src/services/kysely'
 import { PinoLogger } from '@todos/functions/src/services/pino'
 import { JoseJWTService } from '@vramework/jose'

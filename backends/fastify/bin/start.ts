@@ -1,12 +1,13 @@
 import { VrameworkFastifyServer } from '@vramework/fastify'
 
-import { config } from '@todos/functions/src/config'
+import { createConfig } from '@todos/functions/src/config'
 import { createSingletonServices, createSessionServices } from '@todos/functions/src/services'
 
 import '@todos/functions/.vramework/vramework-bootstrap'
 
 async function main(): Promise<void> {
   try {
+    const config = await createConfig()
     const singletonServices = await createSingletonServices(config)
     const appServer = new VrameworkFastifyServer(
       config,

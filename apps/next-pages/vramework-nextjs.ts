@@ -17,8 +17,8 @@ import type { APIRouteMethod } from '@vramework/core/types/routes.types'
 import type { RoutesMap, RouteHandlerOf } from '@todos/sdk/.vramework/routes-map.d'
 
 import { createConfig as createConfig } from '@todos/functions/src/config'
-import { createSingletonServices as createSingletonServices } from '@todos/functions/src/services/services'
-import { createSessionServices as createSessionServices } from '@todos/functions/src/services/services'
+import { createSingletonServices as createSingletonServices } from '@todos/functions/src/services'
+import { createSessionServices as createSessionServices } from '@todos/functions/src/services'
 
 import '@todos/functions/.vramework/vramework-routes'
 import '@todos/functions/.vramework/vramework-schemas/register'

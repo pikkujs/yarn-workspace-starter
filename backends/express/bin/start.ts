@@ -1,6 +1,6 @@
 import { VrameworkExpressServer } from '@vramework/express'
 
-import { config } from '@todos/functions/src/config'
+import { createConfig } from '@todos/functions/src/config'
 import { createSingletonServices, createSessionServices } from '@todos/functions/src/services'
 
 import '@todos/functions/.vramework/vramework-bootstrap'
