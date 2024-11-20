@@ -1,9 +1,9 @@
 
-import { CreateSingletonServices, CreateSessionServices, LocalSecretService, VrameworkSessionService } from '@vramework/core'
+import { CreateSingletonServices, CreateSessionServices, LocalSecretService, VrameworkHTTPSessionService } from '@vramework/core'
 
 import { Config, Services, SingletonServices, UserSession } from '../types/application-types'
 import { getDatabaseConfig, KyselyDB } from '@todos/functions/src/services/kysely'
-import { PinoLogger } from '@todos/functions/src/services/pino'
+import { PinoLogger } from '@vramework/pino'
 import { JoseJWTService } from '@vramework/jose'
 
 export const createSingletonServices: CreateSingletonServices<Config, SingletonServices> = async (config) => {
@@ -25,7 +25,7 @@ export const createSingletonServices: CreateSingletonServices<Config, SingletonS
     logger
   )
 
-  const sessionService = new VrameworkSessionService(jwt, {
+  const sessionService = new VrameworkHTTPSessionService(jwt, {
     cookieNames: ['session'],
     getSessionForCookieValue: async (cookieValue: string) => {
       return await jwt.decodeSession(cookieValue)

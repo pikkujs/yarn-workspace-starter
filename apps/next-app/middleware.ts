@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { VrameworkNextRequest } from '@vramework/next/vramework-next-request'
 import { JoseJWTService } from '@vramework/jose'
-import { VrameworkSessionService } from '@vramework/core/services/vramework-session-service'
+import { VrameworkHTTPSessionService } from '@vramework/core/http/vramework-http-session-service'
 import { UserSession } from '@todos/functions/types/application-types'
 
 // 1. Specify protected and public routes
@@ -15,7 +15,7 @@ const jwtService = new JoseJWTService<UserSession>(async () => [
   },
 ])
 
-const sessionService = new VrameworkSessionService<UserSession>(jwtService, {
+const sessionService = new VrameworkHTTPSessionService<UserSession>(jwtService, {
   cookieNames: ['session'],
   getSessionForCookieValue: async (cookieValue) => {
     const session: any = await jwtService.decode(cookieValue)

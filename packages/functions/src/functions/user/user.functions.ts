@@ -1,6 +1,6 @@
 import type { JustUserName, UpdateUser, Session } from '@todos/sdk/types/user.types'
-import type { APIFunctionSessionless } from '../../.vramework/vramework-types'
-import type { UserSession } from '../../types/application-types'
+import type { APIFunctionSessionless } from '../../../.vramework/vramework-types'
+import type { UserSession } from '../../../types/application-types'
 
 export const loginUser: APIFunctionSessionless<
   JustUserName,
@@ -21,11 +21,11 @@ export const loginUser: APIFunctionSessionless<
       .executeTakeFirstOrThrow()
   }
 
-  services.response.setCookie(
-    'session',
-    await services.jwt.encode('1w', session),
-    { httpOnly: true }
-  )
+  // services.http?.response.setCookie(
+  //   'session',
+  //   await services.jwt.encode('1w', session),
+  //   { httpOnly: true }
+  // )
 
   return session
 }
@@ -35,7 +35,7 @@ export const logoutUser: APIFunctionSessionless<void, void> = async (
   _data,
   _session
 ) => {
-  services.response.clearCookie('session')
+  // services.http?.response.clearCookie('session')
 }
 
 export const updateUser: APIFunctionSessionless<UpdateUser, void> = async (
@@ -48,3 +48,4 @@ export const updateUser: APIFunctionSessionless<UpdateUser, void> = async (
     .where('userId', '=', userId)
     .executeTakeFirstOrThrow()
 }
+

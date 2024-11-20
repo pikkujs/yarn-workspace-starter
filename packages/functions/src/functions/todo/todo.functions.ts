@@ -5,7 +5,7 @@ import type {
   JustTodoId,
   UpdateTodo,
 } from '@todos/sdk/types/todo.types'
-import { APIFunction, APIFunctionSessionless } from '../../.vramework/vramework-types'
+import { APIFunction, APIFunctionSessionless } from '../../../.vramework/vramework-types'
 
 export const getTodos: APIFunctionSessionless<unknown, Todos> = async (
   services
@@ -70,4 +70,13 @@ export const deleteTodo: APIFunction<JustTodoId, boolean> = async (
   } catch {
     return false
   }
+}
+
+export const expireTodos: APIFunctionSessionless<void, void> = async (
+  services,
+  _data,
+  session
+) => {
+  // Expire all todos
+  // TODO: Think of a better scheduled job
 }

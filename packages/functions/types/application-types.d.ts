@@ -11,6 +11,8 @@ import type { Kysely } from 'kysely'
 import type { JoseJWTService } from '@vramework/jose'
 
 export interface Config extends CoreServerConfig {
+  port: number
+  hostname: string
   logLevel: LogLevel
   sql: SQLConfig
   secrets: {
