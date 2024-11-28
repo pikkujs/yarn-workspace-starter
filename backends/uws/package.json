@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@todos/functions": "workspace:0.0.0",
-    "@vramework/core": "^0.5.22",
+    "@vramework/core": "^0.5.23",
     "@vramework/uws": "^0.5.6",
     "ts-node": "^10.9.2",
     "tslib": "^2.8.0",
