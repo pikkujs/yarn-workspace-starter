@@ -1,7 +1,7 @@
-import type { Logger, SecretService } from '@vramework/core'
+import type { Logger, SecretService } from '@vramework/core/services'
 import { CamelCasePlugin, Kysely, PostgresDialect } from 'kysely'
 import { DB } from 'kysely-codegen'
-import { Pool, PoolConfig } from 'pg'
+import pg from 'pg'
 
 export interface SQLConfig {
   directory: string
@@ -13,10 +13,10 @@ export interface SQLConfig {
 
 export class KyselyDB {
   public kysely: Kysely<DB>
-  public pool: Pool
+  public pool: pg.Pool
 
-  constructor(poolConfig: PoolConfig, private logger: Logger) {
-    this.pool = new Pool(poolConfig)
+  constructor(poolConfig: pg.PoolConfig, private logger: Logger) {
+    this.pool = new pg.Pool(poolConfig)
     this.kysely = new Kysely<DB>({
       dialect: new PostgresDialect({
         pool: this.pool,

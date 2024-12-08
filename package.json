@@ -6,8 +6,7 @@
   "private": true,
   "repository": "git@github.com:vramework/workspace-starter.git",
   "author": "Yasser Fadl <yasser.fadl@gmail.com>",
-  "main": "index.js",
-  "type": "commonjs",
+  "type": "module",
   "workspaces": {
     "packages": [
       "packages/**",
@@ -16,10 +15,10 @@
     ]
   },
   "scripts": {
-    "dbmigrate": "ts-node --transpile-only scripts/db-migrate.ts",
+    "dbmigrate": "node --loader ts-node/esm scripts/db-migrate.ts",
     "vramework": "npx @vramework/cli all",
     "kysely": "DATABASE_URL=postgres://postgres:password@localhost/todos kysely-codegen --camel-case --schema public",
-    "kysely-pure": "ts-node scripts/kysely-pure.ts",
+    "kysely-pure": "node --loader ts-node/esm scripts/kysely-pure.ts",
     "prebuild": "yarn run dbmigrate && yarn run kysely && yarn run kysely-pure && yarn run vramework && yarn workspaces foreach -p -A run prebuild",
     "verify": "yarn run tsc",
     "lint": "npx oxlint@latest",
@@ -31,7 +30,7 @@
   },
   "devDependencies": {
     "@todos/functions": "workspace:0.0.0",
-    "@vramework/cli": "^0.5.32",
+    "@vramework/cli": "^0.5.33",
     "kysely-codegen": "^0.16.6",
     "postgres-migrations": "^5.3.0",
     "prettier": "^3.3.3",
@@ -46,5 +45,25 @@
   "packageManager": "yarn@4.5.0",
   "engines": {
     "node": ">=18"
+  },
+  "resolutions": {
+    "@vramework/cli": "portal:/Users/yasser/git/vramework/vramework-website/vramework/packages/cli",
+    "@vramework/aws-services": "portal:/Users/yasser/git/vramework/vramework-website/vramework/packages/cloud/aws/aws-services",
+    "@vramework/lambda": "portal:/Users/yasser/git/vramework/vramework-website/vramework/packages/cloud/aws/lambda",
+    "@vramework/azure-functions": "portal:/Users/yasser/git/vramework/vramework-website/vramework/packages/cloud/azure/functions",
+    "@vramework/core": "portal:/Users/yasser/git/vramework/vramework-website/vramework/packages/core",
+    "@vramework/fetch": "portal:/Users/yasser/git/vramework/vramework-website/vramework/packages/fetch",
+    "@vramework/schedule": "portal:/Users/yasser/git/vramework/vramework-website/vramework/packages/schedule",
+    "@vramework/express-middleware": "portal:/Users/yasser/git/vramework/vramework-website/vramework/packages/servers/express/express-middleware",
+    "@vramework/express": "portal:/Users/yasser/git/vramework/vramework-website/vramework/packages/servers/express/express-server",
+    "@vramework/fastify-plugin": "portal:/Users/yasser/git/vramework/vramework-website/vramework/packages/servers/fastify/fastify-plugin",
+    "@vramework/fastify": "portal:/Users/yasser/git/vramework/vramework-website/vramework/packages/servers/fastify/fastify-server",
+    "@vramework/next": "portal:/Users/yasser/git/vramework/vramework-website/vramework/packages/servers/next",
+    "@vramework/uws-handler": "portal:/Users/yasser/git/vramework/vramework-website/vramework/packages/servers/uws/uws-handler",
+    "@vramework/uws": "portal:/Users/yasser/git/vramework/vramework-website/vramework/packages/servers/uws/uws-server",
+    "@vramework/ws": "portal:/Users/yasser/git/vramework/vramework-website/vramework/packages/servers/ws",
+    "@vramework/jose": "portal:/Users/yasser/git/vramework/vramework-website/vramework/packages/services/jose",
+    "@vramework/pino": "portal:/Users/yasser/git/vramework/vramework-website/vramework/packages/services/pino",
+    "@vramework/websocket": "portal:/Users/yasser/git/vramework/vramework-website/vramework/packages/websocket"
   }
 }

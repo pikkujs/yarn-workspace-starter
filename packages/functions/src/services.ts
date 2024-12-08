@@ -1,8 +1,9 @@
+import type { CreateSingletonServices, CreateSessionServices } from '@vramework/core'
+import { VrameworkHTTPSessionService } from '@vramework/core/http'
+import { LocalSecretService  } from '@vramework/core/services'
 
-import { CreateSingletonServices, CreateSessionServices, LocalSecretService, VrameworkHTTPSessionService } from '@vramework/core'
-
-import { Config, Services, SingletonServices, UserSession } from '../types/application-types'
-import { getDatabaseConfig, KyselyDB } from '@todos/functions/src/services/kysely'
+import type { Config, Services, SingletonServices, UserSession } from '../types/application-types.js'
+import { getDatabaseConfig, KyselyDB } from '@todos/functions/src/services/kysely.js'
 import { PinoLogger } from '@vramework/pino'
 import { JoseJWTService } from '@vramework/jose'
 
@@ -33,6 +34,9 @@ export const createSingletonServices: CreateSingletonServices<Config, SingletonS
     getSessionForAPIKey: async (_apiKey: string) => {
       throw new Error('Not implemented')
     },
+    getSessionForQueryValue: async (queryValue) => {
+      throw new Error('Not implemented')
+    }
   })
 
   const postgresConfig = await getDatabaseConfig(

@@ -1,5 +1,11 @@
-import { CreateConfig, LogLevel } from '@vramework/core'
-import { Config } from '../types/application-types'
+import { CreateConfig } from '@vramework/core'
+import { LogLevel } from '@vramework/core/services'
+import { Config } from '../types/application-types.js'
+import { dirname } from 'path'  
+import { fileURLToPath } from 'url'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
 
 export const createConfig: CreateConfig<Config> = async () => ({
   port: 4002,
