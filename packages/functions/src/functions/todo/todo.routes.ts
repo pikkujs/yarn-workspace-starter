@@ -1,4 +1,5 @@
-import { addRoute, ConflictError } from '@vramework/core'
+import { ConflictError } from '@vramework/core'
+import { addRoute } from '@vramework/core/http'
 import { isTodoCreator } from '../../permissions'
 import {
   getTodos,

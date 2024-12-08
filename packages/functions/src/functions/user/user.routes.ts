@@ -1,4 +1,4 @@
-import { addRoute } from '@vramework/core'
+import { addRoute } from '@vramework/core/http'
 import { isUserUpdatingSelf } from '../../permissions'
 import { loginUser, logoutUser, updateUser } from './user.functions'
 

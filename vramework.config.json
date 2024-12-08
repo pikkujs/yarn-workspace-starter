@@ -6,7 +6,9 @@
   ],
   "outDir": "packages/functions/.vramework",
   "routesMapDeclarationFile": "packages/sdk/.vramework/routes-map.d.ts",
+  "channelsMapDeclarationFile": "packages/sdk/.vramework/channels-map.d.ts",
   "fetchFile": "packages/sdk/.vramework/vramework-fetch.ts",
+  "websocketFile": "packages/sdk/.vramework/vramework-websocket.ts",
   "packageMappings": {
     "packages/sdk": "@todos/sdk",
     "packages/functions": "@todos/functions"

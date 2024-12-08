@@ -1,4 +1,4 @@
-import { addScheduledTask } from '@vramework/core'
+import { addScheduledTask } from '@vramework/core/scheduler'
 import { expireTodos } from './todo.functions'
 
 addScheduledTask({

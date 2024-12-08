@@ -55,6 +55,15 @@ jobs:
       image-name: 'workspace-starter-uws'
       image-tag: 'latest'
 
+  ws:
+    name: WS Docker
+    uses: ./.github/workflows/backend-docker-build-and-publish.yml
+    needs: setup
+    with:
+      dockerfile-path: 'docker/Dockerfile.ws'
+      image-name: 'workspace-starter-ws'
+      image-tag: 'latest'
+
   next-app:
     name: Next App
     needs: setup

@@ -1,6 +1,6 @@
 import { Client } from 'pg'
 import { migrate } from 'postgres-migrations'
-import { LocalSecretService } from '@vramework/core'
+import { LocalSecretService } from '@vramework/core/services'
 
 import { createConfig } from '@todos/functions/src/config'
 import { getDatabaseConfig } from '@todos/functions/src/services/kysely'

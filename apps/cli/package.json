@@ -5,7 +5,8 @@
   "type": "commonjs",
   "scripts": {
     "start": "ts-node bin/cli.ts",
-    "prebuild": "npx @vramework/cli fetch"
+    "start:websocket": "ts-node bin/cli.ts --websocket",
+    "prebuild": "npx @vramework/cli fetch && npx @vramework/cli websocket"
   },
   "dependencies": {
     "@todos/sdk": "*",

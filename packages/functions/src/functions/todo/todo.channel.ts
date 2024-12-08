@@ -1,38 +1,36 @@
-import { addChannel, JSONValue } from '@vramework/core'
-import { ChannelConnection, ChannelMessageSessionless } from '../../../.vramework/vramework-types'
+import { addChannel } from '@vramework/core/channel'
+import { ChannelConnection, ChannelDisconnection, ChannelMessage } from '../../../.vramework/vramework-types'
 import { JustTodoId, Todo } from '@todos/sdk/types/todo.types'
-import { JustUserName } from '@todos/sdk/types/user.types'
-import { VrameworkChannel } from '@vramework/core/dist/cjs/channel/vramework-channel'
 
-const onConnect: ChannelConnection = async (services, channel) => {
+const onConnect: ChannelConnection<'hello!'> = async (services, channel) => {
     services.logger.info('Connected to event channel')
-    // services.eventService.subscribe(data.topic, services.channel)
-
-    channel.send({ name: 'bob' })
+    channel.send('hello!')
 }
 
-const onDisconnect: ChannelConnection = async (services) => {
+const onDisconnect: ChannelDisconnection = async (services, channel) => {
     services.logger.info('Disconnected from event channel')
-    // services.eventService.subscribe(data.topic, services.channel)
 }
 
-const subscribe: ChannelMessageSessionless<JustTodoId> = async (services, channel, userSession) => {
-    channel.getOpeningData()
+const subscribe: ChannelMessage<JustTodoId, { name: string }> = async (services, channel) => {
+    const interval = setInterval(() => {
+        try {
+            channel.send({
+                name: `bob ${Math.random()}`
+            })
+        } catch {
+            clearInterval(interval)
+        }
+    }, 1000)
 }
 
-const unsubscribe: ChannelMessageSessionless<JustTodoId, JustTodoId> = async (services, channel, data) => {
-    // services.eventService.subscribe(data.topic, services.channel)
-    channel.send({
-        name: 'bob'
-    })
+const unsubscribe: ChannelMessage<JustTodoId, JustTodoId> = async (services, channel, data) => {
+    console.log('got an unsubscribe message', data)
 }
 
-const emit: ChannelMessageSessionless<JSONValue, JustTodoId | JustUserName> = async (services, data) => {
-    // services.eventService.emit(data.topic, services.channel)
+const emit: ChannelMessage<JustTodoId, Todo> = async (services, channel, data) => {
 }
 
-const onMessage: ChannelMessageSessionless<Todo, JustTodoId | JustUserName> = async (services, channel) => {
-    // services.eventService.emit(data.topic, services.channel)
+const onMessage: ChannelMessage<'hello', 'hey'> = async (services, channel) => {
 }
 
 addChannel({
