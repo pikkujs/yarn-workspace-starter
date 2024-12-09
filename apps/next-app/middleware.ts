@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { VrameworkNextRequest } from '@vramework/next/vramework-next-request'
+import { VrameworkNextRequest } from '@vramework/next'
 import { JoseJWTService } from '@vramework/jose'
 import { VrameworkHTTPSessionService } from '@vramework/core/http/vramework-http-session-service'
 import { UserSession } from '@todos/functions/types/application-types'

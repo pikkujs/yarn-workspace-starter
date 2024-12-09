@@ -1,4 +1,4 @@
-import { addChannel } from '@vramework/core/channel'
+import { addChannel } from '@vramework/core'
 import { ChannelConnection, ChannelDisconnection, ChannelMessage } from '../../../.vramework/vramework-types.js'
 import { JustTodoId, Todo } from '@todos/sdk/types/todo.types.js'
 

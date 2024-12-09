@@ -2,6 +2,7 @@
   "name": "@todos/next-app",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "ncu": "ncu",
     "dev": "next dev",
@@ -13,9 +14,9 @@
   "dependencies": {
     "@todos/components": "*",
     "@todos/functions": "*",
-    "@vramework/core": "^0.5.24",
-    "@vramework/jose": "^0.5.4",
-    "@vramework/next": "^0.5.8",
+    "@vramework/core": "^0.5.25",
+    "@vramework/jose": "^0.5.5",
+    "@vramework/next": "^0.5.9",
     "next": "14.2.11",
     "next-superjson-plugin": "^0.6.3",
     "react": "^18",

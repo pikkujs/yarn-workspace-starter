@@ -4,13 +4,13 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "start": "ts-node bin/cli.ts",
-    "start:websocket": "ts-node bin/cli.ts --websocket",
+    "start": "tsx bin/cli.ts",
+    "start:websocket": "tsx bin/cli.ts --websocket",
     "prebuild": "npx @vramework/cli fetch && npx @vramework/cli websocket"
   },
   "dependencies": {
     "@todos/sdk": "*",
-    "ts-node": "^10.9.2"
+    "tsx": "^4.19.2"
   },
   "devDependencies": {
     "@types/node": "^22"
