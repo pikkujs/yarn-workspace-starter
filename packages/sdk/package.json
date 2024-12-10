@@ -15,8 +15,8 @@
     "ncu": "ncu"
   },
   "dependencies": {
-    "@vramework/fetch": "^0.5.7",
-    "@vramework/websocket": "^0.5.2"
+    "@vramework/fetch": "^0.5.8",
+    "@vramework/websocket": "^0.5.4"
   },
   "devDependencies": {
     "typescript": "^5.6"

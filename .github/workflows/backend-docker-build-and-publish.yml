@@ -17,6 +17,16 @@ on:
         required: false
         default: 'latest'
         type: string
+      http:
+          description: 'Whether to test HTTP APIs against'
+          required: false
+          default: true
+          type: boolean
+      websocket:
+        description: 'Whether to test Websocket APIs against'
+        required: false
+        default: true
+        type: boolean
 
 jobs:
   publish:

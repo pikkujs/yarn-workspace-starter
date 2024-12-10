@@ -18,7 +18,18 @@ async function main(): Promise<void> {
       singletonServices,
       createSessionServices
     })
-    server.listen(config.port, config.hostname)
+
+    // Add /health-check endpoint
+    server.on('request', (req, res) => {
+      if (req.method === 'GET' && req.url === '/health-check') {
+        res.writeHead(200, { 'Content-Type': 'application/json' })
+        res.end(JSON.stringify({ status: 'ok' }))
+      }
+    })
+
+    server.listen(config.port, config.hostname, () => {
+      console.log(`Server running at http://${config.hostname}:${config.port}/`)
+    })
   } catch (e: any) {
     console.error(e.toString())
     process.exit(1)

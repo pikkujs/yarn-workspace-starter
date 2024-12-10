@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { VrameworkNextRequest } from '@vramework/next'
+import { VrameworkNextRequest } from '@vramework/next/vramework-next-request'
 import { JoseJWTService } from '@vramework/jose'
 import { VrameworkHTTPSessionService } from '@vramework/core/http/vramework-http-session-service'
 import { UserSession } from '@todos/functions/types/application-types'
@@ -29,18 +29,24 @@ export default async function middleware(req: NextRequest) {
   const isProtectedRoute = protectedRoutes.includes(path)
   const isPublicRoute = publicRoutes.includes(path)
 
-  // 3. Decrypt the session from the cookie
-  const userSession = await sessionService.getUserSession(
-    false,
-    new VrameworkNextRequest(req as any) as any
-  )
+  let userSession
+  try {
+    // 2. Decrypt the session from the cookie
+    userSession = await sessionService.getUserSession(
+      false,
+      new VrameworkNextRequest(req as any) as any
+    )
+  } catch (e) {
+    // An error trying to get the user session
+    console.error(e)
+  }
 
-  // 3. Redirect to /login if the user is not authenticated
+  // 4. Redirect to /login if the user is not authenticated
   if (isProtectedRoute && !userSession?.userId) {
     return NextResponse.redirect(new URL('/login', req.nextUrl))
   }
 
-  // 6. Redirect to /todos if the user is authenticated
+  // 5. Redirect to /todos if the user is authenticated
   if (
     isPublicRoute &&
     userSession?.userId &&

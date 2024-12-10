@@ -1,6 +1,9 @@
 openapi.json
 openapi.yml
 
+vramework-fetch.ts
+vramework-websocket.ts
+
 out
 .pnp.*
 .yarn/*

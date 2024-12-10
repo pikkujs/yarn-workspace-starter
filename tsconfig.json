@@ -8,8 +8,6 @@
     "removeComments": true,
     "noLib": false,
     "noEmit": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
     "useUnknownInCatchVariables": false,
     "target": "ES2021",
     "sourceMap": true,
@@ -24,5 +22,6 @@
       "@todos/sdk/*": ["./packages/sdk/*"]
     }
   },
+  "include": ["**/.vramework/*.ts"],
   "exclude": ["node_modules", "**/*.spec.ts"]
 }

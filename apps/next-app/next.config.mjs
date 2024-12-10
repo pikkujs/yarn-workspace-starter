@@ -4,7 +4,7 @@ const nextConfig = {
     transpilePackages: ['@todos/functions', '@todos/components'],
     experimental: {
       // Used to fix dates parsing issues with nextj
-      swcPlugins: [['next-superjson-plugin', {}]],
+      // swcPlugins: [['next-superjson-plugin', {}]],
     },
     redirects: async () => [
       {
@@ -13,6 +13,12 @@ const nextConfig = {
         permanent: true,
       },
     ],
+    webpack: (config) => {
+      config.resolve.extensionAlias = {
+        '.js': ['.js', '.ts'], // Resolves .js imports to both .js and .ts files
+      };
+      return config;
+    },
   }
   
   export default nextConfig

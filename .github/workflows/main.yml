@@ -73,14 +73,3 @@ jobs:
       dockerfile-path: 'docker/Dockerfile.nextjs-app'
       image-name: 'workspace-starter-nextjs-app'
       image-tag: 'latest'
-
-  next-pages:
-      name: Next Pages
-      needs: setup
-      uses: ./.github/workflows/next-docker-build-and-publish.yml
-      with:
-        app-path: 'apps/next-pages'
-        dockerfile-path: 'docker/Dockerfile.nextjs-pages'
-        image-name: 'workspace-starter-nextjs-pages'
-        image-tag: 'latest'
-

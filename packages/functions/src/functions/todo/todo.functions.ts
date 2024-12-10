@@ -57,7 +57,7 @@ export const updateTodo: APIFunction<UpdateTodo, void> = async (
     .executeTakeFirstOrThrow()
 }
 
-export const deleteTodo: APIFunction<JustTodoId, boolean> = async (
+export const deleteTodo: APIFunction<JustTodoId, { success: boolean }> = async (
   services,
   { todoId }
 ) => {
@@ -66,17 +66,16 @@ export const deleteTodo: APIFunction<JustTodoId, boolean> = async (
       .deleteFrom('app.todo')
       .where('todoId', '=', todoId)
       .executeTakeFirstOrThrow()
-    return true
+    return { success: true}
   } catch {
-    return false
+    return { success: false}
   }
 }
 
 export const expireTodos: APIFunctionSessionless<void, void> = async (
   services,
   _data,
-  session
 ) => {
-  // Expire all todos
   // TODO: Think of a better scheduled job
+  services.logger.info('Expiring all todos')
 }

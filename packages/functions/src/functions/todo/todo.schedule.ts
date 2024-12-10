@@ -3,7 +3,7 @@ import { expireTodos } from './todo.functions.js'
 
 addScheduledTask({
     name: 'expireTodos',
-    schedule: '0 0 0 * * *',
+    schedule: '*/1 * * * *',
     func: expireTodos,
     docs: {
         tags: ['todos']

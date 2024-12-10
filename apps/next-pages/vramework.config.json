@@ -1,4 +1,0 @@
-{
-    "extends": "../../vramework.config.json",
-    "nextJSfile": "./vramework-nextjs.ts"
-}

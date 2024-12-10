@@ -21,11 +21,11 @@ export const loginUser: APIFunctionSessionless<
       .executeTakeFirstOrThrow()
   }
 
-  // services.http?.response.setCookie(
-  //   'session',
-  //   await services.jwt.encode('1w', session),
-  //   { httpOnly: true }
-  // )
+  services.http?.response?.setCookie(
+    'session',
+    await services.jwt.encode('1w', session),
+    { httpOnly: true }
+  )
 
   return session
 }
@@ -35,7 +35,7 @@ export const logoutUser: APIFunctionSessionless<void, void> = async (
   _data,
   _session
 ) => {
-  // services.http?.response.clearCookie('session')
+  services.http?.response?.clearCookie('session')
 }
 
 export const updateUser: APIFunctionSessionless<UpdateUser, void> = async (

@@ -7,5 +7,5 @@
     "esModuleInterop": true
   },
   "files": [],
-  "include": ["src/**/*.ts", "types/vramework-types.d.ts", "types/vramework-routes-map.d.ts", "types/application-types.d.ts"]
+  "include": ["src/*.ts", "src/**/*.ts", "types/vramework-types.d.ts", "types/vramework-routes-map.d.ts", "types/application-types.d.ts"]
 }

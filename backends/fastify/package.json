@@ -14,8 +14,9 @@
   },
   "dependencies": {
     "@todos/functions": "workspace:0.0.0",
-    "@vramework/core": "^0.5.25",
-    "@vramework/fastify": "^0.5.9",
+    "@vramework/core": "^0.5.29",
+    "@vramework/fastify": "^0.5.10",
+    "tslib": "^2.7.0",
     "tsx": "^4.19.2",
     "typescript": "^5.6"
   },
