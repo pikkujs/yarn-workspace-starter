@@ -1,4 +1,4 @@
-import type{ ChannelConnection, ChannelDisconnection, ChannelMessage } from '../../../.vramework/vramework-types.js'
+import type { ChannelConnection, ChannelDisconnection, ChannelMessage } from '../../../.vramework/vramework-types.js'
 
 export const onConnect: ChannelConnection<'hello!'> = async (services, channel) => {
     services.logger.info('Connected to event channel')
@@ -17,28 +17,17 @@ export const authenticate: ChannelMessage<{ token: string }, { authResult: boole
     channel.send({ authResult })
 }
 
-export const subscribe: ChannelMessage<{ name: string }, { action: 'subscribe', data: string }> = async (services, channel, data) => {
-    // TODO: Setting up an interval works, but wouldn't be the best way to handle this
-    // when deploying via serverless functions
-    const interval = setInterval(() => {
-        try {
-            console.log('sending', data),
-            channel.send({
-                action: 'subscribe',
-                data: `${data.name}: ${Math.random()}`
-            })
-        } catch (e) {
-            // Channel is closed
-            clearInterval(interval)
-        }
-    }, 1000)
+export const subscribe: ChannelMessage<{ name: string }> = async (services, channel, data) => {
+    await channel.subscriptions.subscribe(data.name, channel.channelId)
 }
 
 export const unsubscribe: ChannelMessage<{ name: string }> = async (services, channel, data) => {
-    console.log('got an unsubscribe message', data)
+    await channel.subscriptions.unsubscribe(data.name, channel.channelId)
 }
 
-export const emitMessage: ChannelMessage<unknown, { timestamp: string }> = async (services, channel, data) => {
+export const emitMessage: ChannelMessage<{ name: string }, { timestamp: string } | { message: string }> = async (services, channel, data) => {
+    await channel.subscriptions.broadcast(data.name, channel.channelId, { timestamp: new Date().toISOString() })
+    await channel.broadcast({ message: `broadcasted from ${channel.channelId}` })
 }
 
 export const onMessage: ChannelMessage<'hello', 'hey'> = async (services, channel) => {

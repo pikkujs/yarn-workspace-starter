@@ -3,9 +3,9 @@ import { fetch } from './fetch'
 
 const main = async () => {
     if (process.argv.includes('--websocket')) {
-        for (let i = 0; i < 1; i++) {
-            await new Promise<void>(resolve => websocket(resolve))
-            await new Promise((resolve) => setTimeout(resolve, 1000))
+        let websockets: Array<Promise<void>> = []
+        for (let i = 0; i < 3; i++) {
+            websockets.push(new Promise<void>(resolve => websocket(resolve)))
         }
     }
 
