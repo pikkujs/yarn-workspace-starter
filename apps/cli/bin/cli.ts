@@ -5,7 +5,7 @@ const main = async () => {
     if (process.argv.includes('--websocket')) {
         let websockets: Array<Promise<void>> = []
         for (let i = 0; i < 3; i++) {
-            websockets.push(new Promise<void>(resolve => websocket(resolve)))
+            websockets.push(new Promise<void>(resolve => websocket(`user-${i}`, resolve)))
         }
     }
 

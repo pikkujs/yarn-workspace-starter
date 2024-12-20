@@ -10,16 +10,16 @@
   "fetchFile": "packages/sdk/.vramework/vramework-fetch.ts",
   "websocketFile": "packages/sdk/.vramework/vramework-websocket.ts",
   "packageMappings": {
-    "packages/sdk": "@todos/sdk",
-    "packages/functions": "@todos/functions"
+    "packages/sdk": "@vramework-workspace-starter/sdk",
+    "packages/functions": "@vramework-workspace-starter/functions"
   },
   "openAPI": {
     "outputFile": "openapi.yml",
     "additionalInfo": {
       "info": {
-        "title": "Todos API",
+        "title": "Vramework Workspace Starter API",
         "version": "1.0.0",
-        "description": "This is a sample server for a todo app."
+        "description": "This is the openapi spec for the Vramework Workspace Starter API"
       },
       "servers": [
         {

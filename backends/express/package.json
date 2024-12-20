@@ -1,5 +1,5 @@
 {
-  "name": "@todos/api",
+  "name": "@vramework-workspace-starter/api",
   "version": "0.0.0",
   "description": "",
   "license": "MIT",
@@ -13,8 +13,8 @@
     "ncu": "ncu"
   },
   "dependencies": {
-    "@todos/functions": "workspace:0.0.0",
-    "@vramework/core": "^0.6.1",
+    "@vramework-workspace-starter/functions": "workspace:0.0.0",
+    "@vramework/core": "^0.6.2",
     "@vramework/express": "^0.6.1",
     "@vramework/schedule": "^0.6.0",
     "pino-pretty": "^11.3.0",

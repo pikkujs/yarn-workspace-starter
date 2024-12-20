@@ -1,20 +1,25 @@
 import type { CreateSingletonServices, CreateSessionServices } from '@vramework/core'
 import { VrameworkHTTPSessionService } from '@vramework/core/http'
-import { LocalSecretService  } from '@vramework/core/services'
+import { ConsoleLogger, LocalSecretService  } from '@vramework/core/services'
 
 import type { Config, Services, SingletonServices, UserSession } from '../types/application-types.js'
-import { getDatabaseConfig, KyselyDB } from '@todos/functions/src/services/kysely.js'
-import { PinoLogger } from '@vramework/pino'
+import { getDatabaseConfig, KyselyDB } from '@vramework-workspace-starter/functions/src/services/kysely.js'
 import { JoseJWTService } from '@vramework/jose'
+import { AWSSecrets } from '@vramework/aws-services/secrets'
+
+const isProd = process.env.NODE_ENV === 'production'
 
 export const createSingletonServices: CreateSingletonServices<Config, SingletonServices> = async (config) => {
-  const logger = new PinoLogger()
+  const logger = new ConsoleLogger()
 
   if (config.logLevel) {
     logger.setLevel(config.logLevel)
   }
 
-  const secrets = new LocalSecretService()
+  let secrets = new LocalSecretService()
+  if (isProd) {
+    secrets = new AWSSecrets(config)
+  }
 
   const jwt = new JoseJWTService<UserSession>(
     async () => [
@@ -45,7 +50,7 @@ export const createSingletonServices: CreateSingletonServices<Config, SingletonS
     config.sql
   )
   const kyselyDB = new KyselyDB(postgresConfig, logger)
-  // await kyselyDB.init()
+  await kyselyDB.init()
 
   return {
     config,

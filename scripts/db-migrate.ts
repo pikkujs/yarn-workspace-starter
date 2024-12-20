@@ -2,18 +2,23 @@ import pg from 'pg'
 import { migrate } from 'postgres-migrations'
 import { LocalSecretService } from '@vramework/core/services'
 
-import { createConfig } from '@todos/functions/src/config.js'
-import { getDatabaseConfig } from '@todos/functions/src/services/kysely.js'
+import { createConfig } from '@vramework-workspace-starter/functions/src/config.js'
+import { getDatabaseConfig } from '@vramework-workspace-starter/functions/src/services/kysely.js'
 
 import { dirname } from 'path'
 import { fileURLToPath } from 'url'
+import { AWSSecrets } from '@vramework/aws-services/secrets'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
 export const migrateDB = async () => {
   const config = await createConfig()
-  const secrets = new LocalSecretService()
+  let secrets = new LocalSecretService()
+  if (process.env.NODE_ENV === 'production') {
+    secrets = new AWSSecrets(config)
+  }
+
   const databaseConfig = await getDatabaseConfig(
     secrets,
     config.secrets.postgresCredentials,
@@ -29,9 +34,13 @@ export const migrateDB = async () => {
     })
     try {
       await client.connect()
-      await client.query(`CREATE DATABASE ${databaseConfig.database}`)
-    } catch {
-      console.log('Database already exists')
+      try {
+        await client.query(`CREATE DATABASE "${databaseConfig.database}"`)
+      } catch (e) {
+        console.log('Database already exists')
+      }
+    } catch (e) {
+      console.log(e)
     } finally {
       await client.end()
     }

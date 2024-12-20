@@ -1,5 +1,5 @@
 import { vramework } from '@/vramework-nextjs'
-import { TodosCard } from '@todos/components/TodosCard'
+import { TodosCard } from '@vramework-workspace-starter/components/TodosCard'
 
 async function addTodo(text: string) {
   'use server'

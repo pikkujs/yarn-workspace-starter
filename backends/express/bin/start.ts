@@ -1,11 +1,11 @@
 import { VrameworkExpressServer } from '@vramework/express'
 
-import { createConfig } from '@todos/functions/src/config'
-import { createSingletonServices, createSessionServices } from '@todos/functions/src/services'
+import { createConfig } from '@vramework-workspace-starter/functions/src/config'
+import { createSingletonServices, createSessionServices } from '@vramework-workspace-starter/functions/src/services'
 import { VrameworkTaskScheduler } from '@vramework/schedule'
 
-import '@todos/functions/.vramework/vramework-bootstrap'
-import { ScheduledTaskNames } from '@todos/functions/.vramework/vramework-schedules'
+import '@vramework-workspace-starter/functions/.vramework/vramework-bootstrap'
+import { ScheduledTaskNames } from '@vramework-workspace-starter/functions/.vramework/vramework-schedules'
 
 async function main(): Promise<void> {
   try {

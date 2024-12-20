@@ -1,5 +1,5 @@
 {
-  "name": "@todos/next-app",
+  "name": "@vramework-workspace-starter/next-app",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -12,11 +12,11 @@
     "prebuild": "npx @vramework/cli nextjs"
   },
   "dependencies": {
-    "@todos/components": "*",
-    "@todos/functions": "*",
-    "@vramework/core": "^0.6.1",
+    "@vramework-workspace-starter/components": "*",
+    "@vramework-workspace-starter/functions": "*",
+    "@vramework/core": "^0.6.2",
     "@vramework/jose": "^0.6.0",
-    "@vramework/next": "^0.6.0",
+    "@vramework/next": "^0.6.1",
     "next": "^15",
     "react": "^19",
     "react-dom": "^19"

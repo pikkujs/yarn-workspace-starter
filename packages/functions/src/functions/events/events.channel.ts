@@ -1,8 +1,13 @@
-import { addChannel } from '@vramework/core/channel'
+import { addChannel } from '@vramework/core'
 import { onConnect, onMessage, onDisconnect, subscribe, unsubscribe, emitMessage, authenticate } from './events.functions.js'
 
 addChannel({
-    channel: '/event',
+    // The channel name, this is used to identify the channel with types in the client
+    // and needs to be unique
+    name: 'events',
+    // The route to use for the channel. For serverless this is usually / unless using
+    // a custom domain
+    route: '/',
     // Called when a client connects to the channel
     onConnect,
     // Called when a client disconnects from the channel

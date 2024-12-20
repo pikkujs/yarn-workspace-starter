@@ -1,4 +1,4 @@
-import type { JustUserName, UpdateUser, Session } from '@todos/sdk/types/user.types.js'
+import type { JustUserName, UpdateUser, Session } from '@vramework-workspace-starter/sdk/types/user.types.js'
 import type { APIFunctionSessionless } from '../../../.vramework/vramework-types.js'
 import type { UserSession } from '../../../types/application-types.js'
 

@@ -1,8 +1,8 @@
 import { vrameworkWebsocketHandler } from '@vramework/ws'
-import { createConfig } from '@todos/functions/src/config'
-import { createSessionServices, createSingletonServices } from '@todos/functions/src/services'
+import { createConfig } from '@vramework-workspace-starter/functions/src/config'
+import { createSessionServices, createSingletonServices } from '@vramework-workspace-starter/functions/src/services'
 
-import '@todos/functions/.vramework/vramework-bootstrap'
+import '@vramework-workspace-starter/functions/.vramework/vramework-bootstrap'
 import { Server } from 'http'
 import { WebSocketServer } from 'ws'
 

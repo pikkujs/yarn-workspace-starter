@@ -1,6 +1,6 @@
 import { APIPermission } from '../.vramework/vramework-types.js'
-import { JustUserId } from '@todos/sdk/types/user.types.js'
-import { JustTodoId } from '@todos/sdk/types/todo.types.js'
+import { JustUserId } from '@vramework-workspace-starter/sdk/types/user.types.js'
+import { JustTodoId } from '@vramework-workspace-starter/sdk/types/todo.types.js'
 
 export const isUserUpdatingSelf: APIPermission<JustUserId> = async (
   _services,

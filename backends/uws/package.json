@@ -1,5 +1,5 @@
 {
-  "name": "@todos/uws",
+  "name": "@vramework-workspace-starter/uws",
   "version": "0.0.0",
   "description": "",
   "license": "MIT",
@@ -13,8 +13,8 @@
     "ncu": "ncu"
   },
   "dependencies": {
-    "@todos/functions": "workspace:0.0.0",
-    "@vramework/core": "^0.6.1",
+    "@vramework-workspace-starter/functions": "workspace:0.0.0",
+    "@vramework/core": "^0.6.2",
     "@vramework/uws": "^0.6.0",
     "tslib": "^2.7.0",
     "tsx": "^4.19.2",

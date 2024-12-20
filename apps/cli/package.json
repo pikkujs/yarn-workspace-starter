@@ -1,5 +1,5 @@
 {
-  "name": "@todos/cli",
+  "name": "@vramework-workspace-starter/cli",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -9,7 +9,7 @@
     "prebuild": "npx @vramework/cli fetch && npx @vramework/cli websocket"
   },
   "dependencies": {
-    "@todos/sdk": "*",
+    "@vramework-workspace-starter/sdk": "*",
     "tsx": "^4.19.2"
   },
   "devDependencies": {

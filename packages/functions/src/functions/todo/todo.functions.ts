@@ -4,7 +4,7 @@ import type {
   CreateTodo,
   JustTodoId,
   UpdateTodo,
-} from '@todos/sdk/types/todo.types.js'
+} from '@vramework-workspace-starter/sdk/types/todo.types.js'
 import { APIFunction, APIFunctionSessionless } from '../../../.vramework/vramework-types.js'
 
 export const getTodos: APIFunctionSessionless<void, Todos> = async (

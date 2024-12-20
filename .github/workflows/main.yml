@@ -2,7 +2,7 @@ name: Master
 run-name: The master and release workflow
 on: [push]
 env:
-  POSTGRES_CREDENTIALS: '{"host":"localhost","port":5432,"user":"postgres","password":"password","database":"todos"}'
+  POSTGRES_CREDENTIALS: '{"host":"localhost","port":5432,"user":"postgres","password":"password","database":"vramework-workspace-starter"}'
 jobs:
   setup:
     name: Setup and test
@@ -13,7 +13,7 @@ jobs:
         env:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: password
-          POSTGRES_DB: todos
+          POSTGRES_DB: vramework-workspace-starter
         ports:
           - 5432:5432
         options: >-

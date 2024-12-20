@@ -13,7 +13,7 @@ You can see more indepth documentation [here](https://vramework.dev/docs/workspa
 - An environment variable with your host, user, and password:
 
   ```bash
-  POSTGRES_CREDENTIALS='{"host":"localhost","port":5432,"user":"postgres","password":"password","database":"todos"}'
+  POSTGRES_CREDENTIALS='{"host":"localhost","port":5432,"user":"postgres","password":"password","database":"vramework-workspace-starter"}'
   ```
 
 ## Setup

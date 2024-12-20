@@ -1,5 +1,5 @@
 {
-  "name": "@todos/sdk",
+  "name": "@vramework-workspace-starter/sdk",
   "version": "0.0.0",
   "description": "The sdk methods shared by backend and frontend applications",
   "license": "UNLICENSED",

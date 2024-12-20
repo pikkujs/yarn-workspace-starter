@@ -1,0 +1,22 @@
+{
+    "name": "@vramework-workspace-starter/cloudflare",
+    "version": "0.0.0",
+    "description": "",
+    "license": "MIT",
+    "private": true,
+    "author": "yasser.fadl@gmail.com",
+    "main": "dist/index.mjs",
+    "type": "module",
+    "scripts": {
+        "tsc": "tsc"
+    },
+    "dependencies": {
+        "@vramework-workspace-starter/functions": "workspace:0.0.0",
+        "@vramework/core": "^0.6.1",
+        "tslib": "^2.8.1"
+    },
+    "devDependencies": {
+        "@types/node": "^22",
+        "typescript": "^5.7"
+    }
+}

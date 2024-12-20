@@ -1,26 +1,45 @@
 import { VrameworkWebSocket } from "../vramework-websocket"
 
-export const websocket = async (onClose: () => void) => {
-        const websocket = new VrameworkWebSocket<'/event'>('ws://0.0.0.0:4002/event')
+export const websocket = async (userName: string, onClose: () => void) => {
+        let authenticationState: 'initial' | 'authenticated' | 'unauthenticated' = 'initial'
+        const websocket = new VrameworkWebSocket<'events'>('ws://localhost:3001?name=bob')
         websocket.ws.onopen = async () => {
-            const route = websocket.getRoute('action')
-            // Authenticate user
-            route.send('auth', { token: 'valid' })
-
-            console.log('Websocket opened')
+            console.log('Websocket connected')
             websocket.subscribe((data) => {
-                console.log('got message:', data)
+                console.log('Global global message:', data)
+            })
+            const route = websocket.getRoute('action')
+            route.subscribe('subscribe', async (data) => {
+                console.log(`From subsribe route: ${data}`)
+            })
+            route.subscribe('auth', async (data) => {
+                console.log(`From auth route: ${data}`)
+                if (data.authResult === true) {
+                    console.log('User is authenticated')
+                    authenticationState = 'authenticated'
+                } else {
+                    console.log('User is not authenticated')
+                    authenticationState = 'unauthenticated'
+                }
             })
 
+            // Authenticate user
+            route.send('auth', { token: 'valid', userName })
+
+            // Wait for authentication to be validated
+            while (authenticationState === 'initial') {
+                await new Promise((resolve) => setTimeout(resolve, 100))
+            }
+
+            // Default handler
             websocket.send('hello')
 
-            route.subscribe('subscribe', async (data) => {
-                console.log(data)
-            })
+            // Route handler
             route.send('subscribe', { name: 'test' })
             
-            await new Promise((resolve) => setTimeout(resolve, 1000))
+            await new Promise((resolve) => setTimeout(resolve, 500))
 
+            // Publish to everyone
             route.send('emit', { name: 'test' })
 
             setTimeout(() => {

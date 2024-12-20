@@ -15,11 +15,11 @@
     "outDir": "dist",
     "baseUrl": ".",
     "paths": {
-      "@todos/functions": ["./packages/functions"],
-      "@todos/functions/*": ["./packages/functions/*"],
+      "@vramework-workspace-starter/functions": ["./packages/functions"],
+      "@vramework-workspace-starter/functions/*": ["./packages/functions/*"],
 
-      "@todos/sdk": ["./packages/sdk"],
-      "@todos/sdk/*": ["./packages/sdk/*"]
+      "@vramework-workspace-starter/sdk": ["./packages/sdk"],
+      "@vramework-workspace-starter/sdk/*": ["./packages/sdk/*"]
     }
   },
   "include": ["**/.vramework/*.ts"],

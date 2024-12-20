@@ -11,14 +11,14 @@
  * This ensures type safety for route handling methods when integrating with the `@vramework/core` framework.
  */
 import { VrameworkNextJS } from '@vramework/next'
-import type { RoutesMap, RouteHandlerOf } from '@todos/sdk/.vramework/routes-map.d'
+import type { RoutesMap, RouteHandlerOf } from '@vramework-workspace-starter/sdk/.vramework/routes-map.d'
 
-import { createConfig as createConfig } from '@todos/functions/src/config'
-import { createSingletonServices as createSingletonServices } from '@todos/functions/src/services'
-import { createSessionServices as createSessionServices } from '@todos/functions/src/services'
+import { createConfig as createConfig } from '@vramework-workspace-starter/functions/src/config'
+import { createSingletonServices as createSingletonServices } from '@vramework-workspace-starter/functions/src/services'
+import { createSessionServices as createSessionServices } from '@vramework-workspace-starter/functions/src/services'
 
-import '@todos/functions/.vramework/vramework-routes'
-import '@todos/functions/.vramework/vramework-schemas/register'
+import '@vramework-workspace-starter/functions/.vramework/vramework-routes'
+import '@vramework-workspace-starter/functions/.vramework/vramework-schemas/register'
 
 let _vramework: VrameworkNextJS | undefined
 

@@ -1,7 +1,7 @@
 'use client'
 
 import React, { FormEventHandler, PropsWithChildren, useCallback } from 'react'
-import { Todos } from '@todos/sdk/types/todo.types'
+import { Todos } from '@vramework-workspace-starter/sdk/types/todo.types'
 
 export const TodoHeader = () => {
   return (

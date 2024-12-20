@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     output: 'standalone',
-    transpilePackages: ['@todos/functions', '@todos/components'],
+    transpilePackages: ['@vramework-workspace-starter/functions', '@vramework-workspace-starter/components'],
     experimental: {
       // Used to fix dates parsing issues with nextj
       // swcPlugins: [['next-superjson-plugin', {}]],
