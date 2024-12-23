@@ -11,23 +11,23 @@ import '@vramework-workspace-starter/functions/.vramework/vramework-routes'
 import { Config, SingletonServices } from '@vramework-workspace-starter/functions/types/application-types'
 
 let config: Config
-let singletonService: SingletonServices
+let singletonServices: SingletonServices
 
 const coldStart = async () => {
-    if (!config) [
+    if (!config) {
         config = await createConfig()
-    ]
-    if (!singletonService) {
-      singletonService = await createSingletonServices(config)
+    }
+    if (!singletonServices) {
+      singletonServices = await createSingletonServices(config, new AWSSecrets(config))
     }
 }
 
 export const corslessHandler = async (event: APIGatewayProxyEvent) => {
   await coldStart()
-  return await vrameworkCorslessHandler(event, singletonService, createSessionServices)
+  return await vrameworkCorslessHandler(event, singletonServices, createSessionServices)
 }
 
 export const corsHandler = async (event: APIGatewayProxyEvent) => {
   await coldStart()
-  return await vrameworkCorsHandler(event, [], singletonService, createSessionServices)
+  return await vrameworkCorsHandler(event, [], singletonServices, createSessionServices)
 }

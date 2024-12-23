@@ -1,9 +1,19 @@
 import { VrameworkFetch } from "../vramework-fetch"
 
-export const fetch = async () => {
+export const fetch = async (serverUrl: string, apiKey?: string) => {
     const vrameworkFetch = new VrameworkFetch({
-        serverUrl: 'http://localhost:4002'
+        serverUrl,
     })
+
+    if (apiKey) {
+        vrameworkFetch.setAPIKey(apiKey)
+    } else {
+        const session = await vrameworkFetch.api('/login', 'post', { name: 'Yasser' })
+        vrameworkFetch.setAPIKey(session.apiKey)
+    }
+
+    await vrameworkFetch.api('/todo', 'post', { text: 'Hello, world!' })
+
     const todos = await vrameworkFetch.api('/todos', 'get', null)
     console.log(`Todos: ${todos.map(todo => todo.name).join(', ')}`)
 

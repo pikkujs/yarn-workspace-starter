@@ -12,22 +12,21 @@ export const onDisconnect: ChannelDisconnection = async (services, channel) => {
 export const authenticate: ChannelMessage<{ token: string, userId: string }, { authResult: boolean, action: 'auth' }> = async (services, channel, data) => {
     const authResult = data.token === 'valid'
     if (authResult) {
-        await channel.setSession({ userId: data.userId })
+        await channel.setUserSession({ userId: data.userId })
     }
-    channel.send({ authResult, action: 'auth' })
+    return { authResult, action: 'auth' }
 }
 
 export const subscribe: ChannelMessage<{ name: string }> = async (services, channel, data) => {
-    await channel.subscriptions.subscribe(data.name, channel.channelId)
+    await services.eventHub.subscribe(data.name, channel.channelId)
 }
 
 export const unsubscribe: ChannelMessage<{ name: string }> = async (services, channel, data) => {
-    await channel.subscriptions.unsubscribe(data.name, channel.channelId)
+    await services.eventHub.unsubscribe(data.name, channel.channelId)
 }
 
-export const emitMessage: ChannelMessage<{ name: string }, { timestamp: string } | { message: string }> = async (services, channel, data) => {
-    await channel.subscriptions.publish(data.name, channel.channelId, { timestamp: new Date().toISOString() })
-    await channel.subscriptions.broadcast(channel.channelId, { message: `broadcasted from ${channel.channelId} ${channel.session?.userId}` })
+export const emitMessage: ChannelMessage<{ name: string }, { timestamp: string, from: string } | { message: string }> = async (services, channel, data) => {
+    await services.eventHub.publish(data.name, channel.channelId, { timestamp: new Date().toISOString(), from: channel.userSession?.userId ?? 'anonymous' })
 }
 
 export const onMessage: ChannelMessage<'hello', 'hey'> = async (services, channel) => {

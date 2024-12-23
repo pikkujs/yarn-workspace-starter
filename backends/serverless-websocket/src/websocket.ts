@@ -1,44 +1,57 @@
 
-import { APIGatewayProxyHandlerV2 } from 'aws-lambda'
-import { vrameworkConnectHandler, vrameworkDisconnectHandler, vrameworkMessageHandler } from '@vramework/lambda/websocket'
+import { APIGatewayEvent, APIGatewayProxyHandler } from 'aws-lambda'
+
+import { connectWebsocket, disconnectWebsocket, LambdaEventHubService, processWebsocketMessage,  } from '@vramework/lambda/websocket'
 
 import { createConfig } from '@vramework-workspace-starter/functions/src/config'
-import { createSessionServices, createSingletonServices } from '@vramework-workspace-starter/functions/src/services'
+import { createSingletonServices } from '@vramework-workspace-starter/functions/src/services'
 
 import { Config, SingletonServices } from '@vramework-workspace-starter/functions/types/application-types'
-import { ServerlessChannelStore } from '@vramework/core/channel/serverless'
-import { KyselyWebsocketStore } from './kysely-serverless-websocket-store'
+
+import { AWSSecrets } from '@vramework/aws-services'
 
 import '@vramework-workspace-starter/functions/.vramework/vramework-channels'
+import { KyselyChannelStore } from './kysely-channel-store'
+import { ChannelStore } from '@vramework/core/channel'
+import { KyselyEventHubStore } from './kysely-subscription-store'
+import { MakeRequired } from '@vramework/core'
+import { LocalVariablesService } from '@vramework/core/services'
 
-let config: Config
-let singletonService: SingletonServices
-let channelStore: ServerlessChannelStore
+let state: {
+  config: Config,
+  singletonServices: MakeRequired<SingletonServices, 'eventHub'>,
+  channelStore: ChannelStore
+} | undefined
 
-const coldStart = async () => {
-    if (!config) [
-      config = await createConfig()
-    ]
-    if (!singletonService) {
-      singletonService = await createSingletonServices(config)
+const getParams = async (event: APIGatewayEvent) => {
+    if (!state) {
+      const config = await createConfig()
+      const variablesService = new LocalVariablesService()
+      const singletonServices = await createSingletonServices(config, variablesService, new AWSSecrets(config))
+      const channelStore = new KyselyChannelStore(singletonServices.kysely)
+      const eventHubStore = new KyselyEventHubStore(singletonServices.kysely)
+      singletonServices.eventHub = new LambdaEventHubService(singletonServices.logger, event, channelStore, eventHubStore)
+      state = {
+        config,
+        singletonServices: singletonServices as MakeRequired<typeof singletonServices, 'eventHub'>,
+        channelStore,
+      }
     }
-    if (!channelStore) {
-      channelStore = new KyselyWebsocketStore(singletonService.kysely)
-    }
+    return state
 }
 
-export const connectHandler: APIGatewayProxyHandlerV2 = async (event) => {
-  await coldStart()
-  await vrameworkConnectHandler(event, channelStore, singletonService, createSessionServices)
+export const connectHandler: APIGatewayProxyHandler = async (event) => {
+  const params = await getParams(event)
+  await connectWebsocket(event, params)
   return { statusCode: 200, body: '' }
 }
 
-export const disconnectHandler: APIGatewayProxyHandlerV2 = async (event) => {
-  await coldStart()
-  return await vrameworkDisconnectHandler(event, channelStore, singletonService, createSessionServices)
+export const disconnectHandler: APIGatewayProxyHandler = async (event) => {
+  const params = await getParams(event)
+  return await disconnectWebsocket(event, params)
 }
 
-export const defaultHandler: APIGatewayProxyHandlerV2 = async (event) => {
-    await coldStart()
-    return await vrameworkMessageHandler(event, channelStore, singletonService, createSessionServices)
+export const defaultHandler: APIGatewayProxyHandler = async (event) => {
+    const params = await getParams(event)
+    return await processWebsocketMessage(event, params)
 }

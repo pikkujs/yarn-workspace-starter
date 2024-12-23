@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@vramework/fetch": "^0.6.0",
-    "@vramework/websocket": "^0.6.0"
+    "@vramework/websocket": "^0.6.1"
   },
   "devDependencies": {
     "typescript": "^5.6"

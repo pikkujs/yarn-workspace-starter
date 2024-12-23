@@ -17,8 +17,9 @@
   "dependencies": {
     "@types/aws-lambda": "^8.10.146",
     "@vramework-workspace-starter/functions": "workspace:0.0.0",
-    "@vramework/core": "^0.6.2",
-    "@vramework/lambda": "^0.6.1",
+    "@vramework/aws-services": "^0.6.1",
+    "@vramework/core": "^0.6.3",
+    "@vramework/lambda": "^0.6.2",
     "tslib": "^2.8.1"
   },
   "devDependencies": {

@@ -1,19 +1,18 @@
 import { VrameworkWebSocket } from "../vramework-websocket"
 
-export const websocket = async (userName: string, onClose: () => void) => {
+export const websocket = async (serverUrl: string, apiKey: string | undefined, userId: string, onClose: () => void) => {
         let authenticationState: 'initial' | 'authenticated' | 'unauthenticated' = 'initial'
-        const websocket = new VrameworkWebSocket<'events'>('ws://localhost:3001?name=bob')
+        const websocket = new VrameworkWebSocket<'events'>(serverUrl, apiKey)
         websocket.ws.onopen = async () => {
             console.log('Websocket connected')
             websocket.subscribe((data) => {
-                console.log('Global global message:', data)
+                console.log('Global message:', data)
             })
             const route = websocket.getRoute('action')
             route.subscribe('subscribe', async (data) => {
-                console.log(`From subsribe route: ${data}`)
+                console.log(`From subscribe route: ${data}`)
             })
             route.subscribe('auth', async (data) => {
-                console.log(`From auth route: ${data}`)
                 if (data.authResult === true) {
                     console.log('User is authenticated')
                     authenticationState = 'authenticated'
@@ -24,7 +23,7 @@ export const websocket = async (userName: string, onClose: () => void) => {
             })
 
             // Authenticate user
-            route.send('auth', { token: 'valid', userName })
+            route.send('auth', { token: 'valid', userId })
 
             // Wait for authentication to be validated
             while (authenticationState === 'initial') {

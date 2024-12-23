@@ -18,12 +18,14 @@ export interface Config extends CoreServerConfig {
   sql: SQLConfig
   secrets: {
     postgresCredentials: string
-  }
+  },
+  apiKeys: string[]
 }
 
 export type SingletonServices = CoreSingletonServices & {
   jwt: JoseJWTService<UserSession>
   kysely: Kysely<DB>
+  subscriptionService?: SubscriptionService
 }
 
 export interface Services extends CoreServices<SingletonServices> {

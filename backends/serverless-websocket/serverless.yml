@@ -39,3 +39,4 @@ functions:
     events:
       - websocket:
           route: $default
+          routeResponseSelectionExpression: $default

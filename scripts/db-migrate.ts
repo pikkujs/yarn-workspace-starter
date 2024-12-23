@@ -1,6 +1,6 @@
 import pg from 'pg'
 import { migrate } from 'postgres-migrations'
-import { LocalSecretService } from '@vramework/core/services'
+import { LocalSecretService, LocalVariablesService, SecretService } from '@vramework/core/services'
 
 import { createConfig } from '@vramework-workspace-starter/functions/src/config.js'
 import { getDatabaseConfig } from '@vramework-workspace-starter/functions/src/services/kysely.js'
@@ -14,12 +14,16 @@ const __dirname = dirname(__filename)
 
 export const migrateDB = async () => {
   const config = await createConfig()
-  let secrets = new LocalSecretService()
+
+  let secrets: SecretService
   if (process.env.NODE_ENV === 'production') {
     secrets = new AWSSecrets(config)
+  } else {
+    secrets = new LocalSecretService()
   }
 
   const databaseConfig = await getDatabaseConfig(
+    new LocalVariablesService(),
     secrets,
     config.secrets.postgresCredentials,
     config.sql

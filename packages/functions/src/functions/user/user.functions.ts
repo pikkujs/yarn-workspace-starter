@@ -1,23 +1,23 @@
-import type { JustUserName, UpdateUser, Session } from '@vramework-workspace-starter/sdk/types/user.types.js'
+import type { JustUserName, UpdateUser } from '@vramework-workspace-starter/sdk/types/user.types.js'
 import type { APIFunctionSessionless } from '../../../.vramework/vramework-types.js'
 import type { UserSession } from '../../../types/application-types.js'
 
 export const loginUser: APIFunctionSessionless<
   JustUserName,
-  Session
+  UserSession
 > = async (services, { name }) => {
   let session: UserSession | undefined
   try {
     session = await services.kysely
       .selectFrom('app.user')
-      .select('userId')
+      .select(['userId', 'apiKey'])
       .where('name', '=', name.toLowerCase())
       .executeTakeFirstOrThrow()
   } catch {
     session = await services.kysely
       .insertInto('app.user')
       .values({ name: name.toLowerCase() })
-      .returning('userId')
+      .returning(['userId', 'apiKey'])
       .executeTakeFirstOrThrow()
   }
 
