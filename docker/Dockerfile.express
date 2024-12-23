@@ -3,7 +3,7 @@ FROM node:20-alpine
 WORKDIR /app
 
 ENV NODE_ENV=production
-ENV POSTGRES_CREDENTIALS='{"host":"localhost","port":5432,"user":"postgres","password":"password","database":"todos"}'
+ENV POSTGRES_CREDENTIALS='{"host":"localhost","port":5432,"user":"postgres","password":"password","database":"vramework-workspace-starter"}'
 
 COPY .yarnrc.yml .yarnrc.yml
 COPY .yarn/install-state.gz .yarn/install-state.gz

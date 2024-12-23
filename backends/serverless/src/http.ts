@@ -1,41 +1,19 @@
 import { APIGatewayProxyEvent } from 'aws-lambda'
 import {
-  vrameworkCorslessHandler,
-  vrameworkCorsHandler,
+  corsHTTP,
+  corslessHTTP,
 } from '@vramework/lambda/http'
-
-import { createConfig } from '@vramework-workspace-starter/functions/src/config'
 import {
   createSessionServices,
-  createSingletonServices,
 } from '@vramework-workspace-starter/functions/src/services'
 
 import '@vramework-workspace-starter/functions/.vramework/vramework-schemas/register'
 import '@vramework-workspace-starter/functions/.vramework/vramework-routes'
-
-import {
-  Config,
-  SingletonServices,
-} from '@vramework-workspace-starter/functions/types/application-types'
-
-let config: Config
-let singletonServices: SingletonServices
-
-const coldStart = async () => {
-  if (!config) {
-    config = await createConfig()
-  }
-  if (!singletonServices) {
-    singletonServices = await createSingletonServices(
-      config,
-      new AWSSecrets(config)
-    )
-  }
-}
+import { coldStart } from './cold-start'
 
 export const corslessHandler = async (event: APIGatewayProxyEvent) => {
-  await coldStart()
-  return await vrameworkCorslessHandler(
+  const singletonServices = await coldStart()
+  return await corslessHTTP(
     event,
     singletonServices,
     createSessionServices
@@ -43,8 +21,8 @@ export const corslessHandler = async (event: APIGatewayProxyEvent) => {
 }
 
 export const corsHandler = async (event: APIGatewayProxyEvent) => {
-  await coldStart()
-  return await vrameworkCorsHandler(
+  const singletonServices = await coldStart()
+  return await corsHTTP(
     event,
     [],
     singletonServices,
