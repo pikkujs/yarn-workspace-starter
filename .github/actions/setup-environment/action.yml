@@ -1,6 +1,6 @@
-name: "Setup Environment"
+name: 'Setup Environment'
 runs:
-  using: "composite"
+  using: 'composite'
   steps:
     - run: corepack enable
       shell: bash

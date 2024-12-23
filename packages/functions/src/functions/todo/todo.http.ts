@@ -17,7 +17,7 @@ addRoute({
   docs: {
     description: 'Get all todos',
     tags: ['todos'],
-  }
+  },
 })
 
 addRoute({
@@ -39,8 +39,8 @@ addRoute({
   route: '/todo',
   func: createTodo,
   docs: {
-    errors: [ConflictError]
-  }
+    errors: [ConflictError],
+  },
 })
 
 addRoute({

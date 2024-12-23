@@ -5,7 +5,10 @@ import type {
   JustTodoId,
   UpdateTodo,
 } from '@vramework-workspace-starter/sdk/types/todo.types.js'
-import { APIFunction, APIFunctionSessionless } from '../../../.vramework/vramework-types.js'
+import {
+  APIFunction,
+  APIFunctionSessionless,
+} from '../../../.vramework/vramework-types.js'
 
 export const getTodos: APIFunctionSessionless<void, Todos> = async (
   services
@@ -66,15 +69,15 @@ export const deleteTodo: APIFunction<JustTodoId, { success: boolean }> = async (
       .deleteFrom('app.todo')
       .where('todoId', '=', todoId)
       .executeTakeFirstOrThrow()
-    return { success: true}
+    return { success: true }
   } catch {
-    return { success: false}
+    return { success: false }
   }
 }
 
 export const expireTodos: APIFunctionSessionless<void, void> = async (
   services,
-  _data,
+  _data
 ) => {
   // TODO: Think of a better scheduled job
   services.logger.info('Expiring all todos')

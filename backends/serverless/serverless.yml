@@ -18,7 +18,7 @@ provider:
   iam:
     role:
       managedPolicies:
-        - "arn:aws:iam::014498637088:policy/VrameworkServerlessDB"
+        - 'arn:aws:iam::014498637088:policy/VrameworkServerlessDB'
   environment:
     NODE_OPTIONS: --enable-source-maps
     NODE_ENV: production

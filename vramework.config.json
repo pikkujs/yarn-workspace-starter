@@ -1,9 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vramework/vramework/refs/heads/master/packages/cli/cli.schema.json",
   "tsconfig": "./tsconfig.json",
-  "routeDirectories": [
-    "packages/functions/src"
-  ],
+  "routeDirectories": ["packages/functions/src"],
   "outDir": "packages/functions/.vramework",
   "routesMapDeclarationFile": "packages/sdk/.vramework/routes-map.d.ts",
   "channelsMapDeclarationFile": "packages/sdk/.vramework/channels-map.d.ts",

@@ -29,14 +29,14 @@ jobs:
       - run: yarn test
 
   express:
-      name: Express Docker
-      uses: ./.github/workflows/backend-docker-build-and-publish.yml
-      needs: setup
-      with:
-        dockerfile-path: 'docker/Dockerfile.express'
-        image-name: 'workspace-starter-express'
-        image-tag: 'latest'
-  
+    name: Express Docker
+    uses: ./.github/workflows/backend-docker-build-and-publish.yml
+    needs: setup
+    with:
+      dockerfile-path: 'docker/Dockerfile.express'
+      image-name: 'workspace-starter-express'
+      image-tag: 'latest'
+
   fastify:
     name: Fastify Docker
     uses: ./.github/workflows/backend-docker-build-and-publish.yml
@@ -45,7 +45,7 @@ jobs:
       dockerfile-path: 'docker/Dockerfile.fastify'
       image-name: 'workspace-starter-fastify'
       image-tag: 'latest'
-  
+
   uws:
     name: UWS Docker
     uses: ./.github/workflows/backend-docker-build-and-publish.yml

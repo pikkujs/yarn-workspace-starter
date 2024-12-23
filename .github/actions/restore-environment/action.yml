@@ -1,6 +1,6 @@
-name: "Restore Environment"
+name: 'Restore Environment'
 runs:
-  using: "composite"
+  using: 'composite'
   steps:
     - run: corepack enable
       shell: bash

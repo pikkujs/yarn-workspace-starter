@@ -1,7 +1,10 @@
 import { VrameworkExpressServer } from '@vramework/express'
 
 import { createConfig } from '@vramework-workspace-starter/functions/src/config'
-import { createSingletonServices, createSessionServices } from '@vramework-workspace-starter/functions/src/services'
+import {
+  createSingletonServices,
+  createSessionServices,
+} from '@vramework-workspace-starter/functions/src/services'
 import { VrameworkTaskScheduler } from '@vramework/schedule'
 
 import '@vramework-workspace-starter/functions/.vramework/vramework-bootstrap'
@@ -21,7 +24,9 @@ async function main(): Promise<void> {
     await appServer.init()
     await appServer.start()
 
-    const scheduler = new VrameworkTaskScheduler<ScheduledTaskNames>(singletonServices)
+    const scheduler = new VrameworkTaskScheduler<ScheduledTaskNames>(
+      singletonServices
+    )
     scheduler.startAll()
   } catch (e: any) {
     console.error(e.toString())

@@ -15,13 +15,16 @@ const jwtService = new JoseJWTService<UserSession>(async () => [
   },
 ])
 
-const sessionService = new VrameworkHTTPSessionService<UserSession>(jwtService, {
-  cookieNames: ['session'],
-  getSessionForCookieValue: async (cookieValue) => {
-    const session: any = await jwtService.decode(cookieValue)
-    return session.payload
-  },
-})
+const sessionService = new VrameworkHTTPSessionService<UserSession>(
+  jwtService,
+  {
+    cookieNames: ['session'],
+    getSessionForCookieValue: async (cookieValue) => {
+      const session: any = await jwtService.decode(cookieValue)
+      return session.payload
+    },
+  }
+)
 
 export default async function middleware(req: NextRequest) {
   // 1. Check if the current route is protected or public

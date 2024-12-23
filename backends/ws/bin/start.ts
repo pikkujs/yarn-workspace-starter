@@ -1,6 +1,9 @@
 import { vrameworkWebsocketHandler } from '@vramework/ws'
 import { createConfig } from '@vramework-workspace-starter/functions/src/config'
-import { createSessionServices, createSingletonServices } from '@vramework-workspace-starter/functions/src/services'
+import {
+  createSessionServices,
+  createSingletonServices,
+} from '@vramework-workspace-starter/functions/src/services'
 
 import '@vramework-workspace-starter/functions/.vramework/vramework-bootstrap'
 import { Server } from 'http'
@@ -16,7 +19,7 @@ async function main(): Promise<void> {
       server,
       wss,
       singletonServices,
-      createSessionServices
+      createSessionServices,
     })
 
     // Add /health-check endpoint

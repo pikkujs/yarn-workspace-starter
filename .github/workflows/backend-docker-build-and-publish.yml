@@ -18,10 +18,10 @@ on:
         default: 'latest'
         type: string
       http:
-          description: 'Whether to test HTTP APIs against'
-          required: false
-          default: true
-          type: boolean
+        description: 'Whether to test HTTP APIs against'
+        required: false
+        default: true
+        type: boolean
       websocket:
         description: 'Whether to test Websocket APIs against'
         required: false
@@ -49,10 +49,10 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      
+
       - name: Setup environment
         uses: ./.github/actions/setup-environment
-      
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 

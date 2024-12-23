@@ -1,4 +1,7 @@
-import type { JustUserName, UpdateUser } from '@vramework-workspace-starter/sdk/types/user.types.js'
+import type {
+  JustUserName,
+  UpdateUser,
+} from '@vramework-workspace-starter/sdk/types/user.types.js'
 import type { APIFunctionSessionless } from '../../../.vramework/vramework-types.js'
 import type { UserSession } from '../../../types/application-types.js'
 
@@ -48,4 +51,3 @@ export const updateUser: APIFunctionSessionless<UpdateUser, void> = async (
     .where('userId', '=', userId)
     .executeTakeFirstOrThrow()
 }
-

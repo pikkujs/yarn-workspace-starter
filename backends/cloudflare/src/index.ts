@@ -1,28 +1,23 @@
 import { runFetch, runScheduled } from '@vramework/cloudflare';
-import { createSessionServices } from '@vramework-workspace-starter/functions/src/services'
-
-import '@vramework-workspace-starter/functions/.vramework/vramework-bootstrap'
+import { createSessionServices } from '@vramework-workspace-starter/functions/src/services';
 import { setupServices } from './setup-services';
+import { ExportedHandler } from '@cloudflare/workers-types';
 
-export { WebSocketHibernationServer } from './websocket-hibernation-server'
+import '@vramework-workspace-starter/functions/.vramework/vramework-bootstrap';
+
+export { WebSocketHibernationServer } from './websocket-hibernation-server';
 
 export default {
-	async scheduled(controller, env, ctx) {
-		const singletonServices = await setupServices(env)
-		await runScheduled(controller, singletonServices)
+	async scheduled(controller, env) {
+		const singletonServices = await setupServices(env);
+		await runScheduled(controller, singletonServices);
 	},
 
-	async fetch(request, env, ctx): Promise<Response> {
-		const singletonServices = await setupServices(env)
-		const websocketServerDurableObject: any = singletonServices.variablesService.get('WEBSOCKET_HIBERNATION_SERVER')
-		const id = websocketServerDurableObject.idFromName("foo");
+	async fetch(request, env): Promise<Response> {
+		const singletonServices = await setupServices(env);
+		const websocketServerDurableObject: any = singletonServices.variablesService.get('WEBSOCKET_HIBERNATION_SERVER');
+		const id = websocketServerDurableObject.idFromName('channel-name-goes-here')
 		const webSocketHibernationServer = websocketServerDurableObject.get(id);
-
-		return await runFetch(
-			request,
-			singletonServices,
-			createSessionServices,
-			webSocketHibernationServer
-		)
+		return await runFetch(request, singletonServices, createSessionServices, webSocketHibernationServer);
 	},
 } satisfies ExportedHandler<Record<string, string>>;

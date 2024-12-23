@@ -1,6 +1,10 @@
 import pg from 'pg'
 import { migrate } from 'postgres-migrations'
-import { LocalSecretService, LocalVariablesService, SecretService } from '@vramework/core/services'
+import {
+  LocalSecretService,
+  LocalVariablesService,
+  SecretService,
+} from '@vramework/core/services'
 
 import { createConfig } from '@vramework-workspace-starter/functions/src/config.js'
 import { getDatabaseConfig } from '@vramework-workspace-starter/functions/src/services/kysely.js'

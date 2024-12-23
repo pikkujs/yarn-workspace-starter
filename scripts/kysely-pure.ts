@@ -6,7 +6,6 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
 const main = async () => {
-
   let kysely = await readFile(
     `${__dirname}/../node_modules/kysely-codegen/dist/db.d.ts`,
     'utf8'

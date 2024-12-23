@@ -15,7 +15,8 @@ export const isTodoCreator: APIPermission<JustTodoId> = async (
   { todoId },
   session
 ) => {
-  const { createdBy } = await services.kysely.selectFrom('app.todo')
+  const { createdBy } = await services.kysely
+    .selectFrom('app.todo')
     .select('createdBy')
     .where('todoId', '=', todoId)
     .executeTakeFirstOrThrow()

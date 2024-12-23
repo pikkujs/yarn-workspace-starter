@@ -3,7 +3,7 @@ import type {
   CoreServerConfig,
   CoreSingletonServices,
   CoreUserSession,
-  LogLevel
+  LogLevel,
 } from '@vramework/core'
 import type { SQLConfig } from '@vramework-workspace-starter/functions/src/services/kysely'
 import type { DB } from 'kysely-codegen'
@@ -18,7 +18,7 @@ export interface Config extends CoreServerConfig {
   sql: SQLConfig
   secrets: {
     postgresCredentials: string
-  },
+  }
   apiKeys: string[]
 }
 
@@ -28,8 +28,7 @@ export type SingletonServices = CoreSingletonServices & {
   subscriptionService?: SubscriptionService
 }
 
-export interface Services extends CoreServices<SingletonServices> {
-}
+export interface Services extends CoreServices<SingletonServices> {}
 
 export interface UserSession extends CoreUserSession {
   userId: string

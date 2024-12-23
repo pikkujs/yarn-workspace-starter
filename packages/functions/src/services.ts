@@ -1,13 +1,37 @@
-import type { CreateSingletonServices, CreateSessionServices } from '@vramework/core'
+import type {
+  CreateSingletonServices,
+  CreateSessionServices,
+} from '@vramework/core'
 import { VrameworkHTTPSessionService } from '@vramework/core/http'
-import { ConsoleLogger, LocalSecretService, SecretService, VariablesService, LocalVariablesService } from '@vramework/core/services'
+import {
+  ConsoleLogger,
+  LocalSecretService,
+  SecretService,
+  VariablesService,
+  LocalVariablesService,
+} from '@vramework/core/services'
 
-import type { Config, Services, SingletonServices, UserSession } from '../types/application-types.js'
-import { getDatabaseConfig, KyselyDB } from '@vramework-workspace-starter/functions/src/services/kysely.js'
+import type {
+  Config,
+  Services,
+  SingletonServices,
+  UserSession,
+} from '../types/application-types.js'
+import {
+  getDatabaseConfig,
+  KyselyDB,
+} from '@vramework-workspace-starter/functions/src/services/kysely.js'
 import { JoseJWTService } from '@vramework/jose'
 import { UnauthorizedError } from '@vramework/core/errors'
 
-export const createSingletonServices: CreateSingletonServices<Config, SingletonServices> = async (config, variablesService?: VariablesService, secretService?: SecretService) => {
+export const createSingletonServices: CreateSingletonServices<
+  Config,
+  SingletonServices
+> = async (
+  config,
+  variablesService?: VariablesService,
+  secretService?: SecretService
+) => {
   const logger = new ConsoleLogger()
 
   if (config.logLevel) {
@@ -71,7 +95,7 @@ export const createSingletonServices: CreateSingletonServices<Config, SingletonS
           throw new UnauthorizedError('Invalid API key in query')
         }
       }
-    }
+    },
   })
 
   return {
@@ -84,10 +108,10 @@ export const createSingletonServices: CreateSingletonServices<Config, SingletonS
   }
 }
 
-export const createSessionServices: CreateSessionServices<SingletonServices, Services, UserSession> = async (
-  _singletonServices,
-  _session
-) => {
-  return {
-  }
+export const createSessionServices: CreateSessionServices<
+  SingletonServices,
+  Services,
+  UserSession
+> = async (_singletonServices, _session) => {
+  return {}
 }

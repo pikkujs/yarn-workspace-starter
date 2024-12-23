@@ -1,7 +1,10 @@
 import { VrameworkUWSServer } from '@vramework/uws'
 
 import { createConfig } from '@vramework-workspace-starter/functions/src/config'
-import { createSessionServices, createSingletonServices } from '@vramework-workspace-starter/functions/src/services'
+import {
+  createSessionServices,
+  createSingletonServices,
+} from '@vramework-workspace-starter/functions/src/services'
 
 import '@vramework-workspace-starter/functions/.vramework/vramework-bootstrap'
 

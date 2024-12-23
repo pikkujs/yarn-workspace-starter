@@ -1,7 +1,10 @@
 import { VrameworkFastifyServer } from '@vramework/fastify'
 
 import { createConfig } from '@vramework-workspace-starter/functions/src/config'
-import { createSingletonServices, createSessionServices } from '@vramework-workspace-starter/functions/src/services'
+import {
+  createSingletonServices,
+  createSessionServices,
+} from '@vramework-workspace-starter/functions/src/services'
 
 import '@vramework-workspace-starter/functions/.vramework/vramework-bootstrap'
 
