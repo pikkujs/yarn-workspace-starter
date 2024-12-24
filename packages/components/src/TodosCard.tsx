@@ -45,7 +45,7 @@ export const TodosCard: React.FunctionComponent<
 
   return (
     <div className="flex items-center justify-center w-screen h-screen font-medium">
-      <div className="flex flex-grow items-center justify-center h-full text-gray-600 bg-gray-100">
+      <div className="flex flex-grow items-center justify-center h-full bg-gray-100">
         <div className="max-w-full p-8 bg-white rounded-lg shadow-lg w-96">
           <TodoHeader />
 
@@ -68,7 +68,7 @@ export const TodosCard: React.FunctionComponent<
                   className="flex items-center h-10 px-2 rounded cursor-pointer hover:bg-gray-100"
                   htmlFor={todo.todoId}
                 >
-                  <span className="flex items-center justify-center w-5 h-5 text-transparent border-2 border-gray-300 rounded-full">
+                  <span className="flex items-center justify-center w-5 h-5 text-transparent border-2 ex-border-gray-300 rounded-full">
                     <svg
                       className="w-4 h-4 fill-current"
                       xmlns="http://www.w3.org/2000/svg"

@@ -1,7 +1,7 @@
 import { runFetch, runScheduled } from '@vramework/cloudflare';
 import { createSessionServices } from '@vramework-workspace-starter/functions/src/services';
 import { setupServices } from './setup-services';
-import { ExportedHandler } from '@cloudflare/workers-types';
+import { ExportedHandler, Response } from '@cloudflare/workers-types';
 
 import '@vramework-workspace-starter/functions/.vramework/vramework-bootstrap';
 

@@ -72,7 +72,6 @@ jobs:
           docker ps -a
           docker logs container
           curl -v localhost:4002/health-check
-          # curl -v localhost:4002/vramework-workspace-starter
 
       - name: Push Docker Image
         run: |

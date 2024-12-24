@@ -21,7 +21,7 @@ export const Login: React.FunctionComponent<
 
   return (
     <div className="flex items-center justify-center w-screen h-screen font-medium">
-      <div className="flex flex-grow items-center justify-center h-full text-gray-600 bg-gray-100">
+      <div className="flex flex-grow items-center justify-center h-full bg-gray-100">
         <div className="max-w-full p-8 bg-white rounded-lg shadow-lg w-96">
           <TodoHeader />
           <form

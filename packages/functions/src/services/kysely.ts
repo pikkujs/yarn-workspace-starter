@@ -36,8 +36,13 @@ export class KyselyDB {
     this.logger.info(
       `Connecting to database: ${this.poolConfig.host}:${this.poolConfig.port} with name ${this.poolConfig.database}`
     )
-    const response = await this.postgres`SELECT version();`
-    this.logger.info(response[0].version)
+    try {
+      const response = await this.postgres`SELECT version();`
+      this.logger.info(response[0].version)
+    } catch (error) {
+      this.logger.error('Error connecting to database', error)
+      process.exit(1)
+    }
   }
 }
 
