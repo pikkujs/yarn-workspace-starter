@@ -38,7 +38,7 @@ jobs:
         env:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: password
-          POSTGRES_DB: vramework-workspace-starter
+          POSTGRES_DB: vramework_workspace_starter
         ports:
           - 5432:5432
         options: >-

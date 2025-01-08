@@ -66,7 +66,7 @@ export const getDatabaseConfig = async (
       port: 5432,
       user: 'postgres',
       password: 'password',
-      database: 'vramework-workspace-starter',
+      database: 'vramework_workspace_starter',
     }
   }
 }
