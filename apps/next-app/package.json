@@ -14,7 +14,7 @@
   "dependencies": {
     "@vramework-workspace-starter/components": "*",
     "@vramework-workspace-starter/functions": "*",
-    "@vramework/core": "^0.6.3",
+    "@vramework/core": "^0.6.4",
     "@vramework/jose": "^0.6.0",
     "@vramework/next": "^0.6.2",
     "next": "^15",

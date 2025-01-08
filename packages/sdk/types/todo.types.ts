@@ -1,5 +1,5 @@
 import * as DB from '@vramework-workspace-starter/sdk/generated/db-pure'
-import { User } from './user.types'
+import { User } from './user.types.js'
 
 export type Todo = Omit<DB.AppTodo, '_ignore_'>
 

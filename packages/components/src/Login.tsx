@@ -1,7 +1,7 @@
 'use client'
 
 import React, { FormEventHandler, PropsWithChildren, useCallback } from 'react'
-import { TodoHeader } from './TodosCard'
+import { TodoHeader } from './TodosCard.js'
 
 export const Login: React.FunctionComponent<
   PropsWithChildren<{

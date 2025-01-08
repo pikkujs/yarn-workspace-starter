@@ -54,7 +54,7 @@ export const updateTodo: APIFunction<UpdateTodo, void> = async (
   { todoId, ...data }
 ) => {
   await services.kysely
-    .updateTable('app.todo')
+    .updateTable('todo')
     .set(data)
     .where('todoId', '=', todoId)
     .executeTakeFirstOrThrow()

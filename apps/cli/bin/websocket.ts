@@ -1,4 +1,4 @@
-import { VrameworkWebSocket } from '../vramework-websocket'
+import { VrameworkWebSocket } from '../vramework-websocket.js'
 
 export const websocket = async (
   serverUrl: string,

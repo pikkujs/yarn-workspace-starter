@@ -18,9 +18,9 @@ import {
 import { AWSSecrets } from '@vramework/aws-services'
 
 import '@vramework-workspace-starter/functions/.vramework/vramework-channels'
-import { KyselyChannelStore } from './kysely-channel-store'
+import { KyselyChannelStore } from './kysely-channel-store.js'
 import { ChannelStore } from '@vramework/core/channel'
-import { KyselyEventHubStore } from './kysely-subscription-store'
+import { KyselyEventHubStore } from './kysely-subscription-store.js'
 import { MakeRequired } from '@vramework/core'
 import { LocalVariablesService } from '@vramework/core/services'
 

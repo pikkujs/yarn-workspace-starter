@@ -1,4 +1,4 @@
-import { VrameworkFetch } from '../vramework-fetch'
+import { VrameworkFetch } from '../vramework-fetch.js'
 
 export const fetch = async (serverUrl: string, apiKey?: string) => {
   const vrameworkFetch = new VrameworkFetch({

@@ -46,7 +46,7 @@ export const updateUser: APIFunctionSessionless<UpdateUser, void> = async (
   { userId, ...data }
 ) => {
   await services.kysely
-    .updateTable('app.user')
+    .updateTable('user')
     .set(data)
     .where('userId', '=', userId)
     .executeTakeFirstOrThrow()

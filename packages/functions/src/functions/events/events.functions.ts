@@ -31,7 +31,7 @@ export const authenticate: ChannelMessage<
   return { authResult, action: 'auth' }
 }
 
-export const subscribe: ChannelMessage<{ name: string }> = async (
+export const subscribe: ChannelMessage<{ name: string }, never> = async (
   services,
   channel,
   data
@@ -39,7 +39,7 @@ export const subscribe: ChannelMessage<{ name: string }> = async (
   await services.eventHub.subscribe(data.name, channel.channelId)
 }
 
-export const unsubscribe: ChannelMessage<{ name: string }> = async (
+export const unsubscribe: ChannelMessage<{ name: string }, never> = async (
   services,
   channel,
   data

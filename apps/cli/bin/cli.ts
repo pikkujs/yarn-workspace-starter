@@ -1,5 +1,5 @@
-import { websocket } from './websocket'
-import { fetch } from './fetch'
+import { websocket } from './websocket.js'
+import { fetch } from './fetch.js'
 
 const main = async () => {
   let apiKey: string | undefined

@@ -9,7 +9,7 @@ import {
 
 import '@vramework-workspace-starter/functions/.vramework/vramework-schemas/register'
 import '@vramework-workspace-starter/functions/.vramework/vramework-routes'
-import { coldStart } from './cold-start'
+import { coldStart } from './cold-start.js'
 
 export const corslessHandler = async (event: APIGatewayProxyEvent) => {
   const singletonServices = await coldStart()
