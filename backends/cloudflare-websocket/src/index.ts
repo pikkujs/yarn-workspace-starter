@@ -5,6 +5,8 @@ import { ExportedHandler, Response } from '@cloudflare/workers-types';
 
 import '@vramework-workspace-starter/functions/.vramework/vramework-bootstrap.gen.js';
 
+export { WebSocketHibernationServer } from './websocket-hibernation-server.js';
+
 export default {
 	async scheduled(controller, env) {
 		const singletonServices = await setupServices(env);
@@ -13,6 +15,9 @@ export default {
 
 	async fetch(request, env): Promise<Response> {
 		const singletonServices = await setupServices(env);
-		return await runFetch(request, singletonServices, createSessionServices);
+		const websocketServerDurableObject: any = singletonServices.variablesService.get('WEBSOCKET_HIBERNATION_SERVER');
+		const id = websocketServerDurableObject.idFromName('channel-name-goes-here')
+		const webSocketHibernationServer = websocketServerDurableObject.get(id);
+		return await runFetch(request, singletonServices, createSessionServices, webSocketHibernationServer);
 	},
 } satisfies ExportedHandler<Record<string, string>>;

@@ -4,8 +4,9 @@ import { createSingletonServices } from '@vramework-workspace-starter/functions/
 import {
   Config,
   SingletonServices,
-} from '@vramework-workspace-starter/functions/types/application-types'
+} from '@vramework-workspace-starter/functions/src/application-types'
 import { AWSSecrets } from '@vramework/aws-services'
+import { LocalVariablesService } from '@vramework/core'
 
 let config: Config
 let singletonServices: SingletonServices
@@ -17,6 +18,7 @@ export const coldStart = async () => {
   if (!singletonServices) {
     singletonServices = await createSingletonServices(
       config,
+      new LocalVariablesService(),
       new AWSSecrets(config)
     )
   }

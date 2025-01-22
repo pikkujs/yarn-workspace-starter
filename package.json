@@ -46,5 +46,27 @@
   "packageManager": "yarn@4.5.3",
   "engines": {
     "node": ">=18"
+  },
+  "resolutions": {
+    "@vramework/cli": "portal:/Users/yasser/git/vramework/vramework-website/vramework/packages/cli",
+    "@vramework/aws-services": "portal:/Users/yasser/git/vramework/vramework-website/vramework/packages/cloud/aws/aws-services",
+    "@vramework/lambda": "portal:/Users/yasser/git/vramework/vramework-website/vramework/packages/cloud/aws/lambda",
+    "@vramework/azure-functions": "portal:/Users/yasser/git/vramework/vramework-website/vramework/packages/cloud/azure/functions",
+    "@vramework/cloudflare": "portal:/Users/yasser/git/vramework/vramework-website/vramework/packages/cloud/cloudflare",
+    "@vramework/core": "portal:/Users/yasser/git/vramework/vramework-website/vramework/packages/core",
+    "@vramework/fetch": "portal:/Users/yasser/git/vramework/vramework-website/vramework/packages/fetch",
+    "@vramework/inspector": "portal:/Users/yasser/git/vramework/vramework-website/vramework/packages/inspector",
+    "@vramework/schedule": "portal:/Users/yasser/git/vramework/vramework-website/vramework/packages/schedule",
+    "@vramework/express-middleware": "portal:/Users/yasser/git/vramework/vramework-website/vramework/packages/servers/express/express-middleware",
+    "@vramework/express": "portal:/Users/yasser/git/vramework/vramework-website/vramework/packages/servers/express/express-server",
+    "@vramework/fastify-plugin": "portal:/Users/yasser/git/vramework/vramework-website/vramework/packages/servers/fastify/fastify-plugin",
+    "@vramework/fastify": "portal:/Users/yasser/git/vramework/vramework-website/vramework/packages/servers/fastify/fastify-server",
+    "@vramework/next": "portal:/Users/yasser/git/vramework/vramework-website/vramework/packages/servers/next",
+    "@vramework/uws-handler": "portal:/Users/yasser/git/vramework/vramework-website/vramework/packages/servers/uws/uws-handler",
+    "@vramework/uws": "portal:/Users/yasser/git/vramework/vramework-website/vramework/packages/servers/uws/uws-server",
+    "@vramework/ws": "portal:/Users/yasser/git/vramework/vramework-website/vramework/packages/servers/ws",
+    "@vramework/jose": "portal:/Users/yasser/git/vramework/vramework-website/vramework/packages/services/jose",
+    "@vramework/pino": "portal:/Users/yasser/git/vramework/vramework-website/vramework/packages/services/pino",
+    "@vramework/websocket": "portal:/Users/yasser/git/vramework/vramework-website/vramework/packages/websocket"
   }
 }
