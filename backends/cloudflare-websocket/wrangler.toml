@@ -11,7 +11,7 @@ enabled = true
 NODE_ENV = "production"
 
 [triggers]
-crons = ["*/* * * * 1"]
+crons = ["* * * * 1"]
 
 [[durable_objects.bindings]]
 name = "WEBSOCKET_HIBERNATION_SERVER"

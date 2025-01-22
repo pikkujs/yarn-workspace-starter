@@ -11,4 +11,4 @@ enabled = true
 NODE_ENV = "production"
 
 [triggers]
-crons = ["*/* * * * 1"]
+crons = ["* * * * 1"]

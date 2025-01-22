@@ -3,11 +3,10 @@ import type {
   CreateSessionServices,
 } from '@vramework/core'
 import { VrameworkHTTPSessionService } from '@vramework/core/http'
+
 import {
   ConsoleLogger,
   LocalSecretService,
-  SecretService,
-  VariablesService,
   LocalVariablesService,
 } from '@vramework/core/services'
 
@@ -23,14 +22,14 @@ import {
 } from '@vramework-workspace-starter/functions/src/services/kysely.js'
 import { JoseJWTService } from '@vramework/jose'
 import { UnauthorizedError } from '@vramework/core/errors'
+import { AjvSchemaService } from '@vramework/schema-ajv'
 
 export const createSingletonServices: CreateSingletonServices<
   Config,
   SingletonServices
 > = async (
   config,
-  variablesService?: VariablesService,
-  secretService?: SecretService
+  { variablesService, secretsService, schemaService } = {}
 ) => {
   const logger = new ConsoleLogger()
 
@@ -47,8 +46,13 @@ export const createSingletonServices: CreateSingletonServices<
 
   // This is passed in because different providers have 
   // different ways to access secrets
-  if (!secretService) {
-    secretService = new LocalSecretService(variablesService)
+  if (!secretsService) {
+    secretsService = new LocalSecretService(variablesService)
+  }
+
+  // Cloudflare Workers doesn't support ajv library
+  if (!schemaService) {
+    schemaService = new AjvSchemaService(logger)    
   }
 
   const jwt = new JoseJWTService<UserSession>(
@@ -64,7 +68,7 @@ export const createSingletonServices: CreateSingletonServices<
   // Get the connection
   const postgresConfig = await getDatabaseConfig(
     variablesService,
-    secretService,
+    secretsService,
     config.secrets.postgresCredentials,
     config.sql
   )
@@ -107,6 +111,8 @@ export const createSingletonServices: CreateSingletonServices<
   return {
     config,
     variablesService,
+    secretsService,
+    schemaService,
     logger,
     jwt,
     httpSessionService,

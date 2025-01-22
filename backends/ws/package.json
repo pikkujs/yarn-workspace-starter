@@ -14,8 +14,8 @@
   },
   "dependencies": {
     "@vramework-workspace-starter/functions": "workspace:0.0.0",
-    "@vramework/core": "^0.6.6",
-    "@vramework/ws": "^0.6.2",
+    "@vramework/core": "^0.6.7",
+    "@vramework/ws": "^0.6.3",
     "tslib": "^2.7.0",
     "tsx": "^4.19.2",
     "typescript": "^5.6",

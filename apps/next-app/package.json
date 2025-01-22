@@ -13,9 +13,9 @@
   },
   "dependencies": {
     "@vramework-workspace-starter/functions": "*",
-    "@vramework/core": "^0.6.6",
-    "@vramework/jose": "^0.6.0",
-    "@vramework/next": "^0.6.3",
+    "@vramework/core": "^0.6.7",
+    "@vramework/jose": "^0.6.1",
+    "@vramework/next": "^0.6.4",
     "next": "^15",
     "react": "^19",
     "react-dom": "^19"

@@ -228,3 +228,5 @@ android/app/google-services.json
 
 # Vramework
 .vramework
+
+meta.json

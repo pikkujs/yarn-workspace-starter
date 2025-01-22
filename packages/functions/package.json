@@ -21,9 +21,10 @@
   },
   "dependencies": {
     "@vramework-workspace-starter/sdk": "^0.0.0",
-    "@vramework/core": "^0.6.6",
-    "@vramework/jose": "^0.6.0",
-    "@vramework/pino": "^0.6.0",
+    "@vramework/core": "^0.6.7",
+    "@vramework/jose": "^0.6.1",
+    "@vramework/pino": "^0.6.1",
+    "@vramework/schema-ajv": "^0.6.1",
     "kysely": "^0.27.5",
     "kysely-codegen": "^0.16.6",
     "kysely-postgres-js": "^2.0.0",

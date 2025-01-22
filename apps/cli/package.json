@@ -6,6 +6,7 @@
   "scripts": {
     "start": "tsx bin/cli.ts",
     "start:websocket": "tsx bin/cli.ts --websocket",
+    "start:fetch": "tsx bin/cli.ts --fetch",
     "prebuild": "npx @vramework/cli fetch && npx @vramework/cli websocket"
   },
   "dependencies": {
