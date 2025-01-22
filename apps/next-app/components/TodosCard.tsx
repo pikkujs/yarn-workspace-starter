@@ -2,7 +2,7 @@
 
 import React, { FormEventHandler, PropsWithChildren, useCallback } from 'react'
 import { GetTodosOutput, UpdateTodoInput, VoteOnTodoInput } from '@vramework-workspace-starter/sdk/.vramework/routes-map.gen.d.js'
-import { Vote } from '@vramework-workspace-starter/sdk/generated/db-pure.gen'
+import { DB } from '@vramework-workspace-starter/sdk'
 
 export const TodoHeader = () => {
   return (
@@ -89,7 +89,7 @@ export const TodosCard: React.FunctionComponent<
                     {todo.text}
                   </span>
                   <div className='ml-auto border gap-2 flex items-center px-2 rounded'>
-                    <span className='relative border-r-2 pr-2' onClick={() => voteOnTodo({ todoId: todo.todoId, vote: Vote.UP })}>
+                    <span className='relative border-r-2 pr-2' onClick={() => voteOnTodo({ todoId: todo.todoId, vote: DB.Vote.UP })}>
                       👍🏽
                     </span>
                     <small>{todo.upvotes}</small>

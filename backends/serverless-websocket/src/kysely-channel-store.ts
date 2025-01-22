@@ -1,4 +1,4 @@
-import * as DB from '@vramework-workspace-starter/sdk/generated/db-pure.gen.js'
+import { DB } from '@vramework-workspace-starter/sdk'
 import { CoreUserSession } from '@vramework/core'
 import { Channel, ChannelStore } from '@vramework/core/channel'
 import { Kysely } from 'kysely'

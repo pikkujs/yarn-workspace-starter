@@ -1,5 +1,5 @@
-import * as DB from '@vramework-workspace-starter/sdk/generated/db-pure.gen.js'
-import type { APIFunctionSessionless } from '#vramework/vramework-types.js'
+import { DB } from '@vramework-workspace-starter/sdk'
+import type { APIFunctionSessionless } from '#vramework/vramework-types.gen.js'
 import type { UserSession } from '@vramework-workspace-starter/functions/src/application-types.js'
 
 export const loginUser: APIFunctionSessionless<

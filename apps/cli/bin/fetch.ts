@@ -1,4 +1,4 @@
-import { Vote } from '@vramework-workspace-starter/sdk/generated/db-pure.gen.js'
+import { DB } from '@vramework-workspace-starter/sdk'
 import { VrameworkFetch } from '../vramework-fetch.gen.js'
 
 export const fetch = async (serverUrl: string, apiKey?: string) => {
@@ -32,6 +32,6 @@ export const fetch = async (serverUrl: string, apiKey?: string) => {
 
   await vrameworkFetch.post('/todo/:todoId/vote', {
     todoId: todos[0].todoId,
-    vote: Vote.UP
+    vote: DB.Vote.UP
   })
 }

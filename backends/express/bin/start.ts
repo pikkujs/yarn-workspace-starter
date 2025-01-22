@@ -8,7 +8,7 @@ import {
 import { VrameworkTaskScheduler } from '@vramework/schedule'
 
 import '@vramework-workspace-starter/functions/.vramework/vramework-bootstrap'
-import { ScheduledTaskNames } from '@vramework-workspace-starter/functions/.vramework/vramework-schedules'
+import { ScheduledTaskNames } from '@vramework-workspace-starter/functions/.vramework/vramework-schedules.gen'
 
 async function main(): Promise<void> {
   try {

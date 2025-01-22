@@ -3,7 +3,7 @@ import { createSessionServices } from '@vramework-workspace-starter/functions/sr
 import { setupServices } from './setup-services.js';
 import { ExportedHandler, Response } from '@cloudflare/workers-types';
 
-import '@vramework-workspace-starter/functions/.vramework/vramework-bootstrap';
+import '@vramework-workspace-starter/functions/.vramework/vramework-bootstrap.gen.js';
 
 export { WebSocketHibernationServer } from './websocket-hibernation-server';
 

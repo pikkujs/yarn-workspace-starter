@@ -1,7 +1,7 @@
 import { CloudflareWebSocketHibernationServer } from '@vramework/cloudflare';
 import { setupServices } from './setup-services.js';
 import { createSessionServices } from '@vramework-workspace-starter/functions/src/services';
-import { SingletonServices } from '@vramework-workspace-starter/functions/types/application-types';
+import { SingletonServices } from '@vramework-workspace-starter/functions/src/application-types';
 import { CloudflareEventHubService } from '@vramework/cloudflare';
 
 export class WebSocketHibernationServer extends CloudflareWebSocketHibernationServer {

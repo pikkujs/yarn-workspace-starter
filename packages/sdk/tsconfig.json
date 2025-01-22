@@ -3,8 +3,9 @@
   "compilerOptions": {
     "types": ["node"],
     "noEmit": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "rootDir": "."
   },
   "files": [],
-  "include": ["src/**/*.ts"]
+  "include": ["**/*.ts", "**/*.d.ts"]
 }

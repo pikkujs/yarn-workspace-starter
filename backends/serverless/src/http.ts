@@ -7,8 +7,8 @@ import {
   createSessionServices,
 } from '@vramework-workspace-starter/functions/src/services'
 
-import '@vramework-workspace-starter/functions/.vramework/vramework-schemas/register'
-import '@vramework-workspace-starter/functions/.vramework/vramework-routes'
+import '@vramework-workspace-starter/functions/.vramework/vramework-schemas/register.gen'
+import '@vramework-workspace-starter/functions/.vramework/vramework-routes.gen'
 import { coldStart } from './cold-start.js'
 
 export const corslessHandler = async (event: APIGatewayProxyEvent) => {

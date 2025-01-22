@@ -6,7 +6,7 @@ import {
   createSessionServices,
 } from '@vramework-workspace-starter/functions/src/services'
 
-import '@vramework-workspace-starter/functions/.vramework/vramework-bootstrap'
+import '@vramework-workspace-starter/functions/.vramework/vramework-bootstrap.gen'
 
 async function main(): Promise<void> {
   try {

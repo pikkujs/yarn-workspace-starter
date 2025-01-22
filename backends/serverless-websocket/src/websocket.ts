@@ -13,7 +13,7 @@ import { createSingletonServices } from '@vramework-workspace-starter/functions/
 import {
   Config,
   SingletonServices,
-} from '@vramework-workspace-starter/functions/types/application-types'
+} from '@vramework-workspace-starter/functions/src/application-types'
 
 import { AWSSecrets } from '@vramework/aws-services'
 

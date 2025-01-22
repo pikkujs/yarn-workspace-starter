@@ -1,5 +1,5 @@
-import * as DB from '@vramework-workspace-starter/sdk/generated/db-pure.gen.js'
-import { APIPermission } from '../.vramework/vramework-types.js'
+import { DB } from '@vramework-workspace-starter/sdk'
+import { APIPermission } from '../.vramework/vramework-types.gen.js'
 
 export const isUserUpdatingSelf: APIPermission<Pick<DB.User, 'userId'>> = async (
   _services,

@@ -1,5 +1,5 @@
-import * as DB from '@vramework-workspace-starter/sdk/generated/db-pure.gen.js'
-import type { APIFunction, APIFunctionSessionless } from '#vramework/vramework-types.js'
+import { DB } from '@vramework-workspace-starter/sdk'
+import type { APIFunction, APIFunctionSessionless } from '#vramework/vramework-types.gen.js'
 import type { PickRequired } from '@vramework/core'
 import { AlreadyVotedError } from '../../errors.js'
 
@@ -28,7 +28,7 @@ export const getTodos: APIFunctionSessionless<void, Array<DB.Todo & Pick<DB.User
     return todos.map(todo => ({ ...todo, upvotes: todo.upvotes ? Number(todo.upvotes) : 0 }))
 }
 
-export const getTodo: APIFunctionSessionless<Pick<DB.Todo, 'todoId'>, DB.Todo> = async (
+export const getTodo: APIFunctionSessionless<Pick<DB.Todo, 'todoId'>, DB.Todo & {}> = async (
   services,
   data
 ) => {
@@ -41,7 +41,7 @@ export const getTodo: APIFunctionSessionless<Pick<DB.Todo, 'todoId'>, DB.Todo> =
 }
 
 export const createTodo: APIFunction<Omit<
-  DB.Todo,
+  DB.Todo & {},
   'todoId' | 'completedAt' | 'createdAt' | 'createdBy'
 >, Pick<DB.Todo, 'todoId'>> = async (
   services,

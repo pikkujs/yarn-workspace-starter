@@ -5,7 +5,7 @@ import {
   createSingletonServices,
 } from '@vramework-workspace-starter/functions/src/services'
 
-import '@vramework-workspace-starter/functions/.vramework/vramework-bootstrap'
+import '@vramework-workspace-starter/functions/.vramework/vramework-bootstrap.gen'
 import { Server } from 'http'
 import { WebSocketServer } from 'ws'
 
