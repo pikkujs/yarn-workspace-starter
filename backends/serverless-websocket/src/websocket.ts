@@ -38,8 +38,10 @@ const getParams = async (event: APIGatewayEvent) => {
     const variablesService = new LocalVariablesService()
     const singletonServices = await createSingletonServices(
       config,
-      variablesService,
-      new AWSSecrets(config)
+      {
+        variablesService,
+        secretServce: new AWSSecrets(config),
+      }
     )
     const channelStore = new KyselyChannelStore(singletonServices.kysely)
     const eventHubStore = new KyselyEventHubStore(singletonServices.kysely)

@@ -4,6 +4,7 @@ import type {
   CoreSingletonServices,
   CoreUserSession,
   LogLevel,
+  SecretService
 } from '@vramework/core'
 import type { SQLConfig } from '@vramework-workspace-starter/functions/src/services/kysely'
 import type { DB } from 'kysely-codegen'
@@ -30,6 +31,7 @@ export type SingletonServices = CoreSingletonServices & {
   jwt: JoseJWTService<UserSession>
   kysely: Kysely<DB>
   subscriptionService?: SubscriptionService
+  secretServce?: SecretService
 }
 
 export interface Services extends CoreServices<SingletonServices> {

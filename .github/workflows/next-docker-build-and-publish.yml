@@ -29,14 +29,15 @@ jobs:
     runs-on: ubuntu-latest
     services:
       postgres:
-        image: postgres:alpine
+        image: postgres
         env:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: password
-          POSTGRES_DB: vramework-workspace-starter
+          POSTGRES_DB: vramework_workspace_starter
         ports:
           - 5432:5432
         options: >-
+          --name postgres
           --health-cmd pg_isready
           --health-interval 10s
           --health-timeout 5s
@@ -65,11 +66,11 @@ jobs:
       - name: Test Docker Image
         run: |
           IMAGE_NAME=ghcr.io/${{ github.repository_owner }}/${{ inputs.image-name }}
-          docker run -d --name container -p 3000:3000 $IMAGE_NAME:${{ inputs.image-tag }}
+          docker run -d --name container -p 3000:3000 -e POSTGRES_CREDENTIALS='{"host":"localhost","port":5432,"user":"postgres","password":"password","database":"vramework_workspace_starter"}' $IMAGE_NAME:${{ inputs.image-tag }}
           sleep 10s
           docker ps -a
           docker logs container
-          curl -v 127.0.0.1:3000
+          curl -v 127.0.0.1:3000/todos
 
       - name: Push Docker Image
         run: |

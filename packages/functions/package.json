@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "@vramework-workspace-starter/sdk": "^0.0.0",
-    "@vramework/core": "^0.6.7",
+    "@vramework/core": "^0.6.9",
     "@vramework/jose": "^0.6.1",
     "@vramework/pino": "^0.6.1",
     "@vramework/schema-ajv": "^0.6.1",

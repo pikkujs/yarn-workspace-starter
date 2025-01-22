@@ -18,8 +18,9 @@ export const coldStart = async () => {
   if (!singletonServices) {
     singletonServices = await createSingletonServices(
       config,
-      new LocalVariablesService(),
-      new AWSSecrets(config)
+      {
+        secretServce: new AWSSecrets(config),
+      }
     )
   }
   return singletonServices

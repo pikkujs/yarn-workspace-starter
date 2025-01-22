@@ -2,14 +2,14 @@ name: Master
 run-name: The master and release workflow
 on: [push]
 env:
-  POSTGRES_CREDENTIALS: '{"host":"localhost","port":5432,"user":"postgres","password":"password","database":"vramework_workspace_starter"}'
+  POSTGRES_CREDENTIALS: '{"host":"0.0.0.0","port":5432,"user":"postgres","password":"password","database":"vramework_workspace_starter"}'
 jobs:
   setup:
     name: Setup and test
     runs-on: ubuntu-latest
     services:
       postgres:
-        image: postgres:alpine
+        image: postgres
         env:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: password

@@ -1,6 +1,7 @@
 # .github/workflows/docker-publish.yml
 name: Publish Backend Docker Image to GHCR
-
+env:
+  POSTGRES_CREDENTIALS: '{"host":"localhost","port":5432,"user":"postgres","password":"password","database":"vramework_workspace_starter"}'
 on:
   workflow_call:
     inputs:
@@ -34,7 +35,7 @@ jobs:
     runs-on: ubuntu-latest
     services:
       postgres:
-        image: postgres:alpine
+        image: postgres
         env:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: password
@@ -42,6 +43,7 @@ jobs:
         ports:
           - 5432:5432
         options: >-
+          --name postgres
           --health-cmd pg_isready
           --health-interval 10s
           --health-timeout 5s
@@ -64,14 +66,27 @@ jobs:
           IMAGE_NAME=ghcr.io/${{ github.repository_owner }}/${{ inputs.image-name }}
           docker build -t $IMAGE_NAME:${{ inputs.image-tag }} -f ${{ inputs.dockerfile-path }} .
 
+      - name: Determine GitHub network
+        id: net
+        run: |
+          # Filter by "github_network_" to find the custom network created by GitHub Actions for service containers
+          GH_NETWORK=$(docker network ls --filter "name=github_network_" --format="{{.Name}}")
+          echo "GH_NETWORK=$GH_NETWORK" >> $GITHUB_ENV
+
       - name: Test Docker Image
         run: |
           IMAGE_NAME=ghcr.io/${{ github.repository_owner }}/${{ inputs.image-name }}
-          docker run -d --name container -p 4002:4002 $IMAGE_NAME:${{ inputs.image-tag }}
+          docker run -d \
+            --network="$GH_NETWORK" \
+            --name container \
+            -p 4002:4002 \
+            -e POSTGRES_CREDENTIALS='{"host":"postgres","port":5432,"user":"postgres","password":"password","database":"vramework_workspace_starter"}' \
+            $IMAGE_NAME:${{ inputs.image-tag }}
           sleep 10s
           docker ps -a
           docker logs container
-          curl -v localhost:4002/health-check
+          sleep 10s
+          curl -v 127.0.0.1:4002/health-check
 
       - name: Push Docker Image
         run: |

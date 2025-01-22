@@ -29,7 +29,7 @@ export const createSingletonServices: CreateSingletonServices<
   SingletonServices
 > = async (
   config,
-  { variablesService, secretsService, schemaService } = {}
+  { variablesService, secretServce, schemaService } = {}
 ) => {
   const logger = new ConsoleLogger()
 
@@ -46,8 +46,8 @@ export const createSingletonServices: CreateSingletonServices<
 
   // This is passed in because different providers have 
   // different ways to access secrets
-  if (!secretsService) {
-    secretsService = new LocalSecretService(variablesService)
+  if (!secretServce) {
+    secretServce = new LocalSecretService(variablesService)
   }
 
   // Cloudflare Workers doesn't support ajv library
@@ -68,7 +68,7 @@ export const createSingletonServices: CreateSingletonServices<
   // Get the connection
   const postgresConfig = await getDatabaseConfig(
     variablesService,
-    secretsService,
+    secretServce,
     config.secrets.postgresCredentials,
     config.sql
   )
@@ -111,7 +111,7 @@ export const createSingletonServices: CreateSingletonServices<
   return {
     config,
     variablesService,
-    secretsService,
+    secretServce,
     schemaService,
     logger,
     jwt,

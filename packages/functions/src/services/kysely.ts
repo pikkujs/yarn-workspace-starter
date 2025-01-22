@@ -23,6 +23,7 @@ export class KyselyDB {
     private poolConfig: any,
     private logger: Logger
   ) {
+    delete poolConfig.ssl
     this.postgres = postgres(poolConfig)
     this.kysely = new Kysely<DB>({
       dialect: new PostgresJSDialect({
@@ -58,12 +59,12 @@ export const getDatabaseConfig = async (
     return {
       ...config,
       ssl: sqlConfig.ssl,
-      user: config.username,
+      user: config.username || config.user,
       database: config.database || config.dbname,
     }
   } else {
     return {
-      host: 'localhost',
+      host: '0.0.0.0',
       port: 5432,
       user: 'postgres',
       password: 'password',
