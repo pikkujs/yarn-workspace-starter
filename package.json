@@ -2,7 +2,7 @@
   "name": "vramework-workspace-starter",
   "version": "0.0.0",
   "description": "A repo containing all the different deployment options available for vramework",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "private": true,
   "repository": "git@github.com:vramework/workspace-starter.git",
   "author": "Yasser Fadl <yasser.fadl@gmail.com>",
