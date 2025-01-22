@@ -1,11 +1,11 @@
-import { JsonValue } from '@vramework-workspace-starter/sdk/generated/db-pure'
+import * as DB from '@vramework-workspace-starter/sdk/generated/db-pure.gen.js'
 import { CoreUserSession } from '@vramework/core'
 import { Channel, ChannelStore } from '@vramework/core/channel'
 import { Kysely } from 'kysely'
-import { DB } from 'kysely-codegen'
+import { DB as KyselyDB } from 'kysely-codegen'
 
 export class KyselyChannelStore extends ChannelStore {
-  constructor(private database: Kysely<DB>) {
+  constructor(private database: Kysely<KyselyDB>) {
     super()
   }
 
@@ -33,7 +33,7 @@ export class KyselyChannelStore extends ChannelStore {
 
   public async setUserSession(
     channelId: string,
-    session: JsonValue
+    session: DB.JsonValue
   ): Promise<void> {
     await this.database
       .updateTable('serverless.lambdaChannels')

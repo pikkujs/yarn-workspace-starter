@@ -1,7 +1,7 @@
-import type { Todo, User } from '@vramework-workspace-starter/sdk/generated/db-pure.gen.js'
+import * as DB from '@vramework-workspace-starter/sdk/generated/db-pure.gen.js'
 import { APIPermission } from '../.vramework/vramework-types.js'
 
-export const isUserUpdatingSelf: APIPermission<Pick<User, 'userId'>> = async (
+export const isUserUpdatingSelf: APIPermission<Pick<DB.User, 'userId'>> = async (
   _services,
   data,
   session
@@ -9,7 +9,7 @@ export const isUserUpdatingSelf: APIPermission<Pick<User, 'userId'>> = async (
   return session?.userId !== data.userId
 }
 
-export const isTodoCreator: APIPermission<Pick<Todo, 'todoId'>> = async (
+export const isTodoCreator: APIPermission<Pick<DB.Todo, 'todoId'>> = async (
   services,
   { todoId },
   session

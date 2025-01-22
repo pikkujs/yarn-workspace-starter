@@ -36,7 +36,7 @@ export const subscribe: ChannelMessage<{ name: string }, never> = async (
   channel,
   data
 ) => {
-  await services.eventHub.subscribe(data.name, channel.channelId)
+  await services.eventHub?.subscribe(data.name, channel.channelId)
 }
 
 export const unsubscribe: ChannelMessage<{ name: string }, never> = async (
@@ -44,14 +44,14 @@ export const unsubscribe: ChannelMessage<{ name: string }, never> = async (
   channel,
   data
 ) => {
-  await services.eventHub.unsubscribe(data.name, channel.channelId)
+  await services.eventHub?.unsubscribe(data.name, channel.channelId)
 }
 
 export const emitMessage: ChannelMessage<
   { name: string },
   { timestamp: string; from: string } | { message: string }
 > = async (services, channel, data) => {
-  await services.eventHub.publish(data.name, channel.channelId, {
+  await services.eventHub?.publish(data.name, channel.channelId, {
     timestamp: new Date().toISOString(),
     from: channel.userSession?.userId ?? 'anonymous',
   })

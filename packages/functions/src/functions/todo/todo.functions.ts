@@ -1,20 +1,34 @@
 import * as DB from '@vramework-workspace-starter/sdk/generated/db-pure.gen.js'
 import type { APIFunction, APIFunctionSessionless } from '#vramework/vramework-types.js'
 import type { PickRequired } from '@vramework/core'
+import { AlreadyVotedError } from '../../errors.js'
 
-export const getTodos: APIFunctionSessionless<void, Array<DB.Todo & Pick<DB.User, 'name'>>> = async (
+export const getTodos: APIFunctionSessionless<void, Array<DB.Todo & Pick<DB.User, 'name'> & { upvotes: number | null }>> = async (
   services
 ) => {
-  return await services.kysely
+  const todos = await services.kysely
     .selectFrom('todo')
     .innerJoin('user', 'todo.createdBy', 'user.userId')
+    .select(eb => 
+      eb
+        .selectFrom('todoVote')
+        .select(services.kysely.fn.coalesce(
+          services.kysely.fn.countAll(),
+          eb.lit(0)
+        ).$castTo<string>().as('upvotes'))
+        .whereRef('todoVote.todoId', '=', 'todo.todoId')
+        .where('todoVote.vote', '=', DB.Vote.UP)
+        .as('upvotes')
+    )
     .selectAll('todo')
     .select('user.name')
     .orderBy('createdAt', 'asc')
     .execute()
+
+    return todos.map(todo => ({ ...todo, upvotes: todo.upvotes ? Number(todo.upvotes) : 0 }))
 }
 
-export const getTodo: APIFunctionSessionless<Pick<DB.Todo, 'todoId'>, DB.Todo & {}> = async (
+export const getTodo: APIFunctionSessionless<Pick<DB.Todo, 'todoId'>, DB.Todo> = async (
   services,
   data
 ) => {
@@ -34,15 +48,15 @@ export const createTodo: APIFunction<Omit<
   data,
   session
 ) => {
-  return await services.kysely
-    .insertInto('todo')
-    .values({
-      ...data,
-      createdBy: session.userId,
-    })
-    .returning('todoId')
-    .executeTakeFirstOrThrow()
-}
+    return await services.kysely
+      .insertInto('todo')
+      .values({
+        ...data,
+        createdBy: session.userId,
+      })
+      .returning('todoId')
+      .executeTakeFirstOrThrow()
+  }
 
 export const updateTodo: APIFunction<PickRequired<DB.Todo, 'todoId'>, void> = async (
   services,
@@ -76,4 +90,24 @@ export const expireTodos: APIFunctionSessionless<void, void> = async (
 ) => {
   // TODO: Think of a better scheduled job
   services.logger.info('Expiring all todos')
+}
+
+
+export const voteOnTodo: APIFunction<Pick<DB.TodoVote, 'todoId' | 'vote'>, void> = async (
+  services,
+  { todoId, vote },
+  { userId }
+) => {
+  try {
+    await services.kysely
+      .insertInto('todoVote')
+      .values({
+        todoId,
+        userId,
+        vote,
+      })
+      .execute()
+  } catch (e) {
+    throw new AlreadyVotedError()
+  }
 }

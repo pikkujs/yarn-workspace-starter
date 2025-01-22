@@ -7,7 +7,9 @@ import {
   deleteTodo,
   updateTodo,
   createTodo,
+  voteOnTodo,
 } from './todo.functions.js'
+import { AlreadyVotedError } from '../../errors.js'
 
 addRoute({
   method: 'get',
@@ -58,5 +60,14 @@ addRoute({
   func: deleteTodo,
   permissions: {
     isTodoCreator,
+  },
+})
+
+addRoute({
+  method: 'post',
+  route: '/todo/:todoId/vote',
+  func: voteOnTodo,
+  docs: {
+    errors: [AlreadyVotedError],
   },
 })

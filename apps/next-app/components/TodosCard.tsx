@@ -1,7 +1,8 @@
 'use client'
 
 import React, { FormEventHandler, PropsWithChildren, useCallback } from 'react'
-import { GetTodosOutput } from '@vramework-workspace-starter/sdk/.vramework/routes-map.gen.d.js'
+import { GetTodosOutput, UpdateTodoInput, VoteOnTodoInput } from '@vramework-workspace-starter/sdk/.vramework/routes-map.gen.d.js'
+import { Vote } from '@vramework-workspace-starter/sdk/generated/db-pure.gen'
 
 export const TodoHeader = () => {
   return (
@@ -29,9 +30,10 @@ export const TodosCard: React.FunctionComponent<
   PropsWithChildren<{
     todos: GetTodosOutput
     addTodo: (text: string) => Promise<void>
-    toggleTodo: (text: string, completedAt: Date | null) => Promise<void>
+    toggleTodo: (data: UpdateTodoInput) => Promise<void>
+    voteOnTodo: (vote: VoteOnTodoInput) => Promise<void>
   }>
-> = ({ todos, addTodo, toggleTodo }) => {
+> = ({ todos, addTodo, toggleTodo, voteOnTodo }) => {
   const [newTodo, setNewTodo] = React.useState('')
 
   const onSubmit = useCallback<FormEventHandler>(
@@ -58,7 +60,10 @@ export const TodosCard: React.FunctionComponent<
                   className="peer hidden"
                   checked={!!todo.completedAt}
                   onChange={() =>
-                    toggleTodo(todo.todoId, todo.completedAt ? null : new Date())
+                    toggleTodo({
+                      todoId: todo.todoId, 
+                      completedAt: todo.completedAt ? null : new Date()
+                    })
                   }
                 />
                 <label
@@ -83,7 +88,13 @@ export const TodosCard: React.FunctionComponent<
                   >
                     {todo.text}
                   </span>
-                  <span className="ml-auto p-1 text-xs border rounded">
+                  <div className='ml-auto border gap-2 flex items-center px-2 rounded'>
+                    <span className='relative border-r-2 pr-2' onClick={() => voteOnTodo({ todoId: todo.todoId, vote: Vote.UP })}>
+                      👍🏽
+                    </span>
+                    <small>{todo.upvotes}</small>
+                  </div>
+                  <span className="ml-4 p-1 text-xs border rounded">
                     {todo.name}
                   </span>
                 </label>

@@ -73,7 +73,7 @@ export const createSingletonServices: CreateSingletonServices<
   await kyselyDB.init()
 
   const httpSessionService = new VrameworkHTTPSessionService(jwt, {
-    cookieNames: ['session'],
+    cookieNames: ['todo-session'],
     getSessionForCookieValue: async (cookieValue: string) => {
       return await jwt.decodeSession(cookieValue)
     },

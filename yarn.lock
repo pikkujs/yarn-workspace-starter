@@ -3575,8 +3575,8 @@ __metadata:
     "@openapi-contrib/json-schema-to-openapi-schema": "npm:^3.0.2"
     "@types/cookie": "npm:^0.6.0"
     "@types/uuid": "npm:^10.0.0"
-    "@vramework/core": "npm:^0.6.4"
-    "@vramework/inspector": "npm:^0.6.1"
+    "@vramework/core": "npm:^0.6.5"
+    "@vramework/inspector": "npm:^0.6.2"
     commander: "npm:^12"
     glob: "npm:^10"
     path-to-regexp: "npm:^8.2.0"
@@ -3592,7 +3592,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@vramework/cloudflare@portal:/Users/yasser/git/vramework/vramework-website/vramework/packages/cloud/cloudflare::locator=vramework-workspace-starter%40workspace%3A."
   peerDependencies:
-    "@vramework/core": ^0.6.3
+    "@vramework/core": ^0.6.5
   languageName: node
   linkType: soft
 
@@ -3636,7 +3636,7 @@ __metadata:
     cors: "npm:^2.8.5"
     express: "npm:^5"
   peerDependencies:
-    "@vramework/core": ^0.6.1
+    "@vramework/core": ^0.6.5
   languageName: node
   linkType: soft
 
@@ -3672,7 +3672,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@vramework/inspector@portal:/Users/yasser/git/vramework/vramework-website/vramework/packages/inspector::locator=vramework-workspace-starter%40workspace%3A."
   dependencies:
-    "@vramework/core": "npm:^0.6.4"
+    "@vramework/core": "npm:^0.6.5"
     path-to-regexp: "npm:^8.2.0"
     typescript: "npm:^5.6"
   languageName: node
@@ -3706,7 +3706,7 @@ __metadata:
     cookie: "npm:^1.0.1"
     eventemitter3: "npm:^5.0.1"
   peerDependencies:
-    "@vramework/core": ^0.6.3
+    "@vramework/core": ^0.6.5
     next: ^15
   languageName: node
   linkType: soft
