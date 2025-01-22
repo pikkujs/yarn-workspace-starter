@@ -1,20 +1,23 @@
-import { vramework } from '@/vramework-nextjs'
-import { TodosCard } from '@vramework-workspace-starter/components/TodosCard'
+import { TodosCard } from '@/components/TodosCard'
+import { vramework } from '@/vramework-nextjs.gen'
+import { revalidatePath } from 'next/cache'
 
 async function addTodo(text: string) {
   'use server'
-  await vramework().actionRequest('/todo', 'post', { text })
+  await vramework().post('/todo', { text })
+  revalidatePath('/')
 }
 
 async function toggleTodo(todoId: string, completedAt: Date | null) {
   'use server'
-  await vramework().actionRequest('/todo/:todoId', 'patch', {
+  await vramework().patch('/todo/:todoId', {
     todoId,
     completedAt,
   })
+  revalidatePath('/')
 }
 
 export default async function TodoPage() {
-  const todos = await vramework().staticActionRequest('/todos', 'get', null)
+  const todos = await vramework().staticGet('/todos')
   return <TodosCard todos={todos} addTodo={addTodo} toggleTodo={toggleTodo} />
 }

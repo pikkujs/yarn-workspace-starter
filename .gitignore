@@ -1,9 +1,7 @@
 meta.json
 openapi.json
 openapi.yml
-
-vramework-fetch.ts
-vramework-websocket.ts
+*.gen.ts
 
 out
 .pnp.*
@@ -14,13 +12,8 @@ out
 !.yarn/sdks
 !.yarn/versions
 
-backends/voicer-bark/tmp
-backends/voicer-11labs/tmp
-
 *.hcl
 pg_*
-
-apps/enjamon/public/icons
 
 generated
 schemas

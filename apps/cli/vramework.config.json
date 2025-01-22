@@ -1,5 +1,5 @@
 {
   "extends": "../../vramework.config.json",
-  "fetchFile": "./vramework-fetch.ts",
-  "websocketFile": "./vramework-websocket.ts"
+  "fetchFile": "./vramework-fetch.gen.ts",
+  "websocketFile": "./vramework-websocket.gen.ts"
 }

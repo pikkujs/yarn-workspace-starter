@@ -30,6 +30,7 @@ export class KyselyDB {
       }),
       plugins: [new CamelCasePlugin()],
     })
+    this.kysely = this.kysely.withSchema('app')
   }
 
   public async init() {

@@ -12,7 +12,6 @@
     "prebuild": "npx @vramework/cli nextjs"
   },
   "dependencies": {
-    "@vramework-workspace-starter/components": "*",
     "@vramework-workspace-starter/functions": "*",
     "@vramework/core": "^0.6.4",
     "@vramework/jose": "^0.6.0",

@@ -16,7 +16,7 @@ import type {
   Services,
   SingletonServices,
   UserSession,
-} from '../types/application-types.js'
+} from './application-types.js'
 import {
   getDatabaseConfig,
   KyselyDB,
@@ -38,10 +38,15 @@ export const createSingletonServices: CreateSingletonServices<
     logger.setLevel(config.logLevel)
   }
 
+  // This is passed in because different providers 
+  // like CloudWatch and AWS have seperate ways
+  // to access env variables
   if (!variablesService) {
     variablesService = new LocalVariablesService()
   }
 
+  // This is passed in because different providers have 
+  // different ways to access secrets
   if (!secretService) {
     secretService = new LocalSecretService(variablesService)
   }
@@ -56,6 +61,7 @@ export const createSingletonServices: CreateSingletonServices<
     logger
   )
 
+  // Get the connection
   const postgresConfig = await getDatabaseConfig(
     variablesService,
     secretService,
@@ -74,7 +80,7 @@ export const createSingletonServices: CreateSingletonServices<
     getSessionForAPIKey: async (apiKey: string) => {
       try {
         return await kyselyDB.kysely
-          .selectFrom('app.user')
+          .selectFrom('user')
           .select(['userId', 'apiKey'])
           .where('apiKey', '=', apiKey)
           .executeTakeFirstOrThrow()
@@ -87,7 +93,7 @@ export const createSingletonServices: CreateSingletonServices<
       if (apiKey) {
         try {
           return await kyselyDB.kysely
-            .selectFrom('app.user')
+            .selectFrom('user')
             .select(['userId', 'apiKey'])
             .where('apiKey', '=', apiKey)
             .executeTakeFirstOrThrow()

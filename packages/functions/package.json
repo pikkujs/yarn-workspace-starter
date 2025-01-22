@@ -15,6 +15,10 @@
     "tsc": "tsc",
     "ncu": "ncu"
   },
+  "imports": {
+    "#vramework/*": "./.vramework/*",
+    "#types/*": "./types/*"
+  },
   "dependencies": {
     "@vramework-workspace-starter/sdk": "^0.0.0",
     "@vramework/core": "^0.6.4",

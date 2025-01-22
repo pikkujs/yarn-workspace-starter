@@ -1,7 +1,7 @@
 'use client'
 
 import React, { FormEventHandler, PropsWithChildren, useCallback } from 'react'
-import { Todos } from '@vramework-workspace-starter/sdk/types/todo.types'
+import { GetTodosOutput } from '@vramework-workspace-starter/sdk/.vramework/routes-map.gen.d.js'
 
 export const TodoHeader = () => {
   return (
@@ -27,7 +27,7 @@ export const TodoHeader = () => {
 
 export const TodosCard: React.FunctionComponent<
   PropsWithChildren<{
-    todos: Todos
+    todos: GetTodosOutput
     addTodo: (text: string) => Promise<void>
     toggleTodo: (text: string, completedAt: Date | null) => Promise<void>
   }>
@@ -51,29 +51,25 @@ export const TodosCard: React.FunctionComponent<
 
           <div>
             {todos.map((todo) => (
-              <div className="border-b dlast:border-none" key={todo.todoId}>
+              <div className="border-b last:border-none" key={todo.todoId}>
                 <input
-                  className="hidden"
                   type="checkbox"
                   id={todo.todoId}
+                  className="peer hidden"
                   checked={!!todo.completedAt}
                   onChange={() =>
-                    toggleTodo(
-                      todo.todoId,
-                      todo.completedAt ? null : new Date()
-                    )
+                    toggleTodo(todo.todoId, todo.completedAt ? null : new Date())
                   }
                 />
                 <label
-                  className="flex items-center h-10 px-2 rounded cursor-pointer hover:bg-gray-100"
                   htmlFor={todo.todoId}
+                  className="flex items-center h-10 px-2 rounded cursor-pointer hover:bg-gray-100"
                 >
-                  <span className="flex items-center justify-center w-5 h-5 text-transparent border-2 ex-border-gray-300 rounded-full">
+                  <span className="flex items-center justify-center w-5 h-5 border-2 border-gray-300 rounded-full peer-checked:border-green-500 peer-checked:bg-green-500">
                     <svg
-                      className="w-4 h-4 fill-current"
+                      className="w-4 h-4 text-transparent text-white fill-current"
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 20 20"
-                      fill="currentColor"
                     >
                       <path
                         fillRule="evenodd"
@@ -82,8 +78,12 @@ export const TodosCard: React.FunctionComponent<
                       />
                     </svg>
                   </span>
-                  <span className="ml-4 text-sm">{todo.text}</span>
-                  <span className="border ml-auto p-[3px] rounded text-xs">
+                  <span
+                    className="ml-4 text-sm peer-checked:line-through peer-checked:text-gray-400"
+                  >
+                    {todo.text}
+                  </span>
+                  <span className="ml-auto p-1 text-xs border rounded">
                     {todo.name}
                   </span>
                 </label>

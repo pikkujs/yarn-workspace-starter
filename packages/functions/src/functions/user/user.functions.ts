@@ -1,31 +1,28 @@
-import type {
-  JustUserName,
-  UpdateUser,
-} from '@vramework-workspace-starter/sdk/types/user.types.js'
-import type { APIFunctionSessionless } from '../../../.vramework/vramework-types.js'
-import type { UserSession } from '../../../types/application-types.js'
+import * as DB from '@vramework-workspace-starter/sdk/generated/db-pure.gen.js'
+import type { APIFunctionSessionless } from '#vramework/vramework-types.js'
+import type { UserSession } from '@vramework-workspace-starter/functions/src/application-types.js'
 
 export const loginUser: APIFunctionSessionless<
-  JustUserName,
+  Pick<DB.User, 'name'>,
   UserSession
 > = async (services, { name }) => {
   let session: UserSession | undefined
   try {
     session = await services.kysely
-      .selectFrom('app.user')
+      .selectFrom('user')
       .select(['userId', 'apiKey'])
       .where('name', '=', name.toLowerCase())
       .executeTakeFirstOrThrow()
   } catch {
     session = await services.kysely
-      .insertInto('app.user')
+      .insertInto('user')
       .values({ name: name.toLowerCase() })
       .returning(['userId', 'apiKey'])
       .executeTakeFirstOrThrow()
   }
 
   services.http?.response?.setCookie(
-    'session',
+    'todo-session',
     await services.jwt.encode('1w', session),
     { httpOnly: true }
   )
@@ -38,10 +35,10 @@ export const logoutUser: APIFunctionSessionless<void, void> = async (
   _data,
   _session
 ) => {
-  services.http?.response?.clearCookie('session')
+  services.http?.response?.clearCookie('todo-session')
 }
 
-export const updateUser: APIFunctionSessionless<UpdateUser, void> = async (
+export const updateUser: APIFunctionSessionless<Pick<DB.User, 'userId' | 'name'>, void> = async (
   services,
   { userId, ...data }
 ) => {

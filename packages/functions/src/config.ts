@@ -1,6 +1,6 @@
 import { CreateConfig } from '@vramework/core'
-import { LocalVariablesService, LogLevel } from '@vramework/core/services'
-import { Config } from '../types/application-types.js'
+import { LogLevel } from '@vramework/core/services'
+import { Config } from './application-types.js'
 
 export const createConfig: CreateConfig<Config> = async () => ({
   awsRegion: 'us-east-1',

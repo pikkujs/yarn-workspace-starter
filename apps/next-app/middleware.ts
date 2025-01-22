@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { VrameworkNextRequest } from '@vramework/next/vramework-next-request'
 import { JoseJWTService } from '@vramework/jose'
 import { VrameworkHTTPSessionService } from '@vramework/core/http/vramework-http-session-service'
-import { UserSession } from '@vramework-workspace-starter/functions/types/application-types'
+import { UserSession } from '@vramework-workspace-starter/functions/src/application-types.d.js'
 
 // 1. Specify protected and public routes
 const protectedRoutes = ['/todos']
@@ -18,7 +18,7 @@ const jwtService = new JoseJWTService<UserSession>(async () => [
 const sessionService = new VrameworkHTTPSessionService<UserSession>(
   jwtService,
   {
-    cookieNames: ['session'],
+    cookieNames: ['todo-session'],
     getSessionForCookieValue: async (cookieValue) => {
       const session: any = await jwtService.decode(cookieValue)
       return session.payload
@@ -32,6 +32,10 @@ export default async function middleware(req: NextRequest) {
   const isProtectedRoute = protectedRoutes.includes(path)
   const isPublicRoute = publicRoutes.includes(path)
 
+  if (path === '/login') {
+    return NextResponse.next()
+  }
+  
   let userSession
   try {
     // 2. Decrypt the session from the cookie

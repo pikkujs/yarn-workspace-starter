@@ -17,7 +17,7 @@
   "scripts": {
     "dbmigrate": "tsx scripts/db-migrate.ts",
     "vramework": "npx @vramework/cli all",
-    "kysely": "DATABASE_URL=postgres://postgres:password@localhost/vramework_workspace_starter kysely-codegen --camel-case --schema public",
+    "kysely": "DATABASE_URL=postgres://postgres:password@localhost/vramework_workspace_starter kysely-codegen --camel-case --schema app",
     "kysely-pure": "tsx scripts/kysely-pure.ts",
     "prebuild": "yarn run dbmigrate && yarn run kysely && yarn run kysely-pure && yarn run vramework && yarn workspaces foreach -p -A run prebuild",
     "verify": "yarn run tsc",

@@ -10,6 +10,10 @@ import type { DB } from 'kysely-codegen'
 import type { Kysely } from 'kysely'
 import type { JoseJWTService } from '@vramework/jose'
 
+export interface UserSession extends CoreUserSession {
+  userId: string
+}
+
 export interface Config extends CoreServerConfig {
   awsRegion: string
   port: number
@@ -28,8 +32,6 @@ export type SingletonServices = CoreSingletonServices & {
   subscriptionService?: SubscriptionService
 }
 
-export interface Services extends CoreServices<SingletonServices> {}
-
-export interface UserSession extends CoreUserSession {
-  userId: string
+export interface Services extends CoreServices<SingletonServices> {
+  
 }

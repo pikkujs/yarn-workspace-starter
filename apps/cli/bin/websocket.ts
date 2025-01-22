@@ -1,4 +1,4 @@
-import { VrameworkWebSocket } from '../vramework-websocket.js'
+import { VrameworkWebSocket } from '../vramework-websocket.gen.js'
 
 export const websocket = async (
   serverUrl: string,
@@ -52,6 +52,7 @@ export const websocket = async (
       websocket.ws.close()
     }, 5000)
   }
+
   websocket.ws.onerror = (e) => {
     console.error('Error with websocket', e)
   }

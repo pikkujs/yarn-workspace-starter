@@ -18,14 +18,12 @@ const main = async () => {
     )
     .replace(/Generated<(.*)>/g, '$1')
     .replace(/export type Timestamp =.*;/, 'export type Timestamp = Date')
-  console.log('Writing kysely-pure.d.ts')
+  console.log('Writing kysely-pure.gen.d.ts')
   await mkdir(`${__dirname}/../packages/sdk/generated`, { recursive: true })
-  await writeFile(
-    `${__dirname}/../packages/sdk/generated/db-pure.d.ts`,
-    kysely,
-    'utf-8'
-  )
-  console.log(`${__dirname}/../packages/sdk/generated/db-pure.d.ts`)
+
+  const fileName = `${__dirname}/../packages/sdk/generated/db-pure.gen.d.ts`
+  await writeFile(fileName, kysely, 'utf-8')
+  console.log(fileName)
 }
 
 main()

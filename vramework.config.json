@@ -3,10 +3,10 @@
   "tsconfig": "./tsconfig.json",
   "routeDirectories": ["packages/functions/src"],
   "outDir": "packages/functions/.vramework",
-  "routesMapDeclarationFile": "packages/sdk/.vramework/routes-map.d.ts",
-  "channelsMapDeclarationFile": "packages/sdk/.vramework/channels-map.d.ts",
-  "fetchFile": "packages/sdk/.vramework/vramework-fetch.ts",
-  "websocketFile": "packages/sdk/.vramework/vramework-websocket.ts",
+  "routesMapDeclarationFile": "packages/sdk/.vramework/routes-map.gen.d.ts",
+  "channelsMapDeclarationFile": "packages/sdk/.vramework/channels-map.gen.d.ts",
+  "fetchFile": "packages/sdk/.vramework/vramework-fetch.gen.ts",
+  "websocketFile": "packages/sdk/.vramework/vramework-websocket.gen.ts",
   "packageMappings": {
     "packages/sdk": "@vramework-workspace-starter/sdk",
     "packages/functions": "@vramework-workspace-starter/functions"

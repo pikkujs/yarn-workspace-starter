@@ -1,46 +1,41 @@
-import type {
-  Todo,
-  Todos,
-  CreateTodo,
-  JustTodoId,
-  UpdateTodo,
-} from '@vramework-workspace-starter/sdk/types/todo.types.js'
-import {
-  APIFunction,
-  APIFunctionSessionless,
-} from '../../../.vramework/vramework-types.js'
+import * as DB from '@vramework-workspace-starter/sdk/generated/db-pure.gen.js'
+import type { APIFunction, APIFunctionSessionless } from '#vramework/vramework-types.js'
+import type { PickRequired } from '@vramework/core'
 
-export const getTodos: APIFunctionSessionless<void, Todos> = async (
+export const getTodos: APIFunctionSessionless<void, Array<DB.Todo & Pick<DB.User, 'name'>>> = async (
   services
 ) => {
   return await services.kysely
-    .selectFrom('app.todo')
-    .innerJoin('app.user', 'app.todo.createdBy', 'app.user.userId')
-    .selectAll('app.todo')
-    .select('app.user.name')
+    .selectFrom('todo')
+    .innerJoin('user', 'todo.createdBy', 'user.userId')
+    .selectAll('todo')
+    .select('user.name')
     .orderBy('createdAt', 'asc')
     .execute()
 }
 
-export const getTodo: APIFunctionSessionless<JustTodoId, Todo> = async (
+export const getTodo: APIFunctionSessionless<Pick<DB.Todo, 'todoId'>, DB.Todo & {}> = async (
   services,
   data
 ) => {
   return await services.kysely
-    .selectFrom('app.todo')
+    .selectFrom('todo')
     .selectAll()
-    .leftJoin('app.user', 'app.todo.createdBy', 'app.user.userId')
+    .leftJoin('user', 'todo.createdBy', 'user.userId')
     .where('todoId', '=', data.todoId)
     .executeTakeFirstOrThrow()
 }
 
-export const createTodo: APIFunction<CreateTodo, JustTodoId> = async (
+export const createTodo: APIFunction<Omit<
+  DB.Todo,
+  'todoId' | 'completedAt' | 'createdAt' | 'createdBy'
+>, Pick<DB.Todo, 'todoId'>> = async (
   services,
   data,
   session
 ) => {
   return await services.kysely
-    .insertInto('app.todo')
+    .insertInto('todo')
     .values({
       ...data,
       createdBy: session.userId,
@@ -49,7 +44,7 @@ export const createTodo: APIFunction<CreateTodo, JustTodoId> = async (
     .executeTakeFirstOrThrow()
 }
 
-export const updateTodo: APIFunction<UpdateTodo, void> = async (
+export const updateTodo: APIFunction<PickRequired<DB.Todo, 'todoId'>, void> = async (
   services,
   { todoId, ...data }
 ) => {
@@ -60,13 +55,13 @@ export const updateTodo: APIFunction<UpdateTodo, void> = async (
     .executeTakeFirstOrThrow()
 }
 
-export const deleteTodo: APIFunction<JustTodoId, { success: boolean }> = async (
+export const deleteTodo: APIFunction<Pick<DB.Todo, 'todoId'>, { success: boolean }> = async (
   services,
   { todoId }
 ) => {
   try {
     await services.kysely
-      .deleteFrom('app.todo')
+      .deleteFrom('todo')
       .where('todoId', '=', todoId)
       .executeTakeFirstOrThrow()
     return { success: true }
