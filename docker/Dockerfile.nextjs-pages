@@ -1,7 +1,7 @@
 FROM node:20-alpine
 
 ENV NODE_ENV=production
-ENV POSTGRES_CREDENTIALS='{"host":"localhost","port":5432,"user":"postgres","password":"password","database":"vramework_workspace_starter"}'
+ENV POSTGRES_CREDENTIALS='{"host":"localhost","port":5432,"user":"postgres","password":"password","database":"pikku_workspace_starter"}'
 
 EXPOSE 3000
 

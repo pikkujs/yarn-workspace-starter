@@ -1,7 +1,7 @@
 import { ScheduledHandler } from 'aws-lambda'
-import '@vramework-workspace-starter/functions/.vramework/vramework-schedules.gen'
+import '@pikku-workspace-starter/functions/.pikku/pikku-schedules.gen'
 
-import { runScheduledTask } from '@vramework/core/scheduler'
+import { runScheduledTask } from '@pikku/core/scheduler'
 import { coldStart } from './cold-start.js'
 
 export const expireTodos: ScheduledHandler = async (event) => {

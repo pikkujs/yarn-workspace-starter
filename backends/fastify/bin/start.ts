@@ -1,18 +1,18 @@
-import { VrameworkFastifyServer } from '@vramework/fastify'
+import { PikkuFastifyServer } from '@pikku/fastify'
 
-import { createConfig } from '@vramework-workspace-starter/functions/src/config'
+import { createConfig } from '@pikku-workspace-starter/functions/src/config'
 import {
   createSingletonServices,
   createSessionServices,
-} from '@vramework-workspace-starter/functions/src/services'
+} from '@pikku-workspace-starter/functions/src/services'
 
-import '@vramework-workspace-starter/functions/.vramework/vramework-bootstrap.gen'
+import '@pikku-workspace-starter/functions/.pikku/pikku-bootstrap.gen'
 
 async function main(): Promise<void> {
   try {
     const config = await createConfig()
     const singletonServices = await createSingletonServices(config)
-    const appServer = new VrameworkFastifyServer(
+    const appServer = new PikkuFastifyServer(
       config,
       singletonServices,
       createSessionServices

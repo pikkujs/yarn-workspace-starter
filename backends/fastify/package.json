@@ -1,5 +1,5 @@
 {
-  "name": "@vramework-workspace-starter/fastify",
+  "name": "@pikku-workspace-starter/fastify",
   "version": "0.0.0",
   "description": "",
   "license": "MIT",
@@ -13,9 +13,9 @@
     "ncu": "ncu"
   },
   "dependencies": {
-    "@vramework-workspace-starter/functions": "workspace:0.0.0",
-    "@vramework/core": "^0.6.9",
-    "@vramework/fastify": "^0.6.1",
+    "@pikku-workspace-starter/functions": "workspace:0.0.0",
+    "@pikku/core": "^0.6.9",
+    "@pikku/fastify": "^0.6.1",
     "tslib": "^2.7.0",
     "tsx": "^4.19.2",
     "typescript": "^5.6"

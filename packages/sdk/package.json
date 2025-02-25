@@ -1,5 +1,5 @@
 {
-  "name": "@vramework-workspace-starter/sdk",
+  "name": "@pikku-workspace-starter/sdk",
   "version": "0.0.0",
   "description": "The sdk methods shared by backend and frontend applications",
   "license": "UNLICENSED",
@@ -9,7 +9,7 @@
   "repository": {
     "directory": "packages/api",
     "type": "git",
-    "url": "ssh://git@github.com/vramework/workspace-starter.git"
+    "url": "ssh://git@github.com/pikkujs/yarn-workspace-starter.git"
   },
   "author": "yasser.fadl@gmail.com",
   "scripts": {
@@ -17,8 +17,8 @@
     "ncu": "ncu"
   },
   "dependencies": {
-    "@vramework/fetch": "^0.6.1",
-    "@vramework/websocket": "^0.6.1"
+    "@pikku/fetch": "^0.6.1",
+    "@pikku/websocket": "^0.6.1"
   },
   "devDependencies": {
     "typescript": "^5.6"

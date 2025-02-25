@@ -1,7 +1,7 @@
 # .github/workflows/docker-publish.yml
 name: Publish Backend Docker Image to GHCR
 env:
-  POSTGRES_CREDENTIALS: '{"host":"localhost","port":5432,"user":"postgres","password":"password","database":"vramework_workspace_starter"}'
+  POSTGRES_CREDENTIALS: '{"host":"localhost","port":5432,"user":"postgres","password":"password","database":"pikku_workspace_starter"}'
 on:
   workflow_call:
     inputs:
@@ -39,7 +39,7 @@ jobs:
         env:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: password
-          POSTGRES_DB: vramework_workspace_starter
+          POSTGRES_DB: pikku_workspace_starter
         ports:
           - 5432:5432
         options: >-
@@ -80,7 +80,7 @@ jobs:
             --network="$GH_NETWORK" \
             --name container \
             -p 4002:4002 \
-            -e POSTGRES_CREDENTIALS='{"host":"postgres","port":5432,"user":"postgres","password":"password","database":"vramework_workspace_starter"}' \
+            -e POSTGRES_CREDENTIALS='{"host":"postgres","port":5432,"user":"postgres","password":"password","database":"pikku_workspace_starter"}' \
             $IMAGE_NAME:${{ inputs.image-tag }}
           sleep 10s
           docker ps -a

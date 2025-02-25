@@ -2,7 +2,7 @@ import type {
   Logger,
   SecretService,
   VariablesService,
-} from '@vramework/core/services'
+} from '@pikku/core/services'
 import { CamelCasePlugin, Kysely } from 'kysely'
 import { DB } from 'kysely-codegen'
 import { PostgresJSDialect } from 'kysely-postgres-js'
@@ -68,7 +68,7 @@ export const getDatabaseConfig = async (
       port: 5432,
       user: 'postgres',
       password: 'password',
-      database: 'vramework_workspace_starter',
+      database: 'pikku_workspace_starter',
     }
   }
 }

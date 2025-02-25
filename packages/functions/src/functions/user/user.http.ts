@@ -1,4 +1,4 @@
-import { addRoute } from '@vramework/core/http'
+import { addRoute } from '@pikku/core/http'
 import { isUserUpdatingSelf } from '../../permissions.js'
 import { loginUser, logoutUser, updateUser } from './user.functions.js'
 

@@ -1,5 +1,5 @@
-import { CreateConfig } from '@vramework/core'
-import { LogLevel } from '@vramework/core/services'
+import { CreateConfig } from '@pikku/core'
+import { LogLevel } from '@pikku/core/services'
 import { Config } from './application-types.js'
 
 export const createConfig: CreateConfig<Config> = async () => ({

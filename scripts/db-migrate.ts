@@ -4,14 +4,14 @@ import {
   LocalSecretService,
   LocalVariablesService,
   SecretService,
-} from '@vramework/core/services'
+} from '@pikku/core/services'
 
-import { createConfig } from '@vramework-workspace-starter/functions/src/config.js'
-import { getDatabaseConfig } from '@vramework-workspace-starter/functions/src/services/kysely.js'
+import { createConfig } from '@pikku-workspace-starter/functions/src/config.js'
+import { getDatabaseConfig } from '@pikku-workspace-starter/functions/src/services/kysely.js'
 
 import { dirname } from 'path'
 import { fileURLToPath } from 'url'
-import { AWSSecrets } from '@vramework/aws-services/secrets'
+import { AWSSecrets } from '@pikku/aws-services/secrets'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)

@@ -1,4 +1,4 @@
-import { addScheduledTask } from '@vramework/core'
+import { addScheduledTask } from '@pikku/core'
 import { expireTodos } from './todo.functions.js'
 
 addScheduledTask({

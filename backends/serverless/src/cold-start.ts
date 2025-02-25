@@ -1,12 +1,12 @@
 
-import { createConfig } from '@vramework-workspace-starter/functions/src/config'
-import { createSingletonServices } from '@vramework-workspace-starter/functions/src/services'
+import { createConfig } from '@pikku-workspace-starter/functions/src/config'
+import { createSingletonServices } from '@pikku-workspace-starter/functions/src/services'
 import {
   Config,
   SingletonServices,
-} from '@vramework-workspace-starter/functions/src/application-types'
-import { AWSSecrets } from '@vramework/aws-services'
-import { LocalVariablesService } from '@vramework/core'
+} from '@pikku-workspace-starter/functions/src/application-types'
+import { AWSSecrets } from '@pikku/aws-services'
+import { LocalVariablesService } from '@pikku/core'
 
 let config: Config
 let singletonServices: SingletonServices

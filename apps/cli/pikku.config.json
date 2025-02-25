@@ -1,0 +1,5 @@
+{
+  "extends": "../../pikku.config.json",
+  "fetchFile": "./pikku-fetch.gen.ts",
+  "websocketFile": "./pikku-websocket.gen.ts"
+}

@@ -1,8 +1,8 @@
-import { CloudflareWebSocketHibernationServer } from '@vramework/cloudflare';
+import { CloudflareWebSocketHibernationServer } from '@pikku/cloudflare';
 import { setupServices } from './setup-services.js';
-import { createSessionServices } from '@vramework-workspace-starter/functions/src/services';
-import { SingletonServices } from '@vramework-workspace-starter/functions/src/application-types.d';
-import { CloudflareEventHubService } from '@vramework/cloudflare';
+import { createSessionServices } from '@pikku-workspace-starter/functions/src/services';
+import { SingletonServices } from '@pikku-workspace-starter/functions/src/application-types.d';
+import { CloudflareEventHubService } from '@pikku/cloudflare';
 
 export class WebSocketHibernationServer extends CloudflareWebSocketHibernationServer {
 	private singletonServices: SingletonServices | undefined;

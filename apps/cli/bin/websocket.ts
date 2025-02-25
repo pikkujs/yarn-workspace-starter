@@ -1,4 +1,4 @@
-import { VrameworkWebSocket } from '../vramework-websocket.gen.js'
+import { PikkuWebSocket } from '../pikku-websocket.gen.js'
 
 export const websocket = async (
   serverUrl: string,
@@ -8,7 +8,7 @@ export const websocket = async (
 ) => {
   let authenticationState: 'initial' | 'authenticated' | 'unauthenticated' =
     'initial'
-  const websocket = new VrameworkWebSocket<'events'>(serverUrl, apiKey)
+  const websocket = new PikkuWebSocket<'events'>(serverUrl, apiKey)
   websocket.ws.onopen = async () => {
     console.log('Websocket connected')
     websocket.subscribe((data) => {

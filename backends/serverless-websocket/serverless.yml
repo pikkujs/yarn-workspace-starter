@@ -3,17 +3,17 @@ org: yasserf
 # "app" enables Serverless Framework Dashboard features and sharing them with other Services.
 app: lambda
 
-service: vramework-serverless-ws-example
+service: pikku-serverless-ws-example
 provider:
   name: aws
   runtime: nodejs20.x
   websocketsApiName: custom-websockets-api-name
   websocketsApiRouteSelectionExpression: $request.body.action
-  websocketsDescription: Vramework Serverless Websockets Example
+  websocketsDescription: Pikku Serverless Websockets Example
   iam:
     role:
       managedPolicies:
-        - 'arn:aws:iam::014498637088:policy/VrameworkServerlessDB'
+        - 'arn:aws:iam::014498637088:policy/PikkuServerlessDB'
   environment:
     NODE_OPTIONS: --enable-source-maps
     NODE_ENV: production

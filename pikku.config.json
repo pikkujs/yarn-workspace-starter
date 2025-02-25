@@ -1,0 +1,30 @@
+{
+  "$schema": "https://raw.githubusercontent.com/pikkujs/pikku/refs/heads/master/packages/cli/cli.schema.json",
+  "tsconfig": "./tsconfig.json",
+  "routeDirectories": ["packages/functions/src"],
+  "outDir": "packages/functions/.pikku",
+  "routesMapDeclarationFile": "packages/sdk/.pikku/routes-map.gen.d.ts",
+  "channelsMapDeclarationFile": "packages/sdk/.pikku/channels-map.gen.d.ts",
+  "fetchFile": "packages/sdk/.pikku/pikku-fetch.gen.ts",
+  "websocketFile": "packages/sdk/.pikku/pikku-websocket.gen.ts",
+  "packageMappings": {
+    "packages/sdk": "@pikku-workspace-starter/sdk",
+    "packages/functions": "@pikku-workspace-starter/functions"
+  },
+  "openAPI": {
+    "outputFile": "openapi.yml",
+    "additionalInfo": {
+      "info": {
+        "title": "Pikku Workspace Starter API",
+        "version": "1.0.0",
+        "description": "This is the openapi spec for the Pikku Workspace Starter API"
+      },
+      "servers": [
+        {
+          "url": "http://localhost:4002",
+          "description": "Development server"
+        }
+      ]
+    }
+  }
+}

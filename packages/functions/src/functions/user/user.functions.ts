@@ -1,6 +1,6 @@
-import { DB } from '@vramework-workspace-starter/sdk'
-import type { APIFunctionSessionless } from '#vramework/vramework-types.gen.js'
-import type { UserSession } from '@vramework-workspace-starter/functions/src/application-types.js'
+import { DB } from '@pikku-workspace-starter/sdk'
+import type { APIFunctionSessionless } from '#pikku/pikku-types.gen.js'
+import type { UserSession } from '@pikku-workspace-starter/functions/src/application-types.js'
 
 export const loginUser: APIFunctionSessionless<
   Pick<DB.User, 'name'>,

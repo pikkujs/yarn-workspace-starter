@@ -1,21 +1,21 @@
-import { VrameworkExpressServer } from '@vramework/express'
+import { PikkuExpressServer } from '@pikku/express'
 
-import { createConfig } from '@vramework-workspace-starter/functions/src/config'
+import { createConfig } from '@pikku-workspace-starter/functions/src/config'
 import {
   createSingletonServices,
   createSessionServices,
-} from '@vramework-workspace-starter/functions/src/services'
-import { VrameworkTaskScheduler } from '@vramework/schedule'
+} from '@pikku-workspace-starter/functions/src/services'
+import { PikkuTaskScheduler } from '@pikku/schedule'
 
-import '@vramework-workspace-starter/functions/.vramework/vramework-bootstrap.gen'
-import { ScheduledTaskNames } from '@vramework-workspace-starter/functions/.vramework/vramework-schedules.gen'
+import '@pikku-workspace-starter/functions/.pikku/pikku-bootstrap.gen'
+import { ScheduledTaskNames } from '@pikku-workspace-starter/functions/.pikku/pikku-schedules.gen'
 
 async function main(): Promise<void> {
   try {
     const config = await createConfig()
     const singletonServices = await createSingletonServices(config)
 
-    const appServer = new VrameworkExpressServer(
+    const appServer = new PikkuExpressServer(
       config,
       singletonServices,
       createSessionServices
@@ -24,7 +24,7 @@ async function main(): Promise<void> {
     await appServer.init()
     await appServer.start()
 
-    const scheduler = new VrameworkTaskScheduler<ScheduledTaskNames>(
+    const scheduler = new PikkuTaskScheduler<ScheduledTaskNames>(
       singletonServices
     )
     scheduler.startAll()

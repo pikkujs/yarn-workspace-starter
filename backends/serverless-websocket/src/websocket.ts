@@ -5,24 +5,24 @@ import {
   disconnectWebsocket,
   LambdaEventHubService,
   processWebsocketMessage,
-} from '@vramework/lambda/websocket'
+} from '@pikku/lambda/websocket'
 
-import { createConfig } from '@vramework-workspace-starter/functions/src/config'
-import { createSingletonServices } from '@vramework-workspace-starter/functions/src/services'
+import { createConfig } from '@pikku-workspace-starter/functions/src/config'
+import { createSingletonServices } from '@pikku-workspace-starter/functions/src/services'
 
 import {
   Config,
   SingletonServices,
-} from '@vramework-workspace-starter/functions/src/application-types'
+} from '@pikku-workspace-starter/functions/src/application-types'
 
-import { AWSSecrets } from '@vramework/aws-services'
+import { AWSSecrets } from '@pikku/aws-services'
 
-import '@vramework-workspace-starter/functions/.vramework/vramework-channels'
+import '@pikku-workspace-starter/functions/.pikku/pikku-channels'
 import { KyselyChannelStore } from './kysely-channel-store.js'
-import { ChannelStore } from '@vramework/core/channel'
+import { ChannelStore } from '@pikku/core/channel'
 import { KyselyEventHubStore } from './kysely-subscription-store.js'
-import { MakeRequired } from '@vramework/core'
-import { LocalVariablesService } from '@vramework/core/services'
+import { MakeRequired } from '@pikku/core'
+import { LocalVariablesService } from '@pikku/core/services'
 
 let state:
   | {

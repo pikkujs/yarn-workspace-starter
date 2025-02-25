@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { VrameworkNextRequest } from '@vramework/next/vramework-next-request'
-import { JoseJWTService } from '@vramework/jose'
-import { VrameworkHTTPSessionService } from '@vramework/core/http/vramework-http-session-service'
-import { UserSession } from '@vramework-workspace-starter/functions/src/application-types.d.js'
+import { PikkuNextRequest } from '@pikku/next/pikku-next-request'
+import { JoseJWTService } from '@pikku/jose'
+import { PikkuHTTPSessionService } from '@pikku/core/http/pikku-http-session-service'
+import { UserSession } from '@pikku-workspace-starter/functions/src/application-types.d.js'
 
 // 1. Specify protected and public routes
 const protectedRoutes = ['/todos']
@@ -15,7 +15,7 @@ const jwtService = new JoseJWTService<UserSession>(async () => [
   },
 ])
 
-const sessionService = new VrameworkHTTPSessionService<UserSession>(
+const sessionService = new PikkuHTTPSessionService<UserSession>(
   jwtService,
   {
     cookieNames: ['todo-session'],
@@ -41,7 +41,7 @@ export default async function middleware(req: NextRequest) {
     // 2. Decrypt the session from the cookie
     userSession = await sessionService.getUserSession(
       false,
-      new VrameworkNextRequest(req as any) as any
+      new PikkuNextRequest(req as any) as any
     )
   } catch (e) {
     // An error trying to get the user session

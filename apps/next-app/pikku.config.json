@@ -1,0 +1,4 @@
+{
+  "extends": "../../pikku.config.json",
+  "nextJSfile": "./pikku-nextjs.gen.ts"
+}

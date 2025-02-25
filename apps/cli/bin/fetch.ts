@@ -1,37 +1,38 @@
-import { DB } from '@vramework-workspace-starter/sdk'
-import { VrameworkFetch } from '../vramework-fetch.gen.js'
+import { DB } from '@pikku-workspace-starter/sdk'
+import { PikkuFetch } from '../pikku-fetch.gen.js'
 
 export const fetch = async (serverUrl: string, apiKey?: string) => {
-  const vrameworkFetch = new VrameworkFetch({
+  const pikkuFetch = new PikkuFetch({
     serverUrl,
   })
 
   if (apiKey) {
-    vrameworkFetch.setAPIKey(apiKey)
+    pikkuFetch.setAPIKey(apiKey)
   } else {
-    const session = await vrameworkFetch.post('/login', {
+    const session = await pikkuFetch.post('/login', {
       name: 'Yasser'
     })
-    vrameworkFetch.setAPIKey(session.apiKey)
+    pikkuFetch.setAPIKey(session.apiKey)
   }
 
-  await vrameworkFetch.post('/todo', { text: 'Hello, world!' })
+  await pikkuFetch.post('/todo', { text: 'Hello, world!' })
 
-  const todos = await vrameworkFetch.get('/todos')
+  const todos = await pikkuFetch.get('/todos')
   console.log(`Todos: ${todos.map((todo) => todo.text).join(', ')}`)
 
-  const todoViaParam = await vrameworkFetch.get('/todo/:todoId', {
+  const todoViaParam = await pikkuFetch.get('/todo/:todoId', {
     todoId: todos[0].todoId,
   })
   console.log(`Param todo: ${todoViaParam.text}`)
 
-  const todoQuery = await vrameworkFetch.get('/todo', {
+  const todoQuery = await pikkuFetch.get('/todo', {
     todoId: todos[0].todoId,
   })
   console.log(`Query todo: ${todoQuery.text}`)
 
-  await vrameworkFetch.post('/todo/:todoId/vote', {
+  await pikkuFetch.post('/todo/:todoId/vote', {
     todoId: todos[0].todoId,
     vote: DB.Vote.UP
   })
+
 }

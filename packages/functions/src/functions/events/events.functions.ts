@@ -2,7 +2,7 @@ import type {
   ChannelConnection,
   ChannelDisconnection,
   ChannelMessage,
-} from '#vramework/vramework-types.gen.js'
+} from '#pikku/pikku-types.gen.js'
 
 export const onConnect: ChannelConnection<'hello!'> = async (
   services,

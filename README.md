@@ -1,10 +1,10 @@
 # Workspace Starter
 
-Welcome to the **Vramework Workspace Starter**!
+Welcome to the **Pikku Workspace Starter**!
 
-This repository contains a variety of packages designed to test all the different functionality in Vramework.
+This repository contains a variety of packages designed to test all the different functionality in Pikku.
 
-You can see more indepth documentation [here](https://vramework.dev/docs/workspace/workspaces)
+You can see more indepth documentation [here](https://pikku.dev/docs/workspace/workspaces)
 
 ## Requirements
 
@@ -13,7 +13,7 @@ You can see more indepth documentation [here](https://vramework.dev/docs/workspa
 - An environment variable with your host, user, and password:
 
   ```bash
-  POSTGRES_CREDENTIALS='{"host":"localhost","port":5432,"user":"postgres","password":"password","database":"vramework_workspace_starter"}'
+  POSTGRES_CREDENTIALS='{"host":"localhost","port":5432,"user":"postgres","password":"password","database":"pikku_workspace_starter"}'
   ```
 
 ## Setup
@@ -29,29 +29,29 @@ yarn prebuild
 
 ### `apps/cli`
 
-This app tests the Vramework fetch functionality.
+This app tests the Pikku fetch functionality.
 
 ### `apps/next-app`
 
-A Next.js App Router integrated with Vramework.
+A Next.js App Router integrated with Pikku.
 
 ### `apps/next-pages`
 
-A Next.js Pages Router integrated with Vramework.
+A Next.js Pages Router integrated with Pikku.
 
 ## Backends
 
 ### `backends/express`
 
-An Express backend setup using Vramework.
+An Express backend setup using Pikku.
 
 ### `backends/fastify`
 
-A Fastify backend setup using Vramework.
+A Fastify backend setup using Pikku.
 
 ### `backends/uws`
 
-A uWS (µWebSockets) backend setup using Vramework.
+A uWS (µWebSockets) backend setup using Pikku.
 
 ## Packages
 
@@ -61,7 +61,7 @@ Shared React components for the app and pages.
 
 ### `functions`
 
-Contains all the Vramework routes, functions, and services.
+Contains all the Pikku routes, functions, and services.
 
 ### `sdk`
 

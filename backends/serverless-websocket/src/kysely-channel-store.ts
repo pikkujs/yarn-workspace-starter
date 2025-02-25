@@ -1,6 +1,6 @@
-import { DB } from '@vramework-workspace-starter/sdk'
-import { CoreUserSession } from '@vramework/core'
-import { Channel, ChannelStore } from '@vramework/core/channel'
+import { DB } from '@pikku-workspace-starter/sdk'
+import { CoreUserSession } from '@pikku/core'
+import { Channel, ChannelStore } from '@pikku/core/channel'
 import { Kysely } from 'kysely'
 import { DB as KyselyDB } from 'kysely-codegen'
 

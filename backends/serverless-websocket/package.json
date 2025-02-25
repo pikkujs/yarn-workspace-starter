@@ -1,5 +1,5 @@
 {
-  "name": "@vramework-workspace-starter/serverless-websockets",
+  "name": "@pikku-workspace-starter/serverless-websockets",
   "version": "0.0.0",
   "description": "",
   "license": "MIT",
@@ -14,11 +14,11 @@
     "ncu": "ncu"
   },
   "dependencies": {
+    "@pikku-workspace-starter/functions": "workspace:0.0.0",
+    "@pikku/aws-services": "^0.6.3",
+    "@pikku/core": "^0.6.9",
+    "@pikku/lambda": "^0.6.3",
     "@types/aws-lambda": "^8.10.146",
-    "@vramework-workspace-starter/functions": "workspace:0.0.0",
-    "@vramework/aws-services": "^0.6.3",
-    "@vramework/core": "^0.6.9",
-    "@vramework/lambda": "^0.6.3",
     "tslib": "^2.8.1"
   },
   "devDependencies": {

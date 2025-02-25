@@ -2,8 +2,8 @@
 const nextConfig = {
   output: 'standalone',
   transpilePackages: [
-    '@vramework-workspace-starter/functions',
-    '@vramework-workspace-starter/components',
+    '@pikku-workspace-starter/functions',
+    '@pikku-workspace-starter/components',
   ],
   experimental: {
     // Used to fix dates parsing issues with nextj

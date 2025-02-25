@@ -1,4 +1,4 @@
-import { EventHubStore } from '@vramework/core/channel'
+import { EventHubStore } from '@pikku/core/channel'
 import { Kysely } from 'kysely'
 import { DB } from 'kysely-codegen'
 

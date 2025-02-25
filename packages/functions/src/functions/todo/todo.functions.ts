@@ -1,6 +1,6 @@
-import { DB } from '@vramework-workspace-starter/sdk'
-import type { APIFunction, APIFunctionSessionless } from '#vramework/vramework-types.gen.js'
-import type { PickRequired } from '@vramework/core'
+import { DB } from '@pikku-workspace-starter/sdk'
+import type { APIFunction, APIFunctionSessionless } from '#pikku/pikku-types.gen.js'
+import type { PickRequired } from '@pikku/core'
 import { AlreadyVotedError } from '../../errors.js'
 
 export const getTodos: APIFunctionSessionless<void, Array<DB.Todo & Pick<DB.User, 'name'> & { upvotes: number | null }>> = async (
@@ -30,13 +30,14 @@ export const getTodos: APIFunctionSessionless<void, Array<DB.Todo & Pick<DB.User
 
 export const getTodo: APIFunctionSessionless<Pick<DB.Todo, 'todoId'>, DB.Todo & {}> = async (
   services,
-  data
+  { todoId }
 ) => {
   return await services.kysely
     .selectFrom('todo')
     .selectAll()
     .leftJoin('user', 'todo.createdBy', 'user.userId')
-    .where('todoId', '=', data.todoId)
+    .where('todoId', '=', todoId) 
+    // .where(todoId ? 'todoId' | 'name', '=', todoId || name) 
     .executeTakeFirstOrThrow()
 }
 
@@ -94,20 +95,20 @@ export const expireTodos: APIFunctionSessionless<void, void> = async (
 
 
 export const voteOnTodo: APIFunction<Pick<DB.TodoVote, 'todoId' | 'vote'>, void> = async (
-  services,
-  { todoId, vote },
-  { userId }
+    services,
+    { todoId, vote },
+    { userId }
 ) => {
-  try {
-    await services.kysely
-      .insertInto('todoVote')
-      .values({
-        todoId,
-        userId,
-        vote,
-      })
-      .execute()
-  } catch (e) {
-    throw new AlreadyVotedError()
-  }
+    try {
+        await services.kysely
+            .insertInto('todoVote')
+            .values({
+                todoId,
+                userId,
+                vote,
+            })
+            .execute()
+    } catch (e) {
+        throw new AlreadyVotedError()
+    }
 }

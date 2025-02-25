@@ -16,13 +16,13 @@
     "outDir": "dist",
     "baseUrl": ".",
     "paths": {
-      "@vramework-workspace-starter/functions": ["./packages/functions"],
-      "@vramework-workspace-starter/functions/*": ["./packages/functions/*"],
+      "@pikku-workspace-starter/functions": ["./packages/functions"],
+      "@pikku-workspace-starter/functions/*": ["./packages/functions/*"],
 
-      "@vramework-workspace-starter/sdk": ["./packages/sdk"],
-      "@vramework-workspace-starter/sdk/*": ["./packages/sdk/*"]
+      "@pikku-workspace-starter/sdk": ["./packages/sdk"],
+      "@pikku-workspace-starter/sdk/*": ["./packages/sdk/*"]
     }
   },
-  "include": ["**/.vramework/*.ts"],
+  "include": ["**/.pikku/*.ts"],
   "exclude": ["node_modules", "**/*.spec.ts"]
 }

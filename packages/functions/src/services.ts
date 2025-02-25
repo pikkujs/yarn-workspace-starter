@@ -1,14 +1,14 @@
 import type {
   CreateSingletonServices,
   CreateSessionServices,
-} from '@vramework/core'
-import { VrameworkHTTPSessionService } from '@vramework/core/http'
+} from '@pikku/core'
+import { PikkuHTTPSessionService } from '@pikku/core/http'
 
 import {
   ConsoleLogger,
   LocalSecretService,
   LocalVariablesService,
-} from '@vramework/core/services'
+} from '@pikku/core/services'
 
 import type {
   Config,
@@ -19,10 +19,10 @@ import type {
 import {
   getDatabaseConfig,
   KyselyDB,
-} from '@vramework-workspace-starter/functions/src/services/kysely.js'
-import { JoseJWTService } from '@vramework/jose'
-import { UnauthorizedError } from '@vramework/core/errors'
-import { AjvSchemaService } from '@vramework/schema-ajv'
+} from '@pikku-workspace-starter/functions/src/services/kysely.js'
+import { JoseJWTService } from '@pikku/jose'
+import { UnauthorizedError } from '@pikku/core/errors'
+import { AjvSchemaService } from '@pikku/schema-ajv'
 
 export const createSingletonServices: CreateSingletonServices<
   Config,
@@ -76,7 +76,7 @@ export const createSingletonServices: CreateSingletonServices<
   const kyselyDB = new KyselyDB(postgresConfig, logger)
   await kyselyDB.init()
 
-  const httpSessionService = new VrameworkHTTPSessionService(jwt, {
+  const httpSessionService = new PikkuHTTPSessionService(jwt, {
     cookieNames: ['todo-session'],
     getSessionForCookieValue: async (cookieValue: string) => {
       return await jwt.decodeSession(cookieValue)

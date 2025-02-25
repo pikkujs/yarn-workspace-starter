@@ -1,4 +1,4 @@
-import { addError, EError } from "@vramework/core/errors";
+import { addError, EError } from "@pikku/core/errors";
 
 export class AlreadyVotedError extends EError {
   constructor() {

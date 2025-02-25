@@ -15,6 +15,6 @@ runs:
     # - name: Archive artifacts
     #   uses: actions/upload-artifact@v4
     #   with:
-    #     name: vramework
-    #     path: "**/.vramework"
+    #     name: pikku
+    #     path: "**/.pikku"
     #     if-no-files-found: error

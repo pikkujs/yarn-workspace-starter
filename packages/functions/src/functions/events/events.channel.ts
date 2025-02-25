@@ -1,4 +1,4 @@
-import { addChannel } from '@vramework/core'
+import { addChannel } from '@pikku/core'
 import {
   onConnect,
   onMessage,

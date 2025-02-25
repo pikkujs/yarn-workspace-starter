@@ -1,5 +1,5 @@
 {
-  "name": "@vramework-workspace-starter/next-app",
+  "name": "@pikku-workspace-starter/next-app",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -9,13 +9,13 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prebuild": "npx @vramework/cli nextjs"
+    "prebuild": "npx @pikku/cli nextjs"
   },
   "dependencies": {
-    "@vramework-workspace-starter/functions": "*",
-    "@vramework/core": "^0.6.9",
-    "@vramework/jose": "^0.6.1",
-    "@vramework/next": "^0.6.4",
+    "@pikku-workspace-starter/functions": "*",
+    "@pikku/core": "^0.6.9",
+    "@pikku/jose": "^0.6.1",
+    "@pikku/next": "^0.6.4",
     "next": "^15",
     "react": "^19",
     "react-dom": "^19"

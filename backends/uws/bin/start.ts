@@ -1,18 +1,18 @@
-import { VrameworkUWSServer } from '@vramework/uws'
+import { PikkuUWSServer } from '@pikku/uws'
 
-import { createConfig } from '@vramework-workspace-starter/functions/src/config'
+import { createConfig } from '@pikku-workspace-starter/functions/src/config'
 import {
   createSessionServices,
   createSingletonServices,
-} from '@vramework-workspace-starter/functions/src/services'
+} from '@pikku-workspace-starter/functions/src/services'
 
-import '@vramework-workspace-starter/functions/.vramework/vramework-bootstrap.gen'
+import '@pikku-workspace-starter/functions/.pikku/pikku-bootstrap.gen'
 
 async function main(): Promise<void> {
   try {
     const config = await createConfig()
     const singletonServices = await createSingletonServices(config)
-    const appServer = new VrameworkUWSServer(
+    const appServer = new PikkuUWSServer(
       config,
       singletonServices,
       createSessionServices

@@ -5,11 +5,11 @@ import type {
   CoreUserSession,
   LogLevel,
   SecretService
-} from '@vramework/core'
-import type { SQLConfig } from '@vramework-workspace-starter/functions/src/services/kysely'
+} from '@pikku/core'
+import type { SQLConfig } from '@pikku-workspace-starter/functions/src/services/kysely'
 import type { DB } from 'kysely-codegen'
 import type { Kysely } from 'kysely'
-import type { JoseJWTService } from '@vramework/jose'
+import type { JoseJWTService } from '@pikku/jose'
 
 export interface UserSession extends CoreUserSession {
   userId: string

@@ -1,5 +1,5 @@
-import { DB } from '@vramework-workspace-starter/sdk'
-import { APIPermission } from '../.vramework/vramework-types.gen.js'
+import { DB } from '@pikku-workspace-starter/sdk'
+import { APIPermission } from '../.pikku/pikku-types.gen.js'
 
 export const isUserUpdatingSelf: APIPermission<Pick<DB.User, 'userId'>> = async (
   _services,

@@ -1,5 +1,5 @@
-import { ConflictError } from '@vramework/core/errors'
-import { addRoute } from '@vramework/core/http'
+import { ConflictError } from '@pikku/core/errors'
+import { addRoute } from '@pikku/core/http'
 import { isTodoCreator } from '../../permissions.js'
 import {
   getTodos,

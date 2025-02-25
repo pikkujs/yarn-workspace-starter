@@ -1,5 +1,5 @@
 {
-	"name": "@vramework-workspace-starter/cloudflare",
+	"name": "@pikku-workspace-starter/cloudflare",
 	"version": "0.0.0",
 	"private": true,
 	"scripts": {
@@ -8,9 +8,9 @@
 		"start": "wrangler dev"
 	},
 	"dependencies": {
-		"@vramework-workspace-starter/functions": "workspace:0.0.0",
-		"@vramework/cloudflare": "^0.6",
-		"@vramework/core": "^0.6.9"
+		"@pikku-workspace-starter/functions": "workspace:0.0.0",
+		"@pikku/cloudflare": "^0.6",
+		"@pikku/core": "^0.6.9"
 	},
 	"devDependencies": {
 		"@cloudflare/workers-types": "^4.20241218.0",

@@ -1,11 +1,11 @@
-import { vrameworkWebsocketHandler } from '@vramework/ws'
-import { createConfig } from '@vramework-workspace-starter/functions/src/config'
+import { pikkuWebsocketHandler } from '@pikku/ws'
+import { createConfig } from '@pikku-workspace-starter/functions/src/config'
 import {
   createSessionServices,
   createSingletonServices,
-} from '@vramework-workspace-starter/functions/src/services'
+} from '@pikku-workspace-starter/functions/src/services'
 
-import '@vramework-workspace-starter/functions/.vramework/vramework-bootstrap.gen'
+import '@pikku-workspace-starter/functions/.pikku/pikku-bootstrap.gen'
 import { Server } from 'http'
 import { WebSocketServer } from 'ws'
 
@@ -15,7 +15,7 @@ async function main(): Promise<void> {
     const singletonServices = await createSingletonServices(config)
     const server = new Server()
     const wss = new WebSocketServer({ noServer: true })
-    vrameworkWebsocketHandler({
+    pikkuWebsocketHandler({
       server,
       wss,
       singletonServices,

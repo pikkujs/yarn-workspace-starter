@@ -1,5 +1,5 @@
 {
-  "name": "@vramework-workspace-starter/cli",
+  "name": "@pikku-workspace-starter/cli",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -7,10 +7,10 @@
     "start": "tsx bin/cli.ts",
     "start:websocket": "tsx bin/cli.ts --websocket",
     "start:fetch": "tsx bin/cli.ts --fetch",
-    "prebuild": "npx @vramework/cli fetch && npx @vramework/cli websocket"
+    "prebuild": "npx @pikku/cli fetch && npx @pikku/cli websocket"
   },
   "dependencies": {
-    "@vramework-workspace-starter/sdk": "*",
+    "@pikku-workspace-starter/sdk": "*",
     "tsx": "^4.19.2"
   },
   "devDependencies": {

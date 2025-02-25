@@ -1,8 +1,8 @@
 'use client'
 
 import React, { FormEventHandler, PropsWithChildren, useCallback } from 'react'
-import { GetTodosOutput, UpdateTodoInput, VoteOnTodoInput } from '@vramework-workspace-starter/sdk/.vramework/routes-map.gen.d.js'
-import { DB } from '@vramework-workspace-starter/sdk'
+import { GetTodosOutput, UpdateTodoInput, VoteOnTodoInput } from '@pikku-workspace-starter/sdk/.pikku/routes-map.gen.d.js'
+import { DB } from '@pikku-workspace-starter/sdk'
 
 export const TodoHeader = () => {
   return (

@@ -1,6 +1,6 @@
-import { createConfig } from '@vramework-workspace-starter/functions/src/config';
-import { createSingletonServices } from '@vramework-workspace-starter/functions/src/services';
-import { LocalVariablesService, LocalSecretService } from '@vramework/core/services';
+import { createConfig } from '@pikku-workspace-starter/functions/src/config';
+import { createSingletonServices } from '@pikku-workspace-starter/functions/src/services';
+import { LocalVariablesService, LocalSecretService } from '@pikku/core/services';
 
 export const setupServices = async (env: Record<string, string | undefined>) => {
 	const localVariables = new LocalVariablesService(env);

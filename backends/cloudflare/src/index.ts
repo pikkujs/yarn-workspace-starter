@@ -1,9 +1,9 @@
-import { runFetch, runScheduled } from '@vramework/cloudflare';
-import { createSessionServices } from '@vramework-workspace-starter/functions/src/services';
+import { runFetch, runScheduled } from '@pikku/cloudflare';
+import { createSessionServices } from '@pikku-workspace-starter/functions/src/services';
 import { setupServices } from './setup-services.js';
 import { ExportedHandler, Response } from '@cloudflare/workers-types';
 
-import '@vramework-workspace-starter/functions/.vramework/vramework-bootstrap.gen.js';
+import '@pikku-workspace-starter/functions/.pikku/pikku-bootstrap.gen.js';
 
 export default {
 	async scheduled(controller, env) {
