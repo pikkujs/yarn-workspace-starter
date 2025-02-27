@@ -1,6 +1,6 @@
-import { addError, EError } from "@pikku/core/errors";
+import { addError, PikkuError } from "@pikku/core/errors";
 
-export class AlreadyVotedError extends EError {
+export class AlreadyVotedError extends PikkuError {
   constructor() {
     super('User already voted on this todo')
   }

@@ -2580,7 +2580,7 @@ __metadata:
   resolution: "@pikku-workspace-starter/api@workspace:backends/express"
   dependencies:
     "@pikku-workspace-starter/functions": "workspace:0.0.0"
-    "@pikku/core": "npm:^0.6.9"
+    "@pikku/core": "npm:^0.6.11"
     "@pikku/express": "npm:^0.6.2"
     "@pikku/schedule": "npm:^0.6.1"
     "@types/node": "npm:^22"
@@ -2632,7 +2632,7 @@ __metadata:
   resolution: "@pikku-workspace-starter/fastify@workspace:backends/fastify"
   dependencies:
     "@pikku-workspace-starter/functions": "workspace:0.0.0"
-    "@pikku/core": "npm:^0.6.9"
+    "@pikku/core": "npm:^0.6.11"
     "@pikku/fastify": "npm:^0.6.1"
     "@types/node": "npm:^22"
     tslib: "npm:^2.7.0"
@@ -2646,8 +2646,8 @@ __metadata:
   resolution: "@pikku-workspace-starter/functions@workspace:packages/functions"
   dependencies:
     "@pikku-workspace-starter/sdk": "npm:^0.0.0"
-    "@pikku/core": "npm:^0.6.9"
-    "@pikku/jose": "npm:^0.6.1"
+    "@pikku/core": "npm:^0.6.11"
+    "@pikku/jose": "npm:^0.6.2"
     "@pikku/pino": "npm:^0.6.1"
     "@pikku/schema-ajv": "npm:^0.6.1"
     "@types/content-type": "npm:^1.1.8"
@@ -2667,8 +2667,8 @@ __metadata:
   resolution: "@pikku-workspace-starter/next-app@workspace:apps/next-app"
   dependencies:
     "@pikku-workspace-starter/functions": "npm:*"
-    "@pikku/core": "npm:^0.6.9"
-    "@pikku/jose": "npm:^0.6.1"
+    "@pikku/core": "npm:^0.6.11"
+    "@pikku/jose": "npm:^0.6.2"
     "@pikku/next": "npm:^0.6.4"
     "@types/node": "npm:^22"
     "@types/react": "npm:^19"
@@ -2700,8 +2700,8 @@ __metadata:
     "@aws-sdk/client-secrets-manager": "npm:^3.714.0"
     "@pikku-workspace-starter/functions": "workspace:0.0.0"
     "@pikku/aws-services": "npm:^0.6.3"
-    "@pikku/core": "npm:^0.6.9"
-    "@pikku/lambda": "npm:^0.6.3"
+    "@pikku/core": "npm:^0.6.11"
+    "@pikku/lambda": "npm:^0.6.4"
     "@types/aws-lambda": "npm:^8.10.146"
     "@types/node": "npm:^22"
     esbuild: "npm:^0.24.0"
@@ -2721,8 +2721,8 @@ __metadata:
     "@aws-sdk/s3-request-presigner": "npm:^3.732.0"
     "@pikku-workspace-starter/functions": "workspace:0.0.0"
     "@pikku/aws-services": "npm:^0.6.3"
-    "@pikku/core": "npm:^0.6.9"
-    "@pikku/lambda": "npm:^0.6.3"
+    "@pikku/core": "npm:^0.6.11"
+    "@pikku/lambda": "npm:^0.6.4"
     "@types/aws-lambda": "npm:^8.10.146"
     "@types/node": "npm:^22"
     esbuild: "npm:0.24.0"
@@ -2738,7 +2738,7 @@ __metadata:
   resolution: "@pikku-workspace-starter/uws@workspace:backends/uws"
   dependencies:
     "@pikku-workspace-starter/functions": "workspace:0.0.0"
-    "@pikku/core": "npm:^0.6.9"
+    "@pikku/core": "npm:^0.6.11"
     "@pikku/uws": "npm:^0.6.1"
     "@types/node": "npm:^22"
     tslib: "npm:^2.7.0"
@@ -2752,7 +2752,7 @@ __metadata:
   resolution: "@pikku-workspace-starter/ws@workspace:backends/ws"
   dependencies:
     "@pikku-workspace-starter/functions": "workspace:0.0.0"
-    "@pikku/core": "npm:^0.6.9"
+    "@pikku/core": "npm:^0.6.11"
     "@pikku/ws": "npm:^0.6.3"
     "@types/node": "npm:^22"
     "@types/ws": "npm:^8"
@@ -2776,15 +2776,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@pikku/cli@npm:^0.6.6":
-  version: 0.6.6
-  resolution: "@pikku/cli@npm:0.6.6"
+"@pikku/cli@npm:^0.6.10":
+  version: 0.6.10
+  resolution: "@pikku/cli@npm:0.6.10"
   dependencies:
     "@openapi-contrib/json-schema-to-openapi-schema": "npm:^3.0.2"
-    "@pikku/core": "npm:^0.6.7"
+    "@pikku/core": "npm:^0.6.11"
     "@pikku/inspector": "npm:^0.6.2"
     "@types/cookie": "npm:^0.6.0"
     "@types/uuid": "npm:^10.0.0"
+    chalk: "npm:^5.4.1"
     commander: "npm:^12"
     glob: "npm:^10"
     path-to-regexp: "npm:^8.2.0"
@@ -2793,7 +2794,7 @@ __metadata:
     yaml: "npm:^2.6.0"
   bin:
     pikku: dist/bin/pikku.js
-  checksum: 10/32db71bee4f16dbd57b90466619060faeae360175ec46b9eb6b86a83831d9006d7a509c13f9fe10f9595199e34e10455e8a0e18ed2cdd310d5618481a071235a
+  checksum: 10/97b2581c08bcd3754bb75a2684c29450b9ab30e8d9d321176a47e5a8e16bc169ae569117646d74a2aea15b0d08e2c7d6e2cecdefaaef0fa9c9b93ccdd8619081
   languageName: node
   linkType: hard
 
@@ -2806,7 +2807,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@pikku/core@npm:^0.6.5, @pikku/core@npm:^0.6.7, @pikku/core@npm:^0.6.9":
+"@pikku/core@npm:^0.6.11":
+  version: 0.6.11
+  resolution: "@pikku/core@npm:0.6.11"
+  dependencies:
+    "@types/cookie": "npm:^0.6.0"
+    "@types/uuid": "npm:^10.0.0"
+    cookie: "npm:^1.0.1"
+    path-to-regexp: "npm:^8.2.0"
+  checksum: 10/3396811fb62032589047c4efcaebaca696336c72a0bbecfd4088ee548c335cc599063812bb9da8eaa9bbc34c56173e91a6bf5287d5fbbd34c93f131065cae742
+  languageName: node
+  linkType: hard
+
+"@pikku/core@npm:^0.6.5, @pikku/core@npm:^0.6.9":
   version: 0.6.9
   resolution: "@pikku/core@npm:0.6.9"
   dependencies:
@@ -2893,25 +2906,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@pikku/jose@npm:^0.6.1":
-  version: 0.6.1
-  resolution: "@pikku/jose@npm:0.6.1"
+"@pikku/jose@npm:^0.6.2":
+  version: 0.6.2
+  resolution: "@pikku/jose@npm:0.6.2"
   dependencies:
     jose: "npm:^5.9.6"
   peerDependencies:
     "@pikku/core": ^0.6.7
-  checksum: 10/5c73f3ed93a49a3591228591ce13cc02082ee4fd1122a8155853ea11916bafe284c5c62ae6d35bba45317a29011981c8872e1b8458ade8ad31664726d5aa851f
+  checksum: 10/b6f10a1a8b041fa89c064acb1aa3e4314879336c6e6f8d90ea623fe4fdbf36596e89220b8f40d670990651bed8d42fe354b08448525fa2bfb231e135fb92992f
   languageName: node
   linkType: hard
 
-"@pikku/lambda@npm:^0.6.3":
-  version: 0.6.3
-  resolution: "@pikku/lambda@npm:0.6.3"
+"@pikku/lambda@npm:^0.6.4":
+  version: 0.6.4
+  resolution: "@pikku/lambda@npm:0.6.4"
   peerDependencies:
     "@aws-sdk/client-apigatewaymanagementapi": ^3.713.0
-    "@pikku/core": ^0.6.7
+    "@pikku/core": ^0.6.11
     "@types/aws-lambda": ^8.10.146
-  checksum: 10/995e9f4e657d153dc76374881c49624c2ebcfd237f10999cf53aa08e1ba28ed9ed1c601dbf7415cc79303a15ef3d2479b33afe308d9819c4ff7f6590bed0cd51
+  checksum: 10/5c5d111298440301b34db0dc5be8ff58999ca411ce8c93be33b8566680ba7f9200de164ed659b3da239d691b5d85c9e16b5e39a3a8ce6be0ce9b54d82deab42c
   languageName: node
   linkType: hard
 
@@ -4372,7 +4385,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chalk@npm:^5.2.0, chalk@npm:^5.3.0":
+"chalk@npm:^5.2.0, chalk@npm:^5.3.0, chalk@npm:^5.4.1":
   version: 5.4.1
   resolution: "chalk@npm:5.4.1"
   checksum: 10/29df3ffcdf25656fed6e95962e2ef86d14dfe03cd50e7074b06bad9ffbbf6089adbb40f75c00744d843685c8d008adaf3aed31476780312553caf07fa86e5bc7
@@ -7423,7 +7436,7 @@ __metadata:
   resolution: "pikku-yarn-workspace-starter@workspace:."
   dependencies:
     "@pikku-workspace-starter/functions": "workspace:0.0.0"
-    "@pikku/cli": "npm:^0.6.6"
+    "@pikku/cli": "npm:^0.6.10"
     eventemitter3: "npm:^5.0.1"
     kysely: "npm:^0.27.5"
     kysely-codegen: "npm:^0.16.6"

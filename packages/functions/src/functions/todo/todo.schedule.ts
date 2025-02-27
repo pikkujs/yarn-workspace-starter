@@ -1,4 +1,4 @@
-import { addScheduledTask } from '@pikku/core'
+import { addScheduledTask } from '#pikku/pikku-types.gen.js'
 import { expireTodos } from './todo.functions.js'
 
 addScheduledTask({
