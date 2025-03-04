@@ -18,14 +18,14 @@
     "dbmigrate": "tsx scripts/db-migrate.ts",
     "pikku": "npx @pikku/cli all && yarn workspaces foreach -p -A run pikku",
     "kysely": "DATABASE_URL=postgres://postgres:password@localhost/pikku_workspace_starter kysely-codegen --camel-case --schema app --runtime-enums --out-file ./packages/sdk/.generated/database-kysely-types.ts",
-    "kysely-pure": "./node_modules/.bin/kysely-pure packages/sdk/.generated/database-types-pure.ts packages/sdk/.generated/database-kysely-types.ts",
-    "prebuild": "yarn run dbmigrate && yarn run kysely && yarn run kysely-pure && yarn run pikku&& yarn workspaces foreach -p -A run prebuild",
+    "kysely-pure": "pikku-kysely-pure packages/sdk/.generated/database-types-pure.ts packages/sdk/.generated/database-kysely-types.ts",
+    "prebuild": "yarn run dbmigrate && yarn run kysely && yarn run kysely-pure && yarn run pikku && yarn workspaces foreach -p -A run prebuild",
     "verify": "yarn run tsc",
     "lint": "npx oxlint@latest",
     "prettier": "npx prettier . --write",
     "tsc": "yarn workspaces foreach -p -A run tsc",
     "test": "yarn workspaces foreach -p -A run test",
-    "ncu": "yarn workspaces foreach -p -A run ncu -x '/.*chai.*/' -u",
+    "ncu": "yarn workspaces foreach -p -A run ncu -u",
     "ncu:pikku": "ncu -f '/@pikku/.*/' -u && yarn ncu -f '/@pikku/.*/' && yarn"
   },
   "devDependencies": {

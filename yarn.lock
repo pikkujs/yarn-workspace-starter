@@ -2648,7 +2648,7 @@ __metadata:
     "@pikku-workspace-starter/sdk": "npm:^0.0.0"
     "@pikku/core": "npm:^0.6.13"
     "@pikku/jose": "npm:^0.6.2"
-    "@pikku/kysely": "npm:^0.6.1"
+    "@pikku/kysely": "npm:^0.6.3"
     "@pikku/pino": "npm:^0.6.1"
     "@pikku/schema-ajv": "npm:^0.6.2"
     "@types/content-type": "npm:^1.1.8"
@@ -2904,17 +2904,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@pikku/kysely@npm:^0.6.1":
-  version: 0.6.1
-  resolution: "@pikku/kysely@npm:0.6.1"
+"@pikku/kysely@npm:^0.6.3":
+  version: 0.6.3
+  resolution: "@pikku/kysely@npm:0.6.3"
+  dependencies:
+    kysely: "npm:^0.27.6"
+    kysely-postgres-js: "npm:^2.0.0"
+    postgres: "npm:^3.4.5"
   peerDependencies:
     "@pikku/core": ^0.6.13
-    kysely: ^0.27.6
-    kysely-postgres-js: ^2.0.0
-    postgres: ^3.4.5
   bin:
-    kysely-pure: dist/bin/kysely-pure.js
-  checksum: 10/5a654250e78f7e9c5d5e4f2bdcca66eaaafeb61812d6abbee77b9a20def53140298a95466ec05c1aeb8ab3d368322982788bc503d13e079a0b132e88506b0b21
+    pikku-kysely-pure: dist/bin/pikku-kysely-pure.js
+  checksum: 10/3e04e213bc17b7b1d4b384fad5de7d60ae4da21470361a0659e747f8df5e044700f9669e1ca448ee723600232d4d8f2a401be4360ba7f5b04d72174a61b2e766
   languageName: node
   linkType: hard
 
@@ -6462,7 +6463,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"kysely@npm:^0.27.5":
+"kysely-postgres-js@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "kysely-postgres-js@npm:2.0.0"
+  peerDependencies:
+    kysely: ">= 0.24.0 < 1"
+    postgres: ">= 3.4.0 < 4"
+  checksum: 10/323715bb9ce0ff22f34d87cb96cc3b9bf3c593b9d4a0b95976b127caf0b8e87f129da74f7598cc5b19fab01a36dee24cd589865bb3b788333fd69e0da0096e09
+  languageName: node
+  linkType: hard
+
+"kysely@npm:^0.27.5, kysely@npm:^0.27.6":
   version: 0.27.6
   resolution: "kysely@npm:0.27.6"
   checksum: 10/a7b06fb5c48178e417f2094b857269743e9e8bf19590dcc5b70af206e3d6e16e19dcac87c8fb3d58d048ace00627cd5f23b3d5772144ad55406b2a72e5a335fe
@@ -7693,6 +7704,13 @@ __metadata:
   version: 1.1.4
   resolution: "postgres-range@npm:1.1.4"
   checksum: 10/035759f17b44bf9ba7e71a30402ed2ca1e2b7fabb3ad794b08169a5b453d38d06905a6dfb51fe41a3f6d9fac4e183dac9e769b95053053db933be16785edce1f
+  languageName: node
+  linkType: hard
+
+"postgres@npm:^3.4.5":
+  version: 3.4.5
+  resolution: "postgres@npm:3.4.5"
+  checksum: 10/b51341a8640bd63c42caf2a866c8b6bcac0d4cc1b85985f01eb3fd941eb7bf3fe5200bcf6983eaa1d42ae7555d85f4ff51d35916b5543b95aecfe98b76213611
   languageName: node
   linkType: hard
 
