@@ -1,2 +1,3 @@
-import * as DB from './generated/db-pure.gen.js'
-export { DB }
+import * as KyselyDB from './.generated/database-kysely-types.js'
+import * as DB from './.generated/database-types-pure.js'
+export { KyselyDB, DB }

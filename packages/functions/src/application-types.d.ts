@@ -6,10 +6,10 @@ import type {
   LogLevel,
   SecretService
 } from '@pikku/core'
-import type { SQLConfig } from '@pikku-workspace-starter/functions/src/services/kysely'
-import type { DB } from 'kysely-codegen'
 import type { Kysely } from 'kysely'
+import type { KyselyDB } from '@pikku-workspace-starter/sdk'
 import type { JoseJWTService } from '@pikku/jose'
+import { SQLConfig } from './config.js'
 
 export interface UserSession extends CoreUserSession {
   userId: string
@@ -29,7 +29,7 @@ export interface Config extends CoreServerConfig {
 
 export type SingletonServices = CoreSingletonServices & {
   jwt: JoseJWTService<UserSession>
-  kysely: Kysely<DB>
+  kysely: Kysely<KyselyDB.DB>
   subscriptionService?: SubscriptionService
   secretServce?: SecretService
 }

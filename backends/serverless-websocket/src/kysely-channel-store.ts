@@ -2,10 +2,9 @@ import { DB } from '@pikku-workspace-starter/sdk'
 import { CoreUserSession } from '@pikku/core'
 import { Channel, ChannelStore } from '@pikku/core/channel'
 import { Kysely } from 'kysely'
-import { DB as KyselyDB } from 'kysely-codegen'
 
 export class KyselyChannelStore extends ChannelStore {
-  constructor(private database: Kysely<KyselyDB>) {
+  constructor(private database: Kysely<any>) {
     super()
   }
 

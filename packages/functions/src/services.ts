@@ -2,8 +2,9 @@ import type {
   CreateSingletonServices,
   CreateSessionServices,
 } from '@pikku/core'
+import type { KyselyDB } from '@pikku-workspace-starter/sdk' 
 import { PikkuHTTPSessionService } from '@pikku/core/http'
-
+import { PikkuKysely } from '@pikku/kysely'
 import {
   ConsoleLogger,
   LocalSecretService,
@@ -16,13 +17,10 @@ import type {
   SingletonServices,
   UserSession,
 } from './application-types.js'
-import {
-  getDatabaseConfig,
-  KyselyDB,
-} from '@pikku-workspace-starter/functions/src/services/kysely.js'
 import { JoseJWTService } from '@pikku/jose'
 import { UnauthorizedError } from '@pikku/core/errors'
 import { AjvSchemaService } from '@pikku/schema-ajv'
+import { getDatabaseConfig } from './config.js'
 
 export const createSingletonServices: CreateSingletonServices<
   Config,
@@ -73,8 +71,9 @@ export const createSingletonServices: CreateSingletonServices<
     config.sql
   )
 
-  const kyselyDB = new KyselyDB(postgresConfig, logger)
-  await kyselyDB.init()
+  const pikkuKysely = new PikkuKysely<KyselyDB.DB>(logger, postgresConfig, 'app')
+  await pikkuKysely.init()
+  const kysely = pikkuKysely.kysely
 
   const httpSessionService = new PikkuHTTPSessionService(jwt, {
     cookieNames: ['todo-session'],
@@ -83,7 +82,7 @@ export const createSingletonServices: CreateSingletonServices<
     },
     getSessionForAPIKey: async (apiKey: string) => {
       try {
-        return await kyselyDB.kysely
+        return await kysely
           .selectFrom('user')
           .select(['userId', 'apiKey'])
           .where('apiKey', '=', apiKey)
@@ -96,7 +95,7 @@ export const createSingletonServices: CreateSingletonServices<
       const apiKey = queryValues.apiKey as string
       if (apiKey) {
         try {
-          return await kyselyDB.kysely
+          return await kysely
             .selectFrom('user')
             .select(['userId', 'apiKey'])
             .where('apiKey', '=', apiKey)
@@ -116,7 +115,7 @@ export const createSingletonServices: CreateSingletonServices<
     logger,
     jwt,
     httpSessionService,
-    kysely: kyselyDB.kysely,
+    kysely,
   }
 }
 

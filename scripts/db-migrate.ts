@@ -6,8 +6,7 @@ import {
   SecretService,
 } from '@pikku/core/services'
 
-import { createConfig } from '@pikku-workspace-starter/functions/src/config.js'
-import { getDatabaseConfig } from '@pikku-workspace-starter/functions/src/services/kysely.js'
+import { createConfig, getDatabaseConfig } from '@pikku-workspace-starter/functions/src/config.js'
 
 import { dirname } from 'path'
 import { fileURLToPath } from 'url'

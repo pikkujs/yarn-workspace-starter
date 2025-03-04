@@ -11,6 +11,7 @@ out
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+.generated
 
 *.hcl
 pg_*
