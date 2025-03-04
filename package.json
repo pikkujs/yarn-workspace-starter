@@ -39,10 +39,6 @@
     "typescript": "^5.6"
   },
   "lint-staged": {},
-  "dependencies": {
-    "eventemitter3": "^5.0.1",
-    "pino": "^9.3.2"
-  },
   "packageManager": "yarn@4.5.3",
   "engines": {
     "node": ">=18"
