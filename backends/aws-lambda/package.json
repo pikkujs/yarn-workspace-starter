@@ -1,5 +1,5 @@
 {
-  "name": "@pikku-workspace-starter/serverless",
+  "name": "@pikku-workspace-starter/aws-lambda",
   "version": "0.0.0",
   "description": "",
   "license": "MIT",

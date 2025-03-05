@@ -1,5 +1,5 @@
 {
-  "name": "@pikku-workspace-starter/serverless-websockets",
+  "name": "@pikku-workspace-starter/aws-lambda-websockets",
   "version": "0.0.0",
   "description": "",
   "license": "MIT",

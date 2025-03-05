@@ -2591,6 +2591,47 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@pikku-workspace-starter/aws-lambda-websockets@workspace:backends/aws-lambda-websocket":
+  version: 0.0.0-use.local
+  resolution: "@pikku-workspace-starter/aws-lambda-websockets@workspace:backends/aws-lambda-websocket"
+  dependencies:
+    "@aws-sdk/client-apigatewaymanagementapi": "npm:^3.714.0"
+    "@aws-sdk/client-secrets-manager": "npm:^3.714.0"
+    "@pikku-workspace-starter/functions": "workspace:0.0.0"
+    "@pikku/aws-services": "npm:^0.6.3"
+    "@pikku/core": "npm:^0.6.13"
+    "@pikku/lambda": "npm:^0.6.4"
+    "@types/aws-lambda": "npm:^8.10.146"
+    "@types/node": "npm:^22"
+    esbuild: "npm:^0.24.0"
+    serverless-esbuild: "npm:^1.54.6"
+    serverless-offline: "npm:^14.4.0"
+    tslib: "npm:^2.8.1"
+    tsx: "npm:^4.19.2"
+    typescript: "npm:^5.7"
+  languageName: unknown
+  linkType: soft
+
+"@pikku-workspace-starter/aws-lambda@workspace:backends/aws-lambda":
+  version: 0.0.0-use.local
+  resolution: "@pikku-workspace-starter/aws-lambda@workspace:backends/aws-lambda"
+  dependencies:
+    "@aws-sdk/client-s3": "npm:^3.732.0"
+    "@aws-sdk/s3-request-presigner": "npm:^3.732.0"
+    "@pikku-workspace-starter/functions": "workspace:0.0.0"
+    "@pikku/aws-services": "npm:^0.6.3"
+    "@pikku/core": "npm:^0.6.13"
+    "@pikku/lambda": "npm:^0.6.4"
+    "@types/aws-lambda": "npm:^8.10.146"
+    "@types/node": "npm:^22"
+    esbuild: "npm:0.24.0"
+    serverless-offline: "npm:^14.4.0"
+    tslib: "npm:^2.8.1"
+    tsx: "npm:^4.19.2"
+    typescript: "npm:^5.7"
+  languageName: unknown
+  linkType: soft
+
 "@pikku-workspace-starter/cli@workspace:apps/cli":
   version: 0.0.0-use.local
   resolution: "@pikku-workspace-starter/cli@workspace:apps/cli"
@@ -2688,47 +2729,6 @@ __metadata:
     "@pikku/fetch": "npm:^0.6.2"
     "@pikku/websocket": "npm:^0.6.2"
     typescript: "npm:^5.6"
-  languageName: unknown
-  linkType: soft
-
-"@pikku-workspace-starter/serverless-websockets@workspace:backends/serverless-websocket":
-  version: 0.0.0-use.local
-  resolution: "@pikku-workspace-starter/serverless-websockets@workspace:backends/serverless-websocket"
-  dependencies:
-    "@aws-sdk/client-apigatewaymanagementapi": "npm:^3.714.0"
-    "@aws-sdk/client-secrets-manager": "npm:^3.714.0"
-    "@pikku-workspace-starter/functions": "workspace:0.0.0"
-    "@pikku/aws-services": "npm:^0.6.3"
-    "@pikku/core": "npm:^0.6.13"
-    "@pikku/lambda": "npm:^0.6.4"
-    "@types/aws-lambda": "npm:^8.10.146"
-    "@types/node": "npm:^22"
-    esbuild: "npm:^0.24.0"
-    serverless-esbuild: "npm:^1.54.6"
-    serverless-offline: "npm:^14.4.0"
-    tslib: "npm:^2.8.1"
-    tsx: "npm:^4.19.2"
-    typescript: "npm:^5.7"
-  languageName: unknown
-  linkType: soft
-
-"@pikku-workspace-starter/serverless@workspace:backends/serverless":
-  version: 0.0.0-use.local
-  resolution: "@pikku-workspace-starter/serverless@workspace:backends/serverless"
-  dependencies:
-    "@aws-sdk/client-s3": "npm:^3.732.0"
-    "@aws-sdk/s3-request-presigner": "npm:^3.732.0"
-    "@pikku-workspace-starter/functions": "workspace:0.0.0"
-    "@pikku/aws-services": "npm:^0.6.3"
-    "@pikku/core": "npm:^0.6.13"
-    "@pikku/lambda": "npm:^0.6.4"
-    "@types/aws-lambda": "npm:^8.10.146"
-    "@types/node": "npm:^22"
-    esbuild: "npm:0.24.0"
-    serverless-offline: "npm:^14.4.0"
-    tslib: "npm:^2.8.1"
-    tsx: "npm:^4.19.2"
-    typescript: "npm:^5.7"
   languageName: unknown
   linkType: soft
 
