@@ -23,10 +23,10 @@ export const onDisconnect: ChannelDisconnection = async (services, channel) => {
 export const authenticate: ChannelMessage<
   { token: string; userId: string },
   { authResult: boolean; action: 'auth' }
-> = async (services, channel, data) => {
+> = async (services, _channel, data) => {
   const authResult = data.token === 'valid'
   if (authResult) {
-    await channel.setUserSession({ userId: data.userId })
+    await services.userSession?.set({ userId: data.userId })
   }
   return { authResult, action: 'auth' }
 }
@@ -51,9 +51,10 @@ export const emitMessage: ChannelMessage<
   { name: string },
   { timestamp: string; from: string } | { message: string }
 > = async (services, channel, data) => {
+  const userSession = await services.userSession.get()
   await services.eventHub?.publish(data.name, channel.channelId, {
     timestamp: new Date().toISOString(),
-    from: channel.userSession?.userId ?? 'anonymous',
+    from: userSession?.userId ?? 'anonymous',
   })
 }
 

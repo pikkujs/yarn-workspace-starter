@@ -3,7 +3,6 @@ import type {
   CreateSessionServices,
 } from '@pikku/core'
 import type { KyselyDB } from '@pikku-workspace-starter/sdk' 
-import { PikkuHTTPSessionService } from '@pikku/core/http'
 import { PikkuKysely } from '@pikku/kysely'
 import {
   ConsoleLogger,
@@ -18,8 +17,7 @@ import type {
   UserSession,
 } from './application-types.js'
 import { JoseJWTService } from '@pikku/jose'
-import { UnauthorizedError } from '@pikku/core/errors'
-import { AjvSchemaService } from '@pikku/schema-ajv'
+import { CFWorkerSchemaService } from '@pikku/schema-cfworker'
 import { getDatabaseConfig } from './config.js'
 
 export const createSingletonServices: CreateSingletonServices<
@@ -27,7 +25,7 @@ export const createSingletonServices: CreateSingletonServices<
   SingletonServices
 > = async (
   config,
-  { variablesService, secretServce, schemaService } = {}
+  { variablesService, secretService } = {}
 ) => {
   const logger = new ConsoleLogger()
 
@@ -44,14 +42,11 @@ export const createSingletonServices: CreateSingletonServices<
 
   // This is passed in because different providers have 
   // different ways to access secrets
-  if (!secretServce) {
-    secretServce = new LocalSecretService(variablesService)
+  if (!secretService) {
+    secretService = new LocalSecretService(variablesService)
   }
 
-  // Cloudflare Workers doesn't support ajv library
-  if (!schemaService) {
-    schemaService = new AjvSchemaService(logger)    
-  }
+  const schemaService = new CFWorkerSchemaService(logger)    
 
   const jwt = new JoseJWTService<UserSession>(
     async () => [
@@ -66,7 +61,7 @@ export const createSingletonServices: CreateSingletonServices<
   // Get the connection
   const postgresConfig = await getDatabaseConfig(
     variablesService,
-    secretServce,
+    secretService,
     config.secrets.postgresCredentials,
     config.sql
   )
@@ -75,46 +70,13 @@ export const createSingletonServices: CreateSingletonServices<
   await pikkuKysely.init()
   const kysely = pikkuKysely.kysely
 
-  const httpSessionService = new PikkuHTTPSessionService(jwt, {
-    cookieNames: ['todo-session'],
-    getSessionForCookieValue: async (cookieValue: string) => {
-      return await jwt.decodeSession(cookieValue)
-    },
-    getSessionForAPIKey: async (apiKey: string) => {
-      try {
-        return await kysely
-          .selectFrom('user')
-          .select(['userId', 'apiKey'])
-          .where('apiKey', '=', apiKey)
-          .executeTakeFirstOrThrow()
-      } catch {
-        throw new UnauthorizedError('Invalid API key in header')
-      }
-    },
-    getSessionForQueryValue: async (queryValues) => {
-      const apiKey = queryValues.apiKey as string
-      if (apiKey) {
-        try {
-          return await kysely
-            .selectFrom('user')
-            .select(['userId', 'apiKey'])
-            .where('apiKey', '=', apiKey)
-            .executeTakeFirstOrThrow()
-        } catch {
-          throw new UnauthorizedError('Invalid API key in query')
-        }
-      }
-    },
-  })
-
   return {
     config,
     variablesService,
-    secretServce,
+    secretService,
     schemaService,
     logger,
     jwt,
-    httpSessionService,
     kysely,
   }
 }

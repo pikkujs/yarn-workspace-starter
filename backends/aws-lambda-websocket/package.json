@@ -16,8 +16,8 @@
   "dependencies": {
     "@pikku-workspace-starter/functions": "workspace:0.0.0",
     "@pikku/aws-services": "^0.6.3",
-    "@pikku/core": "^0.6.13",
-    "@pikku/lambda": "^0.6.4",
+    "@pikku/core": "^0.6.19",
+    "@pikku/lambda": "^0.6.6",
     "@types/aws-lambda": "^8.10.146",
     "tslib": "^2.8.1"
   },

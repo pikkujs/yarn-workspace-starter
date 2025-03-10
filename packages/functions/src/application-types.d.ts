@@ -27,13 +27,12 @@ export interface Config extends CoreServerConfig {
   apiKeys: string[]
 }
 
-export type SingletonServices = CoreSingletonServices & {
+export interface SingletonServices extends CoreSingletonServices<Config> {
   jwt: JoseJWTService<UserSession>
   kysely: Kysely<KyselyDB.DB>
   subscriptionService?: SubscriptionService
-  secretServce?: SecretService
 }
 
-export interface Services extends CoreServices<SingletonServices> {
+export interface Services extends CoreServices<SingletonServices, UserSession> {
   
 }
