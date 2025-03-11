@@ -4,6 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "ncu": "ncu",
     "start": "tsx bin/cli.ts",
     "start:websocket": "tsx bin/cli.ts --websocket",
     "start:fetch": "tsx bin/cli.ts --fetch",

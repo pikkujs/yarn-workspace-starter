@@ -17,6 +17,7 @@ provider:
   environment:
     NODE_OPTIONS: --enable-source-maps
     NODE_ENV: production
+    POSTGRES_CREDENTIALS: '{"host":"localhost","port":5432,"user":"postgres","password":"password","database":"pikku_workspace_starter"}'
 
 plugins:
   - serverless-offline

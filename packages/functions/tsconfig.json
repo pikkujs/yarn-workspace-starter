@@ -8,5 +8,5 @@
     "esModuleInterop": true
   },
   "files": [],
-  "include": ["src/*.ts", "src/**/*.ts"]
+  "include": [".pikku/**/*.ts", "src/*.ts", "src/**/*.ts"]
 }

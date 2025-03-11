@@ -1,4 +1,4 @@
-import { addRoute } from '#pikku/pikku-types.gen.js'
+import { addRoute } from '../../../.pikku/pikku-types.gen.js'
 import { ConflictError } from '@pikku/core/errors'
 import { isTodoCreator } from '../../permissions.js'
 import { AlreadyVotedError } from '../../errors.js'

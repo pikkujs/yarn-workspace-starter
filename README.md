@@ -35,10 +35,6 @@ This app tests the Pikku fetch functionality.
 
 A Next.js App Router integrated with Pikku.
 
-### `apps/next-pages`
-
-A Next.js Pages Router integrated with Pikku.
-
 ## Backends
 
 ### `backends/express`
@@ -54,10 +50,6 @@ A Fastify backend setup using Pikku.
 A uWS (µWebSockets) backend setup using Pikku.
 
 ## Packages
-
-### `components`
-
-Shared React components for the app and pages.
 
 ### `functions`
 

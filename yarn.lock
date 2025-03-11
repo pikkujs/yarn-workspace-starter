@@ -363,6 +363,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@aws-sdk/cloudfront-signer@npm:^3.734.0":
+  version: 3.734.0
+  resolution: "@aws-sdk/cloudfront-signer@npm:3.734.0"
+  dependencies:
+    "@smithy/url-parser": "npm:^4.0.1"
+    tslib: "npm:^2.6.2"
+  checksum: 10/f5387cc3b05a96484d0b4f87e331117a985788a0f0bcda2eca787ef02a77c9b09577ed6369801ed1dc43d70cfa90fa6af3b4d98070751d7d9a40f9f50a503e20
+  languageName: node
+  linkType: hard
+
 "@aws-sdk/core@npm:3.758.0":
   version: 3.758.0
   resolution: "@aws-sdk/core@npm:3.758.0"
@@ -891,6 +901,13 @@ __metadata:
   version: 4.20250303.0
   resolution: "@cloudflare/workers-types@npm:4.20250303.0"
   checksum: 10/35c0b90ebfc943a34ca73e554c8cc65425c784054d7f849af90e6a94e174c3f7f7f970659723ba822c69efe6386b50cb02ca71f6a82b3b4062749628a38fa1d1
+  languageName: node
+  linkType: hard
+
+"@cloudflare/workers-types@npm:^4.20250310.0":
+  version: 4.20250310.0
+  resolution: "@cloudflare/workers-types@npm:4.20250310.0"
+  checksum: 10/c58753550572cfbf60c501fdfc66835df05540f6d54a97e428ba2687fd6c5095b747b6d2459ee385eaaa1c463eb7cde2c04201b76c9c23904bd1e57f489fc65c
   languageName: node
   linkType: hard
 
@@ -2604,10 +2621,12 @@ __metadata:
   dependencies:
     "@aws-sdk/client-apigatewaymanagementapi": "npm:^3.714.0"
     "@aws-sdk/client-secrets-manager": "npm:^3.714.0"
+    "@aws-sdk/cloudfront-signer": "npm:^3.734.0"
     "@pikku-workspace-starter/functions": "workspace:0.0.0"
     "@pikku/aws-services": "npm:^0.6.3"
     "@pikku/core": "npm:^0.6.19"
-    "@pikku/lambda": "npm:^0.6.6"
+    "@pikku/kysely": "npm:^0.6.4"
+    "@pikku/lambda": "npm:^0.6.7"
     "@types/aws-lambda": "npm:^8.10.146"
     "@types/node": "npm:^22"
     esbuild: "npm:^0.24.0"
@@ -2628,7 +2647,7 @@ __metadata:
     "@pikku-workspace-starter/functions": "workspace:0.0.0"
     "@pikku/aws-services": "npm:^0.6.3"
     "@pikku/core": "npm:^0.6.19"
-    "@pikku/lambda": "npm:^0.6.6"
+    "@pikku/lambda": "npm:^0.6.7"
     "@types/aws-lambda": "npm:^8.10.146"
     "@types/node": "npm:^22"
     esbuild: "npm:0.24.0"
@@ -2653,12 +2672,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@pikku-workspace-starter/cloudflare-websocket@workspace:backends/cloudflare-websocket"
   dependencies:
-    "@cloudflare/workers-types": "npm:^4.20241218.0"
+    "@cloudflare/workers-types": "npm:^4.20250310.0"
     "@pikku-workspace-starter/functions": "workspace:0.0.0"
     "@pikku/cloudflare": "npm:^0.6"
-    "@pikku/core": "npm:^0.6.9"
-    typescript: "npm:^5.5.2"
-    wrangler: "npm:^3.99.0"
+    "@pikku/core": "npm:^0.6.19"
+    typescript: "npm:^5.8.2"
+    wrangler: "npm:^3.112.0"
   languageName: unknown
   linkType: soft
 
@@ -2669,7 +2688,7 @@ __metadata:
     "@cloudflare/workers-types": "npm:^4.20241218.0"
     "@pikku-workspace-starter/functions": "workspace:0.0.0"
     "@pikku/cloudflare": "npm:^0.6"
-    "@pikku/core": "npm:^0.6.9"
+    "@pikku/core": "npm:^0.6.19"
     typescript: "npm:^5.5.2"
     wrangler: "npm:^3.99.0"
   languageName: unknown
@@ -2814,7 +2833,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@pikku/core@npm:^0.6.14, @pikku/core@npm:^0.6.9":
+"@pikku/core@npm:^0.6.14":
   version: 0.6.17
   resolution: "@pikku/core@npm:0.6.17"
   dependencies:
@@ -2939,14 +2958,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@pikku/lambda@npm:^0.6.6":
-  version: 0.6.6
-  resolution: "@pikku/lambda@npm:0.6.6"
+"@pikku/lambda@npm:^0.6.7":
+  version: 0.6.7
+  resolution: "@pikku/lambda@npm:0.6.7"
   peerDependencies:
     "@aws-sdk/client-apigatewaymanagementapi": ^3.713.0
     "@pikku/core": ^0.6.14
     "@types/aws-lambda": ^8.10.146
-  checksum: 10/db30ca8a8a68b8b3b57bab98fe6b361da4d5df827b086d42ede0cdcf1c42c9cce36bffec73519ebfff4f066111df41132a420ee459949e7daa5b5846c41ed09c
+  checksum: 10/2d287fbd2fbdfbc3309d33237644afbd1afc0b162bf4cc08e49cc8426994ceacdf057ac12f94021e8fdf7dfb0573eabee591bd8316f71d71aca70ab2501099f9
   languageName: node
   linkType: hard
 
@@ -8956,7 +8975,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^5, typescript@npm:^5.4.5, typescript@npm:^5.5.2, typescript@npm:^5.6, typescript@npm:^5.7":
+"typescript@npm:^5, typescript@npm:^5.4.5, typescript@npm:^5.5.2, typescript@npm:^5.6, typescript@npm:^5.7, typescript@npm:^5.8.2":
   version: 5.8.2
   resolution: "typescript@npm:5.8.2"
   bin:
@@ -8966,7 +8985,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A^5#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A^5.4.5#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A^5.5.2#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A^5.6#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A^5.7#optional!builtin<compat/typescript>":
+"typescript@patch:typescript@npm%3A^5#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A^5.4.5#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A^5.5.2#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A^5.6#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A^5.7#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A^5.8.2#optional!builtin<compat/typescript>":
   version: 5.8.2
   resolution: "typescript@patch:typescript@npm%3A5.8.2#optional!builtin<compat/typescript>::version=5.8.2&hash=5786d5"
   bin:
@@ -9163,7 +9182,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"wrangler@npm:^3.99.0":
+"wrangler@npm:^3.112.0, wrangler@npm:^3.99.0":
   version: 3.112.0
   resolution: "wrangler@npm:3.112.0"
   dependencies:

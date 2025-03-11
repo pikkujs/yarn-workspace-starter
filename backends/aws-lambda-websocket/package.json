@@ -17,13 +17,15 @@
     "@pikku-workspace-starter/functions": "workspace:0.0.0",
     "@pikku/aws-services": "^0.6.3",
     "@pikku/core": "^0.6.19",
-    "@pikku/lambda": "^0.6.6",
+    "@pikku/kysely": "^0.6.4",
+    "@pikku/lambda": "^0.6.7",
     "@types/aws-lambda": "^8.10.146",
     "tslib": "^2.8.1"
   },
   "devDependencies": {
     "@aws-sdk/client-apigatewaymanagementapi": "^3.714.0",
     "@aws-sdk/client-secrets-manager": "^3.714.0",
+    "@aws-sdk/cloudfront-signer": "^3.734.0",
     "@types/node": "^22",
     "esbuild": "^0.24.0",
     "serverless-esbuild": "^1.54.6",

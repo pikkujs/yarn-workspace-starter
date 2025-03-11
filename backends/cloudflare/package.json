@@ -5,12 +5,13 @@
 	"scripts": {
 		"deploy": "wrangler deploy",
 		"dev": "wrangler dev",
-		"start": "wrangler dev"
+		"start": "wrangler dev",
+		"ncu": "ncu"
 	},
 	"dependencies": {
 		"@pikku-workspace-starter/functions": "workspace:0.0.0",
 		"@pikku/cloudflare": "^0.6",
-		"@pikku/core": "^0.6.9"
+		"@pikku/core": "^0.6.19"
 	},
 	"devDependencies": {
 		"@cloudflare/workers-types": "^4.20241218.0",

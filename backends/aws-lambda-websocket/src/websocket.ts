@@ -17,12 +17,12 @@ import {
 
 import { AWSSecrets } from '@pikku/aws-services'
 
-import '@pikku-workspace-starter/functions/.pikku/pikku-channels'
-import { KyselyChannelStore } from './kysely-channel-store.js'
+import { KyselyChannelStore, KyselyEventHubStore } from '@pikku/kysely'
 import { ChannelStore } from '@pikku/core/channel'
-import { KyselyEventHubStore } from './kysely-subscription-store.js'
 import { MakeRequired } from '@pikku/core'
 import { LocalVariablesService } from '@pikku/core/services'
+
+import '@pikku-workspace-starter/functions/.pikku/pikku-channels.gen.js'
 
 let state:
   | {
@@ -40,10 +40,11 @@ const getParams = async (event: APIGatewayEvent) => {
       config,
       {
         variablesService,
-        secretServce: new AWSSecrets(config),
+        secretService: new AWSSecrets(config),
       }
     )
     const channelStore = new KyselyChannelStore(singletonServices.kysely)
+    console.log(Object.keys(channelStore))
     const eventHubStore = new KyselyEventHubStore(singletonServices.kysely)
     singletonServices.eventHub = new LambdaEventHubService(
       singletonServices.logger,
