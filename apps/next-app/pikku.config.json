@@ -1,4 +1,6 @@
 {
   "extends": "../../pikku.config.json",
-  "nextJSfile": "./pikku-nextjs.gen.ts"
+  "nextBackendFile": "./pikku-nextjs.gen.ts",
+  "nextHTTPFile": "./pikku-nextjs-http.gen.ts",
+  "fetchFile": "./pikku-fetch.gen.ts"
 }

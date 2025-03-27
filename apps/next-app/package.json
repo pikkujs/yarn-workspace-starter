@@ -9,13 +9,13 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "pikku": "npx @pikku/cli nextjs"
+    "pikku": "npx @pikku/cli nextjs && npx @pikku/cli fetch"
   },
   "dependencies": {
     "@pikku-workspace-starter/functions": "*",
-    "@pikku/core": "^0.6.19",
-    "@pikku/jose": "^0.6.3",
-    "@pikku/next": "^0.6.6",
+    "@pikku/core": "^0.6.21",
+    "@pikku/jose": "^0.6.4",
+    "@pikku/next": "^0.6.7",
     "next": "^15",
     "react": "^19",
     "react-dom": "^19"

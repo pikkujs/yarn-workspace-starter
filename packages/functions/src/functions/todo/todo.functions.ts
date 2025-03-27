@@ -28,7 +28,10 @@ export const getTodos: APIFunctionSessionless<void, Array<DB.Todo & Pick<DB.User
     return todos.map(todo => ({ ...todo, upvotes: todo.upvotes ? Number(todo.upvotes) : 0 }))
 }
 
-export const getTodo: APIFunctionSessionless<Pick<DB.Todo, 'todoId'>, DB.Todo & {}> = async (
+export const getTodo: APIFunctionSessionless<
+  Pick<DB.Todo, 'todoId'>, 
+  DB.Todo & {}
+> = async (
   services,
   { todoId }
 ) => {
@@ -37,7 +40,6 @@ export const getTodo: APIFunctionSessionless<Pick<DB.Todo, 'todoId'>, DB.Todo & 
     .selectAll()
     .leftJoin('user', 'todo.createdBy', 'user.userId')
     .where('todoId', '=', todoId) 
-    // .where(todoId ? 'todoId' | 'name', '=', todoId || name) 
     .executeTakeFirstOrThrow()
 }
 

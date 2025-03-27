@@ -14,7 +14,7 @@ export const apiKeyMiddleware = () => {
     })
 }
 
-const cookieMiddleware = () => {
+export const cookieMiddleware = () => {
     return authCookie<SingletonServices, UserSession>(
         {
             cookieNames: ['pikku:session'],

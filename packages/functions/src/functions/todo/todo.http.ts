@@ -17,6 +17,7 @@ addRoute({
   route: '/todos',
   func: getTodos,
   auth: false,
+  middleware: [],
   docs: {
     description: 'Get all todos',
     tags: ['todos'],
@@ -27,7 +28,15 @@ addRoute({
   method: 'get',
   route: '/todo/:todoId',
   func: getTodo,
-  auth: false,
+  auth: true,
+  middleware: [],
+  permissions: {
+    isTodoCreator,
+  },
+  docs: {
+    description: 'Get all todos',
+    tags: ['todos'],
+  },
 })
 
 addRoute({

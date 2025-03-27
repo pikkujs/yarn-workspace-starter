@@ -20,9 +20,9 @@ export const loginUser: APIFunctionSessionless<
       .returning(['userId', 'apiKey'])
       .executeTakeFirstOrThrow()
   }
-
+  
   services.http?.response?.setCookie(
-    'todo-session',
+    'pikku:session',
     await services.jwt.encode('1w', session),
     { httpOnly: true }
   )
