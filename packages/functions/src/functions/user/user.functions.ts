@@ -21,7 +21,7 @@ export const loginUser: APIFunctionSessionless<
       .executeTakeFirstOrThrow()
   }
   
-  services.http?.response?.setCookie(
+  services.http?.response?.cookie(
     'pikku:session',
     await services.jwt.encode('1w', session),
     { httpOnly: true }
@@ -35,7 +35,7 @@ export const logoutUser: APIFunctionSessionless<void, void> = async (
   _data,
   _session
 ) => {
-  services.http?.response?.clearCookie('todo-session')
+  services.http?.response?.cookie('todo-session', null)
 }
 
 export const updateUser: APIFunctionSessionless<Pick<DB.User, 'userId' | 'name'>, void> = async (

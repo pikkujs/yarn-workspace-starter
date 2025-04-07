@@ -13,9 +13,9 @@
   },
   "dependencies": {
     "@pikku-workspace-starter/functions": "*",
-    "@pikku/core": "^0.6.21",
+    "@pikku/core": "^0.6.22",
     "@pikku/jose": "^0.6.4",
-    "@pikku/next": "^0.6.7",
+    "@pikku/next": "^0.6.8",
     "next": "^15",
     "react": "^19",
     "react-dom": "^19"

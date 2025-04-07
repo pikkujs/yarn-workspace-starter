@@ -24,7 +24,6 @@ export const authenticate: ChannelMessage<
   { token: string; userId: string },
   { authResult: boolean; action: 'auth' }
 > = async (services, _channel, data) => {
-  console.log('here!')
   const authResult = data.token === 'valid'
   if (authResult) {
     await services.userSession?.set({ userId: data.userId })
