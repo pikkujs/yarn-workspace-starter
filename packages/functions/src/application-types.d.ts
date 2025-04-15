@@ -28,7 +28,7 @@ export interface Config extends CoreServerConfig {
 }
 
 export interface SingletonServices extends CoreSingletonServices<Config> {
-  jwt: JoseJWTService<UserSession>
+  jwt: JoseJWTService
   kysely: Kysely<KyselyDB.DB>
   subscriptionService?: SubscriptionService
 }

@@ -9,7 +9,7 @@ import { use } from 'react'
 const protectedRoutes = ['/todos']
 const publicRoutes = ['/login', '/']
 
-const jwt = new JoseJWTService<UserSession>(async () => [
+const jwt = new JoseJWTService(async () => [
   {
     id: 'my-key',
     value: 'the-yellow-puppet',

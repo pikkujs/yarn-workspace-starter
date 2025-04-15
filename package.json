@@ -31,13 +31,17 @@
   },
   "devDependencies": {
     "@pikku-workspace-starter/functions": "workspace:0.0.0",
-    "@pikku/cli": "^0.6.18",
+    "@pikku/cli": "^0.6.20",
     "kysely": "^0.27.5",
     "kysely-codegen": "^0.16.6",
     "postgres-migrations": "^5.3.0",
     "prettier": "^3.3.3",
     "tsx": "^4.19.2",
     "typescript": "^5.6"
+  },
+  "dependencies": {
+    "@aws-sdk/client-secrets-manager": "^3.787.0",
+    "@pikku/aws-services": "^0.6.3"
   },
   "lint-staged": {},
   "packageManager": "yarn@4.8.1",

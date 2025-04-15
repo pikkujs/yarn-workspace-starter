@@ -17,8 +17,10 @@ export const apiKeyMiddleware = () => {
 export const cookieMiddleware = () => {
     return authCookie<SingletonServices, UserSession>(
         {
-            cookieNames: ['pikku:session'],
-            jwt: true
+            name: 'pikku:session',
+            jwt: true,
+            expiresIn: { value: 4, unit: 'week' },
+            options: { sameSite: 'lax', path: '/' },
         }
     )
 }

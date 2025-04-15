@@ -25,7 +25,7 @@ export const createSingletonServices: CreateSingletonServices<
   SingletonServices
 > = async (
   config,
-  { variablesService, secretService } = {}
+  { variables, secrets } = {}
 ) => {
   const logger = new ConsoleLogger()
 
@@ -36,19 +36,19 @@ export const createSingletonServices: CreateSingletonServices<
   // This is passed in because different providers 
   // like CloudWatch and AWS have seperate ways
   // to access env variables
-  if (!variablesService) {
-    variablesService = new LocalVariablesService()
+  if (!variables) {
+    variables = new LocalVariablesService()
   }
 
   // This is passed in because different providers have 
   // different ways to access secrets
-  if (!secretService) {
-    secretService = new LocalSecretService(variablesService)
+  if (!secrets) {
+    secrets = new LocalSecretService(variables)
   }
 
   const schemaService = new CFWorkerSchemaService(logger)    
 
-  const jwt = new JoseJWTService<UserSession>(
+  const jwt = new JoseJWTService(
     async () => [
       {
         id: 'my-key',
@@ -60,8 +60,8 @@ export const createSingletonServices: CreateSingletonServices<
 
   // Get the connection
   const postgresConfig = await getDatabaseConfig(
-    variablesService,
-    secretService,
+    variables,
+    secrets,
     config.secrets.postgresCredentials,
     config.sql
   )
@@ -72,8 +72,8 @@ export const createSingletonServices: CreateSingletonServices<
 
   return {
     config,
-    variablesService,
-    secretService,
+    variables,
+    secrets,
     schemaService,
     logger,
     jwt,
