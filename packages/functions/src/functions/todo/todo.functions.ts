@@ -1,19 +1,19 @@
 import { DB } from '@pikku-workspace-starter/sdk'
-import type { APIFunction, APIFunctionSessionless } from '#pikku/pikku-types.gen.js'
 import type { PickRequired } from '@pikku/core'
 import { AlreadyVotedError } from '../../errors.js'
+import { pikkuFunc, pikkuSessionlessFunc, pikkuVoidFunc } from '#pikku/pikku-types.gen.js'
 
-export const getTodos: APIFunctionSessionless<void, Array<DB.Todo & Pick<DB.User, 'name'> & { upvotes: number | null }>> = async (
-  services
+export const getTodos = pikkuSessionlessFunc<void, Array<DB.Todo & Pick<DB.User, 'name'> & { upvotes: number | null }>>(async (
+  { kysely }
 ) => {
-  const todos = await services.kysely
+  const todos = await kysely
     .selectFrom('todo')
     .innerJoin('user', 'todo.createdBy', 'user.userId')
-    .select(eb => 
+    .select(eb =>
       eb
         .selectFrom('todoVote')
-        .select(services.kysely.fn.coalesce(
-          services.kysely.fn.countAll(),
+        .select(kysely.fn.coalesce(
+          kysely.fn.countAll(),
           eb.lit(0)
         ).$castTo<string>().as('upvotes'))
         .whereRef('todoVote.todoId', '=', 'todo.todoId')
@@ -25,59 +25,59 @@ export const getTodos: APIFunctionSessionless<void, Array<DB.Todo & Pick<DB.User
     .orderBy('createdAt', 'asc')
     .execute()
 
-    return todos.map(todo => ({ ...todo, upvotes: todo.upvotes ? Number(todo.upvotes) : 0 }))
-}
+  return todos.map(todo => ({ ...todo, upvotes: todo.upvotes ? Number(todo.upvotes) : 0 }))
+})
 
-export const getTodo: APIFunctionSessionless<
-  Pick<DB.Todo, 'todoId'>, 
+export const getTodo = pikkuSessionlessFunc<
+  Pick<DB.Todo, 'todoId'>,
   DB.Todo & {}
-> = async (
-  services,
+>(async (
+  { kysely},
   { todoId }
 ) => {
-  return await services.kysely
+  return await kysely
     .selectFrom('todo')
     .selectAll()
     .leftJoin('user', 'todo.createdBy', 'user.userId')
-    .where('todoId', '=', todoId) 
+    .where('todoId', '=', todoId)
     .executeTakeFirstOrThrow()
-}
+})
 
-export const createTodo: APIFunction<Omit<
+export const createTodo = pikkuFunc<Omit<
   DB.Todo & {},
   'todoId' | 'completedAt' | 'createdAt' | 'createdBy'
->, Pick<DB.Todo, 'todoId'>> = async (
-  services,
+>, Pick<DB.Todo, 'todoId'>>(async (
+  { kysely},
   data,
   session
 ) => {
-    return await services.kysely
-      .insertInto('todo')
-      .values({
-        ...data,
-        createdBy: session.userId,
-      })
-      .returning('todoId')
-      .executeTakeFirstOrThrow()
-  }
+  return await kysely
+    .insertInto('todo')
+    .values({
+      ...data,
+      createdBy: session.userId,
+    })
+    .returning('todoId')
+    .executeTakeFirstOrThrow()
+})
 
-export const updateTodo: APIFunction<PickRequired<DB.Todo, 'todoId'>, void> = async (
-  services,
+export const updateTodo = pikkuFunc<PickRequired<DB.Todo, 'todoId'>, void>(async (
+  { kysely },
   { todoId, ...data }
 ) => {
-  await services.kysely
+  await kysely
     .updateTable('todo')
     .set(data)
     .where('todoId', '=', todoId)
     .executeTakeFirstOrThrow()
-}
+})
 
-export const deleteTodo: APIFunction<Pick<DB.Todo, 'todoId'>, { success: boolean }> = async (
-  services,
+export const deleteTodo = pikkuFunc<Pick<DB.Todo, 'todoId'>, { success: boolean }>(async (
+  { kysely },
   { todoId }
 ) => {
   try {
-    await services.kysely
+    await kysely
       .deleteFrom('todo')
       .where('todoId', '=', todoId)
       .executeTakeFirstOrThrow()
@@ -85,32 +85,31 @@ export const deleteTodo: APIFunction<Pick<DB.Todo, 'todoId'>, { success: boolean
   } catch {
     return { success: false }
   }
-}
+})
 
-export const expireTodos: APIFunctionSessionless<void, void> = async (
-  services,
-  _data
+export const expireTodos = pikkuVoidFunc(async (
+  { logger },
 ) => {
   // TODO: Think of a better scheduled job
-  services.logger.info('Expiring all todos')
-}
+  logger.info('Expiring all todos')
+})
 
 
-export const voteOnTodo: APIFunction<Pick<DB.TodoVote, 'todoId' | 'vote'>, void> = async (
-    services,
-    { todoId, vote },
-    { userId }
+export const voteOnTodo = pikkuFunc<Pick<DB.TodoVote, 'todoId' | 'vote'>, void>(async (
+  { kysely },
+  { todoId, vote },
+  { userId }
 ) => {
-    try {
-        await services.kysely
-            .insertInto('todoVote')
-            .values({
-                todoId,
-                userId,
-                vote,
-            })
-            .execute()
-    } catch (e) {
-        throw new AlreadyVotedError()
-    }
-}
+  try {
+    await kysely
+      .insertInto('todoVote')
+      .values({
+        todoId,
+        userId,
+        vote,
+      })
+      .execute()
+  } catch (e) {
+    throw new AlreadyVotedError()
+  }
+})

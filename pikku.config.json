@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/pikkujs/pikku/refs/heads/master/packages/cli/cli.schema.json",
   "tsconfig": "./tsconfig.json",
-  "routeDirectories": ["packages/functions/src"],
+  "srcDirectories": ["packages/functions/src"],
   "outDir": "packages/functions/.pikku",
   "routesMapDeclarationFile": "packages/sdk/.pikku/routes-map.gen.d.ts",
   "channelsMapDeclarationFile": "packages/sdk/.pikku/channels-map.gen.d.ts",

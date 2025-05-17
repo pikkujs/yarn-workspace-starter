@@ -1,21 +1,21 @@
-import { addRoute } from '@pikku/core/http'
+import { addHTTPRoute } from '@pikku/core/http'
 import { isUserUpdatingSelf } from '../../permissions.js'
 import { loginUser, logoutUser, updateUser } from './user.functions.js'
 
-addRoute({
+addHTTPRoute({
   method: 'post',
   route: '/login',
   func: loginUser,
   auth: false,
 })
 
-addRoute({
+addHTTPRoute({
   method: 'post',
   route: '/logout',
   func: logoutUser,
 })
 
-addRoute({
+addHTTPRoute({
   method: 'patch',
   route: '/user/:userId',
   func: updateUser,

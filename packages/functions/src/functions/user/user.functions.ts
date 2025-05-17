@@ -1,11 +1,11 @@
 import { DB } from '@pikku-workspace-starter/sdk'
-import type { APIFunctionSessionless } from '#pikku/pikku-types.gen.js'
 import type { UserSession } from '@pikku-workspace-starter/functions/src/application-types.js'
+import { pikkuSessionlessFunc } from '#pikku/pikku-types.gen.js'
 
-export const loginUser: APIFunctionSessionless<
+export const loginUser = pikkuSessionlessFunc<
   Pick<DB.User, 'name'>,
   UserSession
-> = async (services, { name }) => {
+>(async (services, { name }) => {
   let session: UserSession | undefined
   try {
     session = await services.kysely
@@ -24,17 +24,17 @@ export const loginUser: APIFunctionSessionless<
   services.userSession?.set(session)
 
   return session
-}
+})
 
-export const logoutUser: APIFunctionSessionless<void, void> = async (
+export const logoutUser = pikkuSessionlessFunc<void, void>(async (
   services,
   _data,
   _session
 ) => {
   services.userSession?.clear()
-}
+})
 
-export const updateUser: APIFunctionSessionless<Pick<DB.User, 'userId' | 'name'>, void> = async (
+export const updateUser = pikkuSessionlessFunc<Pick<DB.User, 'userId' | 'name'>, void>(async (
   services,
   { userId, ...data }
 ) => {
@@ -43,4 +43,4 @@ export const updateUser: APIFunctionSessionless<Pick<DB.User, 'userId' | 'name'>
     .set(data)
     .where('userId', '=', userId)
     .executeTakeFirstOrThrow()
-}
+})

@@ -1,4 +1,3 @@
-import { addRoute } from '../../../.pikku/pikku-types.gen.js'
 import { ConflictError } from '@pikku/core/errors'
 import { isTodoCreator } from '../../permissions.js'
 import { AlreadyVotedError } from '../../errors.js'
@@ -11,8 +10,9 @@ import {
   createTodo,
   voteOnTodo,
 } from './todo.functions.js'
+import { addHTTPRoute } from '#pikku/pikku-types.gen.js'
 
-addRoute({
+addHTTPRoute({
   method: 'get',
   route: '/todos',
   func: getTodos,
@@ -24,7 +24,7 @@ addRoute({
   },
 })
 
-addRoute({
+addHTTPRoute({
   method: 'get',
   route: '/todo/:todoId',
   func: getTodo,
@@ -39,14 +39,14 @@ addRoute({
   },
 })
 
-addRoute({
+addHTTPRoute({
   method: 'get',
   route: '/todo',
   func: getTodo,
   auth: false,
 })
 
-addRoute({
+addHTTPRoute({
   method: 'post',
   route: '/todo',
   func: createTodo,
@@ -55,7 +55,7 @@ addRoute({
   },
 })
 
-addRoute({
+addHTTPRoute({
   method: 'patch',
   route: '/todo/:todoId',
   func: updateTodo,
@@ -64,7 +64,7 @@ addRoute({
   },
 })
 
-addRoute({
+addHTTPRoute({
   method: 'delete',
   route: '/todo/:todoId',
   func: deleteTodo,
@@ -73,7 +73,7 @@ addRoute({
   },
 })
 
-addRoute({
+addHTTPRoute({
   method: 'post',
   route: '/todo/:todoId/vote',
   func: voteOnTodo,
