@@ -30,9 +30,9 @@ export const getTodos = pikkuSessionlessFunc<void, Array<DB.Todo & Pick<DB.User,
 
 export const getTodo = pikkuSessionlessFunc<
   Pick<DB.Todo, 'todoId'>,
-  DB.Todo & {}
+  DB.Todo
 >(async (
-  { kysely},
+  { kysely },
   { todoId }
 ) => {
   return await kysely

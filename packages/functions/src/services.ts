@@ -46,7 +46,7 @@ export const createSingletonServices: CreateSingletonServices<
     secrets = new LocalSecretService(variables)
   }
 
-  const schemaService = new CFWorkerSchemaService(logger)    
+  const schema = new CFWorkerSchemaService(logger)    
 
   const jwt = new JoseJWTService(
     async () => [
@@ -74,7 +74,7 @@ export const createSingletonServices: CreateSingletonServices<
     config,
     variables,
     secrets,
-    schemaService,
+    schema,
     logger,
     jwt,
     kysely,
