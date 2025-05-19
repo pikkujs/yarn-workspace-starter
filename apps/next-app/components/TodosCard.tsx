@@ -68,7 +68,7 @@ export const TodosCard: React.FunctionComponent<
                 />
                 <label
                   htmlFor={todo.todoId}
-                  className="flex items-center h-10 px-2 rounded cursor-pointer hover:bg-gray-100"
+                  className="peer-checked:line-through peer-checked:text-gray-400 flex items-center h-10 px-2 rounded cursor-pointer hover:bg-gray-100"
                 >
                   <span className="flex items-center justify-center w-5 h-5 border-2 border-gray-300 rounded-full peer-checked:border-green-500 peer-checked:bg-green-500">
                     <svg
@@ -84,7 +84,7 @@ export const TodosCard: React.FunctionComponent<
                     </svg>
                   </span>
                   <span
-                    className="ml-4 text-sm peer-checked:line-through peer-checked:text-gray-400"
+                    className="ml-4 text-sm"
                   >
                     {todo.text}
                   </span>

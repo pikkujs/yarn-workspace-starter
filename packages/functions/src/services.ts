@@ -19,6 +19,7 @@ import type {
 import { JoseJWTService } from '@pikku/jose'
 import { CFWorkerSchemaService } from '@pikku/schema-cfworker'
 import { getDatabaseConfig } from './config.js'
+import './middleware.js'
 
 export const createSingletonServices: CreateSingletonServices<
   Config,
@@ -46,7 +47,7 @@ export const createSingletonServices: CreateSingletonServices<
     secrets = new LocalSecretService(variables)
   }
 
-  const schemaService = new CFWorkerSchemaService(logger)    
+  const schema = new CFWorkerSchemaService(logger)    
 
   const jwt = new JoseJWTService(
     async () => [
@@ -74,7 +75,7 @@ export const createSingletonServices: CreateSingletonServices<
     config,
     variables,
     secrets,
-    schemaService,
+    schema,
     logger,
     jwt,
     kysely,

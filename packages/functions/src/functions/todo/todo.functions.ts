@@ -1,7 +1,7 @@
 import { DB } from '@pikku-workspace-starter/sdk'
-import type { PickRequired } from '@pikku/core'
 import { AlreadyVotedError } from '../../errors.js'
 import { pikkuFunc, pikkuSessionlessFunc, pikkuVoidFunc } from '#pikku/pikku-types.gen.js'
+import { PickRequired } from '@pikku/core'
 
 export const getTodos = pikkuSessionlessFunc<void, Array<DB.Todo & Pick<DB.User, 'name'> & { upvotes: number | null }>>(async (
   { kysely }
@@ -30,9 +30,9 @@ export const getTodos = pikkuSessionlessFunc<void, Array<DB.Todo & Pick<DB.User,
 
 export const getTodo = pikkuSessionlessFunc<
   Pick<DB.Todo, 'todoId'>,
-  DB.Todo & {}
+  DB.Todo
 >(async (
-  { kysely},
+  { kysely },
   { todoId }
 ) => {
   return await kysely

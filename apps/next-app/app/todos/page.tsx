@@ -1,7 +1,7 @@
 import { TodosCard } from '@/components/TodosCard'
 import { pikku} from '@/pikku-nextjs.gen'
 import { AlreadyVotedError } from '@pikku-workspace-starter/functions/src/errors'
-import { UpdateTodoInput, VoteOnTodoInput } from '@pikku-workspace-starter/sdk/.pikku/routes-map.gen'
+import { UpdateTodoInput, VoteOnTodoInput } from '@pikku-workspace-starter/sdk/.pikku/routes-map.gen.d'
 import { revalidatePath } from 'next/cache'
 
 async function addTodo(text: string) {
