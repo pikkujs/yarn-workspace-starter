@@ -1,8 +1,7 @@
 import { authAPIKey, authCookie, UnauthorizedError, addMiddleware } from "@pikku/core"
-import { SingletonServices, UserSession } from "./application-types.js"
 
 export const apiKeyMiddleware = () => {
-    return authAPIKey<SingletonServices, UserSession>({
+    return authAPIKey<any, any>({
         source: 'all',
         getSessionForAPIKey: async (services, apiKey) => {
             return services.kysely
@@ -15,7 +14,7 @@ export const apiKeyMiddleware = () => {
 }
 
 export const cookieMiddleware = () => {
-    return authCookie<SingletonServices, UserSession>(
+    return authCookie(
         {
             name: 'pikku:session',
             jwt: true,

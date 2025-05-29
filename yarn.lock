@@ -2815,9 +2815,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@pikku/cli@npm:^0.7.6":
-  version: 0.7.6
-  resolution: "@pikku/cli@npm:0.7.6"
+"@pikku/cli@npm:^0.7.7":
+  version: 0.7.7
+  resolution: "@pikku/cli@npm:0.7.7"
   dependencies:
     "@openapi-contrib/json-schema-to-openapi-schema": "npm:^3.0.2"
     "@pikku/core": "npm:^0.7.8"
@@ -2834,7 +2834,7 @@ __metadata:
     yaml: "npm:^2.6.0"
   bin:
     pikku: dist/bin/pikku.js
-  checksum: 10/6ec9772a4fa724bde227ed4a368323d0c9373c254f10c09f9893d4af3f7dc6fc70236ac045d57d659ea2fcd75f0d840aa1612ae6ab7b3accf67138602df708a0
+  checksum: 10/a16bac06980100932896f436b2121fe15f218e1dc9900ef33455fba0c56778c6b15a44e7bdce80d58a5e512029314d717b1b3581b3e86f537227d3bc9487aed1
   languageName: node
   linkType: hard
 
@@ -7385,7 +7385,7 @@ __metadata:
     "@aws-sdk/client-secrets-manager": "npm:^3.787.0"
     "@pikku-workspace-starter/functions": "workspace:0.0.0"
     "@pikku/aws-services": "npm:^0.7.0"
-    "@pikku/cli": "npm:^0.7.6"
+    "@pikku/cli": "npm:^0.7.7"
     kysely: "npm:^0.27.5"
     kysely-codegen: "npm:^0.16.6"
     postgres-migrations: "npm:^5.3.0"
