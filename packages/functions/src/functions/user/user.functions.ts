@@ -1,5 +1,5 @@
 import { DB } from '@pikku-workspace-starter/sdk'
-import type { UserSession } from '@pikku-workspace-starter/functions/src/application-types.js'
+import type { UserSession } from '../../application-types.js'
 import { pikkuSessionlessFunc } from '#pikku/pikku-types.gen.js'
 
 export const loginUser = pikkuSessionlessFunc<
@@ -23,7 +23,7 @@ export const loginUser = pikkuSessionlessFunc<
   
   services.userSession?.set(session)
 
-  return session
+  return session!
 })
 
 export const logoutUser = pikkuSessionlessFunc<void, void>(async (

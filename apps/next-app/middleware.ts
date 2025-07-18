@@ -1,9 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getSession } from '@pikku/next/pikku-session'
 import { apiKeyMiddleware, cookieMiddleware } from '@pikku-workspace-starter/functions/src/middleware'
-import type { UserSession } from '@pikku-workspace-starter/functions/src/application-types'
+import type { UserSession } from '@pikku-workspace-starter/functions/src/application-types.d.js'
 import { JoseJWTService } from '@pikku/jose'
-import { use } from 'react'
 
 // 1. Specify protected and public routes
 const protectedRoutes = ['/todos']

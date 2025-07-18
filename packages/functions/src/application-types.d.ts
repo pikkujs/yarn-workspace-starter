@@ -31,6 +31,8 @@ export interface SingletonServices extends CoreSingletonServices<Config> {
   jwt: JoseJWTService
   kysely: Kysely<KyselyDB.DB>
   subscriptionService?: SubscriptionService
+  secrets: SecretService
+  eventHub?: EventHubService
 }
 
 export interface Services extends CoreServices<SingletonServices, UserSession> {

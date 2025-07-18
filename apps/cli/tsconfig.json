@@ -2,7 +2,7 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "types": ["node"],
-    "module": "node16",
+    "module": "node18",
     "moduleResolution": "node16",
     "noEmit": true,
     "skipLibCheck": true,

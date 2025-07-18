@@ -34,5 +34,4 @@ export const fetch = async (serverUrl: string, apiKey?: string) => {
     todoId: todos[0].todoId,
     vote: DB.Vote.UP
   })
-
 }

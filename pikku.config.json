@@ -11,6 +11,7 @@
     "packages/sdk": "@pikku-workspace-starter/sdk",
     "packages/functions": "@pikku-workspace-starter/functions"
   },
+  "supportsImportAttributes": true,
   "openAPI": {
     "outputFile": "openapi.yml",
     "additionalInfo": {

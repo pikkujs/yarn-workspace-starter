@@ -2,7 +2,7 @@
 
 import React, { FormEventHandler, PropsWithChildren, useCallback } from 'react'
 import { DB } from '@pikku-workspace-starter/sdk'
-import { GetTodosOutput, UpdateTodoInput, VoteOnTodoInput } from '@pikku-workspace-starter/functions/.pikku/pikku-http-routes-map.gen'
+import { GetTodosOutput, UpdateTodoInput, VoteOnTodoInput } from '@pikku-workspace-starter/functions/.pikku/http/pikku-http-routes-map.gen'
 
 export const TodoHeader = () => {
   return (

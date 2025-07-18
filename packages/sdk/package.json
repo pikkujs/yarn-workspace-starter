@@ -17,8 +17,8 @@
     "ncu": "ncu"
   },
   "dependencies": {
-    "@pikku/fetch": "^0.7.0",
-    "@pikku/websocket": "^0.7.0"
+    "@pikku/fetch": "^0.8.0",
+    "@pikku/websocket": "^0.8.0"
   },
   "devDependencies": {
     "typescript": "^5.6"
