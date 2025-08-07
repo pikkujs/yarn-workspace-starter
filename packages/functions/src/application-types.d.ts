@@ -4,7 +4,8 @@ import type {
   CoreSingletonServices,
   CoreUserSession,
   LogLevel,
-  SecretService
+  SecretService,
+  EventHubService
 } from '@pikku/core'
 import type { Kysely } from 'kysely'
 import type { KyselyDB } from '@pikku-workspace-starter/sdk'
@@ -13,6 +14,7 @@ import { SQLConfig } from './config.js'
 
 export interface UserSession extends CoreUserSession {
   userId: string
+  apiKey: string
 }
 
 export interface Config extends CoreServerConfig {
@@ -30,7 +32,6 @@ export interface Config extends CoreServerConfig {
 export interface SingletonServices extends CoreSingletonServices<Config> {
   jwt: JoseJWTService
   kysely: Kysely<KyselyDB.DB>
-  subscriptionService?: SubscriptionService
   secrets: SecretService
   eventHub?: EventHubService
 }

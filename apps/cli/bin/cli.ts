@@ -1,5 +1,6 @@
 import { websocket } from './websocket.js'
 import { fetch } from './fetch.js'
+import { rpc } from './rpc.js'
 
 const main = async () => {
   let apiKey: string | undefined
@@ -30,6 +31,10 @@ const main = async () => {
 
   if (process.argv.includes('--fetch')) {
     await fetch(serverUrl, apiKey)
+  }
+
+  if (process.argv.includes('--rpc')) {
+    await rpc(serverUrl, apiKey)
   }
 }
 
