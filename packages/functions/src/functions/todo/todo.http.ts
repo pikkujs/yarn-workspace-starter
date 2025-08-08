@@ -10,9 +10,9 @@ import {
   createTodo,
   voteOnTodo,
 } from './todo.functions.js'
-import { addHTTPRoute } from '#pikku/pikku-types.gen.js'
+import { wireHTTP } from '#pikku/pikku-types.gen.js'
 
-addHTTPRoute({
+wireHTTP({
   method: 'get',
   route: '/todos',
   func: getTodos,
@@ -24,7 +24,7 @@ addHTTPRoute({
   },
 })
 
-addHTTPRoute({
+wireHTTP({
   method: 'get',
   route: '/todo/:todoId',
   func: getTodo,
@@ -39,14 +39,14 @@ addHTTPRoute({
   },
 })
 
-addHTTPRoute({
+wireHTTP({
   method: 'get',
   route: '/todo',
   func: getTodo,
   auth: false,
 })
 
-addHTTPRoute({
+wireHTTP({
   method: 'post',
   route: '/todo',
   func: createTodo,
@@ -55,7 +55,7 @@ addHTTPRoute({
   },
 })
 
-addHTTPRoute({
+wireHTTP({
   method: 'patch',
   route: '/todo/:todoId',
   func: updateTodo,
@@ -64,7 +64,7 @@ addHTTPRoute({
   },
 })
 
-addHTTPRoute({
+wireHTTP({
   method: 'delete',
   route: '/todo/:todoId',
   func: deleteTodo,
@@ -73,7 +73,7 @@ addHTTPRoute({
   },
 })
 
-addHTTPRoute({
+wireHTTP({
   method: 'post',
   route: '/todo/:todoId/vote',
   func: voteOnTodo,

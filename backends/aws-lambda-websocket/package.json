@@ -15,22 +15,22 @@
   },
   "dependencies": {
     "@pikku-workspace-starter/functions": "workspace:0.0.0",
-    "@pikku/aws-services": "^0.8.0",
-    "@pikku/core": "^0.8.2",
-    "@pikku/kysely": "^0.8.0",
-    "@pikku/lambda": "^0.8.0",
-    "@types/aws-lambda": "^8.10.146",
+    "@pikku/aws-services": "^0.9.1",
+    "@pikku/core": "^0.9.1",
+    "@pikku/kysely": "^0.9.1",
+    "@pikku/lambda": "^0.9.1",
+    "@types/aws-lambda": "^8.10.152",
     "tslib": "^2.8.1"
   },
   "devDependencies": {
-    "@aws-sdk/client-apigatewaymanagementapi": "^3.714.0",
-    "@aws-sdk/client-secrets-manager": "^3.714.0",
-    "@aws-sdk/cloudfront-signer": "^3.734.0",
-    "@types/node": "^22",
-    "esbuild": "^0.24.0",
-    "serverless-esbuild": "^1.54.6",
+    "@aws-sdk/client-apigatewaymanagementapi": "^3.863.0",
+    "@aws-sdk/client-secrets-manager": "^3.863.0",
+    "@aws-sdk/cloudfront-signer": "^3.862.0",
+    "@types/node": "^24",
+    "esbuild": "^0.25.8",
+    "serverless-esbuild": "^1.55.1",
     "serverless-offline": "^14.4.0",
-    "tsx": "^4.19.2",
-    "typescript": "^5.7"
+    "tsx": "^4.20.3",
+    "typescript": "^5.9"
   }
 }

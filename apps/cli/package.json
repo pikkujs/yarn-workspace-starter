@@ -5,16 +5,17 @@
   "type": "module",
   "scripts": {
     "ncu": "ncu",
-    "start": "tsx bin/cli.ts",
+    "start": "tsx bin/cli.ts --websocket --fetch --rpc",
     "start:websocket": "tsx bin/cli.ts --websocket",
     "start:fetch": "tsx bin/cli.ts --fetch",
-    "prebuild": "npx @pikku/cli fetch && npx @pikku/cli websocket"
+    "start:rpc": "tsx bin/cli.ts --rpc",
+    "prebuild": "npx @pikku/cli fetch && npx @pikku/cli websocket && npx @pikku/cli rpc"
   },
   "dependencies": {
     "@pikku-workspace-starter/sdk": "*",
-    "tsx": "^4.19.2"
+    "tsx": "^4.20.3"
   },
   "devDependencies": {
-    "@types/node": "^22"
+    "@types/node": "^24"
   }
 }
