@@ -1,7 +1,7 @@
 import { DB } from '@pikku-workspace-starter/sdk'
-import { APIPermission } from '../.pikku/pikku-types.gen.js'
+import { PikkuPermission } from '../.pikku/pikku-types.gen.js'
 
-export const isUserUpdatingSelf: APIPermission<Pick<DB.User, 'userId'>> = async (
+export const isUserUpdatingSelf: PikkuPermission<Pick<DB.User, 'userId'>> = async (
   _services,
   data,
   session
@@ -9,7 +9,7 @@ export const isUserUpdatingSelf: APIPermission<Pick<DB.User, 'userId'>> = async 
   return session?.userId !== data.userId
 }
 
-export const isTodoCreator: APIPermission<Pick<DB.Todo, 'todoId'>> = async (
+export const isTodoCreator: PikkuPermission<Pick<DB.Todo, 'todoId'>> = async (
   services,
   { todoId },
   session

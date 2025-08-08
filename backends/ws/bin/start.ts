@@ -5,7 +5,7 @@ import {
   createSingletonServices,
 } from '@pikku-workspace-starter/functions/src/services'
 
-import '@pikku-workspace-starter/functions/.pikku/pikku-bootstrap.gen'
+import '@pikku-workspace-starter/functions/.pikku/pikku-bootstrap.gen.js'
 import { Server } from 'http'
 import { WebSocketServer } from 'ws'
 
