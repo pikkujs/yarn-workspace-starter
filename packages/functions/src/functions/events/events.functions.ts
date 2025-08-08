@@ -25,7 +25,7 @@ export const authenticate = pikkuChannelFunc<
 >(async ({ userSession }, data) => {
   const authResult = data.token === 'valid'
   if (authResult) {
-    await userSession?.set({ userId: data.userId })
+    await userSession?.set({ userId: data.userId, apiKey: 'random' })
   }
   return { authResult, action: 'auth' }
 })

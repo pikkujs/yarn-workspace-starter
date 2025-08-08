@@ -13,9 +13,9 @@
   },
   "dependencies": {
     "@pikku-workspace-starter/sdk": "*",
-    "tsx": "^4.19.2"
+    "tsx": "^4.20.3"
   },
   "devDependencies": {
-    "@types/node": "^22"
+    "@types/node": "^24"
   }
 }

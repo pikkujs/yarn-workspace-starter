@@ -1,4 +1,4 @@
-import { addChannel } from '../../../.pikku/pikku-types.gen.js'
+import { wireChannel } from '../../../.pikku/pikku-types.gen.js'
 import {
   onConnect,
   onMessage,
@@ -9,7 +9,7 @@ import {
   authenticate,
 } from './events.functions.js'
 
-addChannel({
+wireChannel({
   // The channel name, this is used to identify the channel with types in the client
   // and needs to be unique
   name: 'events',
@@ -25,7 +25,7 @@ addChannel({
   auth: true,
   // The default message handler to use if no route is matched
   onMessage,
-  onMessageRoute: {
+  onMessageWiring: {
     // We provide different examples of ways
     // to register functions
     action: {
