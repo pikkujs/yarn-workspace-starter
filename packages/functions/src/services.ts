@@ -3,7 +3,6 @@ import type {
   CreateSessionServices,
 } from '@pikku/core'
 import type { KyselyDB } from '@pikku-workspace-starter/sdk' 
-import { PikkuKysely } from '@pikku/kysely'
 import {
   ConsoleLogger,
   LocalSecretService,
@@ -20,6 +19,8 @@ import { JoseJWTService } from '@pikku/jose'
 import { CFWorkerSchemaService } from '@pikku/schema-cfworker'
 import { getDatabaseConfig } from './config.js'
 import './middleware.js'
+
+import { singletonServices } from '../.pikku/pikku-services.gen.js'
 
 export const createSingletonServices: CreateSingletonServices<
   Config,
@@ -59,17 +60,22 @@ export const createSingletonServices: CreateSingletonServices<
     logger
   )
 
-  // Get the connection
-  const postgresConfig = await getDatabaseConfig(
-    variables,
-    secrets,
-    config.secrets.postgresCredentials,
-    config.sql
-  )
+  let kysely
+  if (singletonServices.kysely) {
+    // Get the connection
+    const postgresConfig = await getDatabaseConfig(
+      variables,
+      secrets,
+      config.secrets.postgresCredentials,
+      config.sql
+    )
 
-  const pikkuKysely = new PikkuKysely<KyselyDB.DB>(logger, postgresConfig, 'app')
-  await pikkuKysely.init()
-  const kysely = pikkuKysely.kysely
+    const { PikkuKysely } = await import('@pikku/kysely')
+    const pikkuKysely = new PikkuKysely<KyselyDB.DB>(logger, postgresConfig, 'app')
+    await pikkuKysely.init()
+    kysely = pikkuKysely.kysely
+  }
+
 
   return {
     config,
