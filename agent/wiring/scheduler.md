@@ -6,7 +6,7 @@ The Scheduler adapter is responsible for:
 - Registering cron-like schedules.
 - Invoking your exported function on schedule.
 
-> Observability (logging/metrics/retries) is **not automatic**. Attach a **PikkuMiddleware** either per-schedule or globally (see `addSchedulerMiddlware` below).
+> Observability (logging/metrics/retries) is **not automatic**. Attach a **PikkuMiddleware** either per-schedule or globally (see `addSchedulerMiddleware` below).
 
 Domain logic stays **entirely** in `packages/functions/src/functions/**/*.function.ts`.
 
@@ -30,7 +30,7 @@ packages/functions/src/housekeeping.schedule.ts
 
 ## Allowed imports in scheduler wiring files
 
-- `wireScheduler`, `addSchedulerMiddlware` from `./pikku-types.gen.ts`
+- `wireScheduler`, `addSchedulerMiddleware` from `./pikku-types.gen.ts`
 - Exported Pikku functions from `./functions/**/*.function.ts`
 - **Middleware** from `./middleware.ts` (logging/metrics/retry policies)
 - Optional `config` for cron strings or feature flags
@@ -84,15 +84,15 @@ wireScheduler({
 
 ### Global middleware for all schedules
 
-Use `addSchedulerMiddlware` (global hook).
+Use `addSchedulerMiddleware` (global hook).
 
 ```ts
 // packages/functions/src/scheduler-bootstrap.schedule.ts
-import { addSchedulerMiddlware } from './pikku-types.gen.js'
+import { addSchedulerMiddleware } from './pikku-types.gen.js'
 import { withSchedulerMetrics } from './middleware.js'
 import { withRetry } from './middleware.js'
 
-addSchedulerMiddlware([withSchedulerMetrics, withRetry])
+addSchedulerMiddleware([withSchedulerMetrics, withRetry])
 ```
 
 > Order matters: middlewares run in array order (outer → inner), then your job.
@@ -202,4 +202,4 @@ wireScheduler({
 * [ ] Cron job functions use `pikkuVoidFunc` (`pikkuFuncSessionless<void, void>`).
 * [ ] Cron expressions are explicit or sourced from config.
 * [ ] If grouping, only scheduler wirings in the file (no mixed transports).
-* [ ] If observability is required, attach **per-schedule middleware** and/or global `addSchedulerMiddlware([...])`.
+* [ ] If observability is required, attach **per-schedule middleware** and/or global `addSchedulerMiddleware([...])`.

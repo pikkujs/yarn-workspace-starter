@@ -43,11 +43,14 @@ export const doThing = pikkuFunc<In, Out>({
 })
 ```
 
-**No manual auth presence checks.** Rely on `auth: true` and permissions/middleware. Use `session` only for business rules (e.g., scoping).
+**No manual auth presence checks.**
+Rely on `auth: true` and permissions/middleware. Use `session` only for business rules (e.g., scoping).
 
-**Errors are thrown, not returned.** Use classes that extend `PikkuError`, with clear messages.
+**Errors are thrown, not returned.**
+Use classes that extend `PikkuError`, with clear messages.
 
-**Cross-function calls** must go through `rpc.invoke('<ExactExportName or name override>', input)`. Do **not** import another exported Pikku function directly.
+**Cross-function calls** must go through `rpc.invoke('<ExactExportName or name override>', input)`.
+Do **not** import another exported Pikku function directly.
 
 ---
 
@@ -93,7 +96,7 @@ import type {
   UserSession,
 } from './application-types.js'
 
-import { InMemoryStore } from './services/store.js' // class/interface, Pikku-agnostic
+import { InMemoryStore } from './services/store.js'
 
 export const createSingletonServices: CreateSingletonServices<
   Config,
@@ -111,8 +114,6 @@ export const createSessionServices: CreateSessionServices<
   return {} as Services
 }
 ```
-
-**Service modules** (in `services/**`) must not import `@pikku/*`. Only `services.ts` wires them.
 
 ---
 
@@ -145,7 +146,7 @@ export class ConflictError extends PikkuError {}
 export class ForbiddenError extends PikkuError {}
 ```
 
-Throw with a clear message e.g.:
+Throw with a clear message:
 
 ```ts
 throw new NotFoundError('Card not found error')
@@ -172,7 +173,7 @@ Attach to a function:
 ```ts
 export const updateResource = pikkuFunc<In, Out>({
   func: async ({ repo }, data, session) => { /* ... */ },
-  permissions: { default: [requireOwner] }, // or a single PikkuPermission
+  permissions: { default: [requireOwner] },
 })
 ```
 
@@ -197,45 +198,102 @@ export const audit: PikkuMiddleware = async ({ userSession, logger }, interactio
 }
 ```
 
+**Queue audit middleware example:**
+
+```ts
+export const withJobAudit: PikkuMiddleware = async ({ logger }, interaction, next) => {
+  const t0 = Date.now()
+  try {
+    await next()
+    logger?.info?.('queue.audit', { route: interaction.route, ms: Date.now() - t0 })
+  } catch (e) {
+    logger?.warn?.('queue.audit.fail', {
+      route: interaction.route,
+      ms: Date.now() - t0,
+      error: e instanceof Error ? e.message : String(e),
+    })
+    throw e
+  }
+}
+```
+
 ---
 
 ## userSession
 
-* Set session attributes inside **any** protocol using the `userSession` service; persistence is handled by middleware (e.g., cookie for HTTP).
-* Do **not** manually check for session presence in functions. Rely on `auth` and permissions.
+* Set session attributes inside **any** protocol using the `userSession` service.
+* Persistence is handled by middleware (e.g., cookies for HTTP).
+* Do **not** manually check for session presence in functions. Use `auth` and permissions.
 
-**HTTP login example (sets session):**
+---
+
+## EventHub Service (transport-agnostic pub/sub)
+
+Use **EventHub** for topic-based fan-out across **channels, SSE, queues, or internal events**.
 
 ```ts
-// packages/functions/src/functions/login.function.ts
-import { pikkuFuncSessionless } from '@pikku/core'
-import { ForbiddenError } from '../errors.js'
+export interface EventHubService<Topics extends Record<string, any>> {
+  /**
+   * Subscribes a connection to a specific topic.
+   */
+  subscribe<T extends keyof Topics>(topic: T, channelId: string): Promise<void> | void
 
-type In  = { email: string; password: string }
-type Out = { ok: true }
+  /**
+   * Unsubscribes a connection from a specific topic.
+   */
+  unsubscribe<T extends keyof Topics>(topic: T, channelId: string): Promise<void> | void
 
-export const login = pikkuFuncSessionless<In, Out>({
-  auth: false,
-  expose: true,
-  func: async ({ authService, userSession }, data) => {
-    const user = await authService.verifyPassword(data.email, data.password)
-    if (!user) throw new ForbiddenError('Invalid credentials')
-    await userSession?.set({ userId: user.id, roles: user.roles })
-    return { ok: true }
+  /**
+   * Sends data to subscribers of a topic.
+   * `channelId` may be used by adapters to exclude a single connection (or target one).
+   * Pass `null` to broadcast to all subscribers.
+   */
+  publish<T extends keyof Topics>(
+    topic: T,
+    channelId: string | null,
+    data: Topics[T],
+    isBinary?: boolean
+  ): Promise<void> | void
+}
+```
+
+**Notes**
+
+* `channelId` is a **connection handle**; not WS-only. SSE implementations may expose IDs too.
+* Use `null` for `channelId` to broadcast to **all** subscribers.
+* Behavior for “exclude this sender” vs “target this ID” is adapter-specific—document your service semantics.
+
+**Typical usage (channel context):**
+
+```ts
+// Subscribe current connection
+await eventHub.subscribe(topic, channel.channelId)
+
+// Unsubscribe current connection
+await eventHub.unsubscribe(topic, channel.channelId)
+
+// Broadcast to all
+await eventHub.publish(topic, null, payload)
+
+// Broadcast to everyone except current connection (if supported)
+await eventHub.publish(topic, channel.channelId, payload)
+```
+
+**Typical usage (HTTP + SSE, progressive enhancement):**
+
+```ts
+export const status = pikkuFuncSessionless<void, { state: string }>({
+  func: async ({ channel, eventHub }) => {
+    if (channel) {
+      await eventHub.subscribe('status', channel.channelId)
+      // Later, elsewhere: await eventHub.publish('status', null, { state: 'updated' })
+    }
+    return { state: 'initial' }
   },
 })
 ```
 
-**Middleware persists session (e.g., cookie):**
-
-```ts
-// packages/functions/src/middleware.ts
-export const persistSession: PikkuMiddleware = async ({ userSession }, interaction, next) => {
-  await next()
-  const session = await userSession.get()
-  interaction.setCookie?.('pikku_session', session, { httpOnly: true, sameSite: 'lax' })
-}
-```
+Keep EventHub implementation in `services/**` (Pikku-agnostic). Only **use** it from functions; do not import services into wiring files.
 
 ---
 
@@ -244,13 +302,6 @@ export const persistSession: PikkuMiddleware = async ({ userSession }, interacti
 **Read (exposed RPC):**
 
 ```ts
-// packages/functions/src/functions/get-card.function.ts
-import { pikkuFunc } from '@pikku/core'
-import { NotFoundError } from '../errors.js'
-
-type In  = { cardId: string }
-type Out = { id: string; boardId: string; columnId: string; order: number; title: string }
-
 export const getCard = pikkuFunc<In, Out>({
   expose: true,
   func: async ({ store }, data) => {
@@ -264,28 +315,18 @@ export const getCard = pikkuFunc<In, Out>({
 **Mutation using RPC (no duplicate checks):**
 
 ```ts
-// packages/functions/src/functions/move-card.function.ts
-import { pikkuFunc } from '@pikku/core'
-
-type In  = { cardId: string; toColumnId: string; toOrder: number }
-type Out = { ok: true }
-
 export const moveCard = pikkuFunc<In, Out>({
-  func: async ({ store, rpc }, data, session) => {
-    const card = await rpc.invoke('getCard', { cardId: data.cardId }) // will throw NotFoundError if missing
+  func: async ({ store, rpc }, data) => {
+    const card = await rpc.invoke('getCard', { cardId: data.cardId })
     store.setCard({ ...card, columnId: data.toColumnId, order: data.toOrder })
     return { ok: true }
   },
-  permissions: {}, // add real permissions as needed
 })
 ```
 
-**Sessionless health:**
+**Sessionless health check:**
 
 ```ts
-// packages/functions/src/functions/health.function.ts
-import { pikkuFuncSessionless } from '@pikku/core'
-
 export const health = pikkuFuncSessionless<void, { status: string }>({
   auth: false,
   expose: true,
@@ -298,57 +339,54 @@ export const health = pikkuFuncSessionless<void, { status: string }>({
 
 ## Required API docs on every function
 
-Every Pikku function **must** include documentation via the `docs` field. This is used for:
-
-* Generated API documentation
-* Deployment filtering (via `tags`)
-* Static analysis of **which errors** a function can throw
-
-Recommended shared type:
+Every function **must** include `docs`:
 
 ```ts
-export type APIDocs = {
-  summary?: string;
-  description?: string;
-  tags?: string[];   // Used to filter HTTP deployment surface
-  errors?: string[]; // Names of error classes this function can throw
-};
-```
-
-Attach to functions via `docs`:
-
-```ts
-import { pikkuFunc } from '@pikku/core'
-import { NotFoundError } from '../errors.js'
-
-type GetCardIn  = { cardId: string }
-type GetCardOut = { id: string; boardId: string; columnId: string; order: number; title: string }
-
-export const getCard = pikkuFunc<GetCardIn, GetCardOut>({
-  expose: true,
-  docs: {
-    summary: 'Fetch a single card by id',
-    description: 'Returns the card and its placement metadata. Throws NotFoundError when the card does not exist.',
-    tags: ['cards', 'read'],
-    errors: ['NotFoundError'],
-  },
-  func: async ({ store }, data) => {
-    const card = store.getCard(data.cardId)
-    if (!card) throw new NotFoundError('Card not found error')
-    return card
-  },
-})
+docs: {
+  summary: 'Fetch a card',
+  description: 'Returns a card by ID',
+  tags: ['cards'],
+  errors: ['NotFoundError'],
+}
 ```
 
 ---
 
-## Review checklist (agent must enforce)
+## Review checklist
 
-* [ ] Functions live under `packages/functions/src/functions/**` and end with `.function.ts`.
-* [ ] `func` is `async` and **destructures** services in the parameter list.
+* [ ] Functions in `packages/functions/src/functions/**` with `.function.ts`.
+* [ ] Async with **destructured services**.
 * [ ] No wiring/adapters/env/globals in function files.
-* [ ] Cross-function calls use `rpc.invoke` with the **exact** exported name (or `name` override), and do **not** duplicate callee checks/errors.
-* [ ] Services are classes/interfaces in `services/**`, Pikku-agnostic; assembled only in `services.ts`.
-* [ ] `createSingletonServices` / `createSessionServices` signatures match current API.
-* [ ] Errors extend `PikkuError`, include messages; no raw `Error`/strings.
+* [ ] Cross-function calls via `rpc.invoke`.
+* [ ] Services are Pikku-agnostic, wired in `services.ts`.
+* [ ] Errors extend `PikkuError`, include messages.
 * [ ] No `any` or `@ts-ignore`.
+
+---
+
+## Code Style Rules
+
+* **Always** use `async`/`await` with `try/catch` for async flow control.
+* **Never** use `.then()` / `.catch()` for handling results or errors.
+* Only omit `try/catch` if you explicitly want the error to propagate without handling/logging.
+* This applies to **all** Pikku code — functions, services, middleware, and wiring.
+
+✅ Good
+
+```ts
+try {
+  const result = await rpc.invoke('getCard', { cardId })
+  return result
+} catch (e) {
+  logger.error('Failed to fetch card', e)
+  throw e
+}
+```
+
+❌ Bad
+
+```ts
+rpc.invoke('getCard', { cardId })
+  .then(result => result)
+  .catch(e => { logger.error('Failed to fetch card', e); throw e })
+```

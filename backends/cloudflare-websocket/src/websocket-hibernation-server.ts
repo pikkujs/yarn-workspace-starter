@@ -10,7 +10,7 @@ export class WebSocketHibernationServer extends CloudflareWebSocketHibernationSe
 	protected async getParams() {
 		if (!this.singletonServices) {
 			this.singletonServices = await setupServices(this.env);
-			this.singletonServices.subscriptionService = new CloudflareEventHubService(this.singletonServices.logger, this.ctx);
+			this.singletonServices.eventHub = new CloudflareEventHubService(this.singletonServices.logger, this.ctx);
 		}
 		return {
 			singletonServices: this.singletonServices,

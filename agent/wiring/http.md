@@ -160,6 +160,73 @@ wireHTTP({
 
 ---
 
+## Server-Sent Events (SSE) and progressive enhancement
+
+You can progressively enhance HTTP GET routes with SSE by setting `sse: true`.
+
+* Must be a `GET` route.
+* A `services.channel` is injected. For **`pikkuFunc`**, this channel is **optional**.
+* The **function’s `Out` type** is also the SSE channel message type.
+
+```ts
+// packages/functions/src/functions/progressive.function.ts
+import { pikkuFuncSessionless } from '@pikku/core'
+
+export const progressiveEnhancementExample = pikkuFuncSessionless<
+  void,
+  { state: 'initial' | 'pending' | 'done' }
+>({
+  func: async (services) => {
+    if (services?.channel) {
+      setTimeout(() => services.channel?.send({ state: 'pending' }), 2500)
+      setTimeout(() => services.channel?.send({ state: 'done' }), 5000)
+    }
+    return { state: 'initial' }
+  },
+})
+```
+
+```ts
+// packages/functions/src/status.http.ts
+import { wireHTTP } from './pikku-types.gen.js'
+import { progressiveEnhancementExample } from './functions/progressive.function.js'
+
+wireHTTP({
+  auth: false,
+  method: 'get',
+  route: '/status/http',
+  func: progressiveEnhancementExample,
+  sse: true, // GET-only; channel sends use the Out type
+})
+```
+
+---
+
+## Choosing between `pikkuFunc` and `pikkuChannelFunc`
+
+* **Progressive enhancement (HTTP + optional SSE):**
+  Use **`pikkuFunc` / `pikkuFuncSessionless`**. The channel is **optional** (`services.channel?`). Works over plain HTTP, and if SSE is enabled (`sse: true`), you can send incremental updates without breaking non-SSE clients.
+
+* **Always-realtime (channel must exist):**
+  Use **`pikkuChannelFunc`** when the function **expects a channel to always be present** (e.g., dedicated WebSocket flows, or HTTP/SSE routes where the presence of a channel is guaranteed and required). This makes the channel **required** in the function signature.
+
+* **Need both HTTP and WS:**
+  Keep business logic in a regular `pikkuFunc` and call it from your channel handler via `rpc.invoke(...)`. That avoids duplication and keeps one source of truth.
+
+Example channel handler:
+
+```ts
+import { pikkuChannelFunc } from '@pikku/core'
+
+export const handleChatMessage = pikkuChannelFunc<{ message: string }, void>({
+  func: async ({ logger, channel }, input) => {
+    logger.info('Chat message', { channelId: channel.channelId, msg: input.message })
+  },
+})
+```
+
+---
+
 ## Grouped HTTP routes in one file
 
 ```ts
@@ -191,3 +258,4 @@ wireHTTP({
 * [ ] **Every function wired has `docs` with `summary`, `description`, `tags`, and `errors`.**
 * [ ] Middleware use (`wireHTTP.middleware` or `addHTTPMiddleware`) follows scope rules.
 * [ ] If `agent.filePerWire = true`, one route per file; else grouping is same-transport only.
+* [ ] SSE routes are `GET` only; for `pikkuFunc` the channel is optional; if you require a channel, prefer `pikkuChannelFunc`.

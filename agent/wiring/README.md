@@ -179,7 +179,7 @@ import { wireChannel } from './pikku-types.gen.js'
 import { onConnect, onDisconnect, onMessage } from './functions/chat-handlers.function.js'
 
 wireChannel({
-  channel: 'chat',
+  name: 'chat',
   onConnect,
   onDisconnect,
   onMessage,
