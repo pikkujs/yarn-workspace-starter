@@ -139,19 +139,30 @@ export const createSessionServices: CreateSessionServices<SingletonServices, Ser
 ```
 
 ## Using services in functions
-Domain functions receive services as the first parameter. Destructure services and use async/await.
+Domain functions receive services as the first parameter. **ALWAYS destructure services directly in the function parameter list**, never inside the function body.
 
-**Correct (simple read uses a service directly):**
+**Correct (services destructured in parameter list):**
 ```ts
-import { pikkuFunc } from '@pikku/core'
+import { pikkuFunc } from '#pikku/pikku-types.gen.js'
 
 export const getCard = pikkuFunc<{ cardId: string }, Card>({
   docs: { summary: 'Fetch a card', description: 'Returns a card by ID', tags: ['cards'], errors: ['NotFoundError'] },
-  func: async ({ store, logger }, { cardId }) => {
+  func: async ({ store, logger }, { cardId }) => { // ✅ CORRECT: Services destructured here
     const card = await store.getCard(cardId)
     if (!card) throw new NotFoundError('Card not found')
     logger.info('cards.get', { cardId })
     return card
+  },
+})
+```
+
+**WRONG (services destructured inside function body):**
+```ts
+export const getCard = pikkuFunc<{ cardId: string }, Card>({
+  docs: { summary: 'Fetch a card', errors: ['NotFoundError'] },
+  func: async (services, { cardId }) => { // ❌ WRONG: services not destructured
+    const { store, logger } = services // ❌ WRONG: destructuring inside function body
+    // ... rest of function
   },
 })
 ```
@@ -181,6 +192,7 @@ In most deployments, **EventHub** is provided by the runtime/adapter (uWS, AWS, 
 - Prefer stubbing services over mocking function internals.
 
 ## Anti‑patterns
+- **CRITICAL**: Destructuring services inside function body instead of parameter list: `(services, data) => { const { kysely } = services }`
 - Importing services inside **wiring** (HTTP/Channel/Queue/Scheduler/MCP). Wiring must remain adapter‑only.
 - Reading environment variables directly inside functions; use `variables`/`secrets` services.
 - Returning error objects instead of throwing domain/Pikku errors.
@@ -188,6 +200,7 @@ In most deployments, **EventHub** is provided by the runtime/adapter (uWS, AWS, 
 - Calling trivial functions via `rpc.invoke()` when a service call suffices.
 
 ## PR / CI checklist
+- [ ] **CRITICAL**: Services are destructured in function parameter list, never inside function body: `({ kysely }, data) =>` NOT `(services, data) => { const { kysely } = services }`
 - [ ] Optional services **MUST** be gated with `singletonServices['serviceName']` and dynamically imported **inside** the guard.
 - [ ] `rpc.invoke()` is used **only** for non‑trivial, reusable domain functions; simple CRUD uses services directly.
 - [ ] `services/**` is framework‑agnostic by default; any `@pikku/*` usage is documented and minimal.

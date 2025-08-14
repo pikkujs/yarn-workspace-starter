@@ -1,6 +1,7 @@
 import type {
   CreateSingletonServices,
   CreateSessionServices,
+  EventHubService,
 } from '@pikku/core'
 import type { KyselyDB } from '@pikku-workspace-starter/sdk' 
 import {
@@ -21,6 +22,7 @@ import { getDatabaseConfig } from './config.js'
 import './middleware.js'
 
 import { singletonServices } from '../.pikku/pikku-services.gen.js'
+import { Kysely } from 'kysely'
 
 export const createSingletonServices: CreateSingletonServices<
   Config,
@@ -60,7 +62,7 @@ export const createSingletonServices: CreateSingletonServices<
     logger
   )
 
-  let kysely
+  let kysely: Kysely<KyselyDB.DB> | undefined
   if (singletonServices.kysely) {
     // Get the connection
     const postgresConfig = await getDatabaseConfig(
@@ -76,6 +78,9 @@ export const createSingletonServices: CreateSingletonServices<
     kysely = pikkuKysely.kysely
   }
 
+  let eventHub: EventHubService<any> = {} as any
+  if (singletonServices.eventHub) {
+  }
 
   return {
     config,
@@ -84,7 +89,8 @@ export const createSingletonServices: CreateSingletonServices<
     schema,
     logger,
     jwt,
-    kysely,
+    kysely: kysely!,
+    eventHub,
   }
 }
 

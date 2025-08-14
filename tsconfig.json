@@ -23,6 +23,6 @@
       "@pikku-workspace-starter/sdk/*": ["./packages/sdk/*"]
     }
   },
-  "include": ["**/.pikku/*.ts"],
+  "include": ["**/.pikku/*.ts", "**/.generated/*.ts", "**/.generated/*.d.ts"],
   "exclude": ["node_modules", "**/*.spec.ts", "apps/next-app/.next"]
 }

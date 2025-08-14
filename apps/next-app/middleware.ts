@@ -5,7 +5,7 @@ import type { UserSession } from '@pikku-workspace-starter/functions/src/applica
 import { JoseJWTService } from '@pikku/jose'
 
 // 1. Specify protected and public routes
-const protectedRoutes = ['/todos']
+const protectedRoutes = ['/restaurant']
 const publicRoutes = ['/login', '/']
 
 const jwt = new JoseJWTService(async () => [
@@ -43,13 +43,13 @@ export default async function middleware(req: NextRequest) {
     return NextResponse.redirect(new URL('/login', req.nextUrl))
   }
 
-  // 5. Redirect to /todos if the user is authenticated
+  // 5. Redirect to /restaurant if the user is authenticated
   if (
     isPublicRoute &&
     userSession?.userId &&
-    !req.nextUrl.pathname.startsWith('/todos')
+    !req.nextUrl.pathname.startsWith('/restaurant')
   ) {
-    return NextResponse.redirect(new URL('/todos', req.nextUrl))
+    return NextResponse.redirect(new URL('/restaurant', req.nextUrl))
   }
 
   return NextResponse.next()

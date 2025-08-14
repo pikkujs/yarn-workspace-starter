@@ -12,9 +12,12 @@ import type { KyselyDB } from '@pikku-workspace-starter/sdk'
 import type { JoseJWTService } from '@pikku/jose'
 import { SQLConfig } from './config.js'
 
+export type UserRole = 'client' | 'cook' | 'admin'
+
 export interface UserSession extends CoreUserSession {
   userId: string
   apiKey: string
+  role: UserRole
 }
 
 export interface Config extends CoreServerConfig {
@@ -33,9 +36,11 @@ export interface SingletonServices extends CoreSingletonServices<Config> {
   jwt: JoseJWTService
   kysely: Kysely<KyselyDB.DB>
   secrets: SecretService
-  eventHub?: EventHubService
+  eventHub: EventHubService
 }
 
 export interface Services extends CoreServices<SingletonServices, UserSession> {
-  
+  kysely: Kysely<KyselyDB.DB>
+  jwt: JoseJWTService
+  eventHub: EventHubService
 }

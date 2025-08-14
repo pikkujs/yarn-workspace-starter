@@ -30,11 +30,14 @@ pikkuFuncSessionless<In, Out>({
 
 **Rules**
 
-- Always **destructure services** in the parameter list.
-- No manual “is user authenticated?” checks; rely on `auth` (default `true`) and `permissions`/middleware.  
+- **CRITICAL**: Always **destructure services** in the function parameter list, never inside the function body. 
+  - ✅ Correct: `func: async ({ kysely, eventHub }, data) => { ... }`
+  - ❌ Wrong: `func: async (services, data) => { const { kysely } = services ... }`
+- No manual "is user authenticated?" checks; rely on `auth` (default `true`) and `permissions`/middleware.  
 - Errors are **thrown, not returned**, and must extend `PikkuError`. See `errors-and-mapping.md`.
 - Cross‑function calls must go through **`rpc.invoke('<ExactExportName>', input)`** — never import another Pikku function directly.
 - If a function is part of a public client surface, set **`expose: true`** so the generated client types include it.
+- **CRITICAL**: Always import `pikkuFunc` and `pikkuFuncSessionless` from `#pikku/pikku-types.gen.js`, never from `@pikku/core`.
 
 ---
 
@@ -154,12 +157,12 @@ await eventHub.publish(topic, channel.channelId, payload) // exclude/target (ada
 
 ## Canonical function examples
 
-**Read (exposed RPC)**
+**Read (exposed RPC) - CORRECT services destructuring**
 ```ts
 export const getCard = pikkuFunc<{ cardId: string }, Card>({
   expose: true,
   docs: { summary: 'Fetch a card', errors: ['NotFoundError'] },
-  func: async ({ store }, { cardId }) => {
+  func: async ({ store }, { cardId }) => { // ✅ Services destructured in parameter
     const card = await store.getCard(cardId)
     if (!card) throw new NotFoundError('Card not found')
     return card
@@ -167,11 +170,11 @@ export const getCard = pikkuFunc<{ cardId: string }, Card>({
 })
 ```
 
-**Mutation using RPC for orchestration**
+**Mutation using RPC for orchestration - CORRECT services destructuring**
 ```ts
 export const closeAccount = pikkuFunc<{ accountId: string }, { closed: true }>({
   docs: { summary: 'Close an account', errors: ['ForbiddenError','ConflictError'] },
-  func: async ({ rpc, audit, permissions }, { accountId }, session) => {
+  func: async ({ rpc, audit, permissions }, { accountId }, session) => { // ✅ Services destructured in parameter
     await permissions.require('accounts.close', session)
     await rpc.invoke('beginAccountClosure', { accountId })
     await rpc.invoke('flushUserSessions', { accountId })
@@ -182,13 +185,13 @@ export const closeAccount = pikkuFunc<{ accountId: string }, { closed: true }>({
 })
 ```
 
-**Sessionless health**
+**Sessionless health - CORRECT (no services needed)**
 ```ts
 export const health = pikkuFuncSessionless<void, { status: string}>({
   auth: false,
   expose: true,
   docs: { summary: 'Health check' },
-  func: async () => ({ status: 'ok' }),
+  func: async () => ({ status: 'ok' }), // ✅ No services needed
 })
 ```
 
@@ -221,13 +224,14 @@ docs: {
 ## Review checklist
 
 - [ ] Files live under `packages/functions/src/` with correct suffixes.
-- [ ] Functions are async and **destructure services**.
+- [ ] Functions are async and **destructure services IN THE PARAMETER LIST** (never inside function body).
 - [ ] No wiring/adapters/env/globals inside function files.
 - [ ] `rpc.invoke` used **only** when non‑trivial reuse is intended.
 - [ ] Services are Pikku‑agnostic by default and assembled in `services.ts`.
 - [ ] Errors extend `PikkuError` and are registered in the central registry.
 - [ ] Every function has a `docs` block.
 - [ ] No `any` or `@ts-ignore` without justification.
+- [ ] CRITICAL: Services destructuring follows correct pattern: `({ kysely }, data)` NOT `(services, data) => { const { kysely } = services }`
 
 ---
 

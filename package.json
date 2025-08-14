@@ -18,8 +18,8 @@
     "dbmigrate": "tsx scripts/db-migrate.ts",
     "pikku": "pikku all && yarn workspaces foreach -p -A run pikku",
     "pikku:watch": "pikku all --watch",
-    "kysely": "DATABASE_URL=postgres://postgres:password@localhost/pikku_workspace_starter kysely-codegen --camel-case --schema app --runtime-enums --out-file ./packages/sdk/.generated/database-kysely-types.ts",
-    "kysely-pure": "./node_modules/.bin/pikku-kysely-pure packages/sdk/.generated/database-types-pure.ts packages/sdk/.generated/database-kysely-types.ts",
+    "kysely": "DATABASE_URL=postgres://postgres:password@localhost/pikku_workspace_starter kysely-codegen --camel-case --schema app --out-file ./packages/sdk/.generated/database-kysely-types.d.ts",
+    "kysely-pure": "./node_modules/.bin/pikku-kysely-pure packages/sdk/.generated/database-types-pure.d.ts packages/sdk/.generated/database-kysely-types.d.ts",
     "prebuild": "yarn run dbmigrate && yarn run kysely && yarn run kysely-pure && yarn run pikku && yarn workspaces foreach -p -A run prebuild",
     "verify": "yarn run tsc",
     "lint": "npx oxlint@latest",
@@ -31,8 +31,8 @@
   },
   "devDependencies": {
     "@pikku-workspace-starter/functions": "workspace:0.0.0",
-    "@pikku/cli": "^0.9.1",
-    "kysely": "^0.27.5",
+    "@pikku/cli": "^0.9.2",
+    "kysely": "^0.28.5",
     "kysely-codegen": "^0.16.6",
     "postgres-migrations": "^5.3.0",
     "prettier": "^3.3.3",
@@ -41,11 +41,42 @@
   },
   "dependencies": {
     "@aws-sdk/client-secrets-manager": "^3.787.0",
-    "@pikku/aws-services": "^0.9.1"
+    "@pikku/aws-services": "^0.9.2"
   },
   "lint-staged": {},
   "packageManager": "yarn@4.9.2",
   "engines": {
     "node": ">=18"
+  },
+  "resolutions": {
+    "@pikku/cli": "portal:/Users/yasser/git/pikku/pikku/packages/cli",
+    "@pikku/fetch": "portal:/Users/yasser/git/pikku/pikku/packages/client-fetch",
+    "@pikku/websocket": "portal:/Users/yasser/git/pikku/pikku/packages/client-websocket",
+    "@pikku/core": "portal:/Users/yasser/git/pikku/pikku/packages/core",
+    "create-pikku": "portal:/Users/yasser/git/pikku/pikku/packages/create",
+    "@pikku/inspector": "portal:/Users/yasser/git/pikku/pikku/packages/inspector",
+    "pikku": "portal:/Users/yasser/git/pikku/pikku/packages/pikku",
+    "@pikku/lambda": "portal:/Users/yasser/git/pikku/pikku/packages/runtimes/aws-lambda",
+    "@pikku/azure-functions": "portal:/Users/yasser/git/pikku/pikku/packages/runtimes/azure-functions",
+    "@pikku/cloudflare": "portal:/Users/yasser/git/pikku/pikku/packages/runtimes/cloudflare",
+    "@pikku/express-middleware": "portal:/Users/yasser/git/pikku/pikku/packages/runtimes/express-middleware",
+    "@pikku/express": "portal:/Users/yasser/git/pikku/pikku/packages/runtimes/express-server",
+    "@pikku/fastify-plugin": "portal:/Users/yasser/git/pikku/pikku/packages/runtimes/fastify-plugin",
+    "@pikku/fastify": "portal:/Users/yasser/git/pikku/pikku/packages/runtimes/fastify-server",
+    "@pikku/modelcontextprotocol": "portal:/Users/yasser/git/pikku/pikku/packages/runtimes/modelcontextprotocol",
+    "@pikku/next": "portal:/Users/yasser/git/pikku/pikku/packages/runtimes/next",
+    "@pikku/uws-handler": "portal:/Users/yasser/git/pikku/pikku/packages/runtimes/uws-handler",
+    "@pikku/uws": "portal:/Users/yasser/git/pikku/pikku/packages/runtimes/uws-server",
+    "@pikku/ws": "portal:/Users/yasser/git/pikku/pikku/packages/runtimes/ws",
+    "@pikku/schedule": "portal:/Users/yasser/git/pikku/pikku/packages/schedule",
+    "@pikku/aws-services": "portal:/Users/yasser/git/pikku/pikku/packages/services/aws-services",
+    "@pikku/jose": "portal:/Users/yasser/git/pikku/pikku/packages/services/jose",
+    "@pikku/kysely": "portal:/Users/yasser/git/pikku/pikku/packages/services/kysely",
+    "@pikku/pino": "portal:/Users/yasser/git/pikku/pikku/packages/services/pino",
+    "@pikku/queue-bullmq": "portal:/Users/yasser/git/pikku/pikku/packages/services/queue-bullmq",
+    "@pikku/queue-pg-boss": "portal:/Users/yasser/git/pikku/pikku/packages/services/queue-pg-boss",
+    "@pikku/schema-ajv": "portal:/Users/yasser/git/pikku/pikku/packages/services/schema-ajv",
+    "@pikku/schema-cfworker": "portal:/Users/yasser/git/pikku/pikku/packages/services/schema-cfworker",
+    "@pikku/templates-mcp-server": "portal:/Users/yasser/git/pikku/pikku/templates/mcp-server"
   }
 }

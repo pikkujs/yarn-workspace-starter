@@ -1,46 +1,67 @@
-import { DB } from '@pikku-workspace-starter/sdk'
-import type { UserSession } from '../../application-types.js'
+import type { UserSession, UserRole } from '../../application-types.js'
 import { pikkuSessionlessFunc } from '#pikku/pikku-types.gen.js'
 
 export const loginUser = pikkuSessionlessFunc<
-  Pick<DB.User, 'name'>,
+  { name: string; role?: UserRole },
   UserSession
->(async (services, { name }) => {
-  let session: UserSession | undefined
+>({
+  func: async ({ kysely, userSession }, { name, role = 'client' }) => {
+  let user: { userId: string; apiKey: string; role: UserRole } | undefined
   try {
-    session = await services.kysely
+    const existingUser = await kysely
       .selectFrom('user')
-      .select(['userId', 'apiKey'])
+      .select(['userId', 'apiKey', 'role'])
       .where('name', '=', name.toLowerCase())
       .executeTakeFirstOrThrow()
+    user = {
+      userId: existingUser.userId,
+      apiKey: existingUser.apiKey,
+      role: existingUser.role as UserRole
+    }
   } catch {
-    session = await services.kysely
+    const newUser = await kysely
       .insertInto('user')
-      .values({ name: name.toLowerCase() })
-      .returning(['userId', 'apiKey'])
+      .values({ name: name.toLowerCase(), role })
+      .returning(['userId', 'apiKey', 'role'])
       .executeTakeFirstOrThrow()
+    user = {
+      userId: newUser.userId,
+      apiKey: newUser.apiKey,
+      role: newUser.role as UserRole
+    }
   }
   
-  services.userSession?.set(session)
+  const session: UserSession = {
+    userId: user.userId,
+    apiKey: user.apiKey,
+    role: user.role
+  }
+  
+  userSession?.set(session)
 
-  return session!
+  return session
+  },
 })
 
-export const logoutUser = pikkuSessionlessFunc<void, void>(async (
-  services,
-  _data,
-  _session
-) => {
-  services.userSession?.clear()
+export const logoutUser = pikkuSessionlessFunc<void, void>({
+  func: async (
+    { userSession },
+    _data,
+    _session
+  ) => {
+    userSession?.clear()
+  },
 })
 
-export const updateUser = pikkuSessionlessFunc<Pick<DB.User, 'userId' | 'name'>, void>(async (
-  services,
-  { userId, ...data }
-) => {
-  await services.kysely
-    .updateTable('user')
-    .set(data)
-    .where('userId', '=', userId)
-    .executeTakeFirstOrThrow()
+export const updateUser = pikkuSessionlessFunc<{ userId: string; name: string }, void>({
+  func: async (
+    { kysely },
+    { userId, name }
+  ) => {
+    await kysely
+      .updateTable('user')
+      .set({ name })
+      .where('userId', '=', userId)
+      .executeTakeFirstOrThrow()
+  },
 })

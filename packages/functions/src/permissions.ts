@@ -1,24 +1,67 @@
-import { DB } from '@pikku-workspace-starter/sdk'
+import type { UserRole } from './application-types.js'
 import { PikkuPermission } from '../.pikku/pikku-types.gen.js'
 
-export const isUserUpdatingSelf: PikkuPermission<Pick<DB.User, 'userId'>> = async (
+export const requireAdmin: PikkuPermission<any> = async (
   _services,
-  data,
+  _data,
   session
 ) => {
-  return session?.userId !== data.userId
+  return session?.role === 'admin'
 }
 
-export const isTodoCreator: PikkuPermission<Pick<DB.Todo, 'todoId'>> = async (
-  services,
-  { todoId },
+export const requireCook: PikkuPermission<any> = async (
+  _services,
+  _data,
   session
 ) => {
-  const { createdBy } = await services.kysely
-    .selectFrom('todo')
-    .select('createdBy')
-    .where('todoId', '=', todoId)
-    .executeTakeFirstOrThrow()
+  return session?.role === 'cook' || session?.role === 'admin'
+}
 
-  return session?.userId === createdBy
+export const requireClient: PikkuPermission<any> = async (
+  _services,
+  _data,
+  session
+) => {
+  return session?.role === 'client' || session?.role === 'admin'
+}
+
+export const requireCookOrAdmin: PikkuPermission<any> = async (
+  _services,
+  _data,
+  session
+) => {
+  return session?.role === 'cook' || session?.role === 'admin'
+}
+
+export const isOrderOwner: PikkuPermission<{ orderId: string }> = async (
+  { kysely },
+  { orderId },
+  session
+) => {
+  if (!session?.userId) return false
+  
+  const order = await kysely
+    .selectFrom('order')
+    .select('clientId')
+    .where('orderId', '=', orderId)
+    .executeTakeFirst()
+    
+  return order?.clientId === session.userId
+}
+
+export const canManageOrder: PikkuPermission<{ orderId: string }> = async (
+  { kysely },
+  { orderId },
+  session
+) => {
+  if (!session?.userId) return false
+  if (session.role === 'admin') return true
+  
+  const order = await kysely
+    .selectFrom('order')
+    .select(['clientId', 'cookId'])
+    .where('orderId', '=', orderId)
+    .executeTakeFirst()
+    
+  return order?.clientId === session.userId || order?.cookId === session.userId
 }

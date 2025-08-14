@@ -251,6 +251,8 @@ wireHTTP({
 
 * [ ] File name ends in `.http.ts`.
 * [ ] Adapter imports come **only** from `./pikku-types.gen.ts`.
+* [ ] **CRITICAL**: Functions use `pikkuFunc` imported from `#pikku/pikku-types.gen.js`, never from `@pikku/core`.
+* [ ] **CRITICAL**: SSE routes must set `sse: true` in `wireHTTP` configuration.
 * [ ] Imports limited to exported functions (`./functions/**/*.function.ts`), permissions, middleware, config.
 * [ ] No business logic or service imports.
 * [ ] Function-level `auth`/`permissions` are respected.
