@@ -74,7 +74,7 @@ A compact assembly showing: logger, variables, secrets, schema, jwt, a secret‑
 ```ts
 // packages/functions/src/services.ts
 import type { CreateSingletonServices, CreateSessionServices } from '@pikku/core'
-import type { Config, Services, SingletonServices, UserSession } from './application-types.js'
+import type { Config, Services, SingletonServices, UserSession } from './application-types.d.js'
 import { singletonServices } from '../.pikku/pikku-services.gen.js'
 
 // Local, framework-agnostic core service implementations

@@ -1,6 +1,6 @@
 import { pikkuSessionlessFunc, pikkuFunc } from '#pikku/pikku-types.gen.js'
 import { NotFoundError, BadRequestError, ConflictError } from '@pikku/core/errors'
-import type { Order, OrderStatus, User } from '@pikku-workspace-starter/sdk/.generated/database-types-pure.js'
+import type { Order, User } from '@pikku-workspace-starter/sdk/.generated/database-types-pure.d.js'
 import type { CreateOrderInput } from '../../function-types.js'
 import { jsonBuildObject } from 'kysely/helpers/postgres'
 

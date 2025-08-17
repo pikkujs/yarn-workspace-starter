@@ -15,7 +15,7 @@ import type {
   Services,
   SingletonServices,
   UserSession,
-} from './application-types.js'
+} from './application-types.d.js'
 import { JoseJWTService } from '@pikku/jose'
 import { CFWorkerSchemaService } from '@pikku/schema-cfworker'
 import { getDatabaseConfig } from './config.js'

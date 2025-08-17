@@ -1,10 +1,11 @@
 import { pikkuSessionlessFunc, pikkuFunc } from '#pikku/pikku-types.gen.js'
 import { NotFoundError, BadRequestError, ConflictError } from '@pikku/core/errors'
-import type { Order, OrderStatus, User } from '@pikku-workspace-starter/sdk/.generated/database-types-pure.js'
+import { Order, OrderStatus, User } from '@pikku-workspace-starter/sdk/.generated/database-types-pure.js'
 import type { UpdateOrderStatusInput } from '../../function-types.js'
 import { jsonBuildObject } from 'kysely/helpers/postgres'
 
-export const getPendingOrders = pikkuSessionlessFunc<void, Array<Order & { client: Pick<User, 'name' | 'role'> }>>({
+export type PendingOrderOutput = Array<Order & { client: Pick<User, 'name' | 'role'> }>
+export const getPendingOrders = pikkuSessionlessFunc<void, PendingOrderOutput>({
   func: async ({ kysely }) => {
     return await kysely
       .selectFrom('order')

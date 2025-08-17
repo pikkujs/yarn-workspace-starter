@@ -15,7 +15,7 @@ This document provides best practices for using Kysely with PostgreSQL in Pikku 
 import type { Order, Ingredient, Dish } from '@pikku-workspace-starter/sdk/.generated/database-types-pure.js'
 
 // ❌ Wrong - don't re-export or import through application-types
-import type { Order, Ingredient, Dish } from '../../application-types.js'
+import type { Order, Ingredient, Dish } from '../../application-types.d.js'
 ```
 
 **Application types that don't come from the database (DTOs, input/output types) should live in `function-types.ts`.**

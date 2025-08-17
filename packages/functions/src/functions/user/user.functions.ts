@@ -1,4 +1,4 @@
-import type { UserSession, UserRole } from '../../application-types.js'
+import type { UserSession, UserRole } from '../../application-types.d.js'
 import { pikkuSessionlessFunc } from '#pikku/pikku-types.gen.js'
 
 export const loginUser = pikkuSessionlessFunc<

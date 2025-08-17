@@ -20,7 +20,7 @@
 
 5. **Always import database types directly from generated files, never through re-exports**
    - ✅ Correct: `import type { Order } from '@pikku-workspace-starter/sdk/.generated/database-types-pure.js'`
-   - ❌ Wrong: `import type { Order } from '../../application-types.js'`
+   - ❌ Wrong: `import type { Order } from '../../application-types.d.js'`
    - Source: agent/kysely.md:96
 
 6. **Joined queries use proper typing pattern: `BaseType & { related: Pick<RelatedType, 'field1' | 'field2'> }`**

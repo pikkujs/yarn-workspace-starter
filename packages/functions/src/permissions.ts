@@ -1,4 +1,4 @@
-import type { UserRole } from './application-types.js'
+import type { UserRole } from './application-types.d.js'
 import { PikkuPermission } from '../.pikku/pikku-types.gen.js'
 
 export const requireAdmin: PikkuPermission<any> = async (
