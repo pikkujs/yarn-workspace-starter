@@ -4,9 +4,9 @@ import { Order, OrderStatus, User } from '@pikku-workspace-starter/sdk/.generate
 import type { UpdateOrderStatusInput } from '../../function-types.js'
 import { jsonBuildObject } from 'kysely/helpers/postgres'
 
-export type PendingOrderOutput = Array<Order & { client: Pick<User, 'name' | 'role'> }>
-export const getPendingOrders = pikkuSessionlessFunc<void, PendingOrderOutput>({
-  func: async ({ kysely }) => {
+export const getPendingOrders = pikkuSessionlessFunc<void, Array<Order & { client: Pick<User, 'name' | 'role'> }>>({
+  func: async ({ kysely, rpc }) => {
+    await rpc.invoke('getDishes', null)
     return await kysely
       .selectFrom('order')
       .innerJoin('user as client', 'client.userId', 'order.clientId')
@@ -25,11 +25,11 @@ export const getPendingOrders = pikkuSessionlessFunc<void, PendingOrderOutput>({
 
 export const getMyAcceptedOrders = pikkuFunc<void, Array<Order & { client: Pick<User, 'name' | 'role'> }>>({
   func: async (
-    { kysely },
+    { kysely, rpc },
     _data,
     session
   ) => {
-
+    await rpc.invoke('getPendingOrders', null)
     return await kysely
       .selectFrom('order')
       .innerJoin('user as client', 'client.userId', 'order.clientId')

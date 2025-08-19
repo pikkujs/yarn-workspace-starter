@@ -1,32 +1,13 @@
 import { pikkuSessionlessFunc } from '#pikku/pikku-types.gen.js'
 
-export const subscribeToOrderUpdates = pikkuSessionlessFunc<void, void>({
-  func: async (
+export const subscribeToOrderUpdates = pikkuSessionlessFunc<void, void>(async (
     { eventHub },
     _data,
     session
   ) => {
-    
-    if (!session?.userId) {
-      throw new Error('User session required')
-    }
-
-    // Subscribe to order events for this user
-    const topics = [
-      'orders.accepted',
-      'orders.preparing', 
-      'orders.ready',
-      'orders.delivered',
-      'orders.cancelled'
-    ]
-
-    // The channelId would be provided by the SSE adapter
-    // This is a placeholder - actual SSE implementation would handle the subscription
-    for (const topic of topics) {
-      await eventHub?.subscribe(topic, session.userId)
-    }
-  },
-})
+   
+  }
+)
 
 export const subscribeToKitchenUpdates = pikkuSessionlessFunc<void, void>({
   func: async (

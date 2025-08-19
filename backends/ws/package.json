@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@pikku-workspace-starter/functions": "workspace:0.0.0",
-    "@pikku/core": "^0.9.2",
+    "@pikku/core": "^0.9.3",
     "@pikku/ws": "^0.9.2",
     "tslib": "^2.8.1",
     "tsx": "^4.20.3",

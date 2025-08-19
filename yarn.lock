@@ -2713,7 +2713,7 @@ __metadata:
   resolution: "@pikku-workspace-starter/api@workspace:backends/express"
   dependencies:
     "@pikku-workspace-starter/functions": "workspace:0.0.0"
-    "@pikku/core": "npm:^0.9.2"
+    "@pikku/core": "npm:^0.9.3"
     "@pikku/express": "npm:^0.9.2"
     "@pikku/schedule": "npm:^0.9.2"
     "@types/node": "npm:^24"
@@ -2733,8 +2733,8 @@ __metadata:
     "@aws-sdk/cloudfront-signer": "npm:^3.862.0"
     "@pikku-workspace-starter/functions": "workspace:0.0.0"
     "@pikku/aws-services": "npm:^0.9.2"
-    "@pikku/core": "npm:^0.9.2"
-    "@pikku/kysely": "npm:^0.9.2"
+    "@pikku/core": "npm:^0.9.3"
+    "@pikku/kysely": "npm:^0.9.3"
     "@pikku/lambda": "npm:^0.9.2"
     "@types/aws-lambda": "npm:^8.10.152"
     "@types/node": "npm:^24"
@@ -2755,7 +2755,7 @@ __metadata:
     "@aws-sdk/s3-request-presigner": "npm:^3.863.0"
     "@pikku-workspace-starter/functions": "workspace:0.0.0"
     "@pikku/aws-services": "npm:^0.9.2"
-    "@pikku/core": "npm:^0.9.2"
+    "@pikku/core": "npm:^0.9.3"
     "@pikku/lambda": "npm:^0.9.2"
     "@types/aws-lambda": "npm:^8.10.152"
     "@types/node": "npm:^24"
@@ -2784,7 +2784,7 @@ __metadata:
     "@cloudflare/workers-types": "npm:^4.20250807.0"
     "@pikku-workspace-starter/functions": "workspace:0.0.0"
     "@pikku/cloudflare": "npm:^0.9.2"
-    "@pikku/core": "npm:^0.9.2"
+    "@pikku/core": "npm:^0.9.3"
     typescript: "npm:^5.9.2"
     wrangler: "npm:^4.28.1"
   languageName: unknown
@@ -2797,7 +2797,7 @@ __metadata:
     "@cloudflare/workers-types": "npm:^4.20250807.0"
     "@pikku-workspace-starter/functions": "workspace:0.0.0"
     "@pikku/cloudflare": "npm:^0.9.2"
-    "@pikku/core": "npm:^0.9.2"
+    "@pikku/core": "npm:^0.9.3"
     typescript: "npm:^5.9.2"
     wrangler: "npm:^4.28.1"
   languageName: unknown
@@ -2808,7 +2808,7 @@ __metadata:
   resolution: "@pikku-workspace-starter/fastify@workspace:backends/fastify"
   dependencies:
     "@pikku-workspace-starter/functions": "workspace:0.0.0"
-    "@pikku/core": "npm:^0.9.2"
+    "@pikku/core": "npm:^0.9.3"
     "@pikku/fastify": "npm:^0.9.2"
     "@types/node": "npm:^24"
     tslib: "npm:^2.8.1"
@@ -2822,9 +2822,9 @@ __metadata:
   resolution: "@pikku-workspace-starter/functions@workspace:packages/functions"
   dependencies:
     "@pikku-workspace-starter/sdk": "npm:^0.0.0"
-    "@pikku/core": "npm:^0.9.2"
+    "@pikku/core": "npm:^0.9.3"
     "@pikku/jose": "npm:^0.9.3"
-    "@pikku/kysely": "npm:^0.9.2"
+    "@pikku/kysely": "npm:^0.9.3"
     "@pikku/pino": "npm:^0.9.2"
     "@pikku/schema-ajv": "npm:^0.9.2"
     "@pikku/schema-cfworker": "npm:^0.9.2"
@@ -2844,7 +2844,7 @@ __metadata:
   resolution: "@pikku-workspace-starter/next-app@workspace:apps/next-app"
   dependencies:
     "@pikku-workspace-starter/functions": "npm:*"
-    "@pikku/core": "npm:^0.9.2"
+    "@pikku/core": "npm:^0.9.3"
     "@pikku/jose": "npm:^0.9.3"
     "@pikku/next": "npm:^0.9.2"
     "@types/node": "npm:^24"
@@ -2874,7 +2874,7 @@ __metadata:
   resolution: "@pikku-workspace-starter/uws@workspace:backends/uws"
   dependencies:
     "@pikku-workspace-starter/functions": "workspace:0.0.0"
-    "@pikku/core": "npm:^0.9.2"
+    "@pikku/core": "npm:^0.9.3"
     "@pikku/uws": "npm:^0.9.2"
     "@types/node": "npm:^24"
     tslib: "npm:^2.8.1"
@@ -2888,7 +2888,7 @@ __metadata:
   resolution: "@pikku-workspace-starter/ws@workspace:backends/ws"
   dependencies:
     "@pikku-workspace-starter/functions": "workspace:0.0.0"
-    "@pikku/core": "npm:^0.9.2"
+    "@pikku/core": "npm:^0.9.3"
     "@pikku/ws": "npm:^0.9.2"
     "@types/node": "npm:^24"
     "@types/ws": "npm:^8"
@@ -2899,25 +2899,26 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@pikku/aws-services@portal:/Users/yasser/git/pikku/pikku/packages/services/aws-services::locator=pikku-yarn-workspace-starter%40workspace%3A.":
-  version: 0.0.0-use.local
-  resolution: "@pikku/aws-services@portal:/Users/yasser/git/pikku/pikku/packages/services/aws-services::locator=pikku-yarn-workspace-starter%40workspace%3A."
+"@pikku/aws-services@npm:^0.9.2":
+  version: 0.9.2
+  resolution: "@pikku/aws-services@npm:0.9.2"
   peerDependencies:
     "@aws-sdk/client-s3": ^3.732.0
     "@aws-sdk/client-secrets-manager": ^3.714.0
     "@aws-sdk/cloudfront-signer": ^3.723.0
     "@aws-sdk/s3-request-presigner": ^3.732.0
-    "@pikku/core": ^0.9.1
+    "@pikku/core": ^0.9.2
+  checksum: 10/32f6aa0a4d95b56e2504b6027850985e73516be808446dc0fc9324825f36833abb28588e49d5633b079d181c608e96837fb7ec77c0e506f3dc3566483122ab9c
   languageName: node
-  linkType: soft
+  linkType: hard
 
-"@pikku/cli@portal:/Users/yasser/git/pikku/pikku/packages/cli::locator=pikku-yarn-workspace-starter%40workspace%3A.":
-  version: 0.0.0-use.local
-  resolution: "@pikku/cli@portal:/Users/yasser/git/pikku/pikku/packages/cli::locator=pikku-yarn-workspace-starter%40workspace%3A."
+"@pikku/cli@npm:^0.9.3":
+  version: 0.9.3
+  resolution: "@pikku/cli@npm:0.9.3"
   dependencies:
     "@openapi-contrib/json-schema-to-openapi-schema": "npm:^4.0.2"
-    "@pikku/core": "npm:^0.9.1"
-    "@pikku/inspector": "npm:^0.9.1"
+    "@pikku/core": "npm:^0.9.3"
+    "@pikku/inspector": "npm:^0.9.3"
     "@types/cookie": "npm:^1.0.0"
     "@types/uuid": "npm:^10.0.0"
     chalk: "npm:^5.5.0"
@@ -2930,47 +2931,51 @@ __metadata:
     yaml: "npm:^2.8.1"
   bin:
     pikku: dist/bin/pikku.js
+  checksum: 10/54153c5a45a1c8755f3e3b73c82eb197a02a2c48aa13eb4f05ee89fb2f55e853cf2ae0f1cd1cc85b80290213a86b6f042e5b6991e400436ecd9554e1265a1c0f
   languageName: node
-  linkType: soft
+  linkType: hard
 
-"@pikku/cloudflare@portal:/Users/yasser/git/pikku/pikku/packages/runtimes/cloudflare::locator=pikku-yarn-workspace-starter%40workspace%3A.":
-  version: 0.0.0-use.local
-  resolution: "@pikku/cloudflare@portal:/Users/yasser/git/pikku/pikku/packages/runtimes/cloudflare::locator=pikku-yarn-workspace-starter%40workspace%3A."
+"@pikku/cloudflare@npm:^0.9.2":
+  version: 0.9.2
+  resolution: "@pikku/cloudflare@npm:0.9.2"
   peerDependencies:
-    "@pikku/core": ^0.9.1
+    "@pikku/core": ^0.9.2
+  checksum: 10/f894e9d2c11d0a7ca8fab65a36bdf8f7a2e5772298610239c630d85f31a2b5e3da7b24d50018f81a250d5e4de2ab4b1093f1d2593b6faac18024c8dfa933f444
   languageName: node
-  linkType: soft
+  linkType: hard
 
-"@pikku/core@portal:/Users/yasser/git/pikku/pikku/packages/core::locator=pikku-yarn-workspace-starter%40workspace%3A.":
-  version: 0.0.0-use.local
-  resolution: "@pikku/core@portal:/Users/yasser/git/pikku/pikku/packages/core::locator=pikku-yarn-workspace-starter%40workspace%3A."
+"@pikku/core@npm:^0.9.3":
+  version: 0.9.3
+  resolution: "@pikku/core@npm:0.9.3"
   dependencies:
     "@types/cookie": "npm:^1.0.0"
     "@types/uuid": "npm:^10.0.0"
     cookie: "npm:^1.0.2"
     path-to-regexp: "npm:^8.2.0"
     picoquery: "npm:^2.5.0"
+  checksum: 10/ad194fb3697bc785a67c5cacc22095e09a275dc0db4c3f952608a80a3355c0e4628fe0aa6c568147eeac0975bfab2122e49198a24e65d290b81166a82e73200f
   languageName: node
-  linkType: soft
+  linkType: hard
 
-"@pikku/express-middleware@portal:/Users/yasser/git/pikku/pikku/packages/runtimes/express-middleware::locator=pikku-yarn-workspace-starter%40workspace%3A.":
-  version: 0.0.0-use.local
-  resolution: "@pikku/express-middleware@portal:/Users/yasser/git/pikku/pikku/packages/runtimes/express-middleware::locator=pikku-yarn-workspace-starter%40workspace%3A."
+"@pikku/express-middleware@npm:^0.9.2":
+  version: 0.9.2
+  resolution: "@pikku/express-middleware@npm:0.9.2"
   dependencies:
     raw-body: "npm:^3.0.0"
   peerDependencies:
-    "@pikku/core": ^0.9.1
+    "@pikku/core": ^0.9.2
     "@types/express": ^5
     "@types/express-serve-static-core": ^5.0.0
     express: ^5
+  checksum: 10/34a6ac333ebccda82c0ec412dc9b167edec3e8380063763060084aeb65daf8cf71ae7aeb9e2247bdcd5450a13f4d80ff27f99ed9574d8c455bd6adf0765b9980
   languageName: node
-  linkType: soft
+  linkType: hard
 
-"@pikku/express@portal:/Users/yasser/git/pikku/pikku/packages/runtimes/express-server::locator=pikku-yarn-workspace-starter%40workspace%3A.":
-  version: 0.0.0-use.local
-  resolution: "@pikku/express@portal:/Users/yasser/git/pikku/pikku/packages/runtimes/express-server::locator=pikku-yarn-workspace-starter%40workspace%3A."
+"@pikku/express@npm:^0.9.2":
+  version: 0.9.2
+  resolution: "@pikku/express@npm:0.9.2"
   dependencies:
-    "@pikku/express-middleware": "npm:^0.9.1"
+    "@pikku/express-middleware": "npm:^0.9.2"
     "@types/content-type": "npm:^1.1.9"
     "@types/cookie-parser": "npm:^1.4.9"
     "@types/cors": "npm:^2.8.19"
@@ -2982,183 +2987,200 @@ __metadata:
     express: "npm:^5"
     raw-body: "npm:^3.0.0"
   peerDependencies:
-    "@pikku/core": ^0.9.1
+    "@pikku/core": ^0.9.2
+  checksum: 10/cce3a1fd36d51b8c410dd444a3cec9c04e65634d3a8922f09fb96b29e1872f86dc6e307a1707d4c5902f057fe13527a9db12aea34f2d8c1e45f44378d53eb33c
   languageName: node
-  linkType: soft
+  linkType: hard
 
-"@pikku/fastify-plugin@portal:/Users/yasser/git/pikku/pikku/packages/runtimes/fastify-plugin::locator=pikku-yarn-workspace-starter%40workspace%3A.":
-  version: 0.0.0-use.local
-  resolution: "@pikku/fastify-plugin@portal:/Users/yasser/git/pikku/pikku/packages/runtimes/fastify-plugin::locator=pikku-yarn-workspace-starter%40workspace%3A."
+"@pikku/fastify-plugin@npm:^0.9.2":
+  version: 0.9.2
+  resolution: "@pikku/fastify-plugin@npm:0.9.2"
   dependencies:
     fastify: "npm:^5.5.0"
     fastify-plugin: "npm:^5.0.1"
   peerDependencies:
-    "@pikku/core": ^0.9.1
+    "@pikku/core": ^0.9.2
+  checksum: 10/02a2eccdfc6aebb33de740efe7a2377c8cbbdb0a557fc2d009390eeffd49e12007adb4552cdb907a17c865bff64e1fc9ffb35a53f1c76459f849f7553aa1a151
   languageName: node
-  linkType: soft
+  linkType: hard
 
-"@pikku/fastify@portal:/Users/yasser/git/pikku/pikku/packages/runtimes/fastify-server::locator=pikku-yarn-workspace-starter%40workspace%3A.":
-  version: 0.0.0-use.local
-  resolution: "@pikku/fastify@portal:/Users/yasser/git/pikku/pikku/packages/runtimes/fastify-server::locator=pikku-yarn-workspace-starter%40workspace%3A."
+"@pikku/fastify@npm:^0.9.2":
+  version: 0.9.2
+  resolution: "@pikku/fastify@npm:0.9.2"
   dependencies:
-    "@pikku/fastify-plugin": "npm:^0.9.1"
+    "@pikku/fastify-plugin": "npm:^0.9.2"
     fastify: "npm:^5.5.0"
   peerDependencies:
-    "@pikku/core": ^0.9.1
+    "@pikku/core": ^0.9.2
+  checksum: 10/bd45d8bf107fc0d5d2e4bbcf736ac68b033d666ce60395f2d6666b9a511331c389daa02624cd857e4e8a9013049ca8fc9f649690cadeb0ae7dfde5f146bc675e
   languageName: node
-  linkType: soft
+  linkType: hard
 
-"@pikku/fetch@portal:/Users/yasser/git/pikku/pikku/packages/client-fetch::locator=pikku-yarn-workspace-starter%40workspace%3A.":
-  version: 0.0.0-use.local
-  resolution: "@pikku/fetch@portal:/Users/yasser/git/pikku/pikku/packages/client-fetch::locator=pikku-yarn-workspace-starter%40workspace%3A."
+"@pikku/fetch@npm:^0.9.2":
+  version: 0.9.2
+  resolution: "@pikku/fetch@npm:0.9.2"
+  checksum: 10/68f236138724686d2262dc8ec1f299751c39f83a4585ef2e4477b0da93d7c24d40588a9be931ad3001113528771f9975b996e219bdc5be272d0da61cd7fe947e
   languageName: node
-  linkType: soft
+  linkType: hard
 
-"@pikku/inspector@portal:/Users/yasser/git/pikku/pikku/packages/inspector::locator=pikku-yarn-workspace-starter%40workspace%3A.":
-  version: 0.0.0-use.local
-  resolution: "@pikku/inspector@portal:/Users/yasser/git/pikku/pikku/packages/inspector::locator=pikku-yarn-workspace-starter%40workspace%3A."
+"@pikku/inspector@npm:^0.9.3":
+  version: 0.9.3
+  resolution: "@pikku/inspector@npm:0.9.3"
   dependencies:
-    "@pikku/core": "npm:^0.9.1"
+    "@pikku/core": "npm:^0.9.3"
     path-to-regexp: "npm:^8.2.0"
     typescript: "npm:^5.9"
+  checksum: 10/6438b63cca52b2e3a8b7073aa33c8f6e379a41dde472df099980d53dc70cc52bfe2340c10c30cdccabb379d1a0206db73cbf44013dab8d213c30ebe2e6981c48
   languageName: node
-  linkType: soft
+  linkType: hard
 
-"@pikku/jose@portal:/Users/yasser/git/pikku/pikku/packages/services/jose::locator=pikku-yarn-workspace-starter%40workspace%3A.":
-  version: 0.0.0-use.local
-  resolution: "@pikku/jose@portal:/Users/yasser/git/pikku/pikku/packages/services/jose::locator=pikku-yarn-workspace-starter%40workspace%3A."
+"@pikku/jose@npm:^0.9.3":
+  version: 0.9.3
+  resolution: "@pikku/jose@npm:0.9.3"
   dependencies:
     jose: "npm:^6.0.12"
   peerDependencies:
-    "@pikku/core": ^0.9.1
+    "@pikku/core": ^0.9.2
+  checksum: 10/b3dcee8eb7c7537511adbfe2565bc16eed3cb0c94087272a16bf8a3f3c5eb5339fae6f3e4dd0cf9b8649acb21709f3bc2eff950626069f537cc1394931db5357
   languageName: node
-  linkType: soft
+  linkType: hard
 
-"@pikku/kysely@portal:/Users/yasser/git/pikku/pikku/packages/services/kysely::locator=pikku-yarn-workspace-starter%40workspace%3A.":
-  version: 0.0.0-use.local
-  resolution: "@pikku/kysely@portal:/Users/yasser/git/pikku/pikku/packages/services/kysely::locator=pikku-yarn-workspace-starter%40workspace%3A."
+"@pikku/kysely@npm:^0.9.3":
+  version: 0.9.3
+  resolution: "@pikku/kysely@npm:0.9.3"
   dependencies:
     kysely: "npm:^0.28.5"
     kysely-postgres-js: "npm:^2.0.0"
     postgres: "npm:^3.4.7"
   peerDependencies:
-    "@pikku/core": ^0.9.1
+    "@pikku/core": ^0.9.3
   bin:
     pikku-kysely-pure: dist/bin/pikku-kysely-pure.js
+  checksum: 10/b9fab724a034174e2e25d278facf2ff9ff0712a0fae4feb101540aa0b788cc7eb680cfa0ebc861f7b7f312c0313c75b2a9a0b6a210b357527bd080c49403b361
   languageName: node
-  linkType: soft
+  linkType: hard
 
-"@pikku/lambda@portal:/Users/yasser/git/pikku/pikku/packages/runtimes/aws-lambda::locator=pikku-yarn-workspace-starter%40workspace%3A.":
-  version: 0.0.0-use.local
-  resolution: "@pikku/lambda@portal:/Users/yasser/git/pikku/pikku/packages/runtimes/aws-lambda::locator=pikku-yarn-workspace-starter%40workspace%3A."
+"@pikku/lambda@npm:^0.9.2":
+  version: 0.9.2
+  resolution: "@pikku/lambda@npm:0.9.2"
   peerDependencies:
     "@aws-sdk/client-apigatewaymanagementapi": ^3.713.0
-    "@pikku/core": ^0.9.1
+    "@pikku/core": ^0.9.2
     "@types/aws-lambda": ^8.10.146
+  checksum: 10/39cffe791a94437bf10704e3aaf299a6e81823004e4836bc95034ab593dc1259edf1c6c18442d4bec90c3127ca9d857b147415f308548ae7fdf2c3b8a2364dec
   languageName: node
-  linkType: soft
+  linkType: hard
 
-"@pikku/next@portal:/Users/yasser/git/pikku/pikku/packages/runtimes/next::locator=pikku-yarn-workspace-starter%40workspace%3A.":
-  version: 0.0.0-use.local
-  resolution: "@pikku/next@portal:/Users/yasser/git/pikku/pikku/packages/runtimes/next::locator=pikku-yarn-workspace-starter%40workspace%3A."
+"@pikku/next@npm:^0.9.2":
+  version: 0.9.2
+  resolution: "@pikku/next@npm:0.9.2"
   dependencies:
     "@types/cookie": "npm:^1.0.0"
     cookie: "npm:^1.0.2"
     eventemitter3: "npm:^5.0.1"
   peerDependencies:
-    "@pikku/core": ^0.9.1
+    "@pikku/core": ^0.9.2
     next: ^15
     react-dom: "*"
+  checksum: 10/e43b34559979c123452bd64b6046c44970edc6154afa45eadae506e5d06973ea119499022203bba02091e8d4fb55dcd815621b8fd20f4ccd1422ba55145f5cf5
   languageName: node
-  linkType: soft
+  linkType: hard
 
-"@pikku/pino@portal:/Users/yasser/git/pikku/pikku/packages/services/pino::locator=pikku-yarn-workspace-starter%40workspace%3A.":
-  version: 0.0.0-use.local
-  resolution: "@pikku/pino@portal:/Users/yasser/git/pikku/pikku/packages/services/pino::locator=pikku-yarn-workspace-starter%40workspace%3A."
+"@pikku/pino@npm:^0.9.2":
+  version: 0.9.2
+  resolution: "@pikku/pino@npm:0.9.2"
   peerDependencies:
-    "@pikku/core": ^0.9.1
+    "@pikku/core": ^0.9.2
     pino: ^9.5.0
+  checksum: 10/e79efb9a8c0e227487ed937fb754249ce5e1a42098d467b2d4de641024c9c9dcf6f1b8548c38234b5f0300a5835e903a7dc2ace1b180e55a11e792c67e1ee155
   languageName: node
-  linkType: soft
+  linkType: hard
 
-"@pikku/schedule@portal:/Users/yasser/git/pikku/pikku/packages/schedule::locator=pikku-yarn-workspace-starter%40workspace%3A.":
-  version: 0.0.0-use.local
-  resolution: "@pikku/schedule@portal:/Users/yasser/git/pikku/pikku/packages/schedule::locator=pikku-yarn-workspace-starter%40workspace%3A."
+"@pikku/schedule@npm:^0.9.2":
+  version: 0.9.2
+  resolution: "@pikku/schedule@npm:0.9.2"
   dependencies:
     cron: "npm:^4.3.3"
     cron-schedule: "npm:^5.0.4"
   peerDependencies:
-    "@pikku/core": ^0.9.1
+    "@pikku/core": ^0.9.2
+  checksum: 10/909b818019f851664e3187e20604f41ea3ee6cd820e4b90809e103e7bac217bd99d0f9cd2072375868a0b6cdbc3ed31f6dd88afb755b1e8610c681c490cf2dea
   languageName: node
-  linkType: soft
+  linkType: hard
 
-"@pikku/schema-ajv@portal:/Users/yasser/git/pikku/pikku/packages/services/schema-ajv::locator=pikku-yarn-workspace-starter%40workspace%3A.":
-  version: 0.0.0-use.local
-  resolution: "@pikku/schema-ajv@portal:/Users/yasser/git/pikku/pikku/packages/services/schema-ajv::locator=pikku-yarn-workspace-starter%40workspace%3A."
+"@pikku/schema-ajv@npm:^0.9.2":
+  version: 0.9.2
+  resolution: "@pikku/schema-ajv@npm:0.9.2"
   dependencies:
     ajv: "npm:^8.17.1"
     ajv-formats: "npm:^3.0.1"
   peerDependencies:
-    "@pikku/core": ^0.9.1
+    "@pikku/core": ^0.9.2
+  checksum: 10/861358c83094cb6c6010b470d1fa3abcc8cb11bfc236e5e0279487877d9ac228686e51bdcbf572a302d08396297aafd6fd9d29f41c1b48f7c49f351c61a83bd8
   languageName: node
-  linkType: soft
+  linkType: hard
 
-"@pikku/schema-cfworker@portal:/Users/yasser/git/pikku/pikku/packages/services/schema-cfworker::locator=pikku-yarn-workspace-starter%40workspace%3A.":
-  version: 0.0.0-use.local
-  resolution: "@pikku/schema-cfworker@portal:/Users/yasser/git/pikku/pikku/packages/services/schema-cfworker::locator=pikku-yarn-workspace-starter%40workspace%3A."
+"@pikku/schema-cfworker@npm:^0.9.2":
+  version: 0.9.2
+  resolution: "@pikku/schema-cfworker@npm:0.9.2"
   dependencies:
     "@cfworker/json-schema": "npm:^4.1.1"
   peerDependencies:
-    "@pikku/core": ^0.9.1
+    "@pikku/core": ^0.9.2
+  checksum: 10/f237b6c8407bb97a91d4845397f283048a4c31d167d096ac202cb29f2169d61ea871513cfdd0ff773ca9b372abfc777517fe7c49c2ad5b831690aa19282829c6
   languageName: node
-  linkType: soft
+  linkType: hard
 
-"@pikku/uws-handler@portal:/Users/yasser/git/pikku/pikku/packages/runtimes/uws-handler::locator=pikku-yarn-workspace-starter%40workspace%3A.":
-  version: 0.0.0-use.local
-  resolution: "@pikku/uws-handler@portal:/Users/yasser/git/pikku/pikku/packages/runtimes/uws-handler::locator=pikku-yarn-workspace-starter%40workspace%3A."
+"@pikku/uws-handler@npm:^0.9.2":
+  version: 0.9.2
+  resolution: "@pikku/uws-handler@npm:0.9.2"
   dependencies:
     "@types/qs": "npm:^6"
     qs: "npm:^6.14.0"
   peerDependencies:
-    "@pikku/core": ^0.9.1
+    "@pikku/core": ^0.9.2
     uWebSockets.js: "*"
+  checksum: 10/b577dba501a2ada34a1c22e38fd04b68c8b62029c537fdeaf9b6a8e53c8b778a280caf783b8ba59ea6c3c93758c99688333b68c7915cb9cc9e094c574fdbedba
   languageName: node
-  linkType: soft
+  linkType: hard
 
-"@pikku/uws@portal:/Users/yasser/git/pikku/pikku/packages/runtimes/uws-server::locator=pikku-yarn-workspace-starter%40workspace%3A.":
-  version: 0.0.0-use.local
-  resolution: "@pikku/uws@portal:/Users/yasser/git/pikku/pikku/packages/runtimes/uws-server::locator=pikku-yarn-workspace-starter%40workspace%3A."
+"@pikku/uws@npm:^0.9.2":
+  version: 0.9.2
+  resolution: "@pikku/uws@npm:0.9.2"
   dependencies:
-    "@pikku/uws-handler": "npm:^0.9.1"
+    "@pikku/uws-handler": "npm:^0.9.2"
     "@types/qs": "npm:^6"
     qs: "npm:^6.14.0"
-    uWebSockets.js: "uNetworking/uWebSockets.js#v20.52.0"
+    uWebSockets.js: "github:uNetworking/uWebSockets.js#v20.52.0"
   peerDependencies:
-    "@pikku/core": ^0.9.1
+    "@pikku/core": ^0.9.2
+  checksum: 10/4ff40c9159e7979aa934b761e29c48a230907835141d2681b74b92fccdcee635e6d44dbde33750dbe84c3617228c5ab5a0481e9cf76adb653c0edce1b526714e
   languageName: node
-  linkType: soft
+  linkType: hard
 
-"@pikku/websocket@portal:/Users/yasser/git/pikku/pikku/packages/client-websocket::locator=pikku-yarn-workspace-starter%40workspace%3A.":
-  version: 0.0.0-use.local
-  resolution: "@pikku/websocket@portal:/Users/yasser/git/pikku/pikku/packages/client-websocket::locator=pikku-yarn-workspace-starter%40workspace%3A."
+"@pikku/websocket@npm:^0.9.2":
+  version: 0.9.2
+  resolution: "@pikku/websocket@npm:0.9.2"
   dependencies:
     ws: "npm:^8.18.3"
   dependenciesMeta:
     ws:
       optional: true
+  checksum: 10/8333f5bd1dbda418929d21100df530930135ff0b19e1b46f657b9667eeb8057137a3e51df1d30c89296fdea48d3d831ec54e6b4b02a21728f58dffed7d7ecc06
   languageName: node
-  linkType: soft
+  linkType: hard
 
-"@pikku/ws@portal:/Users/yasser/git/pikku/pikku/packages/runtimes/ws::locator=pikku-yarn-workspace-starter%40workspace%3A.":
-  version: 0.0.0-use.local
-  resolution: "@pikku/ws@portal:/Users/yasser/git/pikku/pikku/packages/runtimes/ws::locator=pikku-yarn-workspace-starter%40workspace%3A."
+"@pikku/ws@npm:^0.9.2":
+  version: 0.9.2
+  resolution: "@pikku/ws@npm:0.9.2"
   dependencies:
     cookie: "npm:^1.0.2"
   peerDependencies:
-    "@pikku/core": ^0.9.1
+    "@pikku/core": ^0.9.2
     ws: ^8.18.0
+  checksum: 10/0417b7aed7bf5ee2f05e085e3ccb2ca2ed40c6d49f1c2196b465456b1e0ad76d2f1c09ff20c95f050bfe27072a175c452e78ec102b2970d26d05d321febb0f5b
   languageName: node
-  linkType: soft
+  linkType: hard
 
 "@pkgjs/parseargs@npm:^0.11.0":
   version: 0.11.0
@@ -7739,7 +7761,7 @@ __metadata:
     "@aws-sdk/client-secrets-manager": "npm:^3.787.0"
     "@pikku-workspace-starter/functions": "workspace:0.0.0"
     "@pikku/aws-services": "npm:^0.9.2"
-    "@pikku/cli": "npm:^0.9.2"
+    "@pikku/cli": "npm:^0.9.3"
     kysely: "npm:^0.28.5"
     kysely-codegen: "npm:^0.16.6"
     postgres-migrations: "npm:^5.3.0"
@@ -9235,7 +9257,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"uWebSockets.js@uNetworking/uWebSockets.js#v20.52.0":
+"uWebSockets.js@github:uNetworking/uWebSockets.js#v20.52.0":
   version: 20.52.0
   resolution: "uWebSockets.js@https://github.com/uNetworking/uWebSockets.js.git#commit=cfc9a40d8132a34881813cec3d5f8e3a185b3ce3"
   checksum: 10/9a205894a22947d3c424a763c5f29f192f3c2fe0fd93fade7b1c9e91b1570b16c0089bdb64406e16ddac0226903b88a85c98b2904dd60ac05cbfd2f9532061f2

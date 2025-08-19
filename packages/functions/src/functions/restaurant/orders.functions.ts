@@ -5,6 +5,7 @@ import type { CreateOrderInput } from '../../function-types.js'
 import { jsonBuildObject } from 'kysely/helpers/postgres'
 
 export const createOrder = pikkuFunc<CreateOrderInput, Order>({
+  expose: true,
   func: async (
     { kysely, eventHub },
     { items, notes },
