@@ -1,6 +1,9 @@
 name: Main
 run-name: The main and release workflow
-on: [push]
+on:
+  push:
+    branches:
+      - main
 env:
   POSTGRES_CREDENTIALS: '{"host":"0.0.0.0","port":5432,"user":"postgres","password":"password","database":"pikku_workspace_starter"}'
 jobs:

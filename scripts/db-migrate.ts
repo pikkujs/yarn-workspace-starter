@@ -42,7 +42,7 @@ export const migrateDB = async () => {
     try {
       await client.connect()
       try {
-        // await client.query(`DROP DATABASE "${databaseConfig.database}"`)
+        await client.query(`DROP DATABASE "${databaseConfig.database}"`)
         await client.query(`CREATE DATABASE "${databaseConfig.database}"`)
       } catch (e) {
         console.log('Database already exists')

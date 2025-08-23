@@ -87,7 +87,7 @@ export const deleteTodo = pikkuFunc<Pick<DB.Todo, 'todoId'>, { success: boolean 
   }
 })
 
-export const expireTodos = pikkuVoidFunc(async (
+export const expireTodos = pikkuSessionlessFunc<void, void>(async (
   { logger },
 ) => {
   // TODO: Think of a better scheduled job

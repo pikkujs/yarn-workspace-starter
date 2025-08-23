@@ -1,4 +1,4 @@
-import { authAPIKey, authCookie, UnauthorizedError, addMiddleware } from "@pikku/core"
+import { authAPIKey, authCookie, UnauthorizedError, addMiddleware, addHTTPMiddleware } from "@pikku/core"
 
 export const apiKeyMiddleware = () => {
     return authAPIKey<any, any>({
@@ -24,4 +24,4 @@ export const cookieMiddleware = () => {
     )
 }
 
-addMiddleware([cookieMiddleware(), apiKeyMiddleware()])
+addHTTPMiddleware([cookieMiddleware(), apiKeyMiddleware()])
