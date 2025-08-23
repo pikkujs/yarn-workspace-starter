@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "@pikku-workspace-starter/sdk": "^0.0.0",
-    "@pikku/core": "^0.9.3",
+    "@pikku/core": "^0.9.6",
     "@pikku/jose": "^0.9.3",
     "@pikku/kysely": "^0.9.3",
     "@pikku/pino": "^0.9.2",

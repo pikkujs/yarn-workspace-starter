@@ -14,6 +14,11 @@ export const websocket = async (
     websocket.subscribe((data) => {
       console.log('Global message:', data)
     })
+
+    websocket.subscribeToEventHub('test', (data) => {
+      console.log('EventHub message:', data)
+    })
+
     const route = websocket.getRoute('action')
     route.subscribe('subscribe', async (data) => {
       console.log(`From subscribe route: ${data}`)
