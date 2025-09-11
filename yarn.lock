@@ -2678,7 +2678,7 @@ __metadata:
   resolution: "@pikku-workspace-starter/api@workspace:backends/express"
   dependencies:
     "@pikku-workspace-starter/functions": "workspace:0.0.0"
-    "@pikku/core": "npm:^0.9.6"
+    "@pikku/core": "npm:^0.9.8"
     "@pikku/express": "npm:^0.9.2"
     "@pikku/schedule": "npm:^0.9.2"
     "@types/node": "npm:^24"
@@ -2698,8 +2698,8 @@ __metadata:
     "@aws-sdk/cloudfront-signer": "npm:^3.862.0"
     "@pikku-workspace-starter/functions": "workspace:0.0.0"
     "@pikku/aws-services": "npm:^0.9.2"
-    "@pikku/core": "npm:^0.9.6"
-    "@pikku/kysely": "npm:^0.9.3"
+    "@pikku/core": "npm:^0.9.8"
+    "@pikku/kysely": "npm:^0.9.4"
     "@pikku/lambda": "npm:^0.9.3"
     "@types/aws-lambda": "npm:^8.10.152"
     "@types/node": "npm:^24"
@@ -2720,7 +2720,7 @@ __metadata:
     "@aws-sdk/s3-request-presigner": "npm:^3.863.0"
     "@pikku-workspace-starter/functions": "workspace:0.0.0"
     "@pikku/aws-services": "npm:^0.9.2"
-    "@pikku/core": "npm:^0.9.6"
+    "@pikku/core": "npm:^0.9.8"
     "@pikku/lambda": "npm:^0.9.3"
     "@types/aws-lambda": "npm:^8.10.152"
     "@types/node": "npm:^24"
@@ -2749,7 +2749,7 @@ __metadata:
     "@cloudflare/workers-types": "npm:^4.20250807.0"
     "@pikku-workspace-starter/functions": "workspace:0.0.0"
     "@pikku/cloudflare": "npm:^0.9.2"
-    "@pikku/core": "npm:^0.9.6"
+    "@pikku/core": "npm:^0.9.8"
     typescript: "npm:^5.9.2"
     wrangler: "npm:^4.28.1"
   languageName: unknown
@@ -2762,7 +2762,7 @@ __metadata:
     "@cloudflare/workers-types": "npm:^4.20250807.0"
     "@pikku-workspace-starter/functions": "workspace:0.0.0"
     "@pikku/cloudflare": "npm:^0.9.2"
-    "@pikku/core": "npm:^0.9.6"
+    "@pikku/core": "npm:^0.9.8"
     typescript: "npm:^5.9.2"
     wrangler: "npm:^4.28.1"
   languageName: unknown
@@ -2773,7 +2773,7 @@ __metadata:
   resolution: "@pikku-workspace-starter/fastify@workspace:backends/fastify"
   dependencies:
     "@pikku-workspace-starter/functions": "workspace:0.0.0"
-    "@pikku/core": "npm:^0.9.6"
+    "@pikku/core": "npm:^0.9.8"
     "@pikku/fastify": "npm:^0.9.2"
     "@types/node": "npm:^24"
     tslib: "npm:^2.8.1"
@@ -2787,9 +2787,9 @@ __metadata:
   resolution: "@pikku-workspace-starter/functions@workspace:packages/functions"
   dependencies:
     "@pikku-workspace-starter/sdk": "npm:^0.0.0"
-    "@pikku/core": "npm:^0.9.6"
+    "@pikku/core": "npm:^0.9.8"
     "@pikku/jose": "npm:^0.9.3"
-    "@pikku/kysely": "npm:^0.9.3"
+    "@pikku/kysely": "npm:^0.9.4"
     "@pikku/pino": "npm:^0.9.2"
     "@pikku/schema-ajv": "npm:^0.9.2"
     "@pikku/schema-cfworker": "npm:^0.9.2"
@@ -2809,7 +2809,7 @@ __metadata:
   resolution: "@pikku-workspace-starter/next-app@workspace:apps/next-app"
   dependencies:
     "@pikku-workspace-starter/functions": "npm:*"
-    "@pikku/core": "npm:^0.9.6"
+    "@pikku/core": "npm:^0.9.8"
     "@pikku/jose": "npm:^0.9.3"
     "@pikku/next": "npm:^0.9.2"
     "@types/node": "npm:^24"
@@ -2839,7 +2839,7 @@ __metadata:
   resolution: "@pikku-workspace-starter/uws@workspace:backends/uws"
   dependencies:
     "@pikku-workspace-starter/functions": "workspace:0.0.0"
-    "@pikku/core": "npm:^0.9.6"
+    "@pikku/core": "npm:^0.9.8"
     "@pikku/uws": "npm:^0.9.2"
     "@types/node": "npm:^24"
     tslib: "npm:^2.8.1"
@@ -2853,7 +2853,7 @@ __metadata:
   resolution: "@pikku-workspace-starter/ws@workspace:backends/ws"
   dependencies:
     "@pikku-workspace-starter/functions": "workspace:0.0.0"
-    "@pikku/core": "npm:^0.9.6"
+    "@pikku/core": "npm:^0.9.8"
     "@pikku/ws": "npm:^0.9.2"
     "@types/node": "npm:^24"
     "@types/ws": "npm:^8"
@@ -2877,12 +2877,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@pikku/cli@npm:^0.9.7":
-  version: 0.9.7
-  resolution: "@pikku/cli@npm:0.9.7"
+"@pikku/cli@npm:^0.9.8":
+  version: 0.9.8
+  resolution: "@pikku/cli@npm:0.9.8"
   dependencies:
     "@openapi-contrib/json-schema-to-openapi-schema": "npm:^4.0.2"
-    "@pikku/core": "npm:^0.9.6"
+    "@pikku/core": "npm:^0.9.8"
     "@pikku/inspector": "npm:^0.9.4"
     "@types/cookie": "npm:^1.0.0"
     "@types/uuid": "npm:^10.0.0"
@@ -2896,7 +2896,7 @@ __metadata:
     yaml: "npm:^2.8.1"
   bin:
     pikku: dist/bin/pikku.js
-  checksum: 10/c4edb65579c5c6a1a5230f065e2c5eb294920ad42ff001a023b21faf7bec21e187df87f56d311b77b8aab19926c06c9eb8eac09e98b8936305081cd269cb9910
+  checksum: 10/5fc0ed9ae9088a8baa4cf7a3afc6f12ef2e906ab80b047cdf47c6d67a6569a21d65f49d0ee274c8a0c3def6ba03d71a38bee4b5e6afb78c8d930c9dc829f4822
   languageName: node
   linkType: hard
 
@@ -2919,6 +2919,19 @@ __metadata:
     path-to-regexp: "npm:^8.2.0"
     picoquery: "npm:^2.5.0"
   checksum: 10/1a799fabbd5a1eb2b1fd81d821ffcc30b6aab15ebbbe73ba57e479822d532aad0da282ef697505d5ccc8ec672f7d98d54ed89b1bbcd553424148b51a558928f2
+  languageName: node
+  linkType: hard
+
+"@pikku/core@npm:^0.9.8":
+  version: 0.9.8
+  resolution: "@pikku/core@npm:0.9.8"
+  dependencies:
+    "@types/cookie": "npm:^1.0.0"
+    "@types/uuid": "npm:^10.0.0"
+    cookie: "npm:^1.0.2"
+    path-to-regexp: "npm:^8.2.0"
+    picoquery: "npm:^2.5.0"
+  checksum: 10/a33252526a0d1521e01c4a399af397c31c214489d2e953da1229d1454a9bb929216b9b26b628a2d35797a4940ba7bd094fd1d588088e55cc627390a26504140f
   languageName: node
   linkType: hard
 
@@ -3010,18 +3023,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@pikku/kysely@npm:^0.9.3":
-  version: 0.9.3
-  resolution: "@pikku/kysely@npm:0.9.3"
+"@pikku/kysely@npm:^0.9.4":
+  version: 0.9.4
+  resolution: "@pikku/kysely@npm:0.9.4"
   dependencies:
     kysely: "npm:^0.28.5"
     kysely-postgres-js: "npm:^2.0.0"
     postgres: "npm:^3.4.7"
   peerDependencies:
-    "@pikku/core": ^0.9.3
+    "@pikku/core": ^0.9.7
   bin:
     pikku-kysely-pure: dist/bin/pikku-kysely-pure.js
-  checksum: 10/b9fab724a034174e2e25d278facf2ff9ff0712a0fae4feb101540aa0b788cc7eb680cfa0ebc861f7b7f312c0313c75b2a9a0b6a210b357527bd080c49403b361
+  checksum: 10/346197bc474990b206db753ad4ad9d4bbbb7ccf9509501a04265d64116de484a252ace8e02f9dd1d1475b23855fd4b4085ee4c0b202a55d83d2731a9c4598854
   languageName: node
   linkType: hard
 
@@ -7528,7 +7541,7 @@ __metadata:
     "@aws-sdk/client-secrets-manager": "npm:^3.787.0"
     "@pikku-workspace-starter/functions": "workspace:0.0.0"
     "@pikku/aws-services": "npm:^0.9.2"
-    "@pikku/cli": "npm:^0.9.7"
+    "@pikku/cli": "npm:^0.9.8"
     kysely: "npm:^0.28.5"
     kysely-codegen: "npm:^0.16.6"
     postgres-migrations: "npm:^5.3.0"
