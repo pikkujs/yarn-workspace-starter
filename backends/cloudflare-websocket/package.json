@@ -11,11 +11,11 @@
 	"dependencies": {
 		"@pikku-workspace-starter/functions": "workspace:0.0.0",
 		"@pikku/cloudflare": "^0.9.2",
-		"@pikku/core": "^0.9.8"
+		"@pikku/core": "^0.9.11"
 	},
 	"devDependencies": {
-		"@cloudflare/workers-types": "^4.20250807.0",
-		"typescript": "^5.9.2",
-		"wrangler": "^4.28.1"
+		"@cloudflare/workers-types": "^4.20251014.0",
+		"typescript": "^5.9.3",
+		"wrangler": "^4.44.0"
 	}
 }
